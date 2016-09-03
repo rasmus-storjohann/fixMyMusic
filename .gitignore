@@ -1,0 +1,7 @@
+node_modules/
+dist/
+testOutput/
+typings/
+*.d.ts
+*.log
+*.tgz
