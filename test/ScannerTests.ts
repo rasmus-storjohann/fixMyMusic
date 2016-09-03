@@ -64,4 +64,13 @@ describe("Scanner", () => {
             chai.expect(_scanned.trackNumber).equals(undefined);
         });
     });
+
+    describe("error handling", () => {
+        it("throws on path that is too short", () => {
+            var tooShortPath = "album/track.mp3";
+            chai.expect(() => {
+                _theScanner.scan(tooShortPath);
+            }).to.throw(Error, /Invalid path to music file/);
+        });
+    });
 });
