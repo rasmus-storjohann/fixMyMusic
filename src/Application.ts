@@ -37,15 +37,11 @@ export class Application
              return fs.statSync(fullpath).isFile();
         });
         files.forEach((sourceFile) => {
-            var match = /\/([^\/]+)\/([^\/]+)\/(\d+[^\/]+.mp3)/.exec(sourceFile);
-            if (match)
-            {
-                var scanned =  scanner.scan(sourceFile);
-                var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
-                var targetFile = [targetFolder, scanned.track].join("/");
-                shelljs.mkdir('-p', targetFolder);
-                shelljs.cp(sourceFile, targetFile);
-            }
+            var scanned =  scanner.scan(sourceFile);
+            var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
+            var targetFile = [targetFolder, scanned.track].join("/");
+            shelljs.mkdir('-p', targetFolder);
+            shelljs.cp(sourceFile, targetFile);
         });
     }
 }
