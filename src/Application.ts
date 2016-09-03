@@ -38,6 +38,10 @@ export class Application
         });
         files.forEach((sourceFile) => {
             var scanned =  scanner.scan(sourceFile);
+            if (!scanned.trackNumber)
+            {
+                throw new Error(sourceFile + ": Could not assign a track number");
+            }
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
             var targetFile = [targetFolder, scanned.track].join("/");
             shelljs.mkdir('-p', targetFolder);
