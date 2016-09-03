@@ -23,11 +23,13 @@
 
 import shelljs = require('shelljs');
 import fs = require('fs');
+import { Scanner } from "./Scanner";
 
 export class Application
 {
     public static main(argv: string[])
     {
+        var scanner = new Scanner();
         var fromDir = argv[0];
         var toDir = argv[1];
         var files = shelljs.find(fromDir).filter((fullpath) =>
@@ -35,7 +37,7 @@ export class Application
              return fs.statSync(fullpath).isFile();
         });
         files.forEach((sourceFile) => {
-            var match = /\/([^\/]+)\/([^\/]+)\/([^\/]+.mp3)/.exec(sourceFile);
+            var match = /\/([^\/]+)\/([^\/]+)\/(\d+[^\/]+.mp3)/.exec(sourceFile);
             if (match)
             {
                 var artist = match[1];
