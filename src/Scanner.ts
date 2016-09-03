@@ -1,6 +1,8 @@
+import { MusicFile } from "./MusicFile";
+
 export class Scanner
 {
-    public scan(pathToMusicFile: string)
+    public scan(pathToMusicFile: string) : MusicFile
     {
         var match = /\/([^\/]+)\/([^\/]+)\/((\d+)?[^\/]+\.mp3)/.exec(pathToMusicFile);
 
@@ -13,6 +15,7 @@ export class Scanner
         var track = match[3];
         var trackNumber = match[4] && parseInt(match[4]);
         return {
+            path: pathToMusicFile,
             artist: artist,
             album: album,
             track: track,

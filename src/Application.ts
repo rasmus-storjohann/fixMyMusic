@@ -24,12 +24,14 @@
 import shelljs = require('shelljs');
 import fs = require('fs');
 import { Scanner } from "./Scanner";
+import { Validator } from "./Validator";
 
 export class Application
 {
     public static main(argv: string[])
     {
         var scanner = new Scanner();
+        var validator = new Validator();
         var fromDir = argv[0];
         var toDir = argv[1];
         var files = shelljs.find(fromDir).filter((fullpath) =>
@@ -38,10 +40,7 @@ export class Application
         });
         files.forEach((sourceFile) => {
             var scanned =  scanner.scan(sourceFile);
-            if (!scanned.trackNumber)
-            {
-                throw new Error(sourceFile + ": Could not assign a track number");
-            }
+            validator.validate(scanned);
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
             var targetFile = [targetFolder, scanned.track].join("/");
             shelljs.mkdir('-p', targetFolder);
