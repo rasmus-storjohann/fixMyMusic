@@ -40,12 +40,9 @@ export class Application
             var match = /\/([^\/]+)\/([^\/]+)\/(\d+[^\/]+.mp3)/.exec(sourceFile);
             if (match)
             {
-                var artist = match[1];
-                var album = match[2];
-                var track = match[3];
-                var targetFolder = [toDir, artist, album].join("/");
-                var targetFile = [targetFolder, track].join("/");
-                console.log(targetFile);
+                var scanned =  scanner.scan(sourceFile);
+                var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
+                var targetFile = [targetFolder, scanned.track].join("/");
                 shelljs.mkdir('-p', targetFolder);
                 shelljs.cp(sourceFile, targetFile);
             }

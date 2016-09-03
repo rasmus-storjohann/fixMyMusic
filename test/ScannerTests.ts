@@ -27,7 +27,7 @@ describe("Scanner", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_scanned.track).equals("01 track");
+            chai.expect(_scanned.track).equals("01 track.mp3");
         });
 
         it("Gets the track number from path", () => {
@@ -46,7 +46,7 @@ describe("Scanner", () => {
         it("looks at three last path elements", () => {
             chai.expect(_scanned.artist).equals("artist");
             chai.expect(_scanned.album).equals("album");
-            chai.expect(_scanned.track).equals("01 track");
+            chai.expect(_scanned.track).equals("01 track.mp3");
         });
     });
 
@@ -54,11 +54,11 @@ describe("Scanner", () => {
         var _scanned;
         beforeEach(() =>
         {
-            var pathWithoutNumericPrefix = "the/deep/path/artist/album/track.mp3";
+            var pathWithoutNumericPrefix = "root/artist/album/track.mp3";
             _scanned = _theScanner.scan(pathWithoutNumericPrefix);
         });
         it("gets the track name from path", () => {
-            chai.expect(_scanned.track).equals("track");
+            chai.expect(_scanned.track).equals("track.mp3");
         });
         it("track number is null", () => {
             chai.expect(_scanned.trackNumber).equals(undefined);
