@@ -4,14 +4,24 @@ import * as chai from "chai";
 import { Scanner } from "../src/Scanner";
 
 describe("Scanner", () => {
-    var _scanner: Scanner;
+    var validPath = "root/artist/album/01 track.mp3";
+
+    var _scanned;
     beforeEach(() =>
     {
-        _scanner = new Scanner();
+        var scanner = new Scanner();
+        _scanned = scanner.scan(validPath);
     });
 
     it("Gets the artist name from path", () => {
-        var scanned = _scanner.scan("root/artist/album/01 track.mp3");
-        chai.expect(scanned.artist).equals("artist");
+        chai.expect(_scanned.artist).equals("artist");
+    });
+
+    it("Gets the album name from path", () => {
+        chai.expect(_scanned.album).equals("album");
+    });
+
+    it("Gets the track name from path", () => {
+        chai.expect(_scanned.track).equals("01 track");
     });
 });
