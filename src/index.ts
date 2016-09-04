@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 import { Application } from "../src/Application";
 
-Application.main(argv);
+Application.main(process.argv);

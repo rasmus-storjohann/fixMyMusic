@@ -15,10 +15,6 @@
         Fix track to have numeric prefix
         Fix artist to have no spaces
         No non-ascii characters in name
-
-  * Savers
-     Copy the file to destination
-     Set mp3 headers
 */
 
 import shelljs = require('shelljs');
@@ -31,7 +27,15 @@ export class Application
 {
     public static main(argv: string[])
     {
-        new Application().doIt(argv);
+        try
+        {
+            new Application().doIt(argv.splice(2));
+        }
+        catch (error)
+        {
+            console.log("error");
+            console.log(error);
+        }
     }
     public doIt(argv: string[])
     {
