@@ -2,6 +2,7 @@
 
 import * as chai from "chai";
 import { Validator } from "../src/Validator";
+import { MusicFile } from "../src/MusicFile";
 
 var _theValidator : Validator;
 beforeEach(() =>
@@ -10,7 +11,7 @@ beforeEach(() =>
 });
 
 describe("Validator", () => {
-    var musicTrack: MusicFile;
+    var musicTrack: MusicFile[];
     beforeEach(() => {
         musicTrack = [{
                 path: "aaaa",

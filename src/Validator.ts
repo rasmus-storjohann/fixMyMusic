@@ -1,7 +1,11 @@
 import { MusicFile } from "./MusicFile";
+import { IValidator } from "./IValidator";
 
 export class Validator
 {
+    public setSpecialValidator(artist: string, album: string, validator: IValidator)
+    {
+    }
     public validateAlbum(tracksForOneAlbum: MusicFile[])
     {
         var index = 1;

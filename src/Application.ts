@@ -33,18 +33,17 @@ export class Application
         }
         catch (error)
         {
-            console.log("error");
             console.log(error);
         }
     }
     public doIt(argv: string[])
     {
-        var argv = parseArguments(argv);
+        var parsedArguments = parseArguments(argv);
         var scanner = new Scanner();
         var validator = new Validator();
 
-        var fromDir = argv._;
-        var toDir = argv["out"];
+        var fromDir = parsedArguments._;
+        var toDir = parsedArguments["out"];
         if (!toDir)
         {
             throw new Error("Specify --out argument");
