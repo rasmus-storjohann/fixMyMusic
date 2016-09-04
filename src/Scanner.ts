@@ -2,6 +2,15 @@ import { MusicFile } from "./MusicFile";
 
 export class Scanner
 {
+    public scanFiles(paths: string[]) : MusicFile[]
+    {
+        var result: MusicFile[];
+        result = [];
+        paths.forEach((path) => {
+            result.push(this.scan(path));
+        });
+        return result;
+    }
     public scan(pathToMusicFile: string) : MusicFile
     {
         var match = /\/([^\/]+)\/([^\/]+)\/((\d+)?[^\/]+\.mp3)/.exec(pathToMusicFile);

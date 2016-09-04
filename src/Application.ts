@@ -32,19 +32,20 @@ export class Application
     {
         var scanner = new Scanner();
         var validator = new Validator();
+
         var fromDir = argv[0];
         var toDir = argv[1];
         var files = shelljs.find(fromDir).filter((fullpath) =>
         {
              return fs.statSync(fullpath).isFile();
         });
-        files.forEach((sourceFile) => {
-            var scanned =  scanner.scan(sourceFile);
-            validator.validate(scanned);
+        var scannedFiles =  scanner.scanFiles(files);
+        validator.validateFiles(scannedFiles);
+        scannedFiles.forEach((scanned) => {
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
             var targetFile = [targetFolder, scanned.track].join("/");
             shelljs.mkdir('-p', targetFolder);
-            shelljs.cp(sourceFile, targetFile);
+            shelljs.cp(scanned.path, targetFile);
         });
     }
 }
