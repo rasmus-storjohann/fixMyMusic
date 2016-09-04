@@ -12,24 +12,24 @@ beforeEach(() =>
 describe("Validator", () => {
     var musicTrack: MusicFile;
     beforeEach(() => {
-        musicTrack = {
+        musicTrack = [{
                 path: "aaaa",
                 artist: "bbbb",
                 album: "cccc",
                 track: "dddd",
                 trackNumber: 12
-            };
+            }];
     });
     it("accepts a valid track", () => {
-        _theValidator.validate(musicTrack);
+        _theValidator.validateFiles(musicTrack);
     });
 
     it("throws on missing track number", () => {
 
-        musicTrack.trackNumber = null;
+        musicTrack[0].trackNumber = null;
 
         chai.expect(() => {
-            _theValidator.validate(musicTrack);
+            _theValidator.validateFiles(musicTrack);
         }).to.throw(Error, /Could not assign a track number/);
     });
 });
