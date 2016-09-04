@@ -23,6 +23,7 @@
 
 import shelljs = require('shelljs');
 import fs = require('fs');
+import parseArguments = require('minimist');
 import { Scanner } from "./Scanner";
 import { Validator } from "./Validator";
 
@@ -30,11 +31,20 @@ export class Application
 {
     public static main(argv: string[])
     {
+        new Application().doIt(argv);
+    }
+    public doIt(argv: string[])
+    {
+        var argv = parseArguments(argv);
         var scanner = new Scanner();
         var validator = new Validator();
 
-        var fromDir = argv[0];
-        var toDir = argv[1];
+        var fromDir = argv._;
+        var toDir = argv["out"];
+        if (!toDir)
+        {
+            throw new Error("Specify --out argument");
+        }
         var files = shelljs.find(fromDir).filter((fullpath) =>
         {
              return fs.statSync(fullpath).isFile();

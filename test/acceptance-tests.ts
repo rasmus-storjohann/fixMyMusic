@@ -28,7 +28,7 @@ describe("Acceptance tests", () => {
 
         createInputDirectoryWithFile("01 Track.mp3");
 
-        Application.main(["testOutput/source", "testOutput/destination"]);
+        Application.main(["testOutput/source", "--out", "testOutput/destination"]);
 
         chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
     });
@@ -37,7 +37,7 @@ describe("Acceptance tests", () => {
         createInputDirectoryWithFile("Track.mp3");
 
         chai.expect(() => {
-            Application.main(["testOutput/source", "testOutput/destination"]);
+            Application.main(["testOutput/source", "--out", "testOutput/destination"]);
         }).to.throw(Error, /Could not assign a track number/);
     });
 });
