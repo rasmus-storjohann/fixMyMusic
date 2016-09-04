@@ -13,6 +13,7 @@ export class Scanner
     }
     public scan(pathToMusicFile: string) : MusicFile
     {
+        // TODO split on path separator and then regexp
         var match = /\/([^\/]+)\/([^\/]+)\/((\d+)?[^\/]+\.mp3)/.exec(pathToMusicFile);
 
         if (!match)

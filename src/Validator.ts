@@ -2,13 +2,19 @@ import { MusicFile } from "./MusicFile";
 
 export class Validator
 {
-    public validateFiles(files: MusicFile[])
+    public validateAlbum(tracksForOneAlbum: MusicFile[])
     {
-        files.forEach((file) => {
-            if (!file.trackNumber)
+        var index = 1;
+        tracksForOneAlbum.forEach((track) => {
+            if (!track.trackNumber)
             {
-                throw new Error(file.path + ": Could not assign a track number");
+                throw new Error(track.path + ": Could not assign a track number");
             }
+            if (track.trackNumber != index)
+            {
+                throw new Error(track.path + ": Track number out of order, expected " + index);
+            }
+            index++;
         });
     }
 }

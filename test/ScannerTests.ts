@@ -57,16 +57,18 @@ describe("Scanner", () => {
             var pathWithoutNumericPrefix = "root/artist/album/track.mp3";
             _scanned = _theScanner.scan(pathWithoutNumericPrefix);
         });
-        it("gets the track name from path", () => {
+
+        it("still gets the track name from path", () => {
             chai.expect(_scanned.track).equals("track.mp3");
         });
+
         it("track number is null", () => {
             chai.expect(_scanned.trackNumber).equals(undefined);
         });
     });
 
     describe("error handling", () => {
-        it("throws on path that is too short", () => {
+        it("throws on path that is missing required elements", () => {
             var tooShortPath = "album/track.mp3";
             chai.expect(() => {
                 _theScanner.scan(tooShortPath);

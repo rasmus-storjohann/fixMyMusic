@@ -49,8 +49,8 @@ export class Application
         {
              return fs.statSync(fullpath).isFile();
         });
-        var scannedFiles =  scanner.scanFiles(files);
-        validator.validateFiles(scannedFiles);
+        var scannedFiles = scanner.scanFiles(files);
+        validator.validateAlbum(scannedFiles);
         scannedFiles.forEach((scanned) => {
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
             var targetFile = [targetFolder, scanned.track].join("/");

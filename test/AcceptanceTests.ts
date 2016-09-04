@@ -5,11 +5,13 @@ import shelljs = require('shelljs');
 import fileExists = require('file-exists');
 import { Application } from "../src/Application";
 
-var createInputDirectoryWithFile = function(fileName: string)
+var createInputDirectoryWithFiles = function(fileNames: string[])
 {
     shelljs.rm('-rf', "testOutput/source");
     shelljs.mkdir('-p', "testOutput/source/Artist/Album");
-    shelljs.cp("testOutput/test.mp3", "testOutput/source/Artist/Album/" + fileName);
+    fileNames.forEach((fileName) => {
+        shelljs.cp("testOutput/test.mp3", "testOutput/source/Artist/Album/" + fileName);
+    });
 }
 
 var cleanOuputuDirectory = function()
@@ -26,7 +28,7 @@ describe("Acceptance tests", () => {
 
     it("Copies correctly named file from source to destination", () => {
 
-        createInputDirectoryWithFile("01 Track.mp3");
+        createInputDirectoryWithFiles(["01 Track.mp3"]);
 
         Application.main(["testOutput/source", "--out", "testOutput/destination"]);
 
@@ -34,10 +36,23 @@ describe("Acceptance tests", () => {
     });
 
     it("Fails on file without numeric prefix", () => {
-        createInputDirectoryWithFile("Track.mp3");
+        createInputDirectoryWithFiles(["Track.mp3"]);
 
         chai.expect(() => {
             Application.main(["testOutput/source", "--out", "testOutput/destination"]);
         }).to.throw(Error, /Could not assign a track number/);
     });
+    /*
+    it("Copies files up to the first error", () => {
+        createInputDirectoryWithFiles(["01 Track.mp3", "Track.mp3", "03 Track.mp3"]);
+
+        chai.expect(() => {
+            Application.main(["testOutput/source", "--out", "testOutput/destination"]);
+        }).to.throw(Error, /Track.mp3: Could not assign a track number/);
+
+        chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Artist/Album/Track.mp3")).is.false;
+        chai.expect(fileExists("testOutput/destination/Artist/Album/03 Track.mp3")).is.false;
+    });
+    */
 });
