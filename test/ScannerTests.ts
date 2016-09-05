@@ -29,10 +29,6 @@ describe("Scanner", () => {
         it("Gets the track name from path", () => {
             chai.expect(_scanned.track).equals("01 track.mp3");
         });
-
-        it("Gets the track number from path", () => {
-            chai.expect(_scanned.trackNumber).equals(1);
-        });
     });
 
     describe("with deep path", () => {

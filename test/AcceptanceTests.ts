@@ -53,7 +53,6 @@ describe("Acceptance tests", () => {
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);
         chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
     });
-
     it("Fails on file without numeric prefix", () => {
         createInputDirectoryWithFiles(["Track.mp3"]);
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);

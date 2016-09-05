@@ -27,13 +27,11 @@ export class Scanner
         {
             throw new Error(pathToMusicFile + ": Invalid music file name");
         }
-        var trackNumber = match[2] && parseInt(match[2]);
         return {
             path: pathToMusicFile,
             artist: artist,
             album: album,
-            track: track,
-            trackNumber: trackNumber
+            track: track
         };
     }
 };
