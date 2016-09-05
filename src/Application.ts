@@ -1,22 +1,5 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-/*
- * Scanner
-    Grab files from a directory,
-    for each, get the artist, album, track, checksum, mp3 headers
-
-  * Fixers
-     Apply series of plugins to improve quality of the metadata
-        Fix track to have numeric prefix
-        Fix artist to have no spaces
-
-  * Validators
-     Apply series of plugins to validate quality of metadata
-        Fix track to have numeric prefix
-        Fix artist to have no spaces
-        No non-ascii characters in name
-*/
-
 import shelljs = require('shelljs');
 import fs = require('fs');
 import parseArguments = require('minimist');
