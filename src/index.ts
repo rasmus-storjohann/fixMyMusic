@@ -1,6 +1,6 @@
 #!/usr/local/bin/node
 
 import { Application } from "../src/Application";
-import process = require('process');
+import process = require("process");
 
-Application.main(process.argv);
+Application.main(process.argv, console);

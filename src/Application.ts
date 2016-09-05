@@ -25,7 +25,7 @@ import { Validator } from "./Validator";
 
 export class Application
 {
-    public static main(argv: string[])
+    public static main(argv: string[], logger: any)
     {
         try
         {
@@ -33,7 +33,7 @@ export class Application
         }
         catch (error)
         {
-            console.log(error);
+            logger.log(error);
         }
     }
     public doIt(argv: string[])

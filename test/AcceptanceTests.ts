@@ -5,6 +5,23 @@ import shelljs = require('shelljs');
 import fileExists = require('file-exists');
 import { Application } from "../src/Application";
 
+class Logger
+{
+    constructor()
+    {
+        this.messages = [];
+    }
+    public log(message: string)
+    {
+        this.messages.push(message);
+    }
+    public getMessages() : string[]
+    {
+        return this.messages;
+    }
+    private messages: string[];
+}
+
 var createInputDirectoryWithFiles = function(fileNames: string[])
 {
     shelljs.rm('-rf', "testOutput/source");
@@ -22,24 +39,27 @@ var cleanOuputuDirectory = function()
 
 describe("Acceptance tests", () => {
 
+    var logger: Logger;
     beforeEach(() => {
         cleanOuputuDirectory();
+        logger = new Logger();
     });
 
     it("Copies correctly named file from source to destination", () => {
 
         createInputDirectoryWithFiles(["01 Track.mp3"]);
 
-        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"]);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);
 
         chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
     });
 
     it("Fails on file without numeric prefix", () => {
+
         createInputDirectoryWithFiles(["Track.mp3"]);
 
-        chai.expect(() => {
-            Application.main(["testOutput/source", "--out", "testOutput/destination"]);
-        }).to.throw(Error, /Could not assign a track number/);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);
+
+        chai.expect(logger.getMessages()[0]).match(/Track.mp3: Could not assign a track number/);
     });
 });
