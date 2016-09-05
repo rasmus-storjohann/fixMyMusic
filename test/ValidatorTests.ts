@@ -10,7 +10,7 @@ beforeEach(() =>
     _theValidator = new Validator();
 });
 
-var trackNameWithPrefix(prefix: string) : string
+function trackNameWithPrefix(prefix: string) : string
 {
     return prefix + " dddd";
 }

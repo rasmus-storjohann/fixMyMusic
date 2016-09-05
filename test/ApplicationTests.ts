@@ -6,7 +6,7 @@ import { Application } from "../src/Application";
 var _theApplication : Application;
 beforeEach(() =>
 {
-    _theApplication = new Application();
+    _theApplication = new Application(console);
 });
 
 describe("Application", () => {
