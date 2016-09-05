@@ -1,8 +1,8 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import shelljs = require('shelljs');
-import fs = require('fs');
-import parseArguments = require('minimist');
+import * as shelljs from 'shelljs';
+import * as fs from 'fs';
+import * as parseArguments from 'minimist';
 import { Scanner } from "./Scanner";
 import { Validator } from "./Validator";
 

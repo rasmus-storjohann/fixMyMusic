@@ -1,8 +1,8 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import shelljs = require('shelljs');
-import fileExists = require('file-exists');
+import * as shelljs from 'shelljs';
+import * as fileExists from 'file-exists';
 import { Application } from "../src/Application";
 
 class Logger
