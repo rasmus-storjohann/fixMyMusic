@@ -3,7 +3,14 @@ import { IValidator } from "./IValidator";
 
 export class Validator
 {
-    public validateAlbum(tracksForOneAlbum: MusicFile[])
+    public validateAlbum: (tracksForOneAlbum: MusicFile[]) => void;
+
+    constructor()
+    {
+        this.validateAlbum = this.defaultValidateAlbum;
+    }
+
+    private defaultValidateAlbum(tracksForOneAlbum: MusicFile[]) : void
     {
         var index = 1;
         tracksForOneAlbum.forEach((track) => {
@@ -12,7 +19,7 @@ export class Validator
             {
                 throw new Error(track.path + ": Could not assign a track number");
             }
-            var trackNumber = parseInt(trackNumberAsString);
+            var trackNumber = parseInt(trackNumberAsString[1]);
             if (trackNumber != index)
             {
                 throw new Error(track.path + ": Track number out of order, expected " + index);
