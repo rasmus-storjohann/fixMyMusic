@@ -29,12 +29,16 @@ export class Application
     {
         try
         {
-            new Application().doIt(argv.splice(2));
+            new Application(logger).doIt(argv.splice(2));
         }
         catch (error)
         {
             logger.log(error);
         }
+    }
+    constructor(logger)
+    {
+        this.logger = logger;
     }
     public doIt(argv: string[])
     {
@@ -57,8 +61,10 @@ export class Application
         scannedFiles.forEach((scanned) => {
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
             var targetFile = [targetFolder, scanned.track].join("/");
+            this.logger.log("Creating..." + targetFile);
             shelljs.mkdir('-p', targetFolder);
             shelljs.cp(scanned.path, targetFile);
         });
     }
+    private logger;
 }

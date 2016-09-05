@@ -27,7 +27,7 @@ var createInputDirectoryWithFiles = function(fileNames: string[])
     shelljs.rm('-rf', "testOutput/source");
     shelljs.mkdir('-p', "testOutput/source/Artist/Album");
     fileNames.forEach((fileName) => {
-        shelljs.cp("testOutput/test.mp3", "testOutput/source/Artist/Album/" + fileName);
+        shelljs.cp("test.mp3", "testOutput/source/Artist/Album/" + fileName);
     });
 }
 
@@ -46,20 +46,17 @@ describe("Acceptance tests", () => {
     });
 
     it("Copies correctly named file from source to destination", () => {
+        // sanity test for all tests
+        chai.expect(fileExists("test.mp3")).is.true;
 
         createInputDirectoryWithFiles(["01 Track.mp3"]);
-
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);
-
         chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
     });
 
     it("Fails on file without numeric prefix", () => {
-
         createInputDirectoryWithFiles(["Track.mp3"]);
-
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], logger);
-
         chai.expect(logger.getMessages()[0]).match(/Track.mp3: Could not assign a track number/);
     });
 });
