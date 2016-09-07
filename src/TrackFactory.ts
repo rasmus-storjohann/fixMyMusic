@@ -1,6 +1,6 @@
 import { Track } from "./Track";
 
-export class Scanner
+export class TrackFactory
 {
     public scanFiles(paths: string[]) : Track[]
     {

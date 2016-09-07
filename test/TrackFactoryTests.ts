@@ -1,15 +1,15 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import { Scanner } from "../src/Scanner";
+import { TrackFactory } from "../src/TrackFactory";
 
-var _theScanner : Scanner;
+var _theScanner : TrackFactory;
 beforeEach(() =>
 {
-    _theScanner = new Scanner();
+    _theScanner = new TrackFactory();
 });
 
-describe("Scanner", () => {
+describe("TrackFactory", () => {
     describe("with valid path", () => {
         var _scanned;
         beforeEach(() =>

@@ -1,7 +1,8 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import { Album, Track } from "../src/Album";
+import { Album } from "../src/Album";
+import { Track } from "../src/Track";
 
 describe("Album", () => {
     describe("Constructor", () => {

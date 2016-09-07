@@ -3,7 +3,7 @@
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 import * as parseArguments from 'minimist';
-import { Scanner } from "./Scanner";
+import { TrackFactory } from "./TrackFactory";
 import { Validator } from "./Validator";
 
 export class Application
@@ -26,7 +26,7 @@ export class Application
     public doIt(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
-        var scanner = new Scanner();
+        var scanner = new TrackFactory();
         var validator = new Validator();
 
         var fromDir = parsedArguments._;
