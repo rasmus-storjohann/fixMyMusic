@@ -1,5 +1,4 @@
 import { MusicFile } from "./MusicFile";
-import { IValidator } from "./IValidator";
 
 export class Validator
 {
