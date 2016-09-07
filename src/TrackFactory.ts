@@ -7,11 +7,11 @@ export class TrackFactory
         var result: Track[];
         result = [];
         paths.forEach((path) => {
-            result.push(this.scan(path));
+            result.push(this.create(path));
         });
         return result;
     }
-    public scan(pathToMusicFile: string) : Track
+    public create(pathToMusicFile: string) : Track
     {
         var elements = pathToMusicFile.split("/");
         var count = elements.length;
