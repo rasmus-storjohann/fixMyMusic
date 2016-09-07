@@ -2,7 +2,7 @@
 
 import * as chai from "chai";
 import { Validator } from "../src/Validator";
-import { MusicFile } from "../src/MusicFile";
+import { Track } from "../src/Track";
 
 var _theValidator : Validator;
 beforeEach(() =>
@@ -16,7 +16,7 @@ function trackNameWithPrefix(prefix: string) : string
 }
 
 describe("Validator", () => {
-    var musicTrack: MusicFile[];
+    var musicTrack: Track[];
     beforeEach(() => {
         musicTrack = [{
                 path: "aaaa",

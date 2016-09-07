@@ -1,17 +1,17 @@
-import { MusicFile } from "./MusicFile";
+import { Track } from "./Track";
 
 export class Scanner
 {
-    public scanFiles(paths: string[]) : MusicFile[]
+    public scanFiles(paths: string[]) : Track[]
     {
-        var result: MusicFile[];
+        var result: Track[];
         result = [];
         paths.forEach((path) => {
             result.push(this.scan(path));
         });
         return result;
     }
-    public scan(pathToMusicFile: string) : MusicFile
+    public scan(pathToMusicFile: string) : Track
     {
         var elements = pathToMusicFile.split("/");
         var count = elements.length;

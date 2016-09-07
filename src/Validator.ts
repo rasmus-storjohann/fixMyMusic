@@ -1,15 +1,15 @@
-import { MusicFile } from "./MusicFile";
+import { Track } from "./Track";
 
 export class Validator
 {
-    public validateAlbum: (tracksForOneAlbum: MusicFile[]) => void;
+    public validateAlbum: (tracksForOneAlbum: Track[]) => void;
 
     constructor()
     {
         this.validateAlbum = this.defaultValidateAlbum;
     }
 
-    private defaultValidateAlbum(tracksForOneAlbum: MusicFile[]) : void
+    private defaultValidateAlbum(tracksForOneAlbum: Track[]) : void
     {
         var index = 1;
         tracksForOneAlbum.forEach((track) => {

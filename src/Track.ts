@@ -1,4 +1,4 @@
-export interface MusicFile {
+export interface Track {
     path: string,
     artist: string,
     album: string,

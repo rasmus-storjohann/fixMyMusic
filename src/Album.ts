@@ -1,4 +1,4 @@
-import { MusicFile } from "./MusicFile";
+import { Track } from "./Track";
 
 export class Album
 {
@@ -9,7 +9,7 @@ export class Album
         this.tracks = [];
     }
 
-    public push(file: MusicFile)
+    public push(file: Track)
     {
         if (file.artist != this.artist || file.album != this.title)
         {
@@ -20,5 +20,5 @@ export class Album
 
     artist: string;
     title: string;
-    tracks: MusicFile[];
+    tracks: Track[];
 }
