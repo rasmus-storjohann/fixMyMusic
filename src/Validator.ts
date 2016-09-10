@@ -12,6 +12,7 @@ export class Validator
 
     public validateAlbum(album: Album) : void
     {
+        this.validateTracks(album.tracks);
     }
 
     private defaultValidateTracks(tracksForOneAlbum: Track[]) : void

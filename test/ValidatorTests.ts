@@ -14,29 +14,44 @@ beforeEach(() =>
 describe("Validator", () => {
     var musicTrack: Track[];
     beforeEach(() => {
+        var artist = "aaaa";
+        var albumTitle = "bbbb";
         musicTrack = [{
+                artist: artist,
+                album: albumTitle,
                 path: "aaaa",
-                artist: "bbbb",
-                album: "cccc",
-                title: "1 dddd"
+                title: "1 bbbb"
             },
             {
-                path: "aaaa",
-                artist: "bbbb",
-                album: "cccc",
+                artist: artist,
+                album: albumTitle,
+                path: "cccc",
                 title: "2 dddd"
             }];
     });
+
+    function createAlbum() : Album
+    {
+        var artist = musicTrack[0].artist;
+        var albumTitle = musicTrack[0].album;
+
+        var album = new Album(artist, albumTitle);
+        album.push(musicTrack[0]);
+        album.push(musicTrack[1]);
+
+        return album;
+    }
+
     describe("on tracks", () => {
         it("accepts a valid tracks in correct order", () => {
-            _theValidator.validateTracks(musicTrack);
+            _theValidator.validateAlbum(createAlbum());
         });
 
         it("throws on missing track number", () => {
             musicTrack[0].title = "dddd";
 
             chai.expect(() => {
-                _theValidator.validateTracks(musicTrack);
+                _theValidator.validateAlbum(createAlbum());
             }).to.throw(Error, /Could not assign a track number/);
         });
 
@@ -46,7 +61,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 dddd";
 
             chai.expect(() => {
-                _theValidator.validateTracks(musicTrack);
+                _theValidator.validateAlbum(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -56,7 +71,7 @@ describe("Validator", () => {
             musicTrack[1].title = "3 dddd";
 
             chai.expect(() => {
-                _theValidator.validateTracks(musicTrack);
+                _theValidator.validateAlbum(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -66,14 +81,8 @@ describe("Validator", () => {
             musicTrack[1].title = "1 eeee";
 
             chai.expect(() => {
-                _theValidator.validateTracks(musicTrack);
+                _theValidator.validateAlbum(createAlbum());
             }).to.throw(Error, /Track number out of order/);
-        });
-    });
-    describe("on albums", () => {
-        it ("accepts a valid album", () => {
-            var album = new Album("aaaa", "bbbb");
-            _theValidator.validateAlbum(album);
         });
     });
 });

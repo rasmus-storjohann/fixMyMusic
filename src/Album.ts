@@ -11,9 +11,13 @@ export class Album
 
     public push(file: Track)
     {
-        if (file.artist != this.artist || file.album != this.title)
+        if (file.artist != this.artist)
         {
-            throw new Error("Music track cannot be added to this album");
+            throw new Error("Music track cannot be added to this album: Wrong artist");
+        }
+        if (file.album != this.title)
+        {
+            throw new Error("Music track cannot be added to this album: Wrong album title");
         }
         this.tracks.push(file);
     }
