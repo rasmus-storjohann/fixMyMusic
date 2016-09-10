@@ -3,32 +3,37 @@ import { Track } from "./Track";
 
 export class AlbumFactory
 {
-    public create(tracks: Track[]) : Album[]
+    private working : Object;
+
+    constructor()
     {
-        var working = {};
-        tracks.forEach((track) => {
-            var key = this.computeKey(track);
-            if (!working[key])
-            {
-                working[key] = new Album(track.artist, track.album);
-            }
-            working[key].push(track);
-        });
-        return this.toAlbumArray(working);
+        this.working = {};
     }
 
-    computeKey(track: Track) : string
+    public create(tracks: Track[]) : Album[]
+    {
+        tracks.forEach((track) => {
+            var key = this.computeKey(track);
+            if (!this.working[key])
+            {
+                this.working[key] = new Album(track.artist, track.album);
+            }
+            this.working[key].push(track);
+        });
+        return this.toAlbumArray();
+    }
+
+    private computeKey(track: Track) : string
     {
         return track.artist + "->" + track.album;
     }
 
-    toAlbumArray(working) : Album[]
+    private toAlbumArray() : Album[]
     {
-        var result: Album[];
-        result = [];
-        for (var property in working) {
-            if (working.hasOwnProperty(property)) {
-                result.push(working[property]);
+        var result = [];
+        for (var property in this.working) {
+            if (this.working.hasOwnProperty(property)) {
+                result.push(this.working[property]);
             }
         }
         return result;
