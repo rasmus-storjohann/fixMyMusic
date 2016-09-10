@@ -22,7 +22,7 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "artist",
                     album: "title",
-                    track: "1 track"
+                    title: "1 track"
                 };
             album.push(track);
             chai.expect(album.tracks[0].artist).to.equal("artist");
@@ -33,7 +33,7 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "badArtist",
                     album: "title",
-                    track: "1 track"
+                    title: "1 track"
                 };
 
             chai.expect(() => {
@@ -46,7 +46,7 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "artist",
                     album: "badTitle",
-                    track: "1 track"
+                    title: "1 track"
                 };
 
             chai.expect(() => {

@@ -43,7 +43,7 @@ export class Application
         validator.validateAlbum(scannedFiles);
         scannedFiles.forEach((scanned) => {
             var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
-            var targetFile = [targetFolder, scanned.track].join("/");
+            var targetFile = [targetFolder, scanned.title].join("/");
             this.logger.log("Creating..." + targetFile);
             shelljs.mkdir('-p', targetFolder);
             shelljs.cp(scanned.path, targetFile);

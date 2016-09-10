@@ -22,13 +22,13 @@ describe("Validator", () => {
                 path: "aaaa",
                 artist: "bbbb",
                 album: "cccc",
-                track: trackNameWithPrefix("1")
+                title: trackNameWithPrefix("1")
             },
             {
                 path: "aaaa",
                 artist: "bbbb",
                 album: "cccc",
-                track: trackNameWithPrefix("2")
+                title: trackNameWithPrefix("2")
             }];
     });
     it("accepts a valid tracks in correct order", () => {
@@ -36,7 +36,7 @@ describe("Validator", () => {
     });
 
     it("throws on missing track number", () => {
-        musicTrack[0].track = trackNameWithPrefix("bla");
+        musicTrack[0].title = trackNameWithPrefix("bla");
 
         chai.expect(() => {
             _theValidator.validateAlbum(musicTrack);
@@ -45,8 +45,8 @@ describe("Validator", () => {
 
     it("throws on tracks out of order", () => {
 
-        musicTrack[0].track = trackNameWithPrefix("2");
-        musicTrack[1].track = trackNameWithPrefix("1");
+        musicTrack[0].title = trackNameWithPrefix("2");
+        musicTrack[1].title = trackNameWithPrefix("1");
 
         chai.expect(() => {
             _theValidator.validateAlbum(musicTrack);
@@ -55,8 +55,8 @@ describe("Validator", () => {
 
     it("throws on missing tracks", () => {
 
-        musicTrack[0].track = trackNameWithPrefix("2");
-        musicTrack[1].track = trackNameWithPrefix("3");
+        musicTrack[0].title = trackNameWithPrefix("2");
+        musicTrack[1].title = trackNameWithPrefix("3");
 
         chai.expect(() => {
             _theValidator.validateAlbum(musicTrack);
@@ -65,8 +65,8 @@ describe("Validator", () => {
 
     it("throws on duplicate tracks", () => {
 
-        musicTrack[0].track = trackNameWithPrefix("1");
-        musicTrack[1].track = trackNameWithPrefix("1");
+        musicTrack[0].title = trackNameWithPrefix("1");
+        musicTrack[1].title = trackNameWithPrefix("1");
 
         chai.expect(() => {
             _theValidator.validateAlbum(musicTrack);

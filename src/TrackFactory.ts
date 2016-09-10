@@ -21,8 +21,8 @@ export class TrackFactory
         }
         var artist = elements[count - 3];
         var album = elements[count - 2];
-        var track = elements[count - 1];
-        var match = /((\d+)?[^\/]+\.mp3)/.exec(track);
+        var title = elements[count - 1];
+        var match = /((\d+)?[^\/]+\.mp3)/.exec(title);
         if (!match)
         {
             throw new Error(pathToMusicFile + ": Invalid music file name");
@@ -31,7 +31,7 @@ export class TrackFactory
             path: pathToMusicFile,
             artist: artist,
             album: album,
-            track: track
+            title: title
         };
     }
 };

@@ -13,7 +13,7 @@ export class Validator
     {
         var index = 1;
         tracksForOneAlbum.forEach((track) => {
-            var trackNumberAsString = /^(\d+)/.exec(track.track);
+            var trackNumberAsString = /^(\d+)/.exec(track.title);
             if (!trackNumberAsString)
             {
                 throw new Error(track.path + ": Could not assign a track number");

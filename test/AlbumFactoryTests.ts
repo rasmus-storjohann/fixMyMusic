@@ -15,13 +15,13 @@ describe("AlbumFactory", () => {
             artist: "aaaa",
             album: "bbbb",
             path: "cccc",
-            track: "dddd"
+            title: "dddd"
         };
         aTrackWithSameArtistAndAlbum = {
             artist: aTrack.artist,
             album: aTrack.album,
             path: "eeee",
-            track: "ffff"
+            title: "ffff"
         };
     });
 
@@ -46,8 +46,8 @@ describe("AlbumFactory", () => {
         var albums = theFactory.create([aTrack, aTrackWithSameArtistAndAlbum]);
         chai.expect(albums).to.have.lengthOf(1);
         chai.expect(albums[0].tracks).to.have.lengthOf(2);
-        chai.expect(albums[0].tracks[0].track).to.equal(aTrack.track);
-        chai.expect(albums[0].tracks[1].track).to.equal(aTrackWithSameArtistAndAlbum.track);
+        chai.expect(albums[0].tracks[0].title).to.equal(aTrack.title);
+        chai.expect(albums[0].tracks[1].title).to.equal(aTrackWithSameArtistAndAlbum.title);
     });
 
     it("Tracks with different artist are added to different albums", () => {

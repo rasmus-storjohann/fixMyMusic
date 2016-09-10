@@ -27,7 +27,7 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_scanned.track).equals("01 track.mp3");
+            chai.expect(_scanned.title).equals("01 track.mp3");
         });
     });
 
@@ -42,7 +42,7 @@ describe("TrackFactory", () => {
         it("looks at three last path elements", () => {
             chai.expect(_scanned.artist).equals("artist");
             chai.expect(_scanned.album).equals("album");
-            chai.expect(_scanned.track).equals("01 track.mp3");
+            chai.expect(_scanned.title).equals("01 track.mp3");
         });
     });
 
@@ -55,7 +55,7 @@ describe("TrackFactory", () => {
         });
 
         it("still gets the track name from path", () => {
-            chai.expect(_scanned.track).equals("track.mp3");
+            chai.expect(_scanned.title).equals("track.mp3");
         });
 
         it("track number is null", () => {
