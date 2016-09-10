@@ -24,6 +24,18 @@ describe("AlbumFactory", () => {
         chai.expect(albums).to.have.lengthOf(1);
     });
 
+    it("Album takes the title from the track added", () => {
+        var albums = theFactory.create([aTrack]);
+        var album = albums[0];
+        chai.expect(album.title).to.equal(aTrack.album);
+    });
+
+    it("Album takes the title from the track added", () => {
+        var albums = theFactory.create([aTrack]);
+        var album = albums[0];
+        chai.expect(album.artist).to.equal(aTrack.artist);
+    });
+
     it("Tracks with the same artist and album name are added to the same album", () => {
     });
 
