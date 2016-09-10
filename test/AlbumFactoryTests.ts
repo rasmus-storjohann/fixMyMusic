@@ -8,7 +8,7 @@ import { Autofixture } from "ts-autofixture";
 
 describe("AlbumFactory", () => {
     var theFactory: AlbumFactory;
-    var aTrack, aTrackWithSameArtistAndAlbum: Track;
+    var aTrack, aTrackWithSameArtistAndAlbum, aTrackWithSameAlbum, aTrackWithSameArtist: Track;
     beforeEach(() => {
         theFactory = new AlbumFactory();
         aTrack = {
@@ -22,6 +22,18 @@ describe("AlbumFactory", () => {
             album: aTrack.album,
             path: "eeee",
             title: "ffff"
+        };
+        aTrackWithSameAlbum = {
+            artist: "gggg",
+            album: aTrack.album,
+            path: "hhhh",
+            title: "iiii"
+        };
+        aTrackWithSameArtist = {
+            artist: aTrack.artist,
+            album: "jjjj",
+            path: "kkkk",
+            title: "llll"
         };
     });
 
@@ -51,8 +63,20 @@ describe("AlbumFactory", () => {
     });
 
     it("Tracks with different artist are added to different albums", () => {
+        var albums = theFactory.create([aTrack, aTrackWithSameAlbum]);
+        chai.expect(albums).to.have.lengthOf(2);
+        chai.expect(albums[0].tracks).to.have.lengthOf(1);
+        chai.expect(albums[1].tracks).to.have.lengthOf(1);
+        chai.expect(albums[0].tracks[0].title).to.equal(aTrack.title);
+        chai.expect(albums[1].tracks[0].title).to.equal(aTrackWithSameAlbum.title);
     });
 
     it("Tracks with different album titles are added to different albums", () => {
+        var albums = theFactory.create([aTrack, aTrackWithSameArtist]);
+        chai.expect(albums).to.have.lengthOf(2);
+        chai.expect(albums[0].tracks).to.have.lengthOf(1);
+        chai.expect(albums[1].tracks).to.have.lengthOf(1);
+        chai.expect(albums[0].tracks[0].title).to.equal(aTrack.title);
+        chai.expect(albums[1].tracks[0].title).to.equal(aTrackWithSameArtist.title);
     });
 });
