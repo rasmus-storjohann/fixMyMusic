@@ -2,14 +2,14 @@ import { Track } from "./Track";
 
 export class Validator
 {
-    public validateAlbum: (tracksForOneAlbum: Track[]) => void;
+    public validateTracks: (tracksForOneAlbum: Track[]) => void;
 
     constructor()
     {
-        this.validateAlbum = this.defaultValidateAlbum;
+        this.validateTracks = this.defaultValidateTracks;
     }
 
-    private defaultValidateAlbum(tracksForOneAlbum: Track[]) : void
+    private defaultValidateTracks(tracksForOneAlbum: Track[]) : void
     {
         var index = 1;
         tracksForOneAlbum.forEach((track) => {

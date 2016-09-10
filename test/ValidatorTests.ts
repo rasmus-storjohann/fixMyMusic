@@ -32,14 +32,14 @@ describe("Validator", () => {
             }];
     });
     it("accepts a valid tracks in correct order", () => {
-        _theValidator.validateAlbum(musicTrack);
+        _theValidator.validateTracks(musicTrack);
     });
 
     it("throws on missing track number", () => {
         musicTrack[0].title = trackNameWithPrefix("bla");
 
         chai.expect(() => {
-            _theValidator.validateAlbum(musicTrack);
+            _theValidator.validateTracks(musicTrack);
         }).to.throw(Error, /Could not assign a track number/);
     });
 
@@ -49,7 +49,7 @@ describe("Validator", () => {
         musicTrack[1].title = trackNameWithPrefix("1");
 
         chai.expect(() => {
-            _theValidator.validateAlbum(musicTrack);
+            _theValidator.validateTracks(musicTrack);
         }).to.throw(Error, /Track number out of order/);
     });
 
@@ -59,7 +59,7 @@ describe("Validator", () => {
         musicTrack[1].title = trackNameWithPrefix("3");
 
         chai.expect(() => {
-            _theValidator.validateAlbum(musicTrack);
+            _theValidator.validateTracks(musicTrack);
         }).to.throw(Error, /Track number out of order/);
     });
 
@@ -69,7 +69,7 @@ describe("Validator", () => {
         musicTrack[1].title = trackNameWithPrefix("1");
 
         chai.expect(() => {
-            _theValidator.validateAlbum(musicTrack);
+            _theValidator.validateTracks(musicTrack);
         }).to.throw(Error, /Track number out of order/);
     });
 });
