@@ -8,14 +8,20 @@ import { Autofixture } from "ts-autofixture";
 
 describe("AlbumFactory", () => {
     var theFactory: AlbumFactory;
-    var aTrack: Track;
+    var aTrack, aTrackWithSameArtistAndAlbum: Track;
     beforeEach(() => {
         theFactory = new AlbumFactory();
         aTrack = {
-            path: "aaaa",
-            artist: "bbbb",
-            album: "cccc",
+            artist: "aaaa",
+            album: "bbbb",
+            path: "cccc",
             track: "dddd"
+        };
+        aTrackWithSameArtistAndAlbum = {
+            artist: aTrack.artist,
+            album: aTrack.album,
+            path: "eeee",
+            track: "ffff"
         };
     });
 
@@ -30,13 +36,18 @@ describe("AlbumFactory", () => {
         chai.expect(album.title).to.equal(aTrack.album);
     });
 
-    it("Album takes the title from the track added", () => {
+    it("Album takes the artist from the track added", () => {
         var albums = theFactory.create([aTrack]);
         var album = albums[0];
         chai.expect(album.artist).to.equal(aTrack.artist);
     });
 
     it("Tracks with the same artist and album name are added to the same album", () => {
+        var albums = theFactory.create([aTrack, aTrackWithSameArtistAndAlbum]);
+        chai.expect(albums).to.have.lengthOf(1);
+        chai.expect(albums[0].tracks).to.have.lengthOf(2);
+        chai.expect(albums[0].tracks[0].track).to.equal(aTrack.track);
+        chai.expect(albums[0].tracks[1].track).to.equal(aTrackWithSameArtistAndAlbum.track);
     });
 
     it("Tracks with different artist are added to different albums", () => {
