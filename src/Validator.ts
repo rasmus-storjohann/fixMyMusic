@@ -1,3 +1,4 @@
+import { Album } from "./Album";
 import { Track } from "./Track";
 
 export class Validator
@@ -7,6 +8,10 @@ export class Validator
     constructor()
     {
         this.validateTracks = this.defaultValidateTracks;
+    }
+
+    public validateAlbum(album: Album) : void
+    {
     }
 
     private defaultValidateTracks(tracksForOneAlbum: Track[]) : void
