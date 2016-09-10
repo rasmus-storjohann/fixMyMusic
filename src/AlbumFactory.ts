@@ -13,14 +13,19 @@ export class AlbumFactory
     public create(tracks: Track[]) : Album[]
     {
         tracks.forEach((track) => {
-            var key = this.computeKey(track);
-            if (!this.working[key])
-            {
-                this.working[key] = new Album(track.artist, track.album);
-            }
-            this.working[key].push(track);
+            this.pushToWorking(track);
         });
         return this.toAlbumArray();
+    }
+
+    private pushToWorking(track: Track)
+    {
+        var key = this.computeKey(track);
+        if (!this.working[key])
+        {
+            this.working[key] = new Album(track.artist, track.album);
+        }
+        this.working[key].push(track);
     }
 
     private computeKey(track: Track) : string
