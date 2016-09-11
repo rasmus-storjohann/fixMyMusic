@@ -42,16 +42,16 @@ describe("Validator", () => {
         return album;
     }
 
-    describe("on tracks", () => {
-        it("accepts a valid tracks in correct order", () => {
-            _theValidator.validateAlbum(createAlbum());
-        });
+    it("accepts a valid tracks in correct order", () => {
+        _theValidator.validate(createAlbum());
+    });
 
+    describe("on tracks", () => {
         it("throws on missing track number", () => {
             musicTrack[0].title = "dddd";
 
             chai.expect(() => {
-                _theValidator.validateAlbum(createAlbum());
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Could not assign a track number/);
         });
 
@@ -61,7 +61,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 dddd";
 
             chai.expect(() => {
-                _theValidator.validateAlbum(createAlbum());
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -71,7 +71,7 @@ describe("Validator", () => {
             musicTrack[1].title = "3 dddd";
 
             chai.expect(() => {
-                _theValidator.validateAlbum(createAlbum());
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -81,8 +81,17 @@ describe("Validator", () => {
             musicTrack[1].title = "1 eeee";
 
             chai.expect(() => {
-                _theValidator.validateAlbum(createAlbum());
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
+        });
+    });
+    describe("on albums", () => {
+        it("throws on space in artist", () => {
+            musicTrack[0].artist = "aaaa bbbb";
+            musicTrack[1].artist = "aaaa bbbb";
+            chai.expect(() => {
+                _theValidator.validate(createAlbum());
+            }).to.throw(Error, /Artist contains a space/);
         });
     });
 });

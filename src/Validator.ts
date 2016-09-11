@@ -10,9 +10,18 @@ export class Validator
         this.validateTracks = this.defaultValidateTracks;
     }
 
-    public validateAlbum(album: Album) : void
+    public validate(album: Album) : void
     {
+        this.validateAlbum(album);
         this.validateTracks(album.tracks);
+    }
+
+    private validateAlbum(album: Album) : void
+    {
+        if (album.artist.indexOf(" ") !== -1)
+        {
+            throw new Error(album.artist + ": Artist contains a space");
+        }
     }
 
     private defaultValidateTracks(tracksForOneAlbum: Track[]) : void
