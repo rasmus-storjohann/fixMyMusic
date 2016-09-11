@@ -4,7 +4,7 @@ import * as chai from "chai";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumFactory } from "../src/AlbumFactory";
-import { Autofixture } from "ts-autofixture";
+//import { Autofixture } from "ts-autofixture";
 
 describe("AlbumFactory", () => {
     var theFactory: AlbumFactory;
