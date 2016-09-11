@@ -38,6 +38,7 @@ export class AlbumFactory
         var result = [];
         for (var property in this.working) {
             if (this.working.hasOwnProperty(property)) {
+                // todo sort tracks within each album
                 result.push(this.working[property]);
             }
         }

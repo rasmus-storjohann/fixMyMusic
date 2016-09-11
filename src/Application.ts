@@ -43,7 +43,6 @@ export class Application
         tracks.forEach((track) => {
             var targetFolder = [toDir, track.artist, track.album].join("/");
             var targetFile = [targetFolder, track.title].join("/");
-            this.logger.log("Creating..." + targetFile);
             shelljs.mkdir('-p', targetFolder);
             shelljs.cp(track.path, targetFile);
         });

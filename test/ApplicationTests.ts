@@ -3,24 +3,43 @@
 import * as chai from "chai";
 import { Application } from "../src/Application";
 
-var _theApplication : Application;
+class Logger
+{
+    constructor()
+    {
+        this.messages = [];
+    }
+    public log(message: string)
+    {
+        this.messages.push(message);
+    }
+    public getMessages() : string[]
+    {
+        return this.messages;
+    }
+    private messages: string[];
+}
+
+var logger: Logger;
+var application : Application;
 beforeEach(() =>
 {
-    _theApplication = new Application(console);
+    logger = new Logger();
+    application = new Application(logger);
 });
 
 describe("Application", () => {
     it("throws if out argument is not given", () => {
         var validName = "root/Artist/Album/01 Track.mp3";
         chai.expect(() => {
-            _theApplication.doIt([validName]);
+            application.doIt([validName]);
         }).to.throw(Error, /Specify --out argument/);
     });
 
     // it("throws if input file is invalid", () => {
     //     var invalidPathWithSpaceInArtistName = "root/Artist Name/Album/01 Track.mp3";
     //     chai.expect(() => {
-    //         _theApplication.doIt(["--out", "out", invalidPathWithSpaceInArtistName]);
+    //         application.doIt(["--out", "out", invalidPathWithSpaceInArtistName]);
     //     }).to.throw(Error, /Bla/);
     // });
 });
