@@ -13,7 +13,11 @@ export class CommandFactory
 
     public create(albums: Album[]) : Command[]
     {
-        return this.createCommandsForAlbum(albums[0]);
+        var result = [];
+        albums.forEach((album) => {
+            result = result.concat(this.createCommandsForAlbum(album));
+        });
+        return result;
     }
 
     private createCommandsForAlbum(album: Album) : Command[]
