@@ -18,9 +18,26 @@ export class CommandFactory
 
     private createCommandsForAlbum(album: Album) : Command[]
     {
-        return [{
+        var mkDirCommand = {
             command: "mkdir",
             target: [this.outputDirectory, album.artist, album.title].join("/")
-        }];
+        };
+        var copyFilesCommands = this.createCommandsForTracks(album.tracks);
+        copyFilesCommands.unshift(mkDirCommand);
+
+        return copyFilesCommands;
+    }
+
+    private createCommandsForTracks(tracks: Track[]) : Command[]
+    {
+        var result = [];
+        tracks.forEach((track) => {
+            result.push({
+                command: "cp",
+                source: track.path,
+                target: [this.outputDirectory, track.artist, track.album, track.title].join("/")
+            });
+        });
+        return result;
     }
 }
