@@ -4,6 +4,7 @@ import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 import * as parseArguments from 'minimist';
 import { TrackFactory } from "./TrackFactory";
+import { AlbumFactory } from "./AlbumFactory";
 import { Validator } from "./Validator";
 
 export class Application
@@ -26,7 +27,8 @@ export class Application
     public doIt(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
-        var scanner = new TrackFactory();
+        var trackFactory = new TrackFactory();
+        var albumFactory = new AlbumFactory();
         var validator = new Validator();
 
         var fromDir = parsedArguments._;
@@ -39,14 +41,16 @@ export class Application
         {
              return fs.statSync(fullpath).isFile();
         });
-        var scannedFiles = scanner.scanFiles(files);
-        validator.validateTracks(scannedFiles);
-        scannedFiles.forEach((scanned) => {
-            var targetFolder = [toDir, scanned.artist, scanned.album].join("/");
-            var targetFile = [targetFolder, scanned.title].join("/");
+        var tracks = trackFactory.scanFiles(files);
+        var albums = albumFactory.create(tracks);
+        validator.validate(albums);
+
+        tracks.forEach((track) => {
+            var targetFolder = [toDir, track.artist, track.album].join("/");
+            var targetFile = [targetFolder, track.title].join("/");
             this.logger.log("Creating..." + targetFile);
             shelljs.mkdir('-p', targetFolder);
-            shelljs.cp(scanned.path, targetFile);
+            shelljs.cp(track.path, targetFile);
         });
     }
     private logger;

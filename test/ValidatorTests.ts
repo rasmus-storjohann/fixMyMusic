@@ -30,7 +30,7 @@ describe("Validator", () => {
             }];
     });
 
-    function createAlbum() : Album
+    function createAlbum() : Album[]
     {
         var artist = musicTrack[0].artist;
         var albumTitle = musicTrack[0].album;
@@ -39,7 +39,7 @@ describe("Validator", () => {
         album.push(musicTrack[0]);
         album.push(musicTrack[1]);
 
-        return album;
+        return [album];
     }
 
     it("accepts a valid tracks in correct order", () => {

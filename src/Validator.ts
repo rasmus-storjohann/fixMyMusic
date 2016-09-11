@@ -10,10 +10,12 @@ export class Validator
         this.validateTracks = this.defaultValidateTracks;
     }
 
-    public validate(album: Album) : void
+    public validate(albums: Album[]) : void
     {
-        this.validateAlbum(album);
-        this.validateTracks(album.tracks);
+        albums.forEach((album) => {
+            this.validateAlbum(album);
+            this.validateTracks(album.tracks);
+        });
     }
 
     private validateAlbum(album: Album) : void
