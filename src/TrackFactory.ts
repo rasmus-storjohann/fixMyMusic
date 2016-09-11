@@ -2,16 +2,16 @@ import { Track } from "./Track";
 
 export class TrackFactory
 {
-    public scanFiles(paths: string[]) : Track[]
+    public create(paths: string[]) : Track[]
     {
         var result: Track[];
         result = [];
         paths.forEach((path) => {
-            result.push(this.create(path));
+            result.push(this.createTrack(path));
         });
         return result;
     }
-    public create(pathToMusicFile: string) : Track
+    public createTrack(pathToMusicFile: string) : Track
     {
         var elements = pathToMusicFile.split("/");
         var count = elements.length;

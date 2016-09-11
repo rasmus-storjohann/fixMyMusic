@@ -3,6 +3,7 @@
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 import * as parseArguments from 'minimist';
+import { getFiles } from "./GetFiles";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import { Validator } from "./Validator";
@@ -27,23 +28,17 @@ export class Application
     public doIt(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
-        var trackFactory = new TrackFactory();
-        var albumFactory = new AlbumFactory();
-        var validator = new Validator();
 
-        var fromDir = parsedArguments._;
         var toDir = parsedArguments["out"];
         if (!toDir)
         {
             throw new Error("Specify --out argument");
         }
-        var files = shelljs.find(fromDir).filter((fullpath) =>
-        {
-             return fs.statSync(fullpath).isFile();
-        });
-        var tracks = trackFactory.scanFiles(files);
-        var albums = albumFactory.create(tracks);
-        validator.validate(albums);
+        var fromDirectories = parsedArguments._;
+        var files = getFiles(fromDirectories);
+        var tracks = new TrackFactory().create(files);
+        var albums = new AlbumFactory().create(tracks);
+        new Validator().validate(albums);
 
         tracks.forEach((track) => {
             var targetFolder = [toDir, track.artist, track.album].join("/");

@@ -15,7 +15,7 @@ describe("TrackFactory", () => {
         beforeEach(() =>
         {
             var validPath = "root/artist/album/01 track.mp3";
-            _scanned = _theScanner.create(validPath);
+            _scanned = _theScanner.createTrack(validPath);
         });
 
         it("Gets the artist name from path", () => {
@@ -36,7 +36,7 @@ describe("TrackFactory", () => {
         beforeEach(() =>
         {
             var deepPath = "the/deep/path/artist/album/01 track.mp3";
-            _scanned = _theScanner.create(deepPath);
+            _scanned = _theScanner.createTrack(deepPath);
         });
 
         it("looks at three last path elements", () => {
@@ -51,7 +51,7 @@ describe("TrackFactory", () => {
         beforeEach(() =>
         {
             var pathWithoutNumericPrefix = "root/artist/album/track.mp3";
-            _scanned = _theScanner.create(pathWithoutNumericPrefix);
+            _scanned = _theScanner.createTrack(pathWithoutNumericPrefix);
         });
 
         it("still gets the track name from path", () => {
@@ -67,7 +67,7 @@ describe("TrackFactory", () => {
         it("throws on path that is missing required elements", () => {
             var tooShortPath = "album/track.mp3";
             chai.expect(() => {
-                _theScanner.create(tooShortPath);
+                _theScanner.createTrack(tooShortPath);
             }).to.throw(Error, /Invalid path to music file/);
         });
     });
