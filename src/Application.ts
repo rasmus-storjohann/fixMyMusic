@@ -7,6 +7,8 @@ import { getFiles } from "./GetFiles";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import { Validator } from "./Validator";
+import { CommandFactory } from "./CommandFactory";
+import { CommandExecutor } from "./CommandExecutor";
 
 export class Application
 {
@@ -28,24 +30,25 @@ export class Application
     public doIt(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
-
+        var fromDirectories = parsedArguments._;
+        var dryRun = parsedArguments["dryrun"];
         var toDir = parsedArguments["out"];
+
         if (!toDir)
         {
             throw new Error("Specify --out argument");
         }
-        var fromDirectories = parsedArguments._;
+
         var files = getFiles(fromDirectories);
         var tracks = new TrackFactory().create(files);
         var albums = new AlbumFactory().create(tracks);
         new Validator().validate(albums);
+        var commands = new CommandFactory(toDir).create(albums);
 
-        tracks.forEach((track) => {
-            var targetFolder = [toDir, track.artist, track.album].join("/");
-            var targetFile = [targetFolder, track.title].join("/");
-            shelljs.mkdir('-p', targetFolder);
-            shelljs.cp(track.path, targetFile);
-        });
+        if (!dryRun)
+        {
+            new CommandExecutor().execute(commands);
+        }
     }
     private logger;
 }

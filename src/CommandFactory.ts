@@ -1,3 +1,5 @@
+/// <reference path = "../typings/auto.d.ts" />
+
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { Command } from "../src/Command";

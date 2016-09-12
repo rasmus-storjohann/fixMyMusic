@@ -1,3 +1,4 @@
+/// <reference path = "../typings/auto.d.ts" />
 import { Track } from "./Track";
 
 export class TrackFactory

@@ -1,3 +1,5 @@
+/// <reference path = "../typings/auto.d.ts" />
+
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 

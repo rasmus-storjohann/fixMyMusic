@@ -1,3 +1,5 @@
+/// <reference path = "../typings/auto.d.ts" />
+
 export interface Track {
     path: string,
     artist: string,
