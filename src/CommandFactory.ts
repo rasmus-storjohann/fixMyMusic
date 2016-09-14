@@ -1,7 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Track } from "../src/Track";
-import { Album } from "../src/Album";
+import { Album, AlbumTrack } from "../src/Album";
 import { Command } from "../src/Command";
 
 export class CommandFactory
@@ -28,20 +28,20 @@ export class CommandFactory
             command: "mkdir",
             target: [this.outputDirectory, album.artist, album.title].join("/")
         };
-        var copyFilesCommands = this.createCommandsForTracks(album.tracks);
+        var copyFilesCommands = this.createCommandsForTracks(album);
         copyFilesCommands.unshift(mkDirCommand);
 
         return copyFilesCommands;
     }
 
-    private createCommandsForTracks(tracks: Track[]) : Command[]
+    private createCommandsForTracks(album: Album) : Command[]
     {
         var result = [];
-        tracks.forEach((track) => {
+        album.tracks.forEach((track) => {
             result.push({
                 command: "cp",
                 source: track.path,
-                target: [this.outputDirectory, track.artist, track.album, track.title].join("/")
+                target: [this.outputDirectory, album.artist, album.title, track.title].join("/")
             });
         });
         return result;

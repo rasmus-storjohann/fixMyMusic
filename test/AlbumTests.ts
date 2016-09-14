@@ -25,7 +25,7 @@ describe("Album", () => {
                     title: "1 track"
                 };
             album.push(track);
-            chai.expect(album.tracks[0].artist).to.equal("artist");
+            chai.expect(album.tracks[0].title).to.equal("1 track");
         });
         it("throws when adding track with wrong artist", () => {
             var album = new Album("artist", "title");
