@@ -6,12 +6,17 @@ export class Fixer
     {
         albums.forEach(album => {
             var artist = album.artist;
-            var match = /^The (.*)/.exec(artist);
-            if (match)
+            var hasThePrefix = /^The (.*)/.exec(artist);
+            var hasTwoNames = /^([^ ]+) ([^ ]+)$/.exec(artist);
+            if (hasThePrefix)
             {
-                artist = match[1];
+                artist = hasThePrefix[1].replace(/ /g, '_');
             }
-            album.artist = artist.replace(/ /g, '_');
+            else if (hasTwoNames)
+            {
+                artist = hasTwoNames[2] + "_" + hasTwoNames[1];
+            }
+            album.artist = artist;
         });
     }
 }
