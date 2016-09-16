@@ -2,22 +2,20 @@
 
 import * as chai from "chai";
 import { Fixer } from "../src/Fixer";
-import { Album, AlbumTrack } from "../src/Album";
+import { Album } from "../src/Album";
+import { Track } from "../src/Track";
 
 var fixer: Fixer;
 var album: Album;
 beforeEach(() => {
     fixer = new Fixer();
-    album = {
+    album = new Album("aaaa", "bbbb");
+    album.push({
+        path: "cccc",
         artist: "aaaa",
-        title: "bbbb",
-        tracks: [
-            {
-                path: "cccc",
-                title: "dddd"
-            }
-        ]
-    };
+        album: "bbbb",
+        title: "dddd"
+    });
 });
 
 describe("Fixer", () => {

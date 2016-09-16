@@ -1,11 +1,10 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import { Album } from "./Album";
-import { Track } from "./Track";
+import { Album, AlbumTrack } from "./Album";
 
 export class Validator
 {
-    public validateTracks: (tracksForOneAlbum: Track[]) => void;
+    public validateTracks: (tracksForOneAlbum: AlbumTrack[]) => void;
 
     constructor()
     {
@@ -28,7 +27,7 @@ export class Validator
         }
     }
 
-    private defaultValidateTracks(tracksForOneAlbum: Track[]) : void
+    private defaultValidateTracks(tracksForOneAlbum: AlbumTrack[]) : void
     {
         var index = 1;
         tracksForOneAlbum.forEach((track) => {
