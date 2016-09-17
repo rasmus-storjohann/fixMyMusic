@@ -42,6 +42,22 @@ describe("Validator", () => {
         return [album];
     }
 
+    function createAlbumWithTrack(artistName: string, albumName: string, tracks) : Album
+    {
+        var album = new Album(artistName, albumName);
+
+        tracks.forEach(track => {
+            album.push({
+                path: track.path,
+                artist: artistName,
+                album: albumName,
+                title: track.trackName
+            });
+        });
+
+        return album;
+    }
+
     it("accepts a valid tracks in correct order", () => {
         _theValidator.validate(createAlbum());
     });
@@ -92,6 +108,35 @@ describe("Validator", () => {
             chai.expect(() => {
                 _theValidator.validate(createAlbum());
             }).to.throw(Error, /Artist contains a space/);
+        });
+    });
+
+    describe("special case handling", () => {
+        describe("Bach", () => {
+            describe("B minor mass", () => {
+                it("accepts tracks in the form x-y with x y digits", () => {
+                    var tracks = [{ path:"music/Bach JS/BminorMass/1-1 Kyrie eleison.mp3",
+                                    trackName: "1-1 Kyrie eleison.mp3"
+                                  },
+                                  {
+                                    path:"music/Bach JS/BminorMass/1-2 Christe eleison.mp3",
+                                    trackName: "1-2 Christe eleison.mp3"
+                                  }];
+                    _theValidator.validate([createAlbumWithTrack("Bach_JS", "BminorMass", tracks)]);
+                });
+                it("rejects missing track", () => {
+                    var tracks = [{ path:"music/Bach JS/BminorMass/1-1 Kyrie eleison.mp3",
+                                    trackName: "1-1 Kyrie eleison.mp3"
+                                  },
+                                  {
+                                    path:"music/Bach JS/BminorMass/1-2 Christe eleison.mp3",
+                                    trackName: "1-3 Christe eleison.mp3"
+                                  }];
+                    chai.expect(() => {
+                        _theValidator.validate([createAlbumWithTrack("Bach_JS", "BminorMass", tracks)]);
+                    }).to.throw(Error, /Track number out of order/);
+                });
+            });
         });
     });
 });

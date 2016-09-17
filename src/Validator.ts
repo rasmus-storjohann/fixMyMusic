@@ -1,25 +1,42 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Album, AlbumTrack } from "./Album";
+import { SpecialHandling } from "./SpecialHandling";
 
 export class Validator
 {
-    public validateTracks: (tracksForOneAlbum: AlbumTrack[]) => void;
+    private specialHandling: SpecialHandling;
 
     constructor()
     {
-        this.validateTracks = this.defaultValidateTracks;
+        this.specialHandling = new SpecialHandling();
     }
 
     public validate(albums: Album[]) : void
     {
         albums.forEach((album) => {
-            this.validateAlbum(album);
-            this.validateTracks(album.tracks);
+            var validateTracks = this.defaultValidateTracks;
+            var validateAlbum = this.defaultvalidateAlbum;
+
+            var specialHandlers = this.specialHandling.GetSpecialHandlers(album.artist, album.title);
+            if (specialHandlers)
+            {
+                if (specialHandlers.validateTracks)
+                {
+                    validateTracks = specialHandlers.validateTracks;
+                }
+                if (specialHandlers.validateAlbum)
+                {
+                    validateAlbum = specialHandlers.validateAlbum;
+                }
+            }
+
+            validateAlbum(album);
+            validateTracks(album);
         });
     }
 
-    private validateAlbum(album: Album) : void
+    private defaultvalidateAlbum(album: Album) : void
     {
         if (album.artist.indexOf(" ") !== -1)
         {
@@ -27,10 +44,10 @@ export class Validator
         }
     }
 
-    private defaultValidateTracks(tracksForOneAlbum: AlbumTrack[]) : void
+    private defaultValidateTracks(album: Album) : void
     {
         var index = 1;
-        tracksForOneAlbum.forEach((track) => {
+        album.tracks.forEach((track) => {
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             if (!trackNumberAsString)
             {
