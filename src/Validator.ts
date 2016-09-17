@@ -15,25 +15,38 @@ export class Validator
     public validate(albums: Album[]) : void
     {
         albums.forEach((album) => {
-            var validateTracks = this.defaultValidateTracks;
-            var validateAlbum = this.defaultvalidateAlbum;
-
-            var specialHandlers = this.specialHandling.GetSpecialHandlers(album.artist, album.title);
-            if (specialHandlers)
-            {
-                if (specialHandlers.validateTracks)
-                {
-                    validateTracks = specialHandlers.validateTracks;
-                }
-                if (specialHandlers.validateAlbum)
-                {
-                    validateAlbum = specialHandlers.validateAlbum;
-                }
-            }
+            var validateTracks = this.getValidateTracks(album);
+            var validateAlbum = this.getValidateAlbum(album);
 
             validateAlbum(album);
             validateTracks(album);
         });
+    }
+
+    private getValidateAlbum(album: Album)
+    {
+        var specialValidateAlbum = this.getSpecialHandlerIfExists(album, (specialHandlers) => {
+            return specialHandlers.validateAlbum;
+        });
+        return specialValidateAlbum || this.defaultvalidateAlbum;
+    }
+
+    private getValidateTracks(album: Album)
+    {
+        var specialValidateTracks = this.getSpecialHandlerIfExists(album, (specialHandlers) => {
+            return specialHandlers.validateTracks;
+        });
+        return specialValidateTracks || this.defaultValidateTracks;
+    }
+
+    private getSpecialHandlerIfExists(album: Album, selectHandler)
+    {
+        var handlers = this.specialHandling.GetSpecialHandlers(album.artist, album.title);
+        if (handlers)
+        {
+            return selectHandler(handlers);
+        }
+        return null;
     }
 
     private defaultvalidateAlbum(album: Album) : void
