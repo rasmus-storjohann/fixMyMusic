@@ -9,52 +9,54 @@ export interface SpecialHandler
 
 export class SpecialHandling
 {
-    private configuration = {
+    private handlers = {
         "Bach_JS" : {
             "BminorMass" : {
-                validateTracks : function(album: Album) : void
-                {
-                    var index = 1;
-                    var subIndex = 1;
-                    album.tracks.forEach((track) => {
-                        var numbers = /^(\d+)\-(\d+)/.exec(track.title);
-                        if (!numbers)
-                        {
-                            throw new Error(track.path + ": Could not assign a track number");
-                        }
-                        var parsedIndex = parseInt(numbers[1]);
-                        var parsedSubIndex = parseInt(numbers[2]);
-
-                        if (parsedIndex === index && parsedSubIndex === subIndex)
-                        {
-                            subIndex++;
-                        }
-                        else if (parsedIndex === index + 1 && parsedSubIndex === 1)
-                        {
-                            index++;
-                            subIndex = 2;
-                        }
-                        else
-                        {
-                            throw new Error(track.path + ": Track number out of order, expected " + index);
-                        }
-                    });
-                }
+                validateTracks : this.validateTracksWithSubIndeces
             }
         }
     };
 
-    public GetSpecialHandlers(artistName: string, albumTitle: string)
+    public albumSpecialHandlers(artistName: string, albumTitle: string)
     {
-        var artist = this.configuration[artistName];
-        if (artist)
+        var handlersForArtist = this.handlers[artistName];
+        if (handlersForArtist)
         {
-            var album = artist[albumTitle];
-            if (album)
+            var handlersForAlbum = handlersForArtist[albumTitle];
+            if (handlersForAlbum)
             {
-                return album;
+                return handlersForAlbum;
             }
         }
         return null;
+    }
+    private validateTracksWithSubIndeces(album: Album)
+    {
+        var index = 1;
+        var subIndex = 1;
+        album.tracks.forEach((track) => {
+            var numbers = /^(\d+)\-(\d+)/.exec(track.title);
+            if (!numbers)
+            {
+                throw new Error(track.path + ": Could not assign a track number");
+            }
+            var parsedIndex = parseInt(numbers[1]);
+            var parsedSubIndex = parseInt(numbers[2]);
+
+            if (parsedIndex === index && parsedSubIndex === subIndex)
+            {
+                subIndex++;
+            }
+            else if (parsedIndex === index + 1 && parsedSubIndex === 1)
+            {
+                index++;
+                subIndex = 2;
+            }
+            else
+            {
+                var id = "[{album.artist}][{album.title}][{track.title}]";
+                throw new Error(id + ": Track number out of order, expected " + index + "-" + subIndex);
+            }
+        });
     }
 }

@@ -25,7 +25,7 @@ export class Validator
 
     private getValidateAlbum(album: Album)
     {
-        var specialValidateAlbum = this.getSpecialHandlerIfExists(album, (specialHandlers) => {
+        var specialValidateAlbum = this.getAlbmuSpecialHandlerIfExists(album, (specialHandlers) => {
             return specialHandlers.validateAlbum;
         });
         return specialValidateAlbum || this.defaultvalidateAlbum;
@@ -33,15 +33,15 @@ export class Validator
 
     private getValidateTracks(album: Album)
     {
-        var specialValidateTracks = this.getSpecialHandlerIfExists(album, (specialHandlers) => {
+        var specialValidateTracks = this.getAlbmuSpecialHandlerIfExists(album, (specialHandlers) => {
             return specialHandlers.validateTracks;
         });
         return specialValidateTracks || this.defaultValidateTracks;
     }
 
-    private getSpecialHandlerIfExists(album: Album, selectHandler)
+    private getAlbmuSpecialHandlerIfExists(album: Album, selectHandler)
     {
-        var handlers = this.specialHandling.GetSpecialHandlers(album.artist, album.title);
+        var handlers = this.specialHandling.albumSpecialHandlers(album.artist, album.title);
         if (handlers)
         {
             return selectHandler(handlers);
@@ -62,14 +62,15 @@ export class Validator
         var index = 1;
         album.tracks.forEach((track) => {
             var trackNumberAsString = /^(\d+)/.exec(track.title);
+            var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)
             {
-                throw new Error(track.path + ": Could not assign a track number");
+                throw new Error(id + ": Could not assign a track number");
             }
             var trackNumber = parseInt(trackNumberAsString[1]);
             if (trackNumber != index)
             {
-                throw new Error(track.path + ": Track number out of order, expected " + index);
+                throw new Error(id + ": Track number out of order, expected " + index);
             }
             index++;
         });
