@@ -10,30 +10,12 @@ export class Fixer
         this.specialHandling = new SpecialHandling();
     }
 
-    public fix(albums: Album[]) : void
+    public fix(album: Album, specialHandlers) : void
     {
-        albums.forEach((album) => {
-            var fixAlbum = this.getFixAlbum(album);
-            fixAlbum(album);
-        });
-    }
+        var specialFixAlbum = specialHandlers && specialHandlers.fixAlbum;
+        var fixAlbum = specialFixAlbum || this.defaultFixAlbum;
 
-    private getFixAlbum(album: Album)
-    {
-        var specialFixAlbum = this.getAlbmuSpecialHandlerIfExists(album, (specialHandlers) => {
-            return specialHandlers.fixAlbum;
-        });
-        return specialFixAlbum || this.defaultFixAlbum;
-    }
-
-    private getAlbmuSpecialHandlerIfExists(album: Album, selectHandler)
-    {
-        var handlers = this.specialHandling.albumSpecialHandlers(album.artist, album.title);
-        if (handlers)
-        {
-            return selectHandler(handlers);
-        }
-        return null;
+        fixAlbum(album);
     }
 
     private defaultFixAlbum(album: Album): void

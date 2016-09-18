@@ -6,6 +6,7 @@ import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 
 var _theValidator : Validator;
+var specialHandlers = null;
 beforeEach(() =>
 {
     _theValidator = new Validator();
@@ -30,7 +31,7 @@ describe("Validator", () => {
             }];
     });
 
-    function createAlbum() : Album[]
+    function createAlbum() : Album
     {
         var artist = musicTrack[0].artist;
         var albumTitle = musicTrack[0].album;
@@ -39,7 +40,7 @@ describe("Validator", () => {
         album.push(musicTrack[0]);
         album.push(musicTrack[1]);
 
-        return [album];
+        return album;
     }
 
     function createAlbumWithTrack(artistName: string, albumName: string, tracks) : Album
@@ -59,7 +60,7 @@ describe("Validator", () => {
     }
 
     it("accepts a valid tracks in correct order", () => {
-        _theValidator.validate(createAlbum());
+        _theValidator.validate(createAlbum(), specialHandlers);
     });
 
     describe("on tracks", () => {
@@ -67,7 +68,7 @@ describe("Validator", () => {
             musicTrack[0].title = "dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum());
+                _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Could not assign a track number/);
         });
 
@@ -77,7 +78,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum());
+                _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -87,7 +88,7 @@ describe("Validator", () => {
             musicTrack[1].title = "3 dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum());
+                _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -97,7 +98,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 eeee";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum());
+                _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Track number out of order/);
         });
     });
@@ -106,7 +107,7 @@ describe("Validator", () => {
             musicTrack[0].artist = "aaaa bbbb";
             musicTrack[1].artist = "aaaa bbbb";
             chai.expect(() => {
-                _theValidator.validate(createAlbum());
+                _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Artist contains a space/);
         });
     });
@@ -122,7 +123,7 @@ describe("Validator", () => {
                                     path:"music/Bach JS/BminorMass/1-2 Christe eleison.mp3",
                                     trackName: "1-2 Christe eleison.mp3"
                                   }];
-                    _theValidator.validate([createAlbumWithTrack("Bach_JS", "BminorMass", tracks)]);
+                    _theValidator.validate(createAlbumWithTrack("Bach_JS", "BminorMass", tracks), specialHandlers);
                 });
                 it("rejects missing track", () => {
                     var tracks = [{ path:"music/Bach JS/BminorMass/1-1 Kyrie eleison.mp3",
@@ -133,7 +134,7 @@ describe("Validator", () => {
                                     trackName: "1-3 Christe eleison.mp3"
                                   }];
                     chai.expect(() => {
-                        _theValidator.validate([createAlbumWithTrack("Bach_JS", "BminorMass", tracks)]);
+                        _theValidator.validate(createAlbumWithTrack("Bach_JS", "BminorMass", tracks), specialHandlers);
                     }).to.throw(Error, /Track number out of order/);
                 });
             });

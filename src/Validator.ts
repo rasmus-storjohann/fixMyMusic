@@ -12,44 +12,18 @@ export class Validator
         this.specialHandling = new SpecialHandling();
     }
 
-    public validate(albums: Album[]) : void
+    public validate(album: Album, specialHandlers) : void
     {
-        albums.forEach((album) => {
-            var validateTracks = this.getValidateTracks(album);
-            var validateAlbum = this.getValidateAlbum(album);
+        var specialvalidateTracks = specialHandlers && specialHandlers.validateTracks;
+        var validateTracks = specialvalidateTracks || this.defaultValidateTracks;
+        validateTracks(album);
 
-            validateAlbum(album);
-            validateTracks(album);
-        });
+        var specialvalidateAlbum = specialHandlers && specialHandlers.validateAlbum;
+        var validateAlbum = specialvalidateAlbum || this.defaultValidateAlbum;
+        validateAlbum(album);
     }
 
-    private getValidateAlbum(album: Album)
-    {
-        var specialValidateAlbum = this.getAlbmuSpecialHandlerIfExists(album, (specialHandlers) => {
-            return specialHandlers.validateAlbum;
-        });
-        return specialValidateAlbum || this.defaultvalidateAlbum;
-    }
-
-    private getValidateTracks(album: Album)
-    {
-        var specialValidateTracks = this.getAlbmuSpecialHandlerIfExists(album, (specialHandlers) => {
-            return specialHandlers.validateTracks;
-        });
-        return specialValidateTracks || this.defaultValidateTracks;
-    }
-
-    private getAlbmuSpecialHandlerIfExists(album: Album, selectHandler)
-    {
-        var handlers = this.specialHandling.albumSpecialHandlers(album.artist, album.title);
-        if (handlers)
-        {
-            return selectHandler(handlers);
-        }
-        return null;
-    }
-
-    private defaultvalidateAlbum(album: Album) : void
+    private defaultValidateAlbum(album: Album) : void
     {
         if (album.artist.indexOf(" ") !== -1)
         {

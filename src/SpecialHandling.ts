@@ -10,28 +10,18 @@ export interface SpecialHandler
 export class SpecialHandling
 {
     private handlers = {
-        // TODO key on original, non-fixed string
         "Bach_JS": {
             "BminorMass" : {
                 validateTracks: this.validateTracksWithSubIndeces
             }
         },
-        "Beady Belle": {
+        "Beady_Belle": {
             fixArtist: this.justReplaceSpaceWith_
         }
     };
 
-    public albumSpecialHandlers(artistName: string, albumTitle: string)
+    public getSpecialHandlers(album: Album)
     {
-        var handlersForArtist = this.handlers[artistName];
-        if (handlersForArtist)
-        {
-            var handlersForAlbum = handlersForArtist[albumTitle];
-            if (handlersForAlbum)
-            {
-                return handlersForAlbum;
-            }
-        }
         return null;
     }
 

@@ -6,6 +6,7 @@ import * as parseArguments from 'minimist';
 import { getFiles } from "./GetFiles";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
+import { SpecialHandling } from "./SpecialHandling";
 import { Fixer } from "./Fixer";
 import { Validator } from "./Validator";
 import { CommandFactory } from "./CommandFactory";
@@ -34,6 +35,9 @@ export class Application
         var fromDirectories = parsedArguments._;
         var dryRun = parsedArguments["dryrun"];
         var toDir = parsedArguments["out"];
+        var specialHandling = new SpecialHandling();
+        var fixer = new Fixer();
+        var validator = new Validator();
 
         if (!toDir)
         {
@@ -49,10 +53,12 @@ export class Application
         var albums = new AlbumFactory().create(tracks);
         this.logger.log("Assembled " + albums.length + " albums");
 
-        new Fixer().fix(albums);
-        this.logger.log("Fixed " + albums.length + " albums");
+        albums.forEach(album => {
+            var specialHandlers = specialHandling.getSpecialHandlers(album);
+            fixer.fix(album, specialHandlers);
+            validator.validate(album, specialHandlers);
+        });
 
-        new Validator().validate(albums);
         var commands = new CommandFactory(toDir).create(albums);
         this.logger.log("Prepared " + commands.length + " commands");
 
