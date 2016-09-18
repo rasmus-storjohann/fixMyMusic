@@ -10,10 +10,14 @@ export interface SpecialHandler
 export class SpecialHandling
 {
     private handlers = {
-        "Bach_JS" : {
+        // TODO key on original, non-fixed string
+        "Bach_JS": {
             "BminorMass" : {
-                validateTracks : this.validateTracksWithSubIndeces
+                validateTracks: this.validateTracksWithSubIndeces
             }
+        },
+        "Beady Belle": {
+            fixArtist: this.justReplaceSpaceWith_
         }
     };
 
@@ -30,6 +34,12 @@ export class SpecialHandling
         }
         return null;
     }
+
+    private justReplaceSpaceWith_(album: Album)
+    {
+        album.title = album.title.replace(/ /g, '_');
+    }
+
     private validateTracksWithSubIndeces(album: Album)
     {
         var index = 1;

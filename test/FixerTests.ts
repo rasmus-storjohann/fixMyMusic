@@ -19,7 +19,7 @@ beforeEach(() => {
 });
 
 describe("Fixer", () => {
-    describe("for album names", () => {
+    describe("artist names", () => {
 
         it("makes no changes to artist names with no spaces", () => {
             album.artist = "a_b_c";
@@ -43,6 +43,17 @@ describe("Fixer", () => {
             album.artist = "One Two Three";
             fixer.fix([album]);
             chai.expect(album.artist).to.equal("One Two Three");
+        });
+
+        describe("special case handling", () => {
+            describe("Beady Belle", () => {
+
+                it("leaves the order unchanged", () => {
+                    album.artist = "Beady Belle";
+                    fixer.fix([album]);
+                    chai.expect(album.artist).to.equal("Beady_Belle");
+                });
+            });
         });
     });
 });
