@@ -4,6 +4,7 @@ import * as chai from "chai";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
+import { SpecialHandling } from "../src/SpecialHandling";
 
 var _theValidator : Validator;
 var specialHandlers = null;
@@ -116,25 +117,29 @@ describe("Validator", () => {
         describe("Bach", () => {
             describe("B minor mass", () => {
                 it("accepts tracks in the form x-y with x y digits", () => {
-                    var tracks = [{ path:"music/Bach JS/BminorMass/1-1 Kyrie eleison.mp3",
+                    var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
                                     trackName: "1-1 Kyrie eleison.mp3"
                                   },
                                   {
-                                    path:"music/Bach JS/BminorMass/1-2 Christe eleison.mp3",
+                                    path:"music/JS Bach/BminorMass/1-2 Christe eleison.mp3",
                                     trackName: "1-2 Christe eleison.mp3"
                                   }];
-                    _theValidator.validate(createAlbumWithTrack("Bach_JS", "BminorMass", tracks), specialHandlers);
+                      var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
+                      var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
+                      _theValidator.validate(album, specialHandlers);
                 });
                 it("rejects missing track", () => {
-                    var tracks = [{ path:"music/Bach JS/BminorMass/1-1 Kyrie eleison.mp3",
+                    var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
                                     trackName: "1-1 Kyrie eleison.mp3"
                                   },
                                   {
-                                    path:"music/Bach JS/BminorMass/1-2 Christe eleison.mp3",
+                                    path:"music/JS Bach/BminorMass/1-3 Christe eleison.mp3",
                                     trackName: "1-3 Christe eleison.mp3"
                                   }];
+                    var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
+                    var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
                     chai.expect(() => {
-                        _theValidator.validate(createAlbumWithTrack("Bach_JS", "BminorMass", tracks), specialHandlers);
+                        _theValidator.validate(album, specialHandlers);
                     }).to.throw(Error, /Track number out of order/);
                 });
             });

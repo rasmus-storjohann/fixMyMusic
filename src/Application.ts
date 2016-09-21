@@ -54,7 +54,7 @@ export class Application
         this.logger.log("Assembled " + albums.length + " albums");
 
         albums.forEach(album => {
-            var specialHandlers = specialHandling.getSpecialHandlers(album);
+            var specialHandlers = specialHandling.getSpecialHandlers(album.artist, album.title);
             fixer.fix(album, specialHandlers);
             validator.validate(album, specialHandlers);
         });

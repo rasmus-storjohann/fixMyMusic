@@ -18,8 +18,7 @@ export class Validator
         var validateTracks = specialvalidateTracks || this.defaultValidateTracks;
         validateTracks(album);
 
-        var specialvalidateAlbum = specialHandlers && specialHandlers.validateAlbum;
-        var validateAlbum = specialvalidateAlbum || this.defaultValidateAlbum;
+        var validateAlbum = this.defaultValidateAlbum;
         validateAlbum(album);
     }
 

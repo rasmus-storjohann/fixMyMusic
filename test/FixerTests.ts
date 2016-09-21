@@ -4,6 +4,7 @@ import * as chai from "chai";
 import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
+import { SpecialHandling } from "../src/SpecialHandling";
 
 var fixer: Fixer;
 var album: Album;
@@ -50,7 +51,8 @@ describe("Fixer", () => {
 
                 it("leaves the order unchanged", () => {
                     album.artist = "Beady Belle";
-                    fixer.fix(album, specialHandler);
+                    var specialHandlers = new SpecialHandling().getSpecialHandlers("Beady Belle", "");
+                    fixer.fix(album, specialHandlers);
                     chai.expect(album.artist).to.equal("Beady_Belle");
                 });
             });

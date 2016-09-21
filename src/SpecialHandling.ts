@@ -10,24 +10,29 @@ export interface SpecialHandler
 export class SpecialHandling
 {
     private handlers = {
-        "Bach_JS": {
+        "JS Bach": {
             "BminorMass" : {
                 validateTracks: this.validateTracksWithSubIndeces
             }
         },
-        "Beady_Belle": {
-            fixArtist: this.justReplaceSpaceWith_
+        "Beady Belle": {
+            fixAlbum: this.justReplaceSpaceWith_
         }
     };
 
-    public getSpecialHandlers(album: Album)
+    public getSpecialHandlers(artist: string, albumTitle: string)
     {
-        return null;
+        var artistHandlers = this.handlers[artist];
+        var albumHandlers = artistHandlers && artistHandlers[albumTitle];
+        return {
+            fixAlbum : artistHandlers && artistHandlers.fixAlbum,
+            validateTracks : albumHandlers && albumHandlers.validateTracks
+        };
     }
 
     private justReplaceSpaceWith_(album: Album)
     {
-        album.title = album.title.replace(/ /g, '_');
+        album.artist = album.artist.replace(/ /g, '_');
     }
 
     private validateTracksWithSubIndeces(album: Album)
