@@ -12,13 +12,13 @@ export class Fixer
 
     public fix(album: Album, specialHandlers) : void
     {
-        var specialFixAlbum = specialHandlers && specialHandlers.fixAlbum;
-        var fixAlbum = specialFixAlbum || this.defaultFixAlbum;
+        var specialFixArtist = specialHandlers && specialHandlers.fixArtist;
+        var fixArtist = specialFixArtist || this.defaultFixArtist;
 
-        fixAlbum(album);
+        fixArtist(album);
     }
 
-    private defaultFixAlbum(album: Album): void
+    private defaultFixArtist(album: Album): void
     {
         var artist = album.artist;
         var hasThePrefix = /^The (.*)/.exec(artist);

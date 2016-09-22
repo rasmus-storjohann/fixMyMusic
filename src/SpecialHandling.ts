@@ -16,7 +16,7 @@ export class SpecialHandling
             }
         },
         "Beady Belle": {
-            fixAlbum: this.justReplaceSpaceWith_
+            fixArtist: this.justReplaceSpaceWith_
         }
     };
 
@@ -24,8 +24,9 @@ export class SpecialHandling
     {
         var artistHandlers = this.handlers[artist];
         var albumHandlers = artistHandlers && artistHandlers[albumTitle];
+
         return {
-            fixAlbum : artistHandlers && artistHandlers.fixAlbum,
+            fixArtist : artistHandlers && artistHandlers.fixArtist,
             validateTracks : albumHandlers && albumHandlers.validateTracks
         };
     }
