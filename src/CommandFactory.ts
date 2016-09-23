@@ -15,7 +15,8 @@ export class CommandFactory
 
     public create(albums: Album[]) : Command[]
     {
-        var result = [];
+        var result: Command[];
+        result = [];
         albums.forEach((album) => {
             result = result.concat(this.createCommandsForAlbum(album));
         });
@@ -36,7 +37,8 @@ export class CommandFactory
 
     private createCommandsForTracks(album: Album) : Command[]
     {
-        var result = [];
+        var result: Command[];
+        result = [];
         album.tracks.forEach((track) => {
             result.push({
                 command: "cp",

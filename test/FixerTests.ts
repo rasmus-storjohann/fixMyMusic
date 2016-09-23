@@ -5,6 +5,7 @@ import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
 import { SpecialHandling } from "../src/SpecialHandling";
+import { SpecialHandler } from "../src/SpecialHandler";
 
 var fixer: Fixer;
 var album: Album;
@@ -21,7 +22,7 @@ beforeEach(() => {
 
 describe("Fixer", () => {
     describe("artist names", () => {
-        var specialHandler = null;
+        var specialHandler: SpecialHandler;
         it("makes no changes to artist names with no spaces", () => {
             album.artist = "a_b_c";
             fixer.fix(album, specialHandler);
@@ -51,8 +52,8 @@ describe("Fixer", () => {
 
                 it("leaves the order unchanged", () => {
                     album.artist = "Beady Belle";
-                    var specialHandlers = new SpecialHandling().getSpecialHandlers("Beady Belle", "");
-                    fixer.fix(album, specialHandlers);
+                    specialHandler = new SpecialHandling().getSpecialHandlers("Beady Belle", "");
+                    fixer.fix(album, specialHandler);
                     chai.expect(album.artist).to.equal("Beady_Belle");
                 });
             });

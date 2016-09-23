@@ -1,5 +1,6 @@
 import { Album } from "./Album";
 import { SpecialHandling } from "./SpecialHandling";
+import { SpecialHandler } from "./SpecialHandler";
 
 export class Fixer
 {
@@ -10,7 +11,7 @@ export class Fixer
         this.specialHandling = new SpecialHandling();
     }
 
-    public fix(album: Album, specialHandlers) : void
+    public fix(album: Album, specialHandlers: SpecialHandler) : void
     {
         var specialFixArtist = specialHandlers && specialHandlers.fixArtist;
         var fixArtist = specialFixArtist || this.defaultFixArtist;

@@ -2,11 +2,6 @@
 
 import { Album, AlbumTrack } from "./Album";
 
-export interface SpecialHandler
-{
-    validateTracks?: (album: Album) => void;
-}
-
 export class SpecialHandling
 {
     private handlers = {

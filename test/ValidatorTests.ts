@@ -3,11 +3,12 @@
 import * as chai from "chai";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
-import { Album } from "../src/Album";
+import { Album, AlbumTrack } from "../src/Album";
 import { SpecialHandling } from "../src/SpecialHandling";
+import { SpecialHandler } from "../src/SpecialHandler";
 
 var _theValidator : Validator;
-var specialHandlers = null;
+var specialHandlers: SpecialHandler;
 beforeEach(() =>
 {
     _theValidator = new Validator();
@@ -44,7 +45,7 @@ describe("Validator", () => {
         return album;
     }
 
-    function createAlbumWithTrack(artistName: string, albumName: string, tracks) : Album
+    function createAlbumWithTrack(artistName: string, albumName: string, tracks: AlbumTrack[]) : Album
     {
         var album = new Album(artistName, albumName);
 
@@ -53,7 +54,7 @@ describe("Validator", () => {
                 path: track.path,
                 artist: artistName,
                 album: albumName,
-                title: track.trackName
+                title: track.title
             });
         });
 
@@ -118,11 +119,11 @@ describe("Validator", () => {
             describe("B minor mass", () => {
                 it("accepts tracks in the form x-y with x y digits", () => {
                     var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
-                                    trackName: "1-1 Kyrie eleison.mp3"
+                                    title: "1-1 Kyrie eleison.mp3"
                                   },
                                   {
                                     path:"music/JS Bach/BminorMass/1-2 Christe eleison.mp3",
-                                    trackName: "1-2 Christe eleison.mp3"
+                                    title: "1-2 Christe eleison.mp3"
                                   }];
                       var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
                       var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
@@ -130,11 +131,11 @@ describe("Validator", () => {
                 });
                 it("rejects missing track", () => {
                     var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
-                                    trackName: "1-1 Kyrie eleison.mp3"
+                                    title: "1-1 Kyrie eleison.mp3"
                                   },
                                   {
                                     path:"music/JS Bach/BminorMass/1-3 Christe eleison.mp3",
-                                    trackName: "1-3 Christe eleison.mp3"
+                                    title: "1-3 Christe eleison.mp3"
                                   }];
                     var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
                     var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");

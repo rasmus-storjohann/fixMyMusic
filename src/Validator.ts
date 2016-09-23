@@ -2,6 +2,7 @@
 
 import { Album, AlbumTrack } from "./Album";
 import { SpecialHandling } from "./SpecialHandling";
+import { SpecialHandler } from "./SpecialHandler";
 
 export class Validator
 {
@@ -12,7 +13,7 @@ export class Validator
         this.specialHandling = new SpecialHandling();
     }
 
-    public validate(album: Album, specialHandlers) : void
+    public validate(album: Album, specialHandlers: SpecialHandler) : void
     {
         var validateTracks = this.getValidateTracksFunction(specialHandlers);
         validateTracks(album);
@@ -21,7 +22,7 @@ export class Validator
         validateArtist(album);
     }
 
-    private getValidateTracksFunction(specialHandlers)
+    private getValidateTracksFunction(specialHandlers: SpecialHandler)
     {
         if (specialHandlers && specialHandlers.validateTracks)
         {

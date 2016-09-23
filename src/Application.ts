@@ -8,6 +8,7 @@ import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import { SpecialHandling } from "./SpecialHandling";
 import { Fixer } from "./Fixer";
+import { Logger } from "./Logger";
 import { Validator } from "./Validator";
 import { CommandFactory } from "./CommandFactory";
 import { CommandExecutor } from "./CommandExecutor";
@@ -25,7 +26,7 @@ export class Application
             logger.log(error);
         }
     }
-    constructor(logger)
+    constructor(logger: Logger)
     {
         this.logger = logger;
     }
@@ -67,5 +68,5 @@ export class Application
             new CommandExecutor().execute(commands);
         }
     }
-    private logger;
+    private logger: Logger;
 }

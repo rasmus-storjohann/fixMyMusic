@@ -4,7 +4,7 @@ import { Track } from "./Track";
 
 export class AlbumFactory
 {
-    private working : Object;
+    private working: { [key: string]: Album; };
 
     constructor()
     {
@@ -36,7 +36,9 @@ export class AlbumFactory
 
     private toAlbumArray() : Album[]
     {
-        var result = [];
+        var result: Album[];
+        result = [];
+        // TODO use filter
         for (var property in this.working) {
             if (this.working.hasOwnProperty(property)) {
                 // todo sort tracks within each album

@@ -4,11 +4,13 @@ import * as chai from "chai";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumFactory } from "../src/AlbumFactory";
-//import { Autofixture } from "ts-autofixture";
 
 describe("AlbumFactory", () => {
     var theFactory: AlbumFactory;
-    var aTrack, aTrackWithSameArtistAndAlbum, aTrackWithSameAlbum, aTrackWithSameArtist: Track;
+    var aTrack: Track;
+    var aTrackWithSameArtistAndAlbum: Track;
+    var aTrackWithSameAlbum: Track;
+    var aTrackWithSameArtist: Track;
     beforeEach(() => {
         theFactory = new AlbumFactory();
         aTrack = {
