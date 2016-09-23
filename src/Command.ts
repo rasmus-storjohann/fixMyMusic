@@ -6,6 +6,8 @@ export interface Command
     source?: string,
     target: string
     tags?: {
-        artist: string
+        artist: string,
+        album: string,
+        track: string
     };
 }

@@ -49,10 +49,22 @@ export class CommandFactory
                 command: "tag",
                 target: [this.outputDirectory, album.artist, album.title, track.title].join("/"),
                 tags: {
-                    artist: album.artist
+                    artist: album.artist,
+                    album: album.title,
+                    track: this.stripFileExtension(track.title)
                 }
             });
         });
         return result;
+    }
+
+    private stripFileExtension(name: string) : string
+    {
+        var index = name.indexOf(".mp3");
+        if (index !== -1)
+        {
+            return name.slice(0, index);
+        }
+        return name;
     }
 }

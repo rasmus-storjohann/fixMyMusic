@@ -42,11 +42,17 @@ describe("Command factory", () => {
         it("creates command tagging file", () => {
             chai.expect(commands[2].command).to.equal("tag");
         });
-        it("tag command with target", () => {
+        it("tags the output file", () => {
             chai.expect(commands[2].target).to.equal("out/aaaa/bbbb/01 cccc.mp3");
         });
-        it("tag command with target", () => {
+        it("tags with artist", () => {
             chai.expect(commands[2].tags.artist).to.equal("aaaa");
+        });
+        it("tags with album name", () => {
+            chai.expect(commands[2].tags.album).to.equal("bbbb");
+        });
+        it("tags with track name without file extension", () => {
+            chai.expect(commands[2].tags.track).to.equal("01 cccc");
         });
     });
     describe("handles multiple albums", () => {
