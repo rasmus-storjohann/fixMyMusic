@@ -14,15 +14,23 @@ export class Validator
 
     public validate(album: Album, specialHandlers) : void
     {
-        var specialvalidateTracks = specialHandlers && specialHandlers.validateTracks;
-        var validateTracks = specialvalidateTracks || this.defaultValidateTracks;
+        var validateTracks = this.getValidateTracksFunction(specialHandlers);
         validateTracks(album);
 
-        var validateAlbum = this.defaultValidateAlbum;
-        validateAlbum(album);
+        var validateArtist = this.defaultValidateArtist;
+        validateArtist(album);
     }
 
-    private defaultValidateAlbum(album: Album) : void
+    private getValidateTracksFunction(specialHandlers)
+    {
+        if (specialHandlers && specialHandlers.validateTracks)
+        {
+            return specialHandlers.validateTracks;
+        }
+        return this.defaultValidateTracks;
+    }
+
+    private defaultValidateArtist(album: Album) : void
     {
         if (album.artist.indexOf(" ") !== -1)
         {
