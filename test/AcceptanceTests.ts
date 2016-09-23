@@ -8,9 +8,9 @@ import { Application } from "../src/Application";
 var createInputDirectoryWithFiles = function(fileNames: string[])
 {
     shelljs.rm('-rf', "testOutput/source");
-    shelljs.mkdir('-p', "testOutput/source/Artist/Album");
+    shelljs.mkdir('-p', "testOutput/source/JS Bach/BminorMass");
     fileNames.forEach((fileName) => {
-        shelljs.cp("test.mp3", "testOutput/source/Artist/Album/" + fileName);
+        shelljs.cp("test.mp3", "testOutput/source/JS Bach/BminorMass/" + fileName);
     });
 }
 
@@ -31,8 +31,8 @@ describe("Acceptance tests", () => {
     });
 
     it("Copies file from source to destination", () => {
-        createInputDirectoryWithFiles(["01 Track.mp3"]);
+        createInputDirectoryWithFiles(["1-1 Kyrie eleison.mp3"]);
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
-        chai.expect(fileExists("testOutput/destination/Artist/Album/01 Track.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Bach_JS/BminorMass/1-1 Kyrie eleison.mp3")).is.true;
     });
 });

@@ -4,19 +4,19 @@ import { SpecialHandler } from "./SpecialHandler";
 
 export class Fixer
 {
-    private specialHandling: SpecialHandling;
-
-    constructor()
+    public fix(album: Album, specialHandler: SpecialHandler) : void
     {
-        this.specialHandling = new SpecialHandling();
+        var fixArtist = this.getFixArtistFunction(specialHandler);
+        fixArtist(album);
     }
 
-    public fix(album: Album, specialHandlers: SpecialHandler) : void
+    private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album) => void
     {
-        var specialFixArtist = specialHandlers && specialHandlers.fixArtist;
-        var fixArtist = specialFixArtist || this.defaultFixArtist;
-
-        fixArtist(album);
+        if (specialHandler && specialHandler.fixArtist)
+        {
+            return specialHandler.fixArtist;
+        }
+        return this.defaultFixArtist;
     }
 
     private defaultFixArtist(album: Album): void

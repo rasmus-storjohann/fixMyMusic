@@ -6,27 +6,20 @@ import { SpecialHandler } from "./SpecialHandler";
 
 export class Validator
 {
-    private specialHandling: SpecialHandling;
-
-    constructor()
+    public validate(album: Album, specialHandler: SpecialHandler) : void
     {
-        this.specialHandling = new SpecialHandling();
-    }
-
-    public validate(album: Album, specialHandlers: SpecialHandler) : void
-    {
-        var validateTracks = this.getValidateTracksFunction(specialHandlers);
+        var validateTracks = this.getValidateTracksFunction(specialHandler);
         validateTracks(album);
 
         var validateArtist = this.defaultValidateArtist;
         validateArtist(album);
     }
 
-    private getValidateTracksFunction(specialHandlers: SpecialHandler)
+    private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album) => void
     {
-        if (specialHandlers && specialHandlers.validateTracks)
+        if (specialHandler && specialHandler.validateTracks)
         {
-            return specialHandlers.validateTracks;
+            return specialHandler.validateTracks;
         }
         return this.defaultValidateTracks;
     }

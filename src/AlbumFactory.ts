@@ -14,19 +14,20 @@ export class AlbumFactory
     public create(tracks: Track[]) : Album[]
     {
         tracks.forEach((track) => {
-            this.pushToWorking(track);
+            var album = this.createAlbumIfNeeded(track);
+            album.push(track);
         });
-        return this.toAlbumArray();
+        return this.buildAlbums();
     }
 
-    private pushToWorking(track: Track)
+    private createAlbumIfNeeded(track: Track) : Album
     {
         var key = this.computeKey(track);
         if (!this.working[key])
         {
             this.working[key] = new Album(track.artist, track.album);
         }
-        this.working[key].push(track);
+        return this.working[key];
     }
 
     private computeKey(track: Track) : string
@@ -34,15 +35,14 @@ export class AlbumFactory
         return track.artist + "->" + track.album;
     }
 
-    private toAlbumArray() : Album[]
+    private buildAlbums() : Album[]
     {
         var result: Album[];
         result = [];
-        // TODO use filter
-        for (var property in this.working) {
-            if (this.working.hasOwnProperty(property)) {
+        for (var albumKey in this.working) {
+            if (this.working.hasOwnProperty(albumKey)) {
                 // todo sort tracks within each album
-                result.push(this.working[property]);
+                result.push(this.working[albumKey]);
             }
         }
         return result;
