@@ -1,5 +1,5 @@
 /// <reference path = "../typings/auto.d.ts" />
-import { Album } from "./Album";
+import { Album, AlbumTrack } from "./Album";
 import { Track } from "./Track";
 
 export class AlbumFactory
@@ -41,10 +41,28 @@ export class AlbumFactory
         result = [];
         for (var albumKey in this.working) {
             if (this.working.hasOwnProperty(albumKey)) {
-                // todo sort tracks within each album
-                result.push(this.working[albumKey]);
+                var album = this.working[albumKey];
+
+                this.sortTracks(album);
+
+                result.push(album);
             }
         }
         return result;
+    }
+
+    private sortTracks(album:Album): void
+    {
+        album.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
+            if (first.title < second.title)
+            {
+                return -1;
+            }
+            if (first.title > second.title)
+            {
+                return 1;
+            }
+            return 0;
+        });
     }
 }

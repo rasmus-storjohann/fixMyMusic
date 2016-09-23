@@ -44,19 +44,19 @@ describe("AlbumFactory", () => {
         chai.expect(albums).to.have.lengthOf(1);
     });
 
-    it("Album takes the title from the track added", () => {
+    it("Sets the album title to the title from the first track added", () => {
         var albums = theFactory.create([aTrack]);
         var album = albums[0];
         chai.expect(album.title).to.equal(aTrack.album);
     });
 
-    it("Album takes the artist from the track added", () => {
+    it("Sets the album artist to the artist from the first track added", () => {
         var albums = theFactory.create([aTrack]);
         var album = albums[0];
         chai.expect(album.artist).to.equal(aTrack.artist);
     });
 
-    it("Tracks with the same artist and album name are added to the same album", () => {
+    it("Add tracks with the same artist and album title name to the same album", () => {
         var albums = theFactory.create([aTrack, aTrackWithSameArtistAndAlbum]);
         chai.expect(albums).to.have.lengthOf(1);
         chai.expect(albums[0].tracks).to.have.lengthOf(2);
@@ -64,7 +64,23 @@ describe("AlbumFactory", () => {
         chai.expect(albums[0].tracks[1].title).to.equal(aTrackWithSameArtistAndAlbum.title);
     });
 
-    it("Tracks with different artist are added to different albums", () => {
+    it("Sorts the tracks by track title", () => {
+        var firstTrackTitle = "01 aaaa.mp3";
+        var secondTrackTitle = "02 aaaa.mp3";
+
+        aTrack.title = firstTrackTitle;
+        aTrackWithSameArtistAndAlbum.title = secondTrackTitle;
+        var tracksOutOfOrder = [aTrackWithSameArtistAndAlbum, aTrack];
+
+        var albums = theFactory.create(tracksOutOfOrder);
+
+        chai.expect(albums).to.have.lengthOf(1);
+        chai.expect(albums[0].tracks).to.have.lengthOf(2);
+        chai.expect(albums[0].tracks[0].title).to.equal(firstTrackTitle);
+        chai.expect(albums[0].tracks[1].title).to.equal(secondTrackTitle);
+    });
+
+    it("Adds tracks with different artist to different albums", () => {
         var albums = theFactory.create([aTrack, aTrackWithSameAlbum]);
         chai.expect(albums).to.have.lengthOf(2);
         chai.expect(albums[0].tracks).to.have.lengthOf(1);
@@ -73,7 +89,7 @@ describe("AlbumFactory", () => {
         chai.expect(albums[1].tracks[0].title).to.equal(aTrackWithSameAlbum.title);
     });
 
-    it("Tracks with different album titles are added to different albums", () => {
+    it("Adds tracks with different album titles to different albums", () => {
         var albums = theFactory.create([aTrack, aTrackWithSameArtist]);
         chai.expect(albums).to.have.lengthOf(2);
         chai.expect(albums[0].tracks).to.have.lengthOf(1);
