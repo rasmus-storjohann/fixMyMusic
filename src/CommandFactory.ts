@@ -45,6 +45,13 @@ export class CommandFactory
                 source: track.path,
                 target: [this.outputDirectory, album.artist, album.title, track.title].join("/")
             });
+            result.push({
+                command: "tag",
+                target: [this.outputDirectory, album.artist, album.title, track.title].join("/"),
+                tags: {
+                    artist: album.artist
+                }
+            });
         });
         return result;
     }
