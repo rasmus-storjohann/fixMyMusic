@@ -35,6 +35,7 @@ export class Validator
     private defaultValidateTracks(album: Album) : void
     {
         var index = 1;
+        var numberPrefixLength: number;
         album.tracks.forEach((track) => {
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
@@ -42,7 +43,13 @@ export class Validator
             {
                 throw new Error(id + ": Could not assign a track number");
             }
-            var trackNumber = parseInt(trackNumberAsString[1]);
+            var numberPrefix = trackNumberAsString[1];
+            if (numberPrefixLength && numberPrefix.length !== numberPrefixLength)
+            {
+                throw new Error(id + ": Inconsistent numbering format");
+            }
+            numberPrefixLength = numberPrefix.length;
+            var trackNumber = parseInt(numberPrefix);
             if (trackNumber != index)
             {
                 throw new Error(id + ": Track number out of order, expected " + index);

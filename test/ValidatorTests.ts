@@ -103,6 +103,16 @@ describe("Validator", () => {
                 _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Track number out of order/);
         });
+
+        it("throws on inconsistent length of numeric prefix to track names", () => {
+
+            musicTrack[0].title = "1 dddd";
+            musicTrack[1].title = "02 eeee";
+
+            chai.expect(() => {
+                _theValidator.validate(createAlbum(), specialHandlers);
+            }).to.throw(Error, /Inconsistent numbering format/);
+        });
     });
     describe("on albums", () => {
         it("throws on space in artist", () => {
