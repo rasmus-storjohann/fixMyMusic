@@ -1,6 +1,5 @@
-import { Album } from "./Album";
-import { SpecialHandling } from "./SpecialHandling";
-import { SpecialHandler } from "./SpecialHandler";
+import { Album, AlbumTrack } from "./Album";
+import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
 
 export class Fixer
 {
@@ -8,6 +7,14 @@ export class Fixer
     {
         var fixArtist = this.getFixArtistFunction(specialHandler);
         fixArtist(album);
+
+        var fixTrack = this.getFixTrackFunction(specialHandler);
+        if (fixTrack)
+        {
+            album.tracks.forEach((track) => {
+                fixTrack(track);
+            });
+        }
     }
 
     private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album) => void
@@ -33,5 +40,10 @@ export class Fixer
             artist = hasTwoNames[2] + "_" + hasTwoNames[1];
         }
         album.artist = artist;
+    }
+
+    private getFixTrackFunction(specialHandler: SpecialHandler) : (track: AlbumTrack) => void
+    {
+        return specialHandler && specialHandler.fixTrack;
     }
 }

@@ -1,8 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Album, AlbumTrack } from "./Album";
-import { SpecialHandling } from "./SpecialHandling";
-import { SpecialHandler } from "./SpecialHandler";
+import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
 
 export class Validator
 {

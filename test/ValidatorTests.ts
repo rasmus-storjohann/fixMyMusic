@@ -4,8 +4,7 @@ import * as chai from "chai";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album, AlbumTrack } from "../src/Album";
-import { SpecialHandling } from "../src/SpecialHandling";
-import { SpecialHandler } from "../src/SpecialHandler";
+import { SpecialHandling, SpecialHandler } from "../src/SpecialHandling";
 
 var _theValidator : Validator;
 var specialHandlers: SpecialHandler;

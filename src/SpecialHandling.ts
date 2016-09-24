@@ -2,6 +2,13 @@
 
 import { Album, AlbumTrack } from "./Album";
 
+export interface SpecialHandler
+{
+    validateTracks: (album: Album) => void;
+    fixArtist: (album: Album) => void;
+    fixTrack: (track: AlbumTrack) => void;
+}
+
 export class SpecialHandling
 {
     private handlers = {
@@ -11,7 +18,22 @@ export class SpecialHandling
             }
         },
         "Beady Belle": {
-            fixArtist: this.justReplaceSpaceWith_
+            fixArtist: this.keepArtistNameInCurrentOrder
+        },
+        "Beethoven": {
+            "Eroica Variations E# op.35 [Gilels]": {
+                fixTrack: function(track: AlbumTrack): void
+                {
+                    var match = /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/.exec(track.title);
+                    if (!match) {
+                        throw new Error("");
+                    }
+                    var trackNumber = parseInt(match[1]);
+                    trackNumber = trackNumber - 8;
+                    var numberAsString = ("0" + trackNumber).substr(-2);
+                    track.title = numberAsString + " " + match[2];
+                }
+            }
         }
     };
 
@@ -22,11 +44,12 @@ export class SpecialHandling
 
         return {
             fixArtist : artistHandlers && artistHandlers.fixArtist,
+            fixTrack: albumHandlers && albumHandlers.fixTrack,
             validateTracks : albumHandlers && albumHandlers.validateTracks
         };
     }
 
-    private justReplaceSpaceWith_(album: Album)
+    private keepArtistNameInCurrentOrder(album: Album)
     {
         album.artist = album.artist.replace(/ /g, '_');
     }
