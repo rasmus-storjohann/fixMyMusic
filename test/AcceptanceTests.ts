@@ -35,4 +35,19 @@ describe("Acceptance tests", () => {
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
         chai.expect(fileExists("testOutput/destination/Bach_JS/BminorMass/1-1 Kyrie eleison.mp3")).is.true;
     });
+
+    describe("Sets mp3 tags", () => {
+        createInputDirectoryWithFiles(["1-1 Kyrie eleison.mp3"]);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
+
+        var mp3infoCommand = [ "mp3info",
+                               "\"testOutput/destination/Bach_JS/BminorMass/1-1\ Kyrie\ eleison.mp3\"",
+                               "-p \"artist='%a' album='%l' track='%t'\n\""
+        ].join(" ");
+
+        shelljs.exec(mp3infoCommand, function(code, stdout, stderr) {
+            var expected = "artist='Bach_JS' album='BminorMass' track='1-1 Kyrie eleison'\n";
+            chai.expect(stdout).to.equal(expected);
+        });
+    });
 });
