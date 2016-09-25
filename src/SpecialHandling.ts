@@ -26,6 +26,16 @@ export class SpecialHandling
                     firstTrackNumber: 9,
                     nameFilter: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
                 })
+            },
+            "Coronation Mass": {
+                fixTrack: this.buildFixTrack({
+                    firstTrackNumber: 6
+                })
+            },
+            "Quintet Eb Op16 [Richter]" : {
+                fixTrack: this.buildFixTrack({
+                    nameFilter: /\d+ Quintet in E flat, Op. 16 - (\d+)\. (.*).mp3/
+                })
             }
         }
     };
@@ -35,7 +45,6 @@ export class SpecialHandling
         var fixers = [];
 
         if (specification.nameFilter) {
-
             var fixTrackName = function(track: AlbumTrack) {
                 var match = specification.nameFilter.exec(track.title);
                 if (!match) {

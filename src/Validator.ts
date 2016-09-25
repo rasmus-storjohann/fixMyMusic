@@ -27,7 +27,7 @@ export class Validator
     {
         if (album.artist.indexOf(" ") !== -1)
         {
-            throw new Error(album.artist + ": Artist contains a space");
+            throw new Error(album.tracks[0].path + ": Artist contains a space: \"" + album.artist + "\"");
         }
     }
 
@@ -40,12 +40,12 @@ export class Validator
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)
             {
-                throw new Error(id + ": Could not assign a track number");
+                throw new Error(album.tracks[0].path + ": Could not assign a track number");
             }
             var numberPrefix = trackNumberAsString[1];
             if (numberPrefixLength && numberPrefix.length !== numberPrefixLength)
             {
-                throw new Error(id + ": Inconsistent numbering format");
+                throw new Error(album.tracks[0].path + ": Inconsistent numbering format");
             }
             numberPrefixLength = numberPrefix.length;
             var trackNumber = parseInt(numberPrefix);
