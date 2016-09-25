@@ -22,20 +22,54 @@ export class SpecialHandling
         },
         "Beethoven": {
             "Eroica Variations E# op.35 [Gilels]": {
-                fixTrack: function(track: AlbumTrack): void
-                {
-                    var match = /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/.exec(track.title);
-                    if (!match) {
-                        throw new Error("");
-                    }
-                    var trackNumber = parseInt(match[1]);
-                    trackNumber = trackNumber - 8;
-                    var numberAsString = ("0" + trackNumber).substr(-2);
-                    track.title = numberAsString + " " + match[2];
-                }
+                fixTrack: this.buildFixTrack({
+                    firstTrackNumber: 9,
+                    nameFilter: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
+                })
             }
         }
     };
+
+    private buildFixTrack(specification)
+    {
+        var fixers = [];
+
+        if (specification.nameFilter) {
+
+            var fixTrackName = function(track: AlbumTrack) {
+                var match = specification.nameFilter.exec(track.title);
+                if (!match) {
+                    throw new Error(track.title + ": Track name does not match fixer for nameFilter");
+                }
+                track.title = match[1] + " " + match[2];
+            };
+
+            fixers.push(fixTrackName);
+        }
+
+        if (specification.firstTrackNumber) {
+            var fixTrackNumber = function(track: AlbumTrack) {
+                var match = /^(\d+)(.*)$/.exec(track.title);
+                if (!match) {
+                    throw new Error(track.title + ": Track name does not have expected number prefix");
+                }
+                var trackNumber = parseInt(match[1]);
+                trackNumber = trackNumber + 1 - specification.firstTrackNumber;
+                var numberAsString = ("0" + trackNumber).substr(-2);
+                track.title = numberAsString + match[2];
+            };
+
+            fixers.push(fixTrackNumber);
+        }
+
+        var applyAllFixers = function(track: AlbumTrack) {
+            fixers.forEach((fixer) => {
+                fixer(track);
+            });
+        }
+
+        return applyAllFixers;
+    }
 
     public getSpecialHandlers(artist: string, albumTitle: string)
     {

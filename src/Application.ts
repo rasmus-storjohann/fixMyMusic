@@ -58,6 +58,7 @@ export class Application
             var specialHandlers = specialHandling.getSpecialHandlers(album.artist, album.title);
             fixer.fix(album, specialHandlers);
             validator.validate(album, specialHandlers);
+            console.log("OK " + album.artist + ": " + album.title);
         });
 
         var commands = new CommandFactory(toDir).create(albums);
