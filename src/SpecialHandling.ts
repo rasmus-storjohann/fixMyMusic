@@ -14,22 +14,16 @@ export class SpecialHandling
     private handlers = {
         "Albeniz" : {
             "Six pieces" : {
-                fixTrack: this.buildFixTrack({
-                    firstTrackNumber: 6
-                })
+                firstTrackNumber: 6
             },
             "Suite Espanola" : {
-                fixTrack: this.buildFixTrack({
-                    firstTrackNumber: 2,
-                    nameFilter: /(\d+) Albeniz - Suite Espanola Opus 47 - (.*).mp3/
-                })
+                firstTrackNumber: 2,
+                nameFilter: /(\d+) Albeniz - Suite Espanola Opus 47 - (.*).mp3/
             }
         },
         "Alkan": {
             "Sonatine, Op. 61": {
-                fixTrack: this.buildFixTrack({
-                    nameFilter: /^\d+ Sonatine, Op. 61 (\d+)\. (.*).mp3$/
-                })
+                nameFilter: /^\d+ Sonatine, Op. 61 (\d+)\. (.*).mp3$/
             }
         },
         "JS Bach": {
@@ -42,32 +36,22 @@ export class SpecialHandling
         },
         "Beethoven": {
             "Eroica Variations E# op.35 [Gilels]": {
-                fixTrack: this.buildFixTrack({
-                    firstTrackNumber: 9,
-                    nameFilter: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
-                })
+                firstTrackNumber: 9,
+                nameFilter: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
             },
             "Mass in C Major" : {
-                fixTrack: this.buildFixTrack({
-                    nameFilter: /(\d+) Mass in C Major - (.*).mp3/
-                })
+                nameFilter: /(\d+) Mass in C Major - (.*).mp3/
             },
             "Quintet Eb Op16 [Richter]" : {
-                fixTrack: this.buildFixTrack({
-                    nameFilter: /\d+ Quintet in E flat, Op. 16 - (\d+)\. (.*).mp3/
-                })
+                nameFilter: /\d+ Quintet in E flat, Op. 16 - (\d+)\. (.*).mp3/
             },
             "ViolinSon 9 Kreutzer" : {
-                fixTrack: this.buildFixTrack({
-                    firstTrackNumber: 5,
-                    nameFilter: /^(\d+) Violinsonate No.9 A-dur op. 47 'Kreutzer' - (.*).mp3$/
-                })
+                firstTrackNumber: 5,
+                nameFilter: /^(\d+) Violinsonate No.9 A-dur op. 47 'Kreutzer' - (.*).mp3$/
             },
             "ViolinSon 10" : {
-                fixTrack: this.buildFixTrack({
-                    firstTrackNumber: 8,
-                    nameFilter: /^(\d+) Violinsonate No.10 G-dur op. 96 - (.*).mp3$/
-                })
+                firstTrackNumber: 8,
+                nameFilter: /^(\d+) Violinsonate No.10 G-dur op. 96 - (.*).mp3$/
             }
         },
         "Mozart" : {
@@ -84,7 +68,7 @@ export class SpecialHandling
     {
         var fixers = [];
 
-        if (specification.nameFilter) {
+        if (specification && specification.nameFilter) {
             var fixTrackName = function(track: AlbumTrack) {
                 var match = specification.nameFilter.exec(track.title);
                 if (!match) {
@@ -96,7 +80,7 @@ export class SpecialHandling
             fixers.push(fixTrackName);
         }
 
-        if (specification.firstTrackNumber) {
+        if (specification && specification.firstTrackNumber) {
             var fixTrackNumber = function(track: AlbumTrack) {
                 var match = /^(\d+)(.*)$/.exec(track.title);
                 if (!match) {
@@ -127,7 +111,7 @@ export class SpecialHandling
 
         return {
             fixArtist : artistHandlers && artistHandlers.fixArtist,
-            fixTrack: albumHandlers && albumHandlers.fixTrack,
+            fixTrack: this.buildFixTrack(albumHandlers),
             validateTracks : albumHandlers && albumHandlers.validateTracks
         };
     }
