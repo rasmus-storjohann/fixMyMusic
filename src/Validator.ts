@@ -40,7 +40,7 @@ export class Validator
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)
             {
-                throw new Error(album.tracks[0].path + ": Could not assign a track number");
+                throw new Error(album.tracks[0].path + ": Failed validation, could not assign a track number");
             }
             var numberPrefix = trackNumberAsString[1];
             if (numberPrefixLength && numberPrefix.length !== numberPrefixLength)
@@ -51,7 +51,7 @@ export class Validator
             var trackNumber = parseInt(numberPrefix);
             if (trackNumber != index)
             {
-                throw new Error(id + ": Track number out of order, expected " + index);
+                throw new Error(id + ": Track number out of order, expected " + index + " but got " + trackNumber);
             }
             index++;
         });

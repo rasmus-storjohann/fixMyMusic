@@ -16,6 +16,14 @@ export class SpecialHandling
             "Nixon1" : {
                 fixTrackName: /Disc 1 - (\d+) - Act I Scene \d_ (.*).mp3/,
                 fixNumberPrefixLength: 2
+            },
+            "Nixon2" : {
+                fixTrackName: /Disc 2 - (\d+) - Act II Scene \d_ (.*).mp3/,
+                fixNumberPrefixLength: 2
+            },
+            "Nixon3" : {
+                fixTrackName: /Disc 3 - (\d+) - Act III Scene \d_ (.*).mp3/,
+                fixNumberPrefixLength: 2
             }
         },
         "Albeniz" : {
@@ -32,9 +40,47 @@ export class SpecialHandling
                 fixTrackName: /^\d+ Sonatine, Op. 61 (\d+)\. (.*).mp3$/
             }
         },
-        "JS Bach": {
+        "Bach JS": {
             "BminorMass" : {
                 validateTracks: this.validateTracksWithSubIndeces
+            },
+            "Brandenburg 1 [Pinnock]" : {
+                fixTrackName: /Disc 1 - (\d+) - Concerto No\. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 2 [Pinnock]" : {
+                firstTrackNumber: 5,
+                fixTrackName: /Disc 1 - (\d+) - Concerto No\. 2 in F major, BWV 1047_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 3 [Karajan]" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Brandenburg Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 3 [Pinnock]" : {
+                firstTrackNumber: 8,
+                fixTrackName: /Disc 1 - (\d+) - Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 4 [Karajan]" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Brandenburg Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 4 [Pinnock]" : {
+                firstTrackNumber: 11,
+                fixTrackName: /Disc 1 - (\d+) - Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 5 [Karajan]" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Concerto No. 5 in D Major_ l+\. (.*).mp3/
+            },
+            "Brandenburg 5 [Pinnock]" : {
+                fixTrackName: /Disc 2 - (\d+) - Concerto No. 5, BWV 1050_ [IV]+\. (.*).mp3/
+            },
+            "Brandenburg 6 [Karajan]" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Concerto No. 6 in B Flat Major_ l+\. (.*).mp3/
+            },
+            "Brandenburg 6 [Pinnock]" : {
+                firstTrackNumber: 4,
+                fixTrackName: /Disc 2 - (\d+) - Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
             }
         },
         "Beady Belle": {
