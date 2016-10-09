@@ -14,6 +14,7 @@ export class AlbumFactory
     public create(tracks: Track[]) : Album[]
     {
         tracks.forEach((track) => {
+            // lazy getters are bad
             var album = this.createAlbumIfNeeded(track);
             album.push(track);
         });

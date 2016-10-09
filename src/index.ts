@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 
 import { Application } from "../src/Application";
 import * as process from "process";

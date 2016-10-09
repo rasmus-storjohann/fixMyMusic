@@ -37,6 +37,7 @@ export class CommandFactory
 
     private createCommandsForTracks(album: Album) : Command[]
     {
+        // TODO var result = new Command[], no?
         var result: Command[];
         result = [];
         album.tracks.forEach((track) => {
