@@ -14,6 +14,32 @@ describe("Album", () => {
             var album = new Album("", "title");
             chai.expect(album.title).to.equal("title");
         });
+
+        it("Sorts the tracks by track title", () => {
+            var album = new Album("artist", "album");
+
+            var firstTrackTitle = "01 aaaa.mp3";
+            var secondTrackTitle = "02 aaaa.mp3";
+
+            album.push({
+                path: "",
+                artist: "artist",
+                album: "album",
+                title: secondTrackTitle
+            });
+            album.push({
+                path: "",
+                artist: "artist",
+                album: "album",
+                title: firstTrackTitle
+            });
+
+            album.sortTracks();
+
+            chai.expect(album.tracks).to.have.lengthOf(2);
+            chai.expect(album.tracks[0].title).to.equal(firstTrackTitle);
+            chai.expect(album.tracks[1].title).to.equal(secondTrackTitle);
+        });
     });
     describe("adding elements", () => {
         it("can add element with matching artist and title", () => {

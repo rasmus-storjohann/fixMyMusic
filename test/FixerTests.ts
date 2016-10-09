@@ -47,6 +47,14 @@ describe("Fixer", () => {
         });
 
         describe("special case handling", () => {
+            describe("John Adams", () => {
+                it("Converts one digit track number to two digit", () => {
+                    album.tracks[0].title = "Disc 1 - 3 - Act I Scene 1_ The people are the heroes now (Chorus).mp3";
+                    specialHandler = new SpecialHandling().getSpecialHandlers("Adams_John", "Nixon1");
+                    fixer.fix(album, specialHandler);
+                    chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
+                });
+            });
             it("Doesn't switch the name Beady Belle", () => {
                 album.artist = "Beady Belle";
                 specialHandler = new SpecialHandling().getSpecialHandlers("Beady Belle", "");

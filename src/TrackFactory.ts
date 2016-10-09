@@ -5,8 +5,7 @@ export class TrackFactory
 {
     public create(paths: string[]) : Track[]
     {
-        var result: Track[];
-        result = [];
+        var result = new Array<Track>();
         paths.forEach((path) => {
             result.push(this.createTrack(path));
         });

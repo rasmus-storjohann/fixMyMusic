@@ -32,6 +32,21 @@ export class Album
         });
     }
 
+    public sortTracks(): void
+    {
+        this.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
+            if (first.title < second.title)
+            {
+                return -1;
+            }
+            if (first.title > second.title)
+            {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
     artist: string;
     title: string;
     tracks: AlbumTrack[];

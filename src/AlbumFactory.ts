@@ -43,27 +43,9 @@ export class AlbumFactory
         for (var albumKey in this.working) {
             if (this.working.hasOwnProperty(albumKey)) {
                 var album = this.working[albumKey];
-
-                this.sortTracks(album);
-
                 result.push(album);
             }
         }
         return result;
-    }
-
-    private sortTracks(album:Album): void
-    {
-        album.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
-            if (first.title < second.title)
-            {
-                return -1;
-            }
-            if (first.title > second.title)
-            {
-                return 1;
-            }
-            return 0;
-        });
     }
 }

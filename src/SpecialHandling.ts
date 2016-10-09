@@ -14,7 +14,8 @@ export class SpecialHandling
     private handlers = {
         "Adams_John" : {
             "Nixon1" : {
-                fixTrackName: /Disc 1 - (\d+) - Act I Scene \d_ (.*).mp3/
+                fixTrackName: /Disc 1 - (\d+) - Act I Scene \d_ (.*).mp3/,
+                fixNumberPrefixLength: 2
             }
         },
         "Albeniz" : {
@@ -99,6 +100,25 @@ export class SpecialHandling
                 var trackNumber = parseInt(match[1]);
                 trackNumber = trackNumber + 1 - specification.firstTrackNumber;
                 var numberAsString = ("0" + trackNumber).substr(-2);
+                track.title = numberAsString + match[2];
+            };
+
+            fixers.push(fixTrackNumber);
+        }
+
+        if (specification && specification.fixNumberPrefixLength) {
+            var fixTrackNumber = function(track: AlbumTrack) {
+                var match = /^(\d+)(.*)$/.exec(track.title);
+                if (!match) {
+                    throw new Error(track.title + ": Track name does not have expected number prefix");
+                }
+                var numberAsString = match[1];
+                if (numberAsString.length > specification.fixNumberPrefixLength) {
+                    throw new Error(track.title + ": Track number is too long for the fix number prefix argument");
+                }
+                while (numberAsString.length < specification.fixNumberPrefixLength) {
+                    numberAsString = "0" + numberAsString;
+                }
                 track.title = numberAsString + match[2];
             };
 

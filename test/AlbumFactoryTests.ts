@@ -64,22 +64,6 @@ describe("AlbumFactory", () => {
         chai.expect(albums[0].tracks[1].title).to.equal(aTrackWithSameArtistAndAlbum.title);
     });
 
-    it("Sorts the tracks by track title", () => {
-        var firstTrackTitle = "01 aaaa.mp3";
-        var secondTrackTitle = "02 aaaa.mp3";
-
-        aTrack.title = firstTrackTitle;
-        aTrackWithSameArtistAndAlbum.title = secondTrackTitle;
-        var tracksOutOfOrder = [aTrackWithSameArtistAndAlbum, aTrack];
-
-        var albums = theFactory.create(tracksOutOfOrder);
-
-        chai.expect(albums).to.have.lengthOf(1);
-        chai.expect(albums[0].tracks).to.have.lengthOf(2);
-        chai.expect(albums[0].tracks[0].title).to.equal(firstTrackTitle);
-        chai.expect(albums[0].tracks[1].title).to.equal(secondTrackTitle);
-    });
-
     it("Adds tracks with different artist to different albums", () => {
         var albums = theFactory.create([aTrack, aTrackWithSameAlbum]);
         chai.expect(albums).to.have.lengthOf(2);
