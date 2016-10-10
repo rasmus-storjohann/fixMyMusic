@@ -15,6 +15,21 @@ export class TrackFactory
     {
         var elements = path.split("/");
         var count = elements.length;
+        var containsDiskId = /disk(\d+)/.exec(elements[count - 2]);
+        if (containsDiskId)
+        {
+            if (count < 4)
+            {
+                throw new Error(path + ": Invalid path to music file");
+            }
+            return {
+                path: path,
+                artist: elements[count - 4],
+                album: elements[count - 3],
+                title: elements[count - 1],
+                disk: parseInt(containsDiskId[1])
+            };
+        }
         if (count < 3)
         {
             throw new Error(path + ": Invalid path to music file");
