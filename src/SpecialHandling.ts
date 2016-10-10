@@ -81,6 +81,30 @@ export class SpecialHandling
             "Brandenburg 6 [Pinnock]" : {
                 firstTrackNumber: 4,
                 fixTrackName: /Disc 2 - (\d+) - Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
+            },
+            "Cantata BWV 51 Jauchzet" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Cantata, BWV 51 - \d+\. (.*).mp3/
+            },
+            "Cantata Ein feste Burg" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Cantata No. 80_ [IV]+\. (.*).mp3/
+            },
+            "Cantata Jesu meine Freunde BWV 227 " : {
+                firstTrackNumber: 11,
+                fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227_ [IVX]+\.(.*).mp3/
+            },
+            "Conc2Violins[Stern] BWV1043" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043_ [IV]+. (.*).mp3/
+            },
+            "ConcOboeViolin[Stern] BWV 1060" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060_ [IV]+. (.*).mp3/
+            },
+            "Opfer" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
             }
         },
         "Beady Belle": {

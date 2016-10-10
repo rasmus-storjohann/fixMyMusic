@@ -51,7 +51,13 @@ export class Validator
             var trackNumber = parseInt(numberPrefix);
             if (trackNumber != index)
             {
-                throw new Error(id + ": Track number out of order, expected " + index + " but got " + trackNumber);
+                var suggestedSpecialHandler = "\"" + album.artist + "\" : {\n" +
+                                              "    \"" + album.title + "\" : {\n" +
+                                              "        fixTrackName: /" + track.title + "/\n" +
+                                              "    }\n" +
+                                              "}";
+                throw new Error(id + ": Track number out of order, expected " + index + " but got " + trackNumber +
+                                                "\nTemplate for special handler:\n" + suggestedSpecialHandler);
             }
             index++;
         });

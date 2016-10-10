@@ -70,7 +70,7 @@ describe("Validator", () => {
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), specialHandlers);
-            }).to.throw(Error, /Could not assign a track number/);
+            }).to.throw(Error, /Failed validation, could not assign a track number/);
         });
 
         it("throws on tracks out of order", () => {
@@ -134,7 +134,7 @@ describe("Validator", () => {
                                     path:"music/JS Bach/BminorMass/1-2 Christe eleison.mp3",
                                     title: "1-2 Christe eleison.mp3"
                                   }];
-                      var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
+                      var album = createAlbumWithTrack("Bach_JS", "BminorMass", tracks);
                       var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
                       _theValidator.validate(album, specialHandlers);
                 });
