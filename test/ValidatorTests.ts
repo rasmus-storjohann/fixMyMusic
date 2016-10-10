@@ -124,35 +124,5 @@ describe("Validator", () => {
     });
 
     describe("special case handling", () => {
-        describe("Bach", () => {
-            describe("B minor mass", () => {
-                it("accepts tracks in the form x-y with x y digits", () => {
-                    var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
-                                    title: "1-1 Kyrie eleison.mp3"
-                                  },
-                                  {
-                                    path:"music/JS Bach/BminorMass/1-2 Christe eleison.mp3",
-                                    title: "1-2 Christe eleison.mp3"
-                                  }];
-                      var album = createAlbumWithTrack("Bach_JS", "BminorMass", tracks);
-                      var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
-                      _theValidator.validate(album, specialHandlers);
-                });
-                it("rejects missing track", () => {
-                    var tracks = [{ path:"music/JS Bach/BminorMass/1-1 Kyrie eleison.mp3",
-                                    title: "1-1 Kyrie eleison.mp3"
-                                  },
-                                  {
-                                    path:"music/JS Bach/BminorMass/1-3 Christe eleison.mp3",
-                                    title: "1-3 Christe eleison.mp3"
-                                  }];
-                    var album = createAlbumWithTrack("JS_Bach", "BminorMass", tracks);
-                    var specialHandlers = new SpecialHandling().getSpecialHandlers("JS Bach", "BminorMass");
-                    chai.expect(() => {
-                        _theValidator.validate(album, specialHandlers);
-                    }).to.throw(Error, /Track number out of order/);
-                });
-            });
-        });
     });
 });
