@@ -4,7 +4,8 @@ import { Track } from "./Track";
 export interface AlbumTrack
 {
     path: string,
-    title: string
+    title: string,
+    disk?: number
 }
 
 export class Album
@@ -28,13 +29,29 @@ export class Album
         }
         this.tracks.push({
             path: file.path,
-            title: file.title
+            title: file.title,
+            disk: file.disk
         });
     }
 
     public sortTracks(): void
     {
         this.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
+            if (first.disk)
+            {
+                if (!second.disk)
+                {
+                    throw new Error("Album contains tracks with and without disk number");
+                }
+                if (first.disk < second.disk)
+                {
+                    return -1;
+                }
+                if (first.disk > second.disk)
+                {
+                    return 1;
+                }
+            }
             if (first.title < second.title)
             {
                 return -1;
