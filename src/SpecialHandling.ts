@@ -144,9 +144,15 @@ export class SpecialHandling
 
     private buildFixTrack(specification)
     {
+        if (!specification)
+        {
+            return function(track: AlbumTrack) {
+            }
+        }
+
         var fixers = [];
 
-        if (specification && specification.fixTrackName) {
+        if (specification.fixTrackName) {
             var fixTrackName = function(track: AlbumTrack) {
                 var match = specification.fixTrackName.exec(track.title);
                 if (!match) {
@@ -158,7 +164,7 @@ export class SpecialHandling
             fixers.push(fixTrackName);
         }
 
-        if (specification && specification.firstTrackNumber) {
+        if (specification.firstTrackNumber) {
             var fixTrackNumber = function(track: AlbumTrack) {
                 var match = /^(\d+)(.*)$/.exec(track.title);
                 if (!match) {
@@ -173,7 +179,7 @@ export class SpecialHandling
             fixers.push(fixTrackNumber);
         }
 
-        if (specification && specification.fixNumberPrefixLength) {
+        if (specification.fixNumberPrefixLength) {
             var fixTrackNumber = function(track: AlbumTrack) {
                 var match = /^(\d+)(.*)$/.exec(track.title);
                 if (!match) {
