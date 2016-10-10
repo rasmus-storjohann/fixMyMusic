@@ -5,48 +5,55 @@ import * as shelljs from 'shelljs';
 import * as fileExists from 'file-exists';
 import { Application } from "../src/Application";
 
-var createInputDirectoryWithFiles = function(fileNames: string[])
-{
-    shelljs.rm('-rf', "testOutput/source");
-    shelljs.mkdir('-p', "testOutput/source/JS Bach/BminorMass");
-    fileNames.forEach((fileName) => {
-        shelljs.cp("test.mp3", "testOutput/source/JS Bach/BminorMass/" + fileName);
-    });
-}
-
-var cleanOuputuDirectory = function()
-{
+beforeEach(() => {
     shelljs.rm('-rf', "testOutput/destination");
     shelljs.mkdir('-p', "testOutput/destination");
-}
-
-beforeEach(() => {
-    cleanOuputuDirectory();
 });
 
 describe("Acceptance tests", () => {
+
+    beforeEach(() => {
+        shelljs.rm('-rf', "testOutput/source");
+    });
 
     it("Has test prerequisites", () => {
         chai.expect(fileExists("test.mp3")).is.true;
     });
 
     it("Copies file from source to destination", () => {
-        createInputDirectoryWithFiles(["1-1 Kyrie eleison.mp3"]);
+        shelljs.mkdir('-p', "testOutput/source/artist/album/");
+        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
+
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
-        chai.expect(fileExists("testOutput/destination/Bach_JS/BminorMass/1-1 Kyrie eleison.mp3")).is.true;
+
+        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
+    });
+
+    it("Copies file with disk id in path from source to destination", () => {
+        shelljs.mkdir('-p', "testOutput/source/artist/album/disk1");
+        shelljs.mkdir('-p', "testOutput/source/artist/album/disk2");
+        shelljs.cp("test.mp3", "testOutput/source/artist/album/disk1/01 first track.mp3");
+        shelljs.cp("test.mp3", "testOutput/source/artist/album/disk2/01 second track.mp3");
+
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
+
+        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
     });
 
     describe("Sets mp3 tags", () => {
-        createInputDirectoryWithFiles(["1-1 Kyrie eleison.mp3"]);
+        shelljs.mkdir('-p', "testOutput/source/dummy artist/dummy album");
+        shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
+
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
 
         var mp3infoCommand = [ "mp3info",
-                               "\"testOutput/destination/Bach_JS/BminorMass/1-1\ Kyrie\ eleison.mp3\"",
+                               "\"testOutput/destination/artist_dummy/dummy album/01 dummy track.mp3\"",
                                "-p \"artist='%a' album='%l' track='%t'\n\""
-        ].join(" ");
+                             ].join(" ");
 
         shelljs.exec(mp3infoCommand, function(code, stdout, stderr) {
-            var expected = "artist='Bach_JS' album='BminorMass' track='1-1 Kyrie eleison'\n";
+            var expected = "artist='artist_dummy' album='dummy album' track='01 dummy track'\n";
             chai.expect(stdout).to.equal(expected);
         });
     });
