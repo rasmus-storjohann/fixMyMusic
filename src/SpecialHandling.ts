@@ -102,6 +102,14 @@ export class SpecialHandling
             "Opfer" : {
                 firstTrackNumber: 4,
                 fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
+            },
+            "Orchestral Suite 2 [Karajan]" : {
+                firstTrackNumber: 11,
+                fixTrackName: /(\d+) - Suite for Orchestra No. 2 in B minor, BWV 1067_ [IV]+. (.*).mp3/
+            },
+            "Orchestral Suite 3 [Karajan]" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) - Orchestral Suite No. 3 in D Major_ [lV]+. (.*).mp3/
             }
         },
         "Beady Belle": {
