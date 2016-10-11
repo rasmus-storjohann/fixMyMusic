@@ -15,11 +15,86 @@ beforeEach(() => {
         path: "cccc",
         artist: "aaaa",
         album: "bbbb",
-        title: "dddd"
+        title: "01 dddd"
     });
 });
 
 describe("Fixer", () => {
+    describe("track names", () => {
+        it("assigns track numbers based on the disk number", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "01 track from disk two.mp2", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "02 second track from disk three.mp2", disk: 3, path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("01 track from disk two.mp2");
+            chai.expect(album.tracks[1].title).to.equal("02 track from disk three.mp2");
+            chai.expect(album.tracks[2].title).to.equal("03 second track from disk three.mp2");
+        });
+        it("first track number of next disk is computed from last track number on current disk", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "02 second track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp3", disk: 3, path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("02 second track from disk two.mp3");
+            chai.expect(album.tracks[1].title).to.equal("03 track from disk three.mp3");
+        });
+
+        it("index of tracks on next disk is offset by the number of tracks on the first disk", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "02 track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("02 track from disk two.mp3");
+            chai.expect(album.tracks[1].title).to.equal("04 track from disk three.mp3");
+        });
+
+        it("index tracks spanning three disks", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "03 track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "03 track from disk four.mp3", disk: 4, path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("03 track from disk two.mp3");
+            chai.expect(album.tracks[1].title).to.equal("05 track from disk three.mp3");
+            chai.expect(album.tracks[2].title).to.equal("08 track from disk four.mp3");
+        });
+
+        it("can fix numbers when the tracks are larger than 9", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "12 track from disk two.mp2", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("12 track from disk two.mp2");
+            chai.expect(album.tracks[1].title).to.equal("13 track from disk three.mp2");
+        });
+    });
+
     describe("artist names", () => {
         var specialHandler: SpecialHandler;
         it("makes no changes to artist names with no spaces", () => {
@@ -72,7 +147,7 @@ describe("Fixer", () => {
                     album.tracks[0].title = "05 Quintet in E flat, Op. 16 - 1. Grave - Allegro ma non troppo.mp3";
                     specialHandler = new SpecialHandling().getSpecialHandlers("Beethoven", "Quintet Eb Op16 [Richter]");
                     fixer.fix(album, specialHandler);
-                    chai.expect(album.tracks[0].title).to.equal("1 Grave - Allegro ma non troppo");
+                    chai.expect(album.tracks[0].title).to.equal("01 Grave - Allegro ma non troppo");
                 });
             });
         });
