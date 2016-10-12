@@ -16,7 +16,7 @@ export class Fixer
             });
         }
 
-        this.fixNumbering(album);
+        this.fixTrackNumbering(album);
     }
 
     private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album) => void
@@ -49,7 +49,7 @@ export class Fixer
         return specialHandler && specialHandler.fixTrack;
     }
 
-    private fixNumbering(album: Album): void
+    private fixTrackNumbering(album: Album): void
     {
         album.sortTracks();
         var lastDiskNumber = album.tracks[0].disk;
@@ -59,8 +59,8 @@ export class Fixer
             var diskNumber = track.disk;
             if (lastDiskNumber && lastDiskNumber != diskNumber)
             {
-                lastDiskNumber = diskNumber;
                 lastTrackNumberOnLastDisk = lastTrackNumber;
+                lastDiskNumber = diskNumber;
             }
             lastTrackNumber = this.getTrackNumber(track) + lastTrackNumberOnLastDisk;
             this.setTrackNumber(track, lastTrackNumber);
@@ -71,7 +71,7 @@ export class Fixer
     {
         var match = /^(\d+)/.exec(track.title);
         if (!match) {
-            throw new Error("Could not extract number from track title");
+            throw new Error(track.path + ": Could not extract number from track title");
         }
         return parseInt(match[1]);
     }

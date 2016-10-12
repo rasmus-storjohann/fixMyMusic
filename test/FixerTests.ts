@@ -93,6 +93,7 @@ describe("Fixer", () => {
             chai.expect(album.tracks[0].title).to.equal("12 track from disk two.mp2");
             chai.expect(album.tracks[1].title).to.equal("13 track from disk three.mp2");
         });
+        // TODO throw if some but not all tracks in a work has a disk id
     });
 
     describe("artist names", () => {

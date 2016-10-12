@@ -41,6 +41,8 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
     });
 
+    // TODO throws if the first track of the second disk is missing
+
     describe("Sets mp3 tags", () => {
         shelljs.mkdir('-p', "testOutput/source/dummy artist/dummy album");
         shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");

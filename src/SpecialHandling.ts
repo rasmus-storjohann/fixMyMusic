@@ -91,6 +91,9 @@ export class SpecialHandling
                 firstTrackNumber: 11,
                 fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227_ [IVX]+\.(.*).mp3/
             },
+            "CelloSuite1" : {
+                fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007_ [IVab]+\. (.*)\.mp3/
+            },
             "Conc2Violins[Stern] BWV1043" : {
                 firstTrackNumber: 7,
                 fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043_ [IV]+. (.*).mp3/
@@ -110,6 +113,21 @@ export class SpecialHandling
             "Orchestral Suite 3 [Karajan]" : {
                 firstTrackNumber: 10,
                 fixTrackName: /(\d+) - Orchestral Suite No. 3 in D Major_ [lV]+. (.*).mp3/
+            },
+            "Ouverture 1 [Pinnock]" : {
+                firstTrackNumber: 7,
+                fixTrackName: /Disc 2 - (\d+) - Ouverture No. 1, BWV 1066_ [IV]+\. (.*)\.mp3/
+            },
+            "Ouverture 2 [Pinnock]" : {
+                fixTrackName: /Disc 3 - (\d+) - Ouverture No. 2, BWV 1067_ [IV]+\. (.*)\.mp3/
+            },
+            "Ouverture 3 [Pinnock]" : {
+                firstTrackNumber: 8,
+                fixTrackName: /Disc 3 - (\d+) - Ouverture No. 3, BWV 1068_ [IV]+\. (.*)\.mp3/
+            },
+            "Ouverture 4 [Pinnock]" : {
+                firstTrackNumber: 13,
+                fixTrackName: /Disc 3 - (\d+) - Ouverture No. 4, BWV 1069_ [IV]+\. (.*)\.mp3/
             }
         },
         "Beady Belle": {
