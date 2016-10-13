@@ -94,6 +94,17 @@ export class SpecialHandling
             "CelloSuite1" : {
                 fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007_ [IVab]+\. (.*)\.mp3/
             },
+            "CelloSuite2" : {
+                fixTrackName: /(\d+) - Cello Suite No. 2 in D minor, BWV 1008_ [IVab]+\. (.*).mp3/
+            },
+            "CelloSuite3" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Cello Suite No. 3 in C major, BWV 1009_ [IVab]+\. (.*).mp3/
+            },
+            "CelloSuite4" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d)+ - Cello Suite No. 4 in E-flat major, BWV 1010_ [IVab]+\. (.*).mp3/
+            },
             "Conc2Violins[Stern] BWV1043" : {
                 firstTrackNumber: 7,
                 fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043_ [IV]+. (.*).mp3/

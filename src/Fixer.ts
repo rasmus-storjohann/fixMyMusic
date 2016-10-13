@@ -71,7 +71,7 @@ export class Fixer
     {
         var match = /^(\d+)/.exec(track.title);
         if (!match) {
-            throw new Error(track.path + ": Could not extract number from track title");
+            throw new Error(track.path + ": Could not extract number from track title'" + track.title + "'");
         }
         return parseInt(match[1]);
     }
