@@ -17,7 +17,9 @@
     "babel": "^6.5.2",
     "file-exists": "^2.0.0",
     "minimist": "^1.2.0",
-    "shelljs": "^0.7.4"
+    "npmlog": "^4.0.0",
+    "shelljs": "^0.7.4",
+    "typings": "^1.4.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
