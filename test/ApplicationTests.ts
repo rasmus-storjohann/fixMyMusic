@@ -1,6 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
+import * as log from "npmlog";
 import { Application } from "../src/Application";
 
 class Logger
@@ -20,12 +21,10 @@ class Logger
     private messages: string[];
 }
 
-var logger: Logger;
 var application : Application;
 beforeEach(() =>
 {
-    logger = new Logger();
-    application = new Application(logger);
+    application = new Application(log);
 });
 
 describe("Application", () => {

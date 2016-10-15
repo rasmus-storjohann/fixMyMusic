@@ -3,14 +3,17 @@
 import { Track } from "../src/Track";
 import { Album, AlbumTrack } from "../src/Album";
 import { Command } from "../src/Command";
+import * as npmlog from "npmlog";
 
 export class CommandFactory
 {
+    private logger: npmlog.NpmLog;
     private outputDirectory: string;
 
-    constructor(outputDirectory: string)
+    constructor(outputDirectory: string, logger: npmlog.NpmLog)
     {
         this.outputDirectory = outputDirectory;
+        this.logger = logger;
     }
 
     public create(albums: Album[]) : Command[]
@@ -20,6 +23,7 @@ export class CommandFactory
         albums.forEach((album) => {
             result = result.concat(this.createCommandsForAlbum(album));
         });
+        this.logger.info("Command factory", "Created " + result.length + " commands");
         return result;
     }
 

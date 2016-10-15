@@ -1,13 +1,14 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
+import * as log from "npmlog";
 import { Track } from "../src/Track";
 import { TrackFactory } from "../src/TrackFactory";
 
 var _theTrackFactory : TrackFactory;
 beforeEach(() =>
 {
-    _theTrackFactory = new TrackFactory();
+    _theTrackFactory = new TrackFactory(log);
 });
 
 describe("TrackFactory", () => {

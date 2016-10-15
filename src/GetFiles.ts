@@ -2,11 +2,30 @@
 
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
+import * as npmlog from "npmlog";
 
-export function getFiles(directories: string[]) : string[]
+function log(path: string, isIncluded: boolean, logger: npmlog.NpmLog)
 {
-    return shelljs.find(directories).filter((path) =>
+    if (isIncluded)
     {
-         return /mp3$/.exec(path) && fs.statSync(path).isFile();
+        logger.silly("GetFiles", "Included " + path);
+    }
+    else
+    {
+        logger.info("GetFiles", "Excluded " + path);
+    }
+}
+
+export function getFiles(directories: string[], logger: npmlog.NpmLog) : string[]
+{
+    var result = shelljs.find(directories).filter((path) =>
+    {
+        var isIncluded = /mp3$/.exec(path) && fs.statSync(path).isFile();
+        log(path, isIncluded, logger);
+        return isIncluded;
     });
+
+    logger.info("Found " + result.length + " files");
+
+    return result;
 }

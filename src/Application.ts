@@ -3,6 +3,7 @@
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 import * as parseArguments from 'minimist';
+import * as npmlog from "npmlog";
 import { getFiles } from "./GetFiles";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
@@ -15,7 +16,7 @@ import { CommandExecutor } from "./CommandExecutor";
 
 export class Application
 {
-    public static main(argv: string[], logger: any)
+    public static main(argv: string[], logger: npmlog.NpmLog)
     {
         try
         {
@@ -23,52 +24,48 @@ export class Application
         }
         catch (error)
         {
-            logger.log(error);
+            var message = (<Error>(error)).message;
+            logger.error("Root", message);
         }
     }
-    constructor(logger: Logger)
+
+    constructor(logger: npmlog.NpmLog)
     {
         this.logger = logger;
     }
+
     public doIt(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
         var fromDirectories = parsedArguments._;
         var dryRun = parsedArguments["dryrun"];
         var toDir = parsedArguments["out"];
-        var specialHandling = new SpecialHandling();
-        var fixer = new Fixer();
-        var validator = new Validator();
+        var specialHandling = new SpecialHandling(this.logger);
+        var fixer = new Fixer(this.logger);
+        var validator = new Validator(this.logger);
 
         if (!toDir)
         {
             throw new Error("Specify --out argument");
         }
 
-        var files = getFiles(fromDirectories);
-        this.logger.log("Read " + files.length + " files");
-
-        var tracks = new TrackFactory().create(files);
-        this.logger.log("Processed " + tracks.length + " tracks");
-
-        var albums = new AlbumFactory().create(tracks);
-        this.logger.log("Assembled " + albums.length + " albums");
+        var files = getFiles(fromDirectories, this.logger);
+        var tracks = new TrackFactory(this.logger).create(files);
+        var albums = new AlbumFactory(this.logger).create(tracks);
 
         albums.forEach(album => {
             var specialHandlers = specialHandling.getSpecialHandlers(album.artist, album.title);
             fixer.fix(album, specialHandlers);
             album.sortTracks();
             validator.validate(album, specialHandlers);
-            console.log("OK " + album.artist + ": " + album.title);
         });
 
-        var commands = new CommandFactory(toDir).create(albums);
-        this.logger.log("Prepared " + commands.length + " commands");
+        var commands = new CommandFactory(toDir, this.logger).create(albums);
 
         if (!dryRun)
         {
-            new CommandExecutor().execute(commands);
+            new CommandExecutor(this.logger).execute(commands);
         }
     }
-    private logger: Logger;
+    private logger: npmlog.NpmLog;
 }

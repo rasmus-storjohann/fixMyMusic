@@ -1,6 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Album, AlbumTrack } from "./Album";
+import * as npmlog from "npmlog";
 
 export interface SpecialHandler
 {
@@ -11,6 +12,13 @@ export interface SpecialHandler
 
 export class SpecialHandling
 {
+    public constructor(logger: npmlog.NpmLog)
+    {
+        this.logger = logger;
+    }
+
+    private logger: npmlog.NpmLog;
+
     private handlers = {
         "Adams_John" : {
             "Nixon1" : {

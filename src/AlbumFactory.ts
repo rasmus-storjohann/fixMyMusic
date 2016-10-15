@@ -1,13 +1,16 @@
 /// <reference path = "../typings/auto.d.ts" />
 import { Album, AlbumTrack } from "./Album";
 import { Track } from "./Track";
+import * as npmlog from "npmlog";
 
 export class AlbumFactory
 {
+    private logger: npmlog.NpmLog;
     private working: { [key: string]: Album; };
 
-    constructor()
+    constructor(logger: npmlog.NpmLog)
     {
+        this.logger = logger;
         this.working = {};
     }
 
@@ -18,7 +21,11 @@ export class AlbumFactory
             var album = this.createAlbumIfNeeded(track);
             album.push(track);
         });
-        return this.buildAlbums();
+        var albums = this.buildAlbums();
+
+        this.logger.info("Album factory", "Assembled " + albums.length + " albums");
+
+        return albums;
     }
 
     private createAlbumIfNeeded(track: Track) : Album

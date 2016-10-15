@@ -2,20 +2,28 @@
 
 import { Command } from "../src/Command";
 import * as shelljs from 'shelljs';
+import * as npmlog from "npmlog";
 
 export class CommandExecutor
 {
+    public constructor(logger: npmlog.NpmLog)
+    {
+        this.logger = logger;
+    }
+
+    private logger: npmlog.NpmLog;
+
     public execute(commands: Command[]) : void
     {
         commands.forEach((command) => {
             if (command.command === "mkdir")
             {
-                console.log("MKDIR " + command.target);
+                this.logger.verbose("MKDIR " + command.target);
                 shelljs.mkdir('-p', command.target);
             }
             else if (command.command === "cp")
             {
-                console.log("COPY  " + command.target);
+                this.logger.verbose("COPY  " + command.target);
                 shelljs.cp(command.source, command.target);
             }
             else if (command.command === "tag")
@@ -25,7 +33,7 @@ export class CommandExecutor
                 {
                     throw new Error(command.target + ": Failed to set mp3 tags, missing track attribute(s)");
                 }
-                console.log("TAG   " + command.target);
+                this.logger.verbose("TAG   " + command.target);
                 var mp3infoCommand = [ "mp3info",
                                         "-a", this.quote(command.tags.artist),
                                         "-l", this.quote(command.tags.album),

@@ -1,6 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
+import * as log from "npmlog";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { Command } from "../src/Command";
@@ -17,7 +18,7 @@ describe("Command factory", () => {
             title: "01 cccc.mp3",
             path: "artist/album/01 track.mp3"
         });
-        commands = new CommandFactory("out").create([album]);
+        commands = new CommandFactory("out", log).create([album]);
     });
     describe("Create directory", () => {
         it("creates command for creating directory", () => {
@@ -70,7 +71,7 @@ describe("Command factory", () => {
                 title: "02 ssss.mp3",
                 path: "artist2/album2/02 track.mp3"
             });
-            commands = new CommandFactory("out").create([album, secondAlbum]);
+            commands = new CommandFactory("out", log).create([album, secondAlbum]);
         });
         it("creates two mkdir commands", () => {
             chai.expect(commands[0].command).to.equal("mkdir");

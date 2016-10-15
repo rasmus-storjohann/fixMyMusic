@@ -1,8 +1,16 @@
 import { Album, AlbumTrack } from "./Album";
 import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
+import * as npmlog from "npmlog";
 
 export class Fixer
 {
+    public constructor(logger: npmlog.NpmLog)
+    {
+        this.logger = logger;
+    }
+
+    private logger: npmlog.NpmLog;
+
     public fix(album: Album, specialHandler: SpecialHandler) : void
     {
         var fixArtist = this.getFixArtistFunction(specialHandler);

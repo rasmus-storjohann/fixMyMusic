@@ -2,9 +2,17 @@
 
 import { Album, AlbumTrack } from "./Album";
 import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
+import * as npmlog from "npmlog";
 
 export class Validator
 {
+    public constructor(logger: npmlog.NpmLog)
+    {
+        this.logger = logger;
+    }
+
+    private logger: npmlog.NpmLog;
+
     public validate(album: Album, specialHandler: SpecialHandler) : void
     {
         var validateTracks = this.getValidateTracksFunction(specialHandler);
@@ -12,6 +20,8 @@ export class Validator
 
         var validateArtist = this.defaultValidateArtist;
         validateArtist(album);
+
+        this.logger.info("Validator", album.artist + ": " + album.title);
     }
 
     private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album) => void

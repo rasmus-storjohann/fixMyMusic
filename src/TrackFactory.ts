@@ -1,16 +1,26 @@
 /// <reference path = "../typings/auto.d.ts" />
 import { Track } from "./Track";
+import * as npmlog from "npmlog";
 
 export class TrackFactory
 {
+    public constructor(logger: npmlog.NpmLog)
+    {
+        this.logger = logger;
+    }
+
+    private logger: npmlog.NpmLog;
+
     public create(paths: string[]) : Track[]
     {
         var result = new Array<Track>();
         paths.forEach((path) => {
             result.push(this.createTrack(path));
         });
+        this.logger.info("Track factory", "Processed " + result.length + " tracks");
         return result;
     }
+
     public createTrack(path: string) : Track
     {
         var elements = path.split("/");

@@ -3,6 +3,7 @@
 import * as chai from "chai";
 import * as shelljs from 'shelljs';
 import * as fileExists from 'file-exists';
+import * as log from "npmlog";
 import { Application } from "../src/Application";
 
 beforeEach(() => {
@@ -24,7 +25,7 @@ describe("Acceptance tests", () => {
         shelljs.mkdir('-p', "testOutput/source/artist/album/");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
-        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
         chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
     });
@@ -35,7 +36,7 @@ describe("Acceptance tests", () => {
         shelljs.cp("test.mp3", "testOutput/source/artist/album/disk1/01 first track.mp3");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/disk2/01 second track.mp3");
 
-        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
         chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
         chai.expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
@@ -47,7 +48,7 @@ describe("Acceptance tests", () => {
         shelljs.mkdir('-p', "testOutput/source/dummy artist/dummy album");
         shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
 
-        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], console);
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
         var mp3infoCommand = [ "mp3info",
                                "\"testOutput/destination/artist_dummy/dummy album/01 dummy track.mp3\"",

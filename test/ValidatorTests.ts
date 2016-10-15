@@ -1,6 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
+import * as log from "npmlog";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album, AlbumTrack } from "../src/Album";
@@ -10,7 +11,7 @@ var _theValidator : Validator;
 var specialHandlers: SpecialHandler;
 beforeEach(() =>
 {
-    _theValidator = new Validator();
+    _theValidator = new Validator(log);
 });
 
 describe("Validator", () => {

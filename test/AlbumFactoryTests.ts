@@ -1,6 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
+import * as log from "npmlog";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumFactory } from "../src/AlbumFactory";
@@ -12,7 +13,7 @@ describe("AlbumFactory", () => {
     var aTrackWithSameAlbum: Track;
     var aTrackWithSameArtist: Track;
     beforeEach(() => {
-        theFactory = new AlbumFactory();
+        theFactory = new AlbumFactory(log);
         aTrack = {
             artist: "aaaa",
             album: "bbbb",
