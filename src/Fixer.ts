@@ -13,21 +13,24 @@ export class Fixer
 
     public fix(album: Album, specialHandler: SpecialHandler) : void
     {
+        this.logger.silly("Fixer", "Fixing " + album.artist + ": " + album.title);
+
         var fixArtist = this.getFixArtistFunction(specialHandler);
-        fixArtist(album);
+        fixArtist(album, this.logger);
 
         var fixTrack = this.getFixTrackFunction(specialHandler);
         if (fixTrack)
         {
             album.tracks.forEach((track) => {
-                fixTrack(track);
+                fixTrack(track, this.logger);
+                this.logger.silly("Fixer", "Fixed title '" + track.title + "'");
             });
         }
 
         this.fixTrackNumbering(album);
     }
 
-    private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album) => void
+    private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void
     {
         if (specialHandler && specialHandler.fixArtist)
         {
@@ -52,7 +55,7 @@ export class Fixer
         album.artist = artist;
     }
 
-    private getFixTrackFunction(specialHandler: SpecialHandler) : (track: AlbumTrack) => void
+    private getFixTrackFunction(specialHandler: SpecialHandler) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
     {
         return specialHandler && specialHandler.fixTrack;
     }
@@ -92,6 +95,12 @@ export class Fixer
     {
         var match = /^(\d+)(.*)$/.exec(track.title);
         var formattedNumber = "00" + newNumber;
-        track.title = formattedNumber.slice(-2) + match[2];
+        var newTitle = formattedNumber.slice(-2) + match[2];
+
+        if (track.title != newTitle)
+        {
+            track.title = newTitle;
+            this.logger.info("Fixer", track.path + ": Setting track title to '" + newTitle + "'");
+        }
     }
 }

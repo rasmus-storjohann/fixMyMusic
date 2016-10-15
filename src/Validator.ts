@@ -49,7 +49,7 @@ export class Validator
 
         album.tracks.forEach((track) => {
 
-            logger.silly("Validation", "Checking track" + track.title);
+            logger.silly("Validation", "Checking track '" + track.title + "'");
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)

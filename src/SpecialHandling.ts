@@ -5,9 +5,9 @@ import * as npmlog from "npmlog";
 
 export interface SpecialHandler
 {
-    validateTracks: (album: Album) => void;
-    fixArtist: (album: Album) => void;
-    fixTrack: (track: AlbumTrack) => void;
+    validateTracks: (album: Album, logger: npmlog.NpmLog) => void;
+    fixArtist: (album: Album, logger: npmlog.NpmLog) => void;
+    fixTrack: (track: AlbumTrack, logger: npmlog.NpmLog) => void;
 }
 
 export class SpecialHandling
@@ -111,7 +111,7 @@ export class SpecialHandling
             },
             "CelloSuite4" : {
                 firstTrackNumber: 8,
-                fixTrackName: /(\d)+ - Cello Suite No. 4 in E-flat major, BWV 1010_ [IVab]+\. (.*).mp3/
+                fixTrackName: /(\d+) - Cello Suite No. 4 in E-flat major, BWV 1010_ [IVab]+\. (.*).mp3/
             },
             "Conc2Violins[Stern] BWV1043" : {
                 firstTrackNumber: 7,
@@ -191,41 +191,53 @@ export class SpecialHandling
     {
         if (!specification)
         {
-            return function(track: AlbumTrack) {
+            return function(track: AlbumTrack, logger: npmlog.NpmLog) {
             }
         }
 
         var fixers = [];
 
         if (specification.fixTrackName) {
-            var fixTrackName = function(track: AlbumTrack) {
+            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = specification.fixTrackName.exec(track.title);
                 if (!match) {
                     throw new Error(track.title + ": Track name does not match fixer for fixTrackName");
                 }
-                track.title = match[1] + " " + match[2];
+                var newTitle = match[1] + " " + match[2];
+                logger.silly("SpecialFixTrackName", track.title  + ": Extracting track name '" + newTitle + "'");
+                track.title = newTitle;
             };
 
             fixers.push(fixTrackName);
         }
 
         if (specification.firstTrackNumber) {
-            var fixTrackNumber = function(track: AlbumTrack) {
+            var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = /^(\d+)(.*)$/.exec(track.title);
                 if (!match) {
                     throw new Error(track.title + ": Track name does not have expected number prefix");
                 }
                 var trackNumber = parseInt(match[1]);
+                logger.silly("SpecialFixTrackNumber", track.title  + ": Adjusting current track number of " + trackNumber + " with first track number " + specification.firstTrackNumber);
                 trackNumber = trackNumber + 1 - specification.firstTrackNumber;
+                if (trackNumber <= 0)
+                {
+                    throw new Error(track.title + ": fixing track number gave negative result of " + trackNumber);
+                }
                 var numberAsString = ("0" + trackNumber).substr(-2);
-                track.title = numberAsString + match[2];
+                var newTitle = numberAsString + match[2];
+                if (track.title != newTitle)
+                {
+                    track.title = newTitle;
+                    logger.verbose("SpecialFixTrackNumber", track.path  + ": Fixed track number to '" + track.title + "'")
+                }
             };
 
             fixers.push(fixTrackNumber);
         }
 
         if (specification.fixNumberPrefixLength) {
-            var fixTrackNumber = function(track: AlbumTrack) {
+            var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = /^(\d+)(.*)$/.exec(track.title);
                 if (!match) {
                     throw new Error(track.title + ": Track name does not have expected number prefix");
@@ -243,9 +255,9 @@ export class SpecialHandling
             fixers.push(fixTrackNumber);
         }
 
-        var applyAllFixers = function(track: AlbumTrack) {
+        var applyAllFixers = function(track: AlbumTrack, logger: npmlog.NpmLog) {
             fixers.forEach((fixer) => {
-                fixer(track);
+                fixer(track, logger);
             });
         }
 
