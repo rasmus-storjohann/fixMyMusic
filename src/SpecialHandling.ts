@@ -113,6 +113,14 @@ export class SpecialHandling
                 firstTrackNumber: 8,
                 fixTrackName: /(\d+) - Cello Suite No. 4 in E-flat major, BWV 1010_ [IVab]+\. (.*).mp3/
             },
+            "CelloSuite5" : {
+                firstTrackNumber: 15,
+                fixTrackName: /(\d+) - Cello Suite No. 5 in C minor, BWV 1011_ [IVab]+\. (.*).mp3/
+            },
+            "CelloSuite6" : {
+                firstTrackNumber: 15,
+                fixTrackName: /(\d+) - Cello Suite No. 6 in D major, BWV 1012_ [IVab]+\. (.*).mp3/
+            },
             "Conc2Violins[Stern] BWV1043" : {
                 firstTrackNumber: 7,
                 fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043_ [IV]+. (.*).mp3/
@@ -147,7 +155,52 @@ export class SpecialHandling
             "Ouverture 4 [Pinnock]" : {
                 firstTrackNumber: 13,
                 fixTrackName: /Disc 3 - (\d+) - Ouverture No. 4, BWV 1069_ [IV]+\. (.*)\.mp3/
-            }
+            },
+            "PianoConc1 BVW1052" : {
+                fixTrackName: /(\d+) - Piano Concerto No.1 in D minor, BWV 1052 - \d+. (.*).mp3/
+            },
+            "PianoConc2 BVW1053" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Piano Concerto No.2 in E major, BWV 1053 - \d+. (.*)\.mp3/
+            },
+            "PianoConc3 BWV1054" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Piano Concerto No.3 in D major, BWV 1054 - \d+. (.*).mp3/
+            },
+            "PianoConc5 BWV1056" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Piano Concerto No.5 in F minor, BWV 1056 - \d+. (.*).mp3/
+            },
+            "PianoConc7 BWV1058" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Piano Concerto No.7 in G minor, BWV 1058 - \d+. (.*).mp3/
+            },
+            "PianoWorks[Gould]" : {
+                firstTrackNumber: 8
+            },
+            "PianoPartita1 BWV825" : {
+                fixTrackName: /(\d+) - Partita No.1 in G major, BWV 825_ [IV]+\. (.*).mp3/
+            },
+            "PianoPartita2 BWV826" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Partita No.2 in C minor, BWV 826_ [IV]+. (.*).mp3/
+            },
+            "PianoPartita3 BWV827" : {
+                firstTrackNumber: 13,
+                fixTrackName: /(\d+) - Partita No.3 in C minor, BWV 827_ [IV]+. (.*).mp3/
+            },
+            "PianoPartita4 BWV828" : {
+                firstTrackNumber: 20,
+                fixTrackName: /(\d+) - Partita No.4 in D [Mm]ajor, BWV 828[_,\.] [IV]+. (.*).mp3/
+            },
+            "PianoPartita5 BWV829" : {
+               firstTrackNumber: 27,
+               fixTrackName: /(\d+) - Partita No.5 in G major, BWV 829[_\.] [IV]+\. (.*)\.mp3/
+           },
+           "ViolinConc[Stern] BWV 1042" : {
+              firstTrackNumber: 4,
+              fixTrackName: /(\d+) - Concerto for Violin and Orchestra in E major, BWV 1042_ [IV]+. (.*).mp3/
+          }
         },
         "Beady Belle": {
             fixArtist: this.keepArtistNameInCurrentOrder

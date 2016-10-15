@@ -23,7 +23,7 @@ export class Fixer
         {
             album.tracks.forEach((track) => {
                 fixTrack(track, this.logger);
-                this.logger.silly("Fixer", "Fixed title '" + track.title + "'");
+                this.logger.verbose("Fixer", "Fixed title '" + track.title + "'");
             });
         }
 
@@ -100,7 +100,7 @@ export class Fixer
         if (track.title != newTitle)
         {
             track.title = newTitle;
-            this.logger.info("Fixer", track.path + ": Setting track title to '" + newTitle + "'");
+            this.logger.verbose("Fixer", track.path + ": Setting track title to '" + newTitle + "'");
         }
     }
 }

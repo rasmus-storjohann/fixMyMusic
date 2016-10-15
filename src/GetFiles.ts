@@ -12,7 +12,7 @@ function log(path: string, isIncluded: boolean, logger: npmlog.NpmLog)
     }
     else
     {
-        logger.info("GetFiles", "Excluded " + path);
+        logger.verbose("GetFiles", "Excluded " + path);
     }
 }
 

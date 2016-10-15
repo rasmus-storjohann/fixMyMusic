@@ -20,8 +20,6 @@ export class Validator
 
         var validateArtist = this.defaultValidateArtist;
         validateArtist(album, this.logger);
-
-        this.logger.info("Validator", album.artist + ": " + album.title);
     }
 
     private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void
@@ -45,11 +43,11 @@ export class Validator
     {
         var index = 1;
         var numberPrefixLength: number;
-        logger.verbose("Validation", "Checking " + album.artist + ": " + album.title);
+        logger.info("Validate", "Album '" + album.artist + "': '" + album.title + "'");
 
         album.tracks.forEach((track) => {
 
-            logger.silly("Validation", "Checking track '" + track.title + "'");
+            logger.info("Validate", "Track '" + track.title + "'");
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)
@@ -69,6 +67,7 @@ export class Validator
             {
                 var suggestedSpecialHandler = "\"" + album.artist + "\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
+                                              "        firstTrackNumber: " + trackNumber + ",\n" +
                                               "        fixTrackName: /" + track.title + "/\n" +
                                               "    }\n" +
                                               "}";
