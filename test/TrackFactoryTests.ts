@@ -8,6 +8,7 @@ import { TrackFactory } from "../src/TrackFactory";
 var _theTrackFactory : TrackFactory;
 beforeEach(() =>
 {
+    log.level = 'silent';
     _theTrackFactory = new TrackFactory(log);
 });
 

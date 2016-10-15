@@ -13,6 +13,7 @@ describe("AlbumFactory", () => {
     var aTrackWithSameAlbum: Track;
     var aTrackWithSameArtist: Track;
     beforeEach(() => {
+        log.level = 'silent';
         theFactory = new AlbumFactory(log);
         aTrack = {
             artist: "aaaa",

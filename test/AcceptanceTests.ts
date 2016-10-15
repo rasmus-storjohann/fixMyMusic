@@ -7,6 +7,7 @@ import * as log from "npmlog";
 import { Application } from "../src/Application";
 
 beforeEach(() => {
+    log.level = 'silent';
     shelljs.rm('-rf', "testOutput/destination");
     shelljs.mkdir('-p', "testOutput/destination");
 });
@@ -14,6 +15,7 @@ beforeEach(() => {
 describe("Acceptance tests", () => {
 
     beforeEach(() => {
+        log.level = 'silent';
         shelljs.rm('-rf', "testOutput/source");
     });
 
@@ -25,6 +27,7 @@ describe("Acceptance tests", () => {
         shelljs.mkdir('-p', "testOutput/source/artist/album/");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
+        log.level = 'silent';
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
         chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;

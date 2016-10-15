@@ -11,6 +11,7 @@ var _theValidator : Validator;
 var specialHandlers: SpecialHandler;
 beforeEach(() =>
 {
+    log.level = 'silent';
     _theValidator = new Validator(log);
 });
 

@@ -24,6 +24,7 @@ class Logger
 var application : Application;
 beforeEach(() =>
 {
+    log.level = 'silent';
     application = new Application(log);
 });
 

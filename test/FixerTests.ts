@@ -10,6 +10,7 @@ import { SpecialHandling, SpecialHandler } from "../src/SpecialHandling";
 var fixer: Fixer;
 var album: Album;
 beforeEach(() => {
+    log.level = 'silent';
     fixer = new Fixer(log);
     album = new Album("aaaa", "bbbb");
     album.push({

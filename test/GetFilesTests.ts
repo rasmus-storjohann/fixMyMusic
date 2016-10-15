@@ -7,6 +7,7 @@ import { getFiles } from "../src/GetFiles";
 
 describe("GetFiles", () => {
     beforeEach(() => {
+        log.level = 'silent';
         shelljs.rm("-rf", "out");
     });
     it("gets files from a directory", () => {

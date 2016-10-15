@@ -11,6 +11,7 @@ describe("Command factory", () => {
     var album: Album;
     var commands: Command[];
     beforeEach(() => {
+        log.level = 'silent';
         album = new Album("aaaa", "bbbb");
         album.push({
             artist: "aaaa",
