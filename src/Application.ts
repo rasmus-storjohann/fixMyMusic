@@ -9,7 +9,6 @@ import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import { SpecialHandling } from "./SpecialHandling";
 import { Fixer } from "./Fixer";
-import { Logger } from "./Logger";
 import { Validator } from "./Validator";
 import { CommandFactory } from "./CommandFactory";
 import { CommandExecutor } from "./CommandExecutor";
@@ -18,15 +17,7 @@ export class Application
 {
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
-        try
-        {
-            new Application(logger).doIt(argv.splice(2));
-        }
-        catch (error)
-        {
-            var message = (<Error>(error)).message;
-            logger.error("Root", message);
-        }
+        new Application(logger).doIt(argv.splice(2));
     }
 
     constructor(logger: npmlog.NpmLog)

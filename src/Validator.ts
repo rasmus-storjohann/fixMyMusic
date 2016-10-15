@@ -16,15 +16,15 @@ export class Validator
     public validate(album: Album, specialHandler: SpecialHandler) : void
     {
         var validateTracks = this.getValidateTracksFunction(specialHandler);
-        validateTracks(album);
+        validateTracks(album, this.logger);
 
         var validateArtist = this.defaultValidateArtist;
-        validateArtist(album);
+        validateArtist(album, this.logger);
 
         this.logger.info("Validator", album.artist + ": " + album.title);
     }
 
-    private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album) => void
+    private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void
     {
         if (specialHandler && specialHandler.validateTracks)
         {
@@ -33,7 +33,7 @@ export class Validator
         return this.defaultValidateTracks;
     }
 
-    private defaultValidateArtist(album: Album) : void
+    private defaultValidateArtist(album: Album, logger: npmlog.NpmLog) : void
     {
         if (album.artist.indexOf(" ") !== -1)
         {
@@ -41,16 +41,22 @@ export class Validator
         }
     }
 
-    private defaultValidateTracks(album: Album) : void
+    private defaultValidateTracks(album: Album, logger: npmlog.NpmLog) : void
     {
         var index = 1;
         var numberPrefixLength: number;
+        logger.verbose("Validation", "Checking " + album.artist + ": " + album.title);
+
         album.tracks.forEach((track) => {
+
+            logger.silly("Validation", "Checking track" + track.title);
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             var id = "[" + album.artist + "][" + album.title + "][" + track.title + "]";
             if (!trackNumberAsString)
             {
-                throw new Error(album.tracks[0].path + ": Failed validation, could not assign a track number");
+                var message = "Failed validation of '" + track.path + "': title '" + track.title + "' has no number";
+                logger.error("Validation", message);
+                throw new Error(message);
             }
             var numberPrefix = trackNumberAsString[1];
             if (numberPrefixLength && numberPrefix.length !== numberPrefixLength)

@@ -149,7 +149,7 @@ describe("Fixer", () => {
                     album.tracks[0].title = "05 Quintet in E flat, Op. 16 - 1. Grave - Allegro ma non troppo.mp3";
                     specialHandler = new SpecialHandling(log).getSpecialHandlers("Beethoven", "Quintet Eb Op16 [Richter]");
                     fixer.fix(album, specialHandler);
-                    chai.expect(album.tracks[0].title).to.equal("01 Grave - Allegro ma non troppo");
+                    chai.expect(album.tracks[0].title).to.equal("1 Grave - Allegro ma non troppo");
                 });
             });
         });

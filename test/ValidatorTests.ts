@@ -71,7 +71,7 @@ describe("Validator", () => {
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), specialHandlers);
-            }).to.throw(Error, /Failed validation, could not assign a track number/);
+            }).to.throw(Error, /Failed validation of \'aaaa\': title \'dddd\' has no number/);
         });
 
         it("throws on tracks out of order", () => {

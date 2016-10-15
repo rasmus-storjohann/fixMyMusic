@@ -61,17 +61,21 @@ export class Fixer
     {
         album.sortTracks();
         var lastDiskNumber = album.tracks[0].disk;
-        var lastTrackNumber: number;
+        if (!lastDiskNumber)
+        {
+            return;
+        }
+        var trackNumber: number;
         var lastTrackNumberOnLastDisk = 0;
         album.tracks.forEach((track) => {
             var diskNumber = track.disk;
-            if (lastDiskNumber && lastDiskNumber != diskNumber)
+            if (lastDiskNumber != diskNumber)
             {
-                lastTrackNumberOnLastDisk = lastTrackNumber;
+                lastTrackNumberOnLastDisk = trackNumber;
                 lastDiskNumber = diskNumber;
             }
-            lastTrackNumber = this.getTrackNumber(track) + lastTrackNumberOnLastDisk;
-            this.setTrackNumber(track, lastTrackNumber);
+            trackNumber = this.getTrackNumber(track) + lastTrackNumberOnLastDisk;
+            this.setTrackNumber(track, trackNumber);
         });
     }
 
