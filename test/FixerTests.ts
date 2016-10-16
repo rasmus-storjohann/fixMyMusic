@@ -23,6 +23,17 @@ beforeEach(() => {
 
 describe("Fixer", () => {
     describe("track names", () => {
+        it("puts 0 prefix on one digit track numbers", () => {
+            var specialHandler: SpecialHandler;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "1 track.mp3", path: "cccc" });
+
+            fixer.fix(album, specialHandler);
+
+            chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
+        });
         it("assigns track numbers based on the disk number", () => {
             var specialHandler: SpecialHandler;
             var artist = "the artist";
@@ -127,7 +138,7 @@ describe("Fixer", () => {
         describe("special case handling", () => {
             describe("John Adams", () => {
                 it("Converts one digit track number to two digit", () => {
-                    album.tracks[0].title = "Disc 1 - 3 - Act I Scene 1_ The people are the heroes now (Chorus).mp3";
+                    album.tracks[0].title = "3 Act I Scene 1_ The people are the heroes now (Chorus).mp3";
                     specialHandler = new SpecialHandling(log).getSpecialHandlers("Adams_John", "Nixon1");
                     fixer.fix(album, specialHandler);
                     chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");

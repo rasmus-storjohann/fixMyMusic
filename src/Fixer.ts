@@ -15,6 +15,8 @@ export class Fixer
     {
         this.logger.silly("Fixer", "Fixing " + album.artist + ": " + album.title);
 
+        this.fixTrackPrefix(album);
+
         var fixArtist = this.getFixArtistFunction(specialHandler);
         fixArtist(album, this.logger);
 
@@ -28,6 +30,16 @@ export class Fixer
         }
 
         this.fixTrackNumbering(album);
+    }
+
+    private fixTrackPrefix(album: Album)
+    {
+        album.tracks.forEach((track) => {
+            if (/^\d[^\d]/.exec(track.title))
+            {
+                track.title = "0" + track.title;
+            }
+        });
     }
 
     private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void

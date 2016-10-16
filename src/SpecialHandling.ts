@@ -22,30 +22,43 @@ export class SpecialHandling
     private handlers = {
         "Adams_John" : {
             "Nixon1" : {
-                fixTrackName: /Disc 1 - (\d+) - Act I Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
                 fixNumberPrefixLength: 2
             },
             "Nixon2" : {
-                fixTrackName: /Disc 2 - (\d+) - Act II Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act II Scene \d_ (.*).mp3/,
                 fixNumberPrefixLength: 2
             },
             "Nixon3" : {
-                fixTrackName: /Disc 3 - (\d+) - Act III Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act III Scene \d_ (.*).mp3/,
                 fixNumberPrefixLength: 2
             }
         },
         "Albeniz" : {
+            "Cordoba" : {
+                firstTrackNumber: 6
+            },
             "Six pieces" : {
                 firstTrackNumber: 6
             },
             "Suite Espanola" : {
-                firstTrackNumber: 2,
-                fixTrackName: /(\d+) Albeniz - Suite Espanola Opus 47 - (.*).mp3/
+                firstTrackNumber: 2
             }
         },
         "Alkan": {
             "Sonatine, Op. 61": {
                 fixTrackName: /^\d+ Sonatine, Op. 61 (\d+)\. (.*).mp3$/
+            },
+            "Barcarolle" : {
+                firstTrackNumber: 9
+            },
+            "Le festin d'Esope" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) (.*), op. 39 no. 12.mp3/
+            },
+            "Sonatine" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Sonatine, op. 61: [IV]+. (.*).mp3/
             }
         },
         "Bach JS": {
@@ -237,6 +250,44 @@ export class SpecialHandling
                     fixTrackName: /(\d+) Coronation Mass - (.*).mp3/
                 })
             },
+        },
+        "Arnold Schönberg" : {
+            "Five Piano Pieces Op23" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) Five Piano Pieces, Op. 23_ (.*).mp3/
+            },
+            "Lied der Waldtaube[Boulez]" : {
+                firstTrackNumber: 30,
+                fixTrackName: /(\d+) - (.*) \(Chamber Orchestra version\) .*.mp3/
+            },
+            "Ode to Napoleon Buonaparte" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) (Ode to Napoleon Buonaparte), Op. 41.mp3/
+            },
+            "Phantasy for Violin and Piano Accompaniment" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Phantasy for Violin and Piano Accompaniment, Op. 47_ (.*)\.mp3/
+            },
+            "Pierrot Lunaire[Boulez]" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) - Pierrot Lunaire, Part I+_ (.*) \(.*\)\.mp3/
+            },
+            "Six Little Piano Pieces Op19" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Six Little Piano Pieces, Op. 19_ (.*).mp3/
+            },
+            "Suite for Piano Op25" : {
+                firstTrackNumber: 15,
+                fixTrackName: /(\d+) Suite for Piano, Op. 25_ (.*).mp3/
+            },
+            "Three Pieces for Orchestra" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Three Pieces for Orchestra, \d. (.*).mp3/
+            },
+            "Two Piano Pieces Op33" : {
+                firstTrackNumber: 20,
+                fixTrackName: /(\d+) Two Piano Pieces, Op. 33- A & B_ (.*).mp3/
+            }
         }
     };
 
