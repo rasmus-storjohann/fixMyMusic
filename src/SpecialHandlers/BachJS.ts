@@ -3,19 +3,19 @@ export function SpecialHandlers()
 {
     return {
         "Brandenburg 1 [Pinnock]" : {
-            fixTrackName: /Disc 1 - (\d+) - Concerto No\. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 1 in F major, BWV 1046_ [IV]+. (.*).mp3/
         },
         "Brandenburg 2 [Pinnock]" : {
             firstTrackNumber: 5,
-            fixTrackName: /Disc 1 - (\d+) - Concerto No\. 2 in F major, BWV 1047_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 2 in F major, BWV 1047_ [IV]+. (.*).mp3/
         },
         "Brandenburg 3 [Karajan]" : {
             firstTrackNumber: 5,
-            fixTrackName: /(\d+) - Brandenburg Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Brandenburg Concerto No. 3 in G major, BWV 1048_ [IV]+. (.*).mp3/
         },
         "Brandenburg 3 [Pinnock]" : {
             firstTrackNumber: 8,
-            fixTrackName: /Disc 1 - (\d+) - Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
         },
         "Brandenburg 4 [Karajan]" : {
             firstTrackNumber: 8,
@@ -23,14 +23,14 @@ export function SpecialHandlers()
         },
         "Brandenburg 4 [Pinnock]" : {
             firstTrackNumber: 11,
-            fixTrackName: /Disc 1 - (\d+) - Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
         },
         "Brandenburg 5 [Karajan]" : {
             firstTrackNumber: 4,
             fixTrackName: /(\d+) - Concerto No. 5 in D Major_ l+\. (.*).mp3/
         },
         "Brandenburg 5 [Pinnock]" : {
-            fixTrackName: /Disc 2 - (\d+) - Concerto No. 5, BWV 1050_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 5, BWV 1050_ [IV]+\. (.*).mp3/
         },
         "Brandenburg 6 [Karajan]" : {
             firstTrackNumber: 7,
@@ -38,7 +38,7 @@ export function SpecialHandlers()
         },
         "Brandenburg 6 [Pinnock]" : {
             firstTrackNumber: 4,
-            fixTrackName: /Disc 2 - (\d+) - Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
         },
         "Cantata BWV 51 Jauchzet" : {
             firstTrackNumber: 8,
@@ -96,18 +96,18 @@ export function SpecialHandlers()
         },
         "Ouverture 1 [Pinnock]" : {
             firstTrackNumber: 7,
-            fixTrackName: /Disc 2 - (\d+) - Ouverture No. 1, BWV 1066_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 1, BWV 1066_ [IV]+\. (.*)\.mp3/
         },
         "Ouverture 2 [Pinnock]" : {
-            fixTrackName: /Disc 3 - (\d+) - Ouverture No. 2, BWV 1067_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 2, BWV 1067_ [IV]+\. (.*)\.mp3/
         },
         "Ouverture 3 [Pinnock]" : {
             firstTrackNumber: 8,
-            fixTrackName: /Disc 3 - (\d+) - Ouverture No. 3, BWV 1068_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 3, BWV 1068_ [IV]+\. (.*)\.mp3/
         },
         "Ouverture 4 [Pinnock]" : {
             firstTrackNumber: 13,
-            fixTrackName: /Disc 3 - (\d+) - Ouverture No. 4, BWV 1069_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 4, BWV 1069_ [IV]+\. (.*)\.mp3/
         },
         "PianoConc1 BVW1052" : {
             fixTrackName: /(\d+) - Piano Concerto No.1 in D minor, BWV 1052 - \d+. (.*).mp3/
