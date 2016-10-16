@@ -58,6 +58,30 @@ describe("TrackFactory", () => {
         });
     });
 
+    describe("with track name containing disk id", () => {
+        var _track: Track;
+        beforeEach(() =>
+        {
+            var path = "root/artist/album/Disc 2 - 01 - track.mp3";
+            _track = _theTrackFactory.createTrack(path);
+        });
+        it("Gets the artist name from path", () => {
+            chai.expect(_track.artist).equals("artist");
+        });
+
+        it("Gets the album name from path", () => {
+            chai.expect(_track.album).equals("album");
+        });
+
+        it("Gets the disk id from the path", () => {
+            chai.expect(_track.disk).equals(2);
+        });
+
+        it("Gets the track name from path", () => {
+            chai.expect(_track.title).equals("01 track.mp3");
+        });
+    });
+
     describe("with deep path", () => {
         var _track: Track;
         beforeEach(() =>

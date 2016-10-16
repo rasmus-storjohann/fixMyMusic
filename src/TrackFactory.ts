@@ -23,32 +23,44 @@ export class TrackFactory
 
     public createTrack(path: string) : Track
     {
-        var elements = path.split("/");
-        var count = elements.length;
-        var containsDiskId = /disk(\d+)/.exec(elements[count - 2]);
-        if (containsDiskId)
+        var withDiskIdInFolder = /\/([^\/]+)\/([^\/]+)\/disk(\d+)\/([^\/]+)$/;
+        var match = withDiskIdInFolder.exec(path);
+        if (match)
         {
-            if (count < 4)
-            {
-                throw new Error(path + ": Invalid path to music file");
-            }
             return {
                 path: path,
-                artist: elements[count - 4],
-                album: elements[count - 3],
-                title: elements[count - 1],
-                disk: parseInt(containsDiskId[1])
+                artist: match[1],
+                album: match[2],
+                title: match[4],
+                disk: parseInt(match[3])
             };
         }
-        if (count < 3)
+
+        var withDiskIdInTrackName = /\/([^\/]+)\/([^\/]+)\/Disc (\d+) - (\d+) - (.*)$/;
+        match = withDiskIdInTrackName.exec(path);
+        if (match)
         {
-            throw new Error(path + ": Invalid path to music file");
+            return {
+                path: path,
+                artist: match[1],
+                album: match[2],
+                title: match[4] + " " + match[5],
+                disk: parseInt(match[3])
+            };
         }
-        return {
-            path: path,
-            artist: elements[count - 3],
-            album: elements[count - 2],
-            title: elements[count - 1]
-        };
+
+        var withoutDiskId = /\/([^\/]+)\/([^\/]+)\/([^\/]+)$/;
+        match = withoutDiskId.exec(path);
+        if (match)
+        {
+            return {
+                path: path,
+                artist: match[1],
+                album: match[2],
+                title: match[3]
+            };
+        }
+
+        throw new Error(path + ": Invalid path to music file");
     }
 };

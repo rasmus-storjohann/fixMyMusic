@@ -43,14 +43,15 @@ export class CommandFactory
     {
         var result = new Array<Command>();
         album.tracks.forEach((track) => {
+            var target = [this.outputDirectory, album.artist, album.title, track.title].join("/");
             result.push({
                 command: "cp",
                 source: track.path,
-                target: [this.outputDirectory, album.artist, album.title, track.title].join("/")
+                target: target
             });
             result.push({
                 command: "tag",
-                target: [this.outputDirectory, album.artist, album.title, track.title].join("/"),
+                target: target,
                 tags: {
                     artist: album.artist,
                     album: album.title,

@@ -33,9 +33,6 @@ export class Application
         var fromDirectories = parsedArguments._;
         var dryRun = parsedArguments["dryrun"];
         var toDir = parsedArguments["out"];
-        var specialHandling = new SpecialHandling(this.logger);
-        var fixer = new Fixer(this.logger);
-        var validator = new Validator(this.logger);
 
         if (!toDir)
         {
@@ -45,6 +42,10 @@ export class Application
         var files = getFiles(fromDirectories, this.logger);
         var tracks = new TrackFactory(this.logger).create(files);
         var albums = new AlbumFactory(this.logger).create(tracks);
+
+        var specialHandling = new SpecialHandling(this.logger);
+        var fixer = new Fixer(this.logger);
+        var validator = new Validator(this.logger);
 
         albums.forEach(album => {
             var specialHandlers = specialHandling.getSpecialHandlers(album.artist, album.title);

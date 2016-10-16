@@ -39,27 +39,12 @@ export class Album
         this.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
             if (first.disk)
             {
-                if (!second.disk)
-                {
-                    throw new Error("Album contains tracks with and without disk number");
-                }
-                if (first.disk < second.disk)
-                {
-                    return -1;
-                }
-                if (first.disk > second.disk)
-                {
-                    return 1;
-                }
+                if (!second.disk) throw new Error("Album contains tracks with and without disk number");
+                if (first.disk < second.disk) return -1;
+                if (first.disk > second.disk) return 1;
             }
-            if (first.title < second.title)
-            {
-                return -1;
-            }
-            if (first.title > second.title)
-            {
-                return 1;
-            }
+            if (first.title < second.title) return -1;
+            if (first.title > second.title) return 1;
             return 0;
         });
     }

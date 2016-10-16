@@ -2,7 +2,7 @@
 
 import * as chai from "chai";
 import * as shelljs from 'shelljs';
-import * as fileExists from 'file-exists';
+import * as fileExists from "file-exists";
 import * as log from "npmlog";
 import { Application } from "../src/Application";
 
