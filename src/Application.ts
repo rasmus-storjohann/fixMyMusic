@@ -17,7 +17,7 @@ export class Application
 {
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
-        logger.level = 'silly';
+        logger.level = 'info';
         //logger.stream = process.stderr;
         new Application(logger).doIt(argv.splice(2));
     }

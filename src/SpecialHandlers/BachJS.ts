@@ -44,9 +44,53 @@ export function SpecialHandlers()
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata, BWV 51 - \d+\. (.*).mp3/
         },
+        "Cantata Aus der Tiefen [Suzuki] BWV131" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) Cantata no. 131, BWV 131 "Aus der Tiefe rufe ich, Herr, zu dir": [IV]+. (.*).mp3/
+        },
+        "Cantata Aus der Tiefen [Koopman] BWV131" : {
+            firstTrackNumber: 12,
+            fixTrackName: /(\d+) Cantata, BWV 131 "Aus der Tiefen rufe ich, Herr, zu dir": [IV]+. (.*).mp3/
+        },
+        "Cantata Barmherziges Herze [Koopman] BWV185" : {
+            firstTrackNumber: 10,
+            fixTrackName: /(\d+) Kantate, BWV 185 "Barmherziges Herze der ewigen Liebe": [IV]+. (.*).mp3/
+        },
+        "Cantata Christ lag in Todesbanden [Koopman] BWV4" : {
+            firstTrackNumber: 16,
+            fixTrackName: /(\d+) Kantate, BWV 4 "Christ lag in Todesbanden": [IV]+. (.*).mp3/
+        },
+        "Cantata Christ lag in Todesbanden (appendix) [Koopman] BWV4" : {
+            firstTrackNumber: 24,
+            fixTrackName: /(\d+) Kantate, BWV 4 \(appendix\) "Christ lag in Todesbanden": [IV]+. (.*).mp3/
+        },
+        "Cantata Der Herr denket an uns [Koopman] BWV196" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Der Herr denket an uns(?: BWV196)? - (.*).mp3/
+        },
+        "Cantata Ein feste Burg [Rifkin]" : {
+            firstTrackNumber: 11,
+            fixTrackName: /(\d+) Cantata, BWV 80 "Ein feste Burg ist unser Gott": (.*).mp3/
+        },
+        "Cantata Geist und Seele [Mullejans] BWV35" : {
+            firstTrackNumber: 13,
+            fixTrackName: /(\d+) - Cantata BWV 35. \d+. (.*).mp3/
+        },
         "Cantata Ein feste Burg" : {
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata No. 80_ [IV]+\. (.*).mp3/
+        },
+        "Cantata Gott ist mein Konig [Koopman] BWV71" : {
+            firstTrackNumber: 10,
+            fixTrackName: /(\d+) - Gott ist mein Konig (?:BWV71 )?- (.*).mp3/
+        },
+        "Cantata Gottes Zeit [Suzuki] BWV106" : {
+            firstTrackNumber: 13,
+            fixTrackName: /(\d+) Cantata no. 106, BWV 106 "Gottes Zeit ist die allerbeste Zeit": (.*).mp3/
+        },
+        // TODO track 8 is missing
+        "Cantata Herz und Mund und Tat und Leben [Rifkin]" : {
+            fixTrackName: /(\d+) Cantata, BWV 147 "Herz und Mund und Tat und Leben": Part [IVX]+, (.*).mp3/
         },
         "Cantata Jesu meine Freunde BWV 227 " : {
             firstTrackNumber: 11,
@@ -90,7 +134,7 @@ export function SpecialHandlers()
            firstTrackNumber: 4,
            fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
        },
-      "Orchestral Suite 2 [Karajan]" : {
+       "Orchestral Suite 2 [Karajan]" : {
             firstTrackNumber: 11,
             fixTrackName: /(\d+) - Suite for Orchestra No. 2 in B minor, BWV 1067_ [IV]+. (.*).mp3/
         },
