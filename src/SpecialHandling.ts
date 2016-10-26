@@ -188,6 +188,7 @@ export class SpecialHandling
             fixers.push(fixTrackNumber);
         }
 
+        // TODO remove this
         if (specification.fixNumberPrefixLength) {
             var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = /^(\d+)(.*)$/.exec(track.title);

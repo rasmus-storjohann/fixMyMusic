@@ -114,6 +114,22 @@ describe("Validator", () => {
                 _theValidator.validate(createAlbum(), specialHandlers);
             }).to.throw(Error, /Inconsistent numbering format/);
         });
+
+        it("throws on very similar track names", () => {
+            musicTrack[0].title = "01 The name of the work and then the ... first track name.mp3";
+            musicTrack[1].title = "02 The name of the work and then the ... second track name.mp3";
+
+            chai.expect(() => {
+                _theValidator.validate(createAlbum(), specialHandlers);
+            }).to.throw(Error, /Redundant track names/);
+        });
+
+        it("does not throw on short, similar track names", () => {
+            musicTrack[0].title = "01 allegro.mp3";
+            musicTrack[1].title = "02 allegro.mp3";
+
+            _theValidator.validate(createAlbum(), specialHandlers);
+        });
     });
     describe("on albums", () => {
         it("throws on space in artist", () => {

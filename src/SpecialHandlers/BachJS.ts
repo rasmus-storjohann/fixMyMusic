@@ -82,11 +82,15 @@ export function SpecialHandlers()
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060_ [IV]+. (.*).mp3/
         },
-        "Opfer" : {
-            firstTrackNumber: 4,
-            fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
-        },
-        "Orchestral Suite 2 [Karajan]" : {
+        "Opfer [Marriner]" : {
+           firstTrackNumber: 5,
+           fixTrackName: /(\d+) Musical Offering: (.*).mp3/
+       },
+       "Opfer [Münchinger]" : {
+           firstTrackNumber: 4,
+           fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
+       },
+      "Orchestral Suite 2 [Karajan]" : {
             firstTrackNumber: 11,
             fixTrackName: /(\d+) - Suite for Orchestra No. 2 in B minor, BWV 1067_ [IV]+. (.*).mp3/
         },

@@ -43,10 +43,16 @@ export class Validator
     {
         var index = 1;
         var numberPrefixLength: number;
+        var previousTrackTitle: string;
+        //var isTrackNameRedundant = this.isTrackNameRedundant;
         album.tracks.forEach((track) => {
-
             logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.title + "]");
-
+            /*
+            if (isTrackNameRedundant(previousTrackTitle, track.title))
+            {
+                throw new Error(track.title + ": Redundant track name, likely contains work name");
+            }
+            */
             var trackNumberAsString = /^(\d+)/.exec(track.title);
             if (!trackNumberAsString)
             {
@@ -74,6 +80,24 @@ export class Validator
                                                 "\nTemplate for special handler:\n" + suggestedSpecialHandler);
             }
             index++;
+            previousTrackTitle = track.title;
         });
+    }
+    private isTrackNameRedundant(firstTrackName: string, secondTrackName: string) : boolean
+    {
+        var length = Math.min(firstTrackName.length, secondTrackName.length);
+        if (length < 10)
+        {
+            return false;
+        }
+        var matches = 0;
+        for (var i = 0; i < length; i++)
+        {
+            if (firstTrackName[i] == secondTrackName[i])
+            {
+                matches += 1;
+            }
+        }
+        return matches/length > 0.5;
     }
 }

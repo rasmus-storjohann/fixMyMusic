@@ -13,7 +13,7 @@ export class Fixer
 
     public fix(album: Album, specialHandler: SpecialHandler) : void
     {
-        this.logger.silly("Fixer", "Fixing " + album.artist + ": " + album.title);
+        this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
         this.fixTrackPrefix(album);
 
