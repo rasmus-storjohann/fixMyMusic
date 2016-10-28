@@ -72,29 +72,59 @@ export function SpecialHandlers()
             firstTrackNumber: 11,
             fixTrackName: /(\d+) Cantata, BWV 80 "Ein feste Burg ist unser Gott": (.*).mp3/
         },
-        "Cantata Geist und Seele [Mullejans] BWV35" : {
-            firstTrackNumber: 13,
-            fixTrackName: /(\d+) - Cantata BWV 35. \d+. (.*).mp3/
-        },
         "Cantata Ein feste Burg" : {
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata No. 80_ [IV]+\. (.*).mp3/
         },
+        "Cantata Geist und Seele [Mullejans] BWV35" : {
+            firstTrackNumber: 13,
+            fixTrackName: /(\d+) - Cantata BWV 35. \d+. (.*).mp3/
+        },
         "Cantata Gott ist mein Konig [Koopman] BWV71" : {
+            // TODO
+            // title: "Cant[Koopman] Gott ist mein Konig"
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Gott ist mein Konig (?:BWV71 )?- (.*).mp3/
         },
         "Cantata Gottes Zeit [Suzuki] BWV106" : {
+            // title: "Cant[Suzuki] Gottes Zeit"
             firstTrackNumber: 13,
             fixTrackName: /(\d+) Cantata no. 106, BWV 106 "Gottes Zeit ist die allerbeste Zeit": (.*).mp3/
         },
-        // TODO track 8 is missing
         "Cantata Herz und Mund und Tat und Leben [Rifkin]" : {
             fixTrackName: /(\d+) Cantata, BWV 147 "Herz und Mund und Tat und Leben": Part [IVX]+, (.*).mp3/
+        },
+        "Cantata ich habe genug BWV82" : {
+            firstTrackNumber: 13,
+            fixTrackName: /(\d*) Cantata "Ich habe genug", BWV 82: [IV]+. (.*).mp3/
+        },
+        "Cantata Ich hatte viel Bekümmernis (appendix) [Koopman] BWV21" : {
+            firstTrackNumber: 17,
+            fixTrackName: /(\d+) Cantata, BWV 21 "Ich hatte viel Bekümmernis": \(appendix\) (.*).mp3/
+        },
+        "Cantata Jauchzet Gott in allem Landed [Rifkin]" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) Cantata, BWV 51 "Jauchzet Gott in allen Landen": (.*).mp3/
+        },
+        "Cantata Jesu der du meine Seele [Rifkin]" : {
+            firstTrackNumber: 13,
+            fixTrackName: /(\d+) Cantata, BWV 78 "Jesu, der du meine Seele": (.*).mp3/
         },
         "Cantata Jesu meine Freunde BWV 227 " : {
             firstTrackNumber: 11,
             fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227_ [IVX]+\.(.*).mp3/
+        },
+        "Cantata Liebster Gott [Rifkin]" : {
+            firstTrackNumber: 19,
+            fixTrackName: /(\d+) Cantata, BWV 8 "Liebster Gott, wann werd ich sterben": (.*).mp3/
+        },
+        "Cantata Nach dir, Herr [Koopman] BWV150" : {
+            firstTrackNumber: 17,
+            fixTrackName: /(\d*) - Nach dir, Herr, verlanget mich BWV150 - (.*).mp3/
+        },
+        "Cantata Wie jammern [Mullejans] BWV170" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) - Cantata BWV 170. \d+. (.*).mp3/
         },
         "CelloSuite1" : {
             fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007_ [IVab]+\. (.*)\.mp3/

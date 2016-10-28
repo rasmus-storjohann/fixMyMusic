@@ -64,6 +64,8 @@ export class SpecialHandling
         },
         "Bach JS": BachJs.SpecialHandlers(),
         "Beady Belle": {
+            // so much easier:
+            // name: "Beady_Belle"
             fixArtist: this.keepArtistNameInCurrentOrder
         },
         "Beethoven": {
