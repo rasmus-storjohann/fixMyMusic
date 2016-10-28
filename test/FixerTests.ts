@@ -139,29 +139,43 @@ describe("Fixer", () => {
             describe("John Adams", () => {
                 it("Converts one digit track number to two digit", () => {
                     album.tracks[0].title = "3 Act I Scene 1_ The people are the heroes now (Chorus).mp3";
-                    specialHandler = new SpecialHandling(log).getSpecialHandlers("Adams_John", "Nixon1");
+                    var rule = {
+                        "Adams_John":{
+                            "Nixon1":{
+                                fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
+                            }
+                        }
+                    };
+                    specialHandler = new SpecialHandling(rule, log).getSpecialHandlers("Adams_John", "Nixon1");
                     fixer.fix(album, specialHandler);
                     chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
                 });
             });
             it("Doesn't switch the name Beady Belle", () => {
                 album.artist = "Beady Belle";
-                specialHandler = new SpecialHandling(log).getSpecialHandlers("Beady Belle", "");
+                var rule = {
+                    "Beady Belle":{
+                        name: "Beady_Belle"
+                    }
+                };
+                specialHandler = new SpecialHandling(rule, log).getSpecialHandlers("Beady Belle", "");
                 fixer.fix(album, specialHandler);
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
             describe("Beethoven", () => {
                 it("fixes track names on Eroica Variations E# op.35 [Gilels]", () => {
                     album.tracks[0].title = "09. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
-                    specialHandler = new SpecialHandling(log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
+                    var rule = {
+                        "Beethoven": {
+                            "Eroica Variations E# op.35 [Gilels]": {
+                                firstTrackNumber: 9,
+                                fixTrackName: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
+                            }
+                        }
+                    };
+                    specialHandler = new SpecialHandling(rule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
                     fixer.fix(album, specialHandler);
                     chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
-                });
-                it("fixes track names on Quintet Eb Op16 [Richter]", () => {
-                    album.tracks[0].title = "05 Quintet in E flat, Op. 16 - 1. Grave - Allegro ma non troppo.mp3";
-                    specialHandler = new SpecialHandling(log).getSpecialHandlers("Beethoven", "Quintet Eb Op16 [Richter]");
-                    fixer.fix(album, specialHandler);
-                    chai.expect(album.tracks[0].title).to.equal("1 Grave - Allegro ma non troppo");
                 });
             });
         });

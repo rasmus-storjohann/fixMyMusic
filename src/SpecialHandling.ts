@@ -13,13 +13,14 @@ export interface SpecialHandler
 
 export class SpecialHandling
 {
-    public constructor(logger: npmlog.NpmLog)
+    public constructor(specialHandlers, logger: npmlog.NpmLog)
     {
         this.logger = logger;
+        this.handlers = specialHandlers;
     }
 
     private logger: npmlog.NpmLog;
-    private handlers = Root.SpecialHandlers();
+    private handlers;
 
     private buildFixTrack(specification)
     {
