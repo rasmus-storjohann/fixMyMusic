@@ -1,5 +1,5 @@
 import { Album, AlbumTrack } from "./Album";
-import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
+import { SpecialHandling, Rule } from "./SpecialHandling";
 import * as npmlog from "npmlog";
 
 export class Fixer
@@ -11,7 +11,7 @@ export class Fixer
 
     private logger: npmlog.NpmLog;
 
-    public fix(album: Album, specialHandler: SpecialHandler) : void
+    public fix(album: Album, specialHandler: Rule) : void
     {
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
@@ -42,7 +42,7 @@ export class Fixer
         });
     }
 
-    private getFixArtistFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void
+    private getFixArtistFunction(specialHandler: Rule) : (album: Album, logger: npmlog.NpmLog) => void
     {
         if (specialHandler && specialHandler.fixArtist)
         {
@@ -67,7 +67,7 @@ export class Fixer
         album.artist = artist;
     }
 
-    private getFixTrackFunction(specialHandler: SpecialHandler) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
+    private getFixTrackFunction(specialHandler: Rule) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
     {
         return specialHandler && specialHandler.fixTrack;
     }

@@ -5,10 +5,10 @@ import * as log from "npmlog";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album, AlbumTrack } from "../src/Album";
-import { SpecialHandling, SpecialHandler } from "../src/SpecialHandling";
+import { SpecialHandling, Rule } from "../src/SpecialHandling";
 
 var _theValidator : Validator;
-var specialHandlers: SpecialHandler;
+var specialHandlers: Rule;
 beforeEach(() =>
 {
     log.level = 'silent';

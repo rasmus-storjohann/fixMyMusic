@@ -4,7 +4,7 @@ import { Album, AlbumTrack } from "./Album";
 import * as Root from "./SpecialHandlers/Root";
 import * as npmlog from "npmlog";
 
-export interface SpecialHandler
+export interface Rule
 {
     validateTracks: (album: Album, logger: npmlog.NpmLog) => void;
     fixArtist: (album: Album, logger: npmlog.NpmLog) => void;

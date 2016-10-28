@@ -1,7 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Album, AlbumTrack } from "./Album";
-import { SpecialHandling, SpecialHandler } from "./SpecialHandling";
+import { SpecialHandling, Rule } from "./SpecialHandling";
 import * as npmlog from "npmlog";
 
 export class Validator
@@ -13,7 +13,7 @@ export class Validator
 
     private logger: npmlog.NpmLog;
 
-    public validate(album: Album, specialHandler: SpecialHandler) : void
+    public validate(album: Album, specialHandler: Rule) : void
     {
         var validateTracks = this.getValidateTracksFunction(specialHandler);
         validateTracks(album, this.logger);
@@ -22,7 +22,7 @@ export class Validator
         validateArtist(album, this.logger);
     }
 
-    private getValidateTracksFunction(specialHandler: SpecialHandler) : (album: Album, logger: npmlog.NpmLog) => void
+    private getValidateTracksFunction(specialHandler: Rule) : (album: Album, logger: npmlog.NpmLog) => void
     {
         if (specialHandler && specialHandler.validateTracks)
         {

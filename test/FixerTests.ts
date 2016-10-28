@@ -5,7 +5,7 @@ import * as log from "npmlog";
 import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
-import { SpecialHandling, SpecialHandler } from "../src/SpecialHandling";
+import { SpecialHandling, Rule } from "../src/SpecialHandling";
 
 var fixer: Fixer;
 var album: Album;
@@ -24,7 +24,7 @@ beforeEach(() => {
 describe("Fixer", () => {
     describe("track names", () => {
         it("puts 0 prefix on one digit track numbers", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -35,7 +35,7 @@ describe("Fixer", () => {
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
         it("assigns track numbers based on the disk number", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -50,7 +50,7 @@ describe("Fixer", () => {
             chai.expect(album.tracks[2].title).to.equal("03 second track from disk three.mp2");
         });
         it("first track number of next disk is computed from last track number on current disk", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -64,7 +64,7 @@ describe("Fixer", () => {
         });
 
         it("index of tracks on next disk is offset by the number of tracks on the first disk", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -78,7 +78,7 @@ describe("Fixer", () => {
         });
 
         it("index tracks spanning three disks", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -94,7 +94,7 @@ describe("Fixer", () => {
         });
 
         it("can fix numbers when the tracks are larger than 9", () => {
-            var specialHandler: SpecialHandler;
+            var specialHandler: Rule;
             var artist = "the artist";
             var albumTitle = "the album";
             var album = new Album(artist, albumTitle);
@@ -110,7 +110,7 @@ describe("Fixer", () => {
     });
 
     describe("artist names", () => {
-        var specialHandler: SpecialHandler;
+        var specialHandler: Rule;
         it("makes no changes to artist names with no spaces", () => {
             album.artist = "a_b_c";
             fixer.fix(album, specialHandler);
