@@ -8,7 +8,7 @@ import { Album, AlbumTrack } from "../src/Album";
 import { SpecialHandling, Rule } from "../src/SpecialHandling";
 
 var _theValidator : Validator;
-var specialHandlers: Rule;
+var rule: Rule;
 beforeEach(() =>
 {
     log.level = 'silent';
@@ -63,7 +63,7 @@ describe("Validator", () => {
     }
 
     it("accepts a valid tracks in correct order", () => {
-        _theValidator.validate(createAlbum(), specialHandlers);
+        _theValidator.validate(createAlbum(), rule);
     });
 
     describe("on tracks", () => {
@@ -71,7 +71,7 @@ describe("Validator", () => {
             musicTrack[0].title = "dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Failed validation of \'aaaa\': title \'dddd\' has no number/);
         });
 
@@ -81,7 +81,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -91,7 +91,7 @@ describe("Validator", () => {
             musicTrack[1].title = "3 dddd";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -101,7 +101,7 @@ describe("Validator", () => {
             musicTrack[1].title = "1 eeee";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Track number out of order/);
         });
 
@@ -111,7 +111,7 @@ describe("Validator", () => {
             musicTrack[1].title = "02 eeee";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Inconsistent numbering format/);
         });
 
@@ -120,7 +120,7 @@ describe("Validator", () => {
             musicTrack[1].title = "02 The name of the work and then the ... second track name.mp3";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Redundant track names/);
         });
 
@@ -128,7 +128,7 @@ describe("Validator", () => {
             musicTrack[0].title = "01 allegro.mp3";
             musicTrack[1].title = "02 allegro.mp3";
 
-            _theValidator.validate(createAlbum(), specialHandlers);
+            _theValidator.validate(createAlbum(), rule);
         });
     });
     describe("on albums", () => {
@@ -136,7 +136,7 @@ describe("Validator", () => {
             musicTrack[0].artist = "aaaa bbbb";
             musicTrack[1].artist = "aaaa bbbb";
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), specialHandlers);
+                _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Artist contains a space/);
         });
     });

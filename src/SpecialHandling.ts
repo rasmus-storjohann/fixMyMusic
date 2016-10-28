@@ -13,14 +13,14 @@ export interface Rule
 
 export class SpecialHandling
 {
-    public constructor(specialHandlers, logger: npmlog.NpmLog)
+    public constructor(rules, logger: npmlog.NpmLog)
     {
         this.logger = logger;
-        this.handlers = specialHandlers;
+        this.rules = rules;
     }
 
     private logger: npmlog.NpmLog;
-    private handlers;
+    private rules;
 
     private buildFixTrack(specification)
     {
@@ -102,7 +102,7 @@ export class SpecialHandling
 
     public getSpecialHandlers(artist: string, albumTitle: string)
     {
-        var artistHandlers = this.handlers[artist];
+        var artistHandlers = this.rules[artist];
         var albumHandlers = artistHandlers && artistHandlers[albumTitle];
 
         return {

@@ -11,16 +11,16 @@ export class Fixer
 
     private logger: npmlog.NpmLog;
 
-    public fix(album: Album, specialHandler: Rule) : void
+    public fix(album: Album, rule: Rule) : void
     {
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
         this.fixTrackPrefix(album);
 
-        var fixArtist = this.getFixArtistFunction(specialHandler);
+        var fixArtist = this.getFixArtistFunction(rule);
         fixArtist(album, this.logger);
 
-        var fixTrack = this.getFixTrackFunction(specialHandler);
+        var fixTrack = this.getFixTrackFunction(rule);
         if (fixTrack)
         {
             album.tracks.forEach((track) => {
@@ -42,11 +42,11 @@ export class Fixer
         });
     }
 
-    private getFixArtistFunction(specialHandler: Rule) : (album: Album, logger: npmlog.NpmLog) => void
+    private getFixArtistFunction(rule: Rule) : (album: Album, logger: npmlog.NpmLog) => void
     {
-        if (specialHandler && specialHandler.fixArtist)
+        if (rule && rule.fixArtist)
         {
-            return specialHandler.fixArtist;
+            return rule.fixArtist;
         }
         return this.defaultFixArtist;
     }
@@ -67,9 +67,9 @@ export class Fixer
         album.artist = artist;
     }
 
-    private getFixTrackFunction(specialHandler: Rule) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
+    private getFixTrackFunction(rule: Rule) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
     {
-        return specialHandler && specialHandler.fixTrack;
+        return rule && rule.fixTrack;
     }
 
     private fixTrackNumbering(album: Album): void

@@ -13,20 +13,20 @@ export class Validator
 
     private logger: npmlog.NpmLog;
 
-    public validate(album: Album, specialHandler: Rule) : void
+    public validate(album: Album, rule: Rule) : void
     {
-        var validateTracks = this.getValidateTracksFunction(specialHandler);
+        var validateTracks = this.getValidateTracksFunction(rule);
         validateTracks(album, this.logger);
 
         var validateArtist = this.defaultValidateArtist;
         validateArtist(album, this.logger);
     }
 
-    private getValidateTracksFunction(specialHandler: Rule) : (album: Album, logger: npmlog.NpmLog) => void
+    private getValidateTracksFunction(rule: Rule) : (album: Album, logger: npmlog.NpmLog) => void
     {
-        if (specialHandler && specialHandler.validateTracks)
+        if (rule && rule.validateTracks)
         {
-            return specialHandler.validateTracks;
+            return rule.validateTracks;
         }
         return this.defaultValidateTracks;
     }
