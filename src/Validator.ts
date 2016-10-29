@@ -18,8 +18,9 @@ export class Validator
         var validateTracks = this.getValidateTracksFunction(rule);
         validateTracks(album, this.logger);
 
-        var validateArtist = this.defaultValidateArtist;
-        validateArtist(album, this.logger);
+        this.validateTrackUniqueness(album);
+
+        this.defaultValidateArtist(album, this.logger);
     }
 
     private getValidateTracksFunction(rule: Rule) : (album: Album, logger: npmlog.NpmLog) => void
@@ -68,21 +69,26 @@ export class Validator
         }
     }
 
+    private validateTrackUniqueness(album: Album)
+    {
+        var previousTrackName: string;
+        album.tracks.forEach((track) => {
+            if (previousTrackName && this.isTrackNameRedundant(previousTrackName, track.title)) {
+                throw new Error(album.title + ": Album contains redundant track names");
+            }
+            previousTrackName = track.title;
+        });
+    }
+
     private isTrackNameRedundant(firstTrackName: string, secondTrackName: string) : boolean
     {
         var length = Math.min(firstTrackName.length, secondTrackName.length);
-        if (length < 10)
-        {
-            return false;
-        }
         var matches = 0;
-        for (var i = 0; i < length; i++)
-        {
-            if (firstTrackName[i] == secondTrackName[i])
-            {
+        for (var i = 0; i < length; i++) {
+            if (firstTrackName[i] == secondTrackName[i]) {
                 matches += 1;
             }
         }
-        return matches/length > 0.5;
+        return matches > 16;
     }
 }

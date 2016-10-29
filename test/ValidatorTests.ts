@@ -122,17 +122,17 @@ describe("Validator", () => {
         });
 
         it("throws on very similar track names", () => {
-            musicTrack[0].title = "01 The name of the work and then the ... first track name.mp3";
-            musicTrack[1].title = "02 The name of the work and then the ... second track name.mp3";
+            musicTrack[0].title = "01 12345678901.mp3";
+            musicTrack[1].title = "02 12345678901.mp3";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Redundant track names/);
+            }).to.throw(Error, /bbbb: Album contains redundant track names/);
         });
 
-        it("does not throw on short, similar track names", () => {
-            musicTrack[0].title = "01 allegro.mp3";
-            musicTrack[1].title = "02 allegro.mp3";
+        it("does not throw similar track names if they're short enough", () => {
+            musicTrack[0].title = "01 1234567890.mp3";
+            musicTrack[1].title = "02 1234567890.mp3";
 
             _theValidator.validate(createAlbum(), rule);
         });
