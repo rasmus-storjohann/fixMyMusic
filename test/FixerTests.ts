@@ -176,6 +176,22 @@ describe("Fixer", () => {
                 fixer.fix(album, undefined, specialHandling);
                 chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
             });
+            it("fixes track names from function", () => {
+                album.tracks[0].title = "09 original title";
+                var mockRule = {
+                    "someArtist": {
+                        "someAlbum": {
+                            firstTrackNumber: 9,
+                            fixTrackNameFunc: function(title: string): string {
+                                return "09 fixed title.mp3";
+                            }
+                        }
+                    }
+                };
+                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
+                fixer.fix(album, undefined, specialHandling);
+                chai.expect(album.tracks[0].title).to.equal("01 fixed title.mp3");
+            });
         });
     });
 });

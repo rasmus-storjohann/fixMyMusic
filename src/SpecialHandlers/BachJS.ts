@@ -156,6 +156,18 @@ export function SpecialHandlers()
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060_ [IV]+. (.*).mp3/
         },
+        "Inventions[Gould]" : {
+            firstTrackNumber: 3,
+            fixTrackNameFunc: function(name: string) : string {
+                var m = /(\d+) (\d-Part Invention) No\. (\d+) in ([^ ]+) (major|minor), BWV (\d+)\.mp3/.exec(name);
+                var key = m[4];
+                if (m[5] === "minor")
+                {
+                    key = key.toLowerCase();
+                }
+                return m[1] + " " + m[2] + " " + m[3] + " " + key + " BWV" + m[6] ".mp3";
+            }
+        },
         "Opfer [Marriner]" : {
            firstTrackNumber: 5,
            fixTrackName: /(\d+) Musical Offering: (.*).mp3/

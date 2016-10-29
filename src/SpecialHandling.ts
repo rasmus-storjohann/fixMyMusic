@@ -32,7 +32,26 @@ export class SpecialHandling
 
         var fixers = [];
 
+        if (specification.fixTrackNameFunc && specification.fixTrackName) {
+            throw new Error("Can't have both kinds of track fixers");
+        }
+
+        if (specification.fixTrackNameFunc) {
+
+            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
+
+                var oldTitle = track.title;
+                var newTitle = specification.fixTrackNameFunc(oldTitle);
+                logger.verbose("fixTrackNameFunc", "Changing old title '" + oldTitle + "' to '" + newTitle + "'");
+                track.title = newTitle;
+
+            }
+
+            fixers.push(fixTrackName);
+        }
+
         if (specification.fixTrackName) {
+
             var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = specification.fixTrackName.exec(track.title);
                 if (!match) {
@@ -66,26 +85,6 @@ export class SpecialHandling
                     track.title = newTitle;
                     logger.verbose("SpecialFixTrackNumber", track.path  + ": Fixed track number to '" + track.title + "'")
                 }
-            };
-
-            fixers.push(fixTrackNumber);
-        }
-
-        // TODO remove this
-        if (specification.fixNumberPrefixLength) {
-            var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
-                var match = /^(\d+)(.*)$/.exec(track.title);
-                if (!match) {
-                    throw new Error(track.title + ": Track name does not have expected number prefix");
-                }
-                var numberAsString = match[1];
-                if (numberAsString.length > specification.fixNumberPrefixLength) {
-                    throw new Error(track.title + ": Track number is too long for the fix number prefix argument");
-                }
-                while (numberAsString.length < specification.fixNumberPrefixLength) {
-                    numberAsString = "0" + numberAsString;
-                }
-                track.title = numberAsString + match[2];
             };
 
             fixers.push(fixTrackNumber);
