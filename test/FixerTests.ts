@@ -135,23 +135,22 @@ describe("Fixer", () => {
             chai.expect(album.artist).to.equal("One Two Three");
         });
 
+        it("converts one digit track number to two digit", () => {
+            album.tracks[0].title = "3 Act I Scene 1_ The people are the heroes now (Chorus).mp3";
+            var mockRule = {
+                "Adams_John":{
+                    "Nixon1":{
+                        fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
+                    }
+                }
+            };
+            var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Adams_John", "Nixon1");
+            fixer.fix(album, undefined, specialHandling);
+            chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
+        });
+
         describe("special case handling", () => {
-            describe("John Adams", () => {
-                it("Converts one digit track number to two digit", () => {
-                    album.tracks[0].title = "3 Act I Scene 1_ The people are the heroes now (Chorus).mp3";
-                    var mockRule = {
-                        "Adams_John":{
-                            "Nixon1":{
-                                fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
-                            }
-                        }
-                    };
-                    var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Adams_John", "Nixon1");
-                    fixer.fix(album, undefined, specialHandling);
-                    chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
-                });
-            });
-            it("Doesn't switch the name Beady Belle", () => {
+            it("fixes artist name", () => {
                 album.artist = "Beady Belle";
                 var mockRule = {
                     "Beady Belle":{
@@ -163,21 +162,19 @@ describe("Fixer", () => {
                 fixer.fix(album, artistName, undefined);
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
-            describe("Beethoven", () => {
-                it("fixes track names on Eroica Variations E# op.35 [Gilels]", () => {
-                    album.tracks[0].title = "09. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
-                    var mockRule = {
-                        "Beethoven": {
-                            "Eroica Variations E# op.35 [Gilels]": {
-                                firstTrackNumber: 9,
-                                fixTrackName: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
-                            }
+            it("fixes track names from regular expression", () => {
+                album.tracks[0].title = "09. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
+                var mockRule = {
+                    "Beethoven": {
+                        "Eroica Variations E# op.35 [Gilels]": {
+                            firstTrackNumber: 9,
+                            fixTrackName: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
                         }
-                    };
-                    var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
-                    fixer.fix(album, undefined, specialHandling);
-                    chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
-                });
+                    }
+                };
+                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
+                fixer.fix(album, undefined, specialHandling);
+                chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
             });
         });
     });
