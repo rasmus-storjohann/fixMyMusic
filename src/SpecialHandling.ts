@@ -100,6 +100,16 @@ export class SpecialHandling
         return applyAllFixers;
     }
 
+    public getArtistName(artist: string) : string
+    {
+        var artistHandlers = this.rules[artist];
+
+        if (artistHandlers && artistHandlers.artistName)
+        {
+            return artistHandlers.artistName;
+        }
+    }
+
     public getSpecialHandlers(artist: string, albumTitle: string)
     {
         var artistHandlers = this.rules[artist];
@@ -110,10 +120,5 @@ export class SpecialHandling
             fixTrack: this.buildFixTrack(albumHandlers),
             validateTracks : albumHandlers && albumHandlers.validateTracks
         };
-    }
-
-    private keepArtistNameInCurrentOrder(album: Album)
-    {
-        album.artist = album.artist.replace(/ /g, '_');
     }
 }

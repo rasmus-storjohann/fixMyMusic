@@ -46,9 +46,7 @@ export function SpecialHandlers()
         },
         "Bach JS": BachJs.SpecialHandlers(),
         "Beady Belle": {
-            // so much easier:
-            // name: "Beady_Belle"
-            fixArtist: this.keepArtistNameInCurrentOrder
+            artistName: "Beady_Belle"
         },
         "Beethoven": {
             "Eroica Variations E# op.35 [Gilels]": {

@@ -49,8 +49,9 @@ export class Application
         var validator = new Validator(this.logger);
 
         albums.forEach(album => {
+            var artistName = specialHandling.getArtistName(album.artist);
             var rules = specialHandling.getSpecialHandlers(album.artist, album.title);
-            fixer.fix(album, rules);
+            fixer.fix(album, artistName, rules);
             album.sortTracks();
             validator.validate(album, rules);
         });

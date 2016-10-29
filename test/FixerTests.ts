@@ -30,7 +30,7 @@ describe("Fixer", () => {
             var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "1 track.mp3", path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
@@ -43,7 +43,7 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "02 second track from disk three.mp2", disk: 3, path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("01 track from disk two.mp2");
             chai.expect(album.tracks[1].title).to.equal("02 track from disk three.mp2");
@@ -57,7 +57,7 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, title: "02 second track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp3", disk: 3, path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("02 second track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("03 track from disk three.mp3");
@@ -71,7 +71,7 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("02 track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("04 track from disk three.mp3");
@@ -86,7 +86,7 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "03 track from disk four.mp3", disk: 4, path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("03 track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("05 track from disk three.mp3");
@@ -101,7 +101,7 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, title: "12 track from disk two.mp2", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
 
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
 
             chai.expect(album.tracks[0].title).to.equal("12 track from disk two.mp2");
             chai.expect(album.tracks[1].title).to.equal("13 track from disk three.mp2");
@@ -113,25 +113,25 @@ describe("Fixer", () => {
         var rule: Rule;
         it("makes no changes to artist names with no spaces", () => {
             album.artist = "a_b_c";
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
             chai.expect(album.artist).to.equal("a_b_c");
         });
 
         it("drops the 'the' and replaces space with _ in names starting with 'the'", () => {
             album.artist = "The Tragically Hip";
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
             chai.expect(album.artist).to.equal("Tragically_Hip");
         });
 
         it("swaps first and last name and replaces spaces with _ in names consisting first and last name", () => {
             album.artist = "Jimi Hendrix";
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
             chai.expect(album.artist).to.equal("Hendrix_Jimi");
         });
 
         it("makes no changes to artist names that don't fit these patterns", () => {
             album.artist = "One Two Three";
-            fixer.fix(album, rule);
+            fixer.fix(album, undefined, rule);
             chai.expect(album.artist).to.equal("One Two Three");
         });
 
@@ -147,7 +147,7 @@ describe("Fixer", () => {
                         }
                     };
                     var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Adams_John", "Nixon1");
-                    fixer.fix(album, specialHandling);
+                    fixer.fix(album, undefined, specialHandling);
                     chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
                 });
             });
@@ -155,11 +155,12 @@ describe("Fixer", () => {
                 album.artist = "Beady Belle";
                 var mockRule = {
                     "Beady Belle":{
-                        name: "Beady_Belle"
+                        artistName: "Beady_Belle"
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beady Belle", "");
-                fixer.fix(album, specialHandling);
+                var specialHandling = new SpecialHandling(mockRule, log);
+                var artistName = specialHandling.getArtistName(album.artist);
+                fixer.fix(album, artistName, undefined);
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
             describe("Beethoven", () => {
@@ -174,7 +175,7 @@ describe("Fixer", () => {
                         }
                     };
                     var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
-                    fixer.fix(album, specialHandling);
+                    fixer.fix(album, undefined, specialHandling);
                     chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
                 });
             });
