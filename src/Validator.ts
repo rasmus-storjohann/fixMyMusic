@@ -71,12 +71,21 @@ export class Validator
 
     private validateTrackUniqueness(album: Album)
     {
-        var previousTrackName: string;
+        var firstTrackName: string;
         album.tracks.forEach((track) => {
-            if (previousTrackName && this.isTrackNameRedundant(previousTrackName, track.title)) {
-                throw new Error(album.title + ": Album contains redundant track names");
+            if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title)) {
+                var suggestedSpecialHandler = "\"" + album.artist + " (as on disk!)\" : {\n" +
+                                              "    \"" + album.title + "\" : {\n" +
+                                              "        fixTrackName: /" + track.title + "/\n" +
+                                              "    }\n" +
+                                              "}";
+
+                throw new Error(album.title + ": Album contains redundant track names '" + track.title + "'" +
+                                              "\nTemplate for special handler:\n" + suggestedSpecialHandler);
             }
-            previousTrackName = track.title;
+            if (!firstTrackName) {
+                firstTrackName = track.title;
+            }
         });
     }
 
@@ -89,6 +98,6 @@ export class Validator
                 matches += 1;
             }
         }
-        return matches > 16;
+        return matches > 26;
     }
 }

@@ -122,8 +122,8 @@ describe("Validator", () => {
         });
 
         it("throws on very similar track names", () => {
-            musicTrack[0].title = "01 12345678901.mp3";
-            musicTrack[1].title = "02 12345678901.mp3";
+            musicTrack[0].title = "01 123456789012345678901.mp3";
+            musicTrack[1].title = "02 123456789012345678901.mp3";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -131,8 +131,8 @@ describe("Validator", () => {
         });
 
         it("does not throw similar track names if they're short enough", () => {
-            musicTrack[0].title = "01 1234567890.mp3";
-            musicTrack[1].title = "02 1234567890.mp3";
+            musicTrack[0].title = "01 12345678901234567890.mp3";
+            musicTrack[1].title = "02 12345678901234567890.mp3";
 
             _theValidator.validate(createAlbum(), rule);
         });
