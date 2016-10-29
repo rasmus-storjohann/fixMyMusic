@@ -31,43 +31,20 @@ export class Validator
         return this.defaultValidateTracks;
     }
 
-    private defaultValidateArtist(album: Album, logger: npmlog.NpmLog) : void
-    {
-        if (album.artist.indexOf(" ") !== -1)
-        {
-            throw new Error(album.tracks[0].path + ": Artist contains a space: \"" + album.artist + "\"");
-        }
-    }
-
     private defaultValidateTracks(album: Album, logger: npmlog.NpmLog) : void
     {
         var index = 1;
         var numberPrefixLength: number;
-        var previousTrackTitle: string;
-        //var isTrackNameRedundant = this.isTrackNameRedundant;
         album.tracks.forEach((track) => {
             logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.title + "]");
-            /*
-            if (isTrackNameRedundant(previousTrackTitle, track.title))
+
+            var match = /^(\d\d) /.exec(track.title);
+            if (!match)
             {
-                throw new Error(track.title + ": Redundant track name, likely contains work name");
-            }
-            */
-            var trackNumberAsString = /^(\d+)/.exec(track.title);
-            if (!trackNumberAsString)
-            {
-                throw new Error("Failed validation of '" + track.path + "': title '" + track.title + "' has no number");
+                throw new Error("Failed validation of '" + track.path + "': title '" + track.title + "' should have a two digit prefix");
             }
 
-            var numberPrefix = trackNumberAsString[1];
-            if (numberPrefixLength && numberPrefix.length !== numberPrefixLength)
-            {
-                throw new Error(track.path + ": Inconsistent numbering format");
-            }
-
-            numberPrefixLength = numberPrefix.length;
-
-            var trackNumber = parseInt(numberPrefix);
+            var trackNumber = parseInt(match[1]);
             if (trackNumber != index)
             {
                 var suggestedSpecialHandler = "\"" + album.artist + " (as on disk!)\" : {\n" +
@@ -80,9 +57,17 @@ export class Validator
                                                 "\nTemplate for special handler:\n" + suggestedSpecialHandler);
             }
             index++;
-            previousTrackTitle = track.title;
         });
     }
+
+    private defaultValidateArtist(album: Album, logger: npmlog.NpmLog) : void
+    {
+        if (album.artist.indexOf(" ") !== -1)
+        {
+            throw new Error(album.tracks[0].path + ": Artist contains a space: \"" + album.artist + "\"");
+        }
+    }
+
     private isTrackNameRedundant(firstTrackName: string, secondTrackName: string) : boolean
     {
         var length = Math.min(firstTrackName.length, secondTrackName.length);

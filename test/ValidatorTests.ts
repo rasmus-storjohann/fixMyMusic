@@ -24,13 +24,13 @@ describe("Validator", () => {
                 artist: artist,
                 album: albumTitle,
                 path: "aaaa",
-                title: "1 bbbb"
+                title: "01 bbbb"
             },
             {
                 artist: artist,
                 album: albumTitle,
                 path: "cccc",
-                title: "2 dddd"
+                title: "02 dddd"
             }];
     });
 
@@ -72,13 +72,29 @@ describe("Validator", () => {
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Failed validation of \'aaaa\': title \'dddd\' has no number/);
+            }).to.throw(Error, /Failed validation of \'aaaa\': title \'dddd\' should have a two digit prefix/);
+        });
+
+        it("throws on too few digits in track number", () => {
+            musicTrack[0].title = "1 dddd";
+
+            chai.expect(() => {
+                _theValidator.validate(createAlbum(), rule);
+            }).to.throw(Error, /Failed validation of \'aaaa\': title \'1 dddd\' should have a two digit prefix/);
+        });
+
+        it("throws on too many digits in track number", () => {
+            musicTrack[0].title = "111 dddd";
+
+            chai.expect(() => {
+                _theValidator.validate(createAlbum(), rule);
+            }).to.throw(Error, /Failed validation of \'aaaa\': title \'111 dddd\' should have a two digit prefix/);
         });
 
         it("throws on tracks out of order", () => {
 
-            musicTrack[0].title = "2 dddd";
-            musicTrack[1].title = "1 dddd";
+            musicTrack[0].title = "02 dddd";
+            musicTrack[1].title = "01 dddd";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -87,8 +103,8 @@ describe("Validator", () => {
 
         it("throws on missing tracks", () => {
 
-            musicTrack[0].title = "2 dddd";
-            musicTrack[1].title = "3 dddd";
+            musicTrack[0].title = "02 dddd";
+            musicTrack[1].title = "03 dddd";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -97,22 +113,12 @@ describe("Validator", () => {
 
         it("throws on duplicate tracks", () => {
 
-            musicTrack[0].title = "1 dddd";
-            musicTrack[1].title = "1 eeee";
+            musicTrack[0].title = "01 dddd";
+            musicTrack[1].title = "01 eeee";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Track number out of order/);
-        });
-
-        it("throws on inconsistent length of numeric prefix to track names", () => {
-
-            musicTrack[0].title = "1 dddd";
-            musicTrack[1].title = "02 eeee";
-
-            chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Inconsistent numbering format/);
         });
 
         it("throws on very similar track names", () => {
@@ -139,8 +145,5 @@ describe("Validator", () => {
                 _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Artist contains a space/);
         });
-    });
-
-    describe("special case handling", () => {
     });
 });

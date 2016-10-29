@@ -160,12 +160,14 @@ export function SpecialHandlers()
             firstTrackNumber: 3,
             fixTrackNameFunc: function(name: string) : string {
                 var m = /(\d+) (\d-Part Invention) No\. (\d+) in ([^ ]+) (major|minor), BWV (\d+)\.mp3/.exec(name);
+                if (!m) {
+                    throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
+                }
                 var key = m[4];
-                if (m[5] === "minor")
-                {
+                if (m[5] === "minor") {
                     key = key.toLowerCase();
                 }
-                return m[1] + " " + m[2] + " " + m[3] + " " + key + " BWV" + m[6] ".mp3";
+                return m[1] + " " + m[2] + " " + m[3] + " " + key + " BWV" + m[6] + ".mp3";
             }
         },
         "Opfer [Marriner]" : {
