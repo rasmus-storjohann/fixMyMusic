@@ -5,8 +5,14 @@ export function SpecialHandlers()
         "ArtOfFugue[Gould,organ]" : {
             fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/
         },
+        "Brandenburg 1 [Karajan]" : {
+            fixTrackName: /(\d+) - Brandenburg Concerto No. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
+        },
         "Brandenburg 1 [Pinnock]" : {
             fixTrackName: /(\d+) Concerto No. 1 in F major, BWV 1046_ [IV]+. (.*).mp3/
+        },
+        "Brandenburg 2 [Karajan]" : {
+            fixTrackName: /(\d+) - Concerto No. 2 in F Major_ l+\.+ (.*)\.mp3/
         },
         "Brandenburg 2 [Pinnock]" : {
             firstTrackNumber: 5,
@@ -71,6 +77,9 @@ export function SpecialHandlers()
             firstTrackNumber: 5,
             fixTrackName: /(\d+) - Der Herr denket an uns(?: BWV196)? - (.*).mp3/
         },
+        "Cantata Der Himmel lacht [Koopman] BWV31" : {
+            fixTrackName: /(\d+) Kantate, BWV 31 "Der Himmel lacht! die Erde jubilieret": [IVX]+\. (.*).mp3/
+        },
         "Cantata Ein feste Burg [Rifkin]" : {
             firstTrackNumber: 11,
             fixTrackName: /(\d+) Cantata, BWV 80 "Ein feste Burg ist unser Gott": (.*).mp3/
@@ -89,6 +98,9 @@ export function SpecialHandlers()
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Gott ist mein Konig (?:BWV71 )?- (.*).mp3/
         },
+        "Cantata Gott ist mein König [Suzuki] BWV71" : {
+            fixTrackName: /(\d+) Cantata no. 71, BWV 71 "Gott ist mein König": [IVX]+\. (.*).mp3/
+        },
         "Cantata Gottes Zeit [Suzuki] BWV106" : {
             // title: "Cant[Suzuki] Gottes Zeit"
             firstTrackNumber: 13,
@@ -97,9 +109,15 @@ export function SpecialHandlers()
         "Cantata Herz und Mund und Tat und Leben [Rifkin]" : {
             fixTrackName: /(\d+) Cantata, BWV 147 "Herz und Mund und Tat und Leben": Part [IVX]+, (.*).mp3/
         },
+        "Cantata Herz und Mund" : {
+            fixTrackName: /(\d+) - Cantata No. 147_ Part I+. [IVX]+. (.*).mp3/
+        },
         "Cantata ich habe genug BWV82" : {
             firstTrackNumber: 13,
             fixTrackName: /(\d*) Cantata "Ich habe genug", BWV 82: [IV]+. (.*).mp3/
+        },
+        "Cantata Ich hatte viel Bekümmernis [Koopman] BWV21" : {
+            fixTrackName: /(\d+) Cantata, BWV 21 "Ich hatte viel Bekümmernis": [IVX]+\. (.*).mp3/
         },
         "Cantata Ich hatte viel Bekümmernis (appendix) [Koopman] BWV21" : {
             firstTrackNumber: 17,
@@ -124,6 +142,12 @@ export function SpecialHandlers()
         "Cantata Nach dir, Herr [Koopman] BWV150" : {
             firstTrackNumber: 17,
             fixTrackName: /(\d*) - Nach dir, Herr, verlanget mich BWV150 - (.*).mp3/
+        },
+        "Cantata Wachet auf [Rifkin]" : {
+            fixTrackName: /(\d+) Cantata, BWV 140 "Wachet auf, ruft uns die Stimme": Part [IVX]+, (.*).mp3/
+        },
+        "Cantata Wachet auf" : {
+            fixTrackName: /(\d+) - Cantata No. 140_ [IVX]+\. (.*).mp3/
         },
         "Cantata Wie jammern [Mullejans] BWV170" : {
             firstTrackNumber: 8,
