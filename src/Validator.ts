@@ -98,6 +98,6 @@ export class Validator
                 matches += 1;
             }
         }
-        return matches > 26;
+        return matches > 30;
     }
 }

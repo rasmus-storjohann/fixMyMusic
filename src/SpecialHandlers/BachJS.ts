@@ -204,6 +204,32 @@ export function SpecialHandlers()
                 throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
             }
         },
+        "Goldberg-Strings" : {
+            fixTrackNameFunc: function(name: string, logger) : string {
+                var m = /(\d+) - J.S. Bach Goldberg-Variationen, BWV 988 - Variatio (\d+)[^\d].*\.mp3/.exec(name);
+                if (m)
+                {
+                    var trackNumber = m[1];
+                    var variationNumber = parseInt(m[2]);
+                    return trackNumber + " Variations " + variationNumber + "-" + (variationNumber + 2) + ".mp3";
+                }
+                if (name === "01 - J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3") {
+                    return "01 Aria.mp3";
+                }
+                if (name === "12 - J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3") {
+                    return "12 Aria da capo.mp3";
+                }
+            }
+        },
+        "GoldbergCanadianBrass" : {
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ (.*).mp3/
+        },
+        "GoldbergGould1955" : {
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ (.*).mp3/
+        },
+        "GoldbergGould1981" : {
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ [IVX]+\. (.*).mp3/
+        },
         "Inventions[Gould]" : {
             firstTrackNumber: 3,
             fixTrackNameFunc: function(name: string, logger) : string {
