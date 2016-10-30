@@ -41,7 +41,7 @@ export class SpecialHandling
             var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
 
                 var oldTitle = track.title;
-                var newTitle = specification.fixTrackNameFunc(oldTitle);
+                var newTitle = specification.fixTrackNameFunc(oldTitle, logger);
                 logger.verbose("fixTrackNameFunc", "Changing old title '" + oldTitle + "' to '" + newTitle + "'");
                 track.title = newTitle;
 

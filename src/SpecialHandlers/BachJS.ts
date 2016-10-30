@@ -1,9 +1,11 @@
-
 export function SpecialHandlers()
 {
     return {
         "ArtOfFugue[Gould,organ]" : {
             fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/
+        },
+        "BminorMass" : {
+            fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/
         },
         "Brandenburg 1 [Karajan]" : {
             fixTrackName: /(\d+) - Brandenburg Concerto No. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
@@ -183,9 +185,28 @@ export function SpecialHandlers()
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060_ [IV]+. (.*).mp3/
         },
+        "Fantasias, Preludes and Fugues [Herrick]" : {
+            fixTrackNameFunc: function(name: string, logger) : string {
+                if (/(\d+) Fantasia in .*, BWV \d+.mp3/.exec(name)) {
+                    return name;
+                }
+                var m = /(\d+) .* and Fugue in (.*) (major|minor), BWV (\d+): I+\. (.*).mp3/.exec(name);
+                if (m) {
+                    var trackNumber = m[1];
+                    var key = m[2];
+                    var opusNumber = m[4];
+                    var trackName = m[5];
+                    if (m[3] === "minor") {
+                        key = key.toLowerCase();
+                    }
+                    return trackNumber + " BWV" + opusNumber + " in " + key + ": " + trackName + ".mp3";
+                }
+                throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
+            }
+        },
         "Inventions[Gould]" : {
             firstTrackNumber: 3,
-            fixTrackNameFunc: function(name: string) : string {
+            fixTrackNameFunc: function(name: string, logger) : string {
                 var m = /(\d+) (\d-Part Invention) No\. (\d+) in ([^ ]+) (major|minor), BWV (\d+)\.mp3/.exec(name);
                 if (!m) {
                     throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
@@ -196,9 +217,6 @@ export function SpecialHandlers()
                 }
                 return m[1] + " " + m[2] + " " + m[3] + " " + key + " BWV" + m[6] + ".mp3";
             }
-        },
-        "BminorMass" : {
-            fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/
         },
         "Opfer [Marriner]" : {
            firstTrackNumber: 5,
