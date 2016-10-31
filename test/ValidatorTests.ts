@@ -122,17 +122,18 @@ describe("Validator", () => {
         });
 
         it("throws on very similar track names", () => {
-            musicTrack[0].title = "01 1234567890123456789012345.mp3";
-            musicTrack[1].title = "02 1234567890123456789012345.mp3";
+            musicTrack[0].title = "01 1234567890.mp3";
+            musicTrack[1].title = "02 1234567890.mp3";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /bbbb: Album contains redundant track names/);
         });
 
+        // TODO make this shorter and have an option to disable this check on some albums
         it("does not throw similar track names if they're short enough", () => {
-            musicTrack[0].title = "01 123456789012345678901234.mp3";
-            musicTrack[1].title = "02 123456789012345678901234.mp3";
+            musicTrack[0].title = "01 123456789.mp3";
+            musicTrack[1].title = "02 123456789.mp3";
 
             _theValidator.validate(createAlbum(), rule);
         });
@@ -144,6 +145,45 @@ describe("Validator", () => {
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
             }).to.throw(Error, /Artist contains a space/);
+        });
+    });
+    describe("overrides", () => {
+        describe("skipping number validation", () => {
+            it("ignores out of order tracks", ()=> {
+                var mockRule = {
+                    fixArtist: undefined,
+                    fixTrack: undefined,
+                    validation : ["skipTrackNumberCheck"]
+                };
+                musicTrack[0].title = "02 dddd";
+                musicTrack[1].title = "01 dddd";
+
+                _theValidator.validate(createAlbum(), mockRule);
+            });
+            it("ignores track prefix length", ()=> {
+                var mockRule = {
+                    fixArtist: undefined,
+                    fixTrack: undefined,
+                    validation : ["skipTrackNumberCheck"]
+                };
+                musicTrack[0].title = "1 dddd";
+                musicTrack[1].title = "2 dddd";
+
+                _theValidator.validate(createAlbum(), mockRule);
+            });
+        });
+        describe("skipping track name uniqueness validation", () => {
+            it("ignores out of order tracks", ()=> {
+                var mockRule = {
+                    fixArtist: undefined,
+                    fixTrack: undefined,
+                    validation : ["skipUniqueTrackNameCheck"]
+                };
+                musicTrack[0].title = "01 dddddddddddddddddddddddddddd";
+                musicTrack[1].title = "02 dddddddddddddddddddddddddddd";
+
+                _theValidator.validate(createAlbum(), mockRule);
+            });
         });
     });
 });

@@ -15,29 +15,26 @@ export class Validator
 
     public validate(album: Album, rule: Rule) : void
     {
-        var validateTracks = this.getValidateTracksFunction(rule);
-        validateTracks(album, this.logger);
+        var validationOptions = (rule && rule.validation) || [];
 
-        this.validateTrackUniqueness(album);
+        this.validateTracks(album, validationOptions, this.logger);
+
+        this.validateTrackUniqueness(album, validationOptions);
 
         this.defaultValidateArtist(album, this.logger);
     }
 
-    private getValidateTracksFunction(rule: Rule) : (album: Album, logger: npmlog.NpmLog) => void
+    private validateTracks(album: Album, validationOptions: string[], logger: npmlog.NpmLog) : void
     {
-        if (rule && rule.validateTracks)
-        {
-            return rule.validateTracks;
+        if (validationOptions.indexOf("skipTrackNumberCheck") >= 0) {
+            logger.info("Validate", "Skipping track number check for ", "[" + album.artist + "][" + album.title + "]");
+            return;
         }
-        return this.defaultValidateTracks;
-    }
 
-    private defaultValidateTracks(album: Album, logger: npmlog.NpmLog) : void
-    {
         var index = 1;
         var numberPrefixLength: number;
         album.tracks.forEach((track) => {
-            logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.title + "]");
+            this.logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.title + "]");
 
             var match = /^(\d\d) /.exec(track.title);
             if (!match)
@@ -69,8 +66,13 @@ export class Validator
         }
     }
 
-    private validateTrackUniqueness(album: Album)
+    private validateTrackUniqueness(album: Album, validationOptions: string[])
     {
+        if (validationOptions.indexOf("skipUniqueTrackNameCheck") >= 0) {
+            this.logger.info("Validate", "Skipping track name uniqueness check for ", "[" + album.artist + "][" + album.title + "]");
+            return;
+        }
+
         var firstTrackName: string;
         album.tracks.forEach((track) => {
             if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title)) {
@@ -98,6 +100,6 @@ export class Validator
                 matches += 1;
             }
         }
-        return matches > 30;
+        return matches > 15;
     }
 }

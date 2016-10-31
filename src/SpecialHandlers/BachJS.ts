@@ -2,10 +2,12 @@ export function SpecialHandlers()
 {
     return {
         "ArtOfFugue[Gould,organ]" : {
-            fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/
+            fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
         },
         "BminorMass" : {
-            fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/
+            fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
         },
         "Brandenburg 1 [Karajan]" : {
             fixTrackName: /(\d+) - Brandenburg Concerto No. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
@@ -243,6 +245,9 @@ export function SpecialHandlers()
                 }
                 return m[1] + " " + m[2] + " " + m[3] + " " + key + " BWV" + m[6] + ".mp3";
             }
+        },
+        "Klavierubung III" : {
+            validation : ["skipTrackNumberCheck"]
         },
         "Opfer [Marriner]" : {
            firstTrackNumber: 5,

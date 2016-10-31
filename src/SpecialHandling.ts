@@ -6,9 +6,9 @@ import * as npmlog from "npmlog";
 
 export interface Rule
 {
-    validateTracks: (album: Album, logger: npmlog.NpmLog) => void;
     fixArtist: (album: Album, logger: npmlog.NpmLog) => void;
     fixTrack: (track: AlbumTrack, logger: npmlog.NpmLog) => void;
+    validation: string[];
 }
 
 export class SpecialHandling
@@ -109,7 +109,7 @@ export class SpecialHandling
         }
     }
 
-    public getSpecialHandlers(artist: string, albumTitle: string)
+    public getSpecialHandlers(artist: string, albumTitle: string) : Rule
     {
         var artistHandlers = this.rules[artist];
         var albumHandlers = artistHandlers && artistHandlers[albumTitle];
@@ -117,7 +117,7 @@ export class SpecialHandling
         return {
             fixArtist : artistHandlers && artistHandlers.fixArtist,
             fixTrack: this.buildFixTrack(albumHandlers),
-            validateTracks : albumHandlers && albumHandlers.validateTracks
+            validation: albumHandlers && albumHandlers.validation
         };
     }
 }
