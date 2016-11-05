@@ -185,5 +185,6 @@ describe("Validator", () => {
                 _theValidator.validate(createAlbum(), mockRule);
             });
         });
+        // add tests confirming that skipping one test does not skip the other
     });
 });
