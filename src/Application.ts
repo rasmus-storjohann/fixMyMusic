@@ -7,7 +7,7 @@ import * as npmlog from "npmlog";
 import { getFiles } from "./GetFiles";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
-import { SpecialHandlers } from "./SpecialHandlers/Root"
+import * as SpecialHandlers from "./SpecialHandlers/Root"
 import { SpecialHandling } from "./SpecialHandling";
 import { Fixer } from "./Fixer";
 import { Validator } from "./Validator";
@@ -43,7 +43,7 @@ export class Application
         var tracks = new TrackFactory(this.logger).create(files);
         var albums = new AlbumFactory(this.logger).create(tracks);
 
-        var rules = SpecialHandlers();
+        var rules = SpecialHandlers.Create();
         var specialHandling = new SpecialHandling(rules, this.logger);
         var fixer = new Fixer(this.logger);
         var validator = new Validator(this.logger);

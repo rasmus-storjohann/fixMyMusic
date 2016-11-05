@@ -1,4 +1,4 @@
-export function SpecialHandlers()
+export function Create()
 {
     return {
         "ArtOfFugue[Gould,organ]" : {
