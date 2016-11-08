@@ -75,7 +75,82 @@ export function Create()
         "Berg" : {
             "Wozzeck2" : {
                 firstTrackNumber: 8
+            },
+            "Lulu Suite" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) - _Lulu_ Suite, \d+\. (.*)\.mp3/
+            },
+            // TODO remove _ in track names
+            "Lulu2" : {
+                fixTrackName: /(\d+) - Lulu_ Akt II, Szene I+\. (.*)\.mp3/
+            },
+            "Lulu3" : {
+                fixTrackName: /(\d+) - Lulu_ Akt III, Szene I+\. (.*)\.mp3/
+            },
+            "ViolinConcerto" : {
+                fixTrackName: /(\d+) - Violinkonzert_ [IV]+\. (.*)\.mp3/
+            },
+            "Wozzeck1" : {
+                fixTrackNameFunc: function(name: string, logger) : string {
+                    if (name === "01 - Wozzeck - Act One - Scene 1 - Langsam, Wozzeck, langsam!.mp3") {
+                        return "01 Langsam, Wozzeck, langsam!.mp3";
+                    }
+                    var m = /(\d+) - Scene \d- (.*\.mp3)/.exec(name);
+                    if (!m) {
+                        m = /(\d+) - (.*\.mp3)/.exec(name);
+                    }
+                    return m[1] + " " + m[2];s
+                }
             }
+        },
+        "Brahms" : {
+            "Drei Gesänge" : {
+                fixTrackName: /(\d+) - Drei Gesänge-I+\. (.*)\.mp3/
+            },
+            "Fünf Gesänge" : {
+                firstTrackNumber: 15,
+                fixTrackName: /(\d+) - Fünf Gesänge-[IV]+\. (.*)\.mp3/
+            },
+            "In stiller Nacht" : {
+                firstTrackNumber: 20,
+                fixTrackName: /(\d+) - (.*)\.mp3/
+            },
+            "Sieben Lieder" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Sieben Lieder-[IV]+\. (.*)\.mp3/
+            },
+            "Symph 1 c Op.68" : {
+               fixTrackName: /(\d+) Symphony No. 1 in C minor, Op. 68_ [IV]+\. (.*)\.mp3/
+            },
+            "Symph 2 D Op.73" : {
+                fixTrackName: /(\d+) - Symphony No. 2 in D major, Op. 73_ [IV]+\. (.*)\.mp3/
+            },
+            "Symph 3 F Op.90" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Symphony No. 3 in F major, Op. 90_ [IV]+\. (.*)\.mp3/
+            },
+            "Symph 4 e Op.98" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Symphony No. 4 in E minor, Op. 98_ [IV]+\. (.*)\.mp3/
+            },
+            "Vier Gesänge" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Vier Gesänge-[IV]+\. (.*)\.mp3/
+            },
+            "ViolConc D Op.77" : {
+                fixTrackName: /(\d+) - Konzert für Violine und Orchester D-Dur, Op. 77_ [IV]+\. (.*).mp3/
+            },
+            "ViolSon 1 G Op.78" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 1 in G major, Op. 78_ [IV]+\. (.*)\.mp3/
+            },
+            "ViolSon 2 A Op.100" : {
+                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 2 in A major, Op. 100_ [IV]+\. (.*)\.mp3/
+            },
+            "ViolSon 3 d Op.108" : {
+               firstTrackNumber: 7,
+               fixTrackName: /(\d+) - Sonata for Violin and Piano No. 3 in D minor, Op. 108_ [IV]+\. (.*).mp3/
+           }
         },
         "Mozart" : {
             "Coronation Mass [Markevitch]": {

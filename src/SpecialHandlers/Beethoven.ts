@@ -299,6 +299,97 @@ export function Create()
             firstTrackNumber: 7,
             fixTrackName: /(\d+) Sonata No. 32 In C Minor, Op. 111- [IV]+\. (.*)\.mp3/
         },
+        "StringQuartet5 Op18No5" : {
+            fixTrackName: /(\d+) - String quartet in A major, op 18, No.5; (.*)\.mp3/
+        },
+        "StringQuartetOp130[Amadeus]" : {
+            fixTrackName: /(\d+) - String quartet Op 130 - \d+ - (.*)\.mp3/
+        },
+        "StringQuartetOp135[Amadeus]" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) - String quartet Op 135 - \d+ - (.*)\.mp3/
+        },
+        "Symph1[Karajan]" : {
+            fixTrackName: /(\d+) Symphonie Nr. 1 C-dur op. 21: \d+\. (.*)\.mp3/
+        },
+        "Symph1[Norrington]" : {
+            fixTrackName: /(\d+) - Symphony No. 1 in C major, Op. 21_ [IV]+\. (.*)\.mp3/
+        },
+        "Symph2[Karajan]" : {
+            fixTrackName: /(\d+) Symphonie Nr. 2 D-dur op. 36: \d+\. (.*)\.mp3/
+        },
+        "Symph2[Norrington]" : {
+            fixTrackName: /(\d+) - Symphony No. 2 in D major, Op. 36_ [IV]+\. (.*)\.mp3/
+        },
+        "Symph3[Haitink]" : {
+            fixTrackName: /(\d+) Symphony no. 3 in E‐flat major, op. 55 \“Eroica\”: [IV]+\. (.*)\.mp3/
+        },
+        "Symph3[Karajan]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) Symphonie Nr. 3 in Es-dur op. 55 \»Eroica\«: \d+\. (.*)\.mp3/
+        },
+        "Symph3[Norrington]" : {
+            firstTrackNumber: 2,
+            fixTrackName: /(\d+) - Symphony No.3 In E Flat Major, Op.55_ (.*)\.mp3/
+        },
+        "Symph4[Karajan]" : {
+           firstTrackNumber: 5,
+           fixTrackName: /(\d+) Symphonie Nr. 4 B-dur op. 60: \d+\. (.*)\.mp3/
+       },
+       "Symph4[Norrington]" : {
+           fixTrackName: /(\d+) - Symphony No. 4 in B-flat major, Op. 60_ [IV]+\. (.*)\.mp3/
+       },
+       "Symph5[Furtwangler]" : {
+           fixTrackName: /(\d+) - Beethoven Symph 5 - \d+ - (.*).mp3/
+       },
+       "Symph5[Karajan]" : {
+            fixTrackName: /(\d+) Symphonie Nr. 5 c-moll op. 67: \d+\. (.*)\.mp3/
+        },
+        "Symph5[Kleiber]" : {
+            fixTrackName: /(\d+) - Symphonie No. 5 C-moll, Op. 67_ [IV]+\. (.*)\.mp3/
+        },
+        "Symph5[Norrington]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Symphony No. 5 in C minor, Op. 67_ [IV]+\. (.*)\.mp3/
+        },
+        "Symph6[Gould]" : {
+            fixTrackName: /(\d+) - Symphony No.6 Op.68 _Pastoral__ [IV]+\. (.*)\.mp3/
+        },
+        "Symph6[Karajan]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) Symphonie Nr. 6 F-dur op. 68 \»Pastorale\«: \d\. (.*)\.mp3/
+        },
+        "Symph6[Norrington]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Symphony No. 6 in F major, Op. 68 _Pastoral__ [IV]+\. (.*)\.mp3/
+        },
+        "Symph7[Karajan]" : {
+            fixTrackName: /(\d+) Symphonie Nr. 7 A-dur op. 92: \d+\. (.*)\.mp3/
+        },
+        "Symph7[Kleiber]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Symphonie No. 7 A-dur, Op. 92_ [IV]+\. (.*).mp3/
+        },
+        "Symph7[Norrington]" : {
+            firstTrackNumber: 3,
+            fixTrackName: /(\d+) - Symphony No.7 in A [Mm]ajor, op.92 - [IV]+\. (.*)\.mp3/
+        },
+        "Symph8[Karajan]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) Symphonie Nr. 8 F-dur op. 93: \d+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph8[Norrington]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Symphony No. 8 in F major, Op. 93_ [IV]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph9[Furtwangler]" : {
+            fixTrackName: /(\d+) - Symphony No. 9 in D minor, Op. 125_ [IV]+\. (.*)\.mp3/
+        },
+        "Symph9[Karajan]" : {
+            fixTrackName: /(\d+) - Symphonie No. 9 d-Moll, Op. 125_ [IV]+\. (.*)\.mp3/
+        },
         "ViolinSon 9 Kreutzer" : {
             firstTrackNumber: 5,
             fixTrackName: /(\d+) Violinsonate No.9 A-dur op. 47 'Kreutzer' - (.*).mp3$/
@@ -306,6 +397,70 @@ export function Create()
         "ViolinSon 10" : {
             firstTrackNumber: 8,
             fixTrackName: /^(\d+) Violinsonate No.10 G-dur op. 96 - (.*).mp3$/
+        },
+        "Three sets of variations for cello and piano" : {
+            firstTrackNumber: 6,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "TwoRondos[Richter]" : {
+            firstTrackNumber: 5,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "ViolinConcerto" : {
+            // Larghetto (feat. conductor_ Eugen Jochum)
+            fixTrackName: /(\d+) - Konzert für Violine und Orchester in D-dur, op. 61_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata1 Op12No1" : {
+            fixTrackName: /(\d+) Sonata for Violin and Piano in D major, Op. 12 No. 1_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata10 Op96[Francescatti, Casadesus]" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) - Violinsonate No.10 G-dur op. 96 - (.*)\.mp3/
+        },
+        "ViolinSonata10 Op96" : {
+            firstTrackNumber: 7,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in G major, Op. 96_ [IV]+\. (.*).mp3/
+        },
+        "ViolinSonata10[Gould-Menuhin]" : {
+           firstTrackNumber: 5,
+           fixTrackName: /(\d+) - Beethoven ViolinSonata Op96 - (.*)\.mp3/
+       },
+       "ViolinSonata2 Op12No2" : {
+            firstTrackNumber: 4,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in A major, Op. 12 No. 2_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata3 Op12No3" : {
+            firstTrackNumber: 7,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in E-flat major, Op. 12 No. 3_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata4 Op23" : {
+            firstTrackNumber: 10,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in A minor, Op. 23_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata5 Op24 \"Frühling\"" : {
+            fixTrackName: /(\d+) Sonata for Violin and Piano in F major, Op. 24 \“Frühling\”_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata5 Op24[Francescatti, Casadesus]" : {
+            fixTrackName: /(\d+) - Violinsonate No.5 F-dur op. 24 \'Frühling\' - (.*).mp3/
+        },
+        "ViolinSonata6 Op30No1" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in A major, Op. 30 No. 1_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata7 Op30No2" : {
+            firstTrackNumber: 8,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in C minor, Op. 30 No. 2_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata8 Op30No3" : {
+            fixTrackName: /(\d+) Sonata for Violin and Piano in G major, Op. 30 No. 3_ [IV]+\. (.*)\.mp3/
+        },
+        "ViolinSonata9 Op47 \"Kreutzer\"[Francescatti, Casadesus]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) - Violinsonate No.9 A-dur op. 47 \'Kreutzer\' - (.*)\.mp3/
+        },
+        "ViolinSonata9 Op47 \"Kreutzer\"" : {
+            firstTrackNumber: 4,
+            fixTrackName: /(\d+) Sonata for Violin and Piano in A major, Op. 47 \“Kreutzer\”_ [IV]+\. (.*).mp3/
         }
     };
 };
