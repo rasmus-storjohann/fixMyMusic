@@ -48,6 +48,10 @@ export function Create()
         "GrosseFuge" : {
             firstTrackNumber: 7
         },
+        "GrosseFuge [Tokyo]" : {
+            firstTrackNumber: 6,
+            fixTrackName: /(\d+) (Große Fuge) in B-flat major for String Quartet op. 133: Overtura. Allegro - Meno mosso e moderato - Allegro - Fuga. \[Allegro\] - Meno mosso e moderato - Allegro molto e con brio - Allegro.mp3/
+        },
         "Leonore Overture no. 2" : {
             firstTrackNumber: 5
         },
@@ -72,37 +76,103 @@ export function Create()
             fixTrackName: /(\d+) - Piano Trio No\.7 in B flat, Op\. 97 _Archduke_ - \d+\. (.*).mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
+        "Quartet1 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 1 in F major, op. 18-1: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet2 [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet no. 2 in G major, op. 18-2: [IV]+\. (.*)\.mp3/
+        },
         "Quartet3 Op18No3 [Kodaly]" : {
             fixTrackName: /(\d+) - Beethoven String Quartet in D Major, Op.18, No.3 - [IV]+\. (.*)\.mp3/
+        },
+        "Quartet3 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 3 in D major, op. 18-3: [IV]+\. (.*)\.mp3/
         },
         "Quartet4 Op18No4 [Kodaly]" : {
             firstTrackNumber: 5,
             fixTrackName: /(\d+) - Beethoven String Quartet in C Minor, Op.18, No.4 - [IV]+\. (.*)\.mp3/
         },
+        "Quartet4 [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet no. 4 in C minor, op. 18-4: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet5 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 5 in A major, op. 18-5: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet6 [Tokyo]" : {
+            firstTrackNumber: 9,
+            fixTrackName: /(\d+) String Quartet no. 6 in B-flat major, op. 18-6: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet7 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 7 in F major, op. 59-1 “Rasumovsky”: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet8 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 8 in E minor, op. 59-2 “Rasumovsky”: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet9 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 9 in C major, op. 59-3 “Rasumovsky”: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet10 [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet no. 10 in E-flat major, op. 74 \“Harp\”: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet11 [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet no. 11 in F minor, op. 95 \“Serioso\”: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet12 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 12 in E-flat major, op\. 127: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet13 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 13 in B-flat major, op. 130: [IV]+\. (.*)\.mp3/
+        },
         "Quartet12[Lindsay]" : {
             fixTrackName: /(\d+) Quartet 12 Op 127 - \d+ - (.*)\.mp3/
         },
-        "Quartet13[Lindsay]" : {
+        // missing Quartet 13 Bernstein
+        "Quartet13-GrosseFuge[Lindsay]" : {
             fixTrackName: /(\d+) Quartet no. 13 in B-flat major, op. 130: [IV]+\. (.*)\.mp3/
         },
-        "Quartet13 alt ending[Lindsay]" : {
-            firstTrackNumber: 7
+        "Quartet13-GrosseFuge[Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 13 in B-flat major, op. 130: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet13[Lindsay]" : {
+            fixTrackName: /(\d+) Quartet no. 13 in B-flat major, op. 130: [IV]+\. (.*).mp3/
+        },
+        "Quartet13[Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 13 in B-flat major, op. 130: [IV]+\. (.*).mp3/
         },
         "Quartet14[Lindsay]" : {
             fixTrackName: /(\d+) Quartet for 2 Violins, Viola, and Cello no. 14 in C-sharp minor, op. 131: [IV]+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
+        "Quartet14 [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet no. 14 in C-sharp minor, op. 131: [IV]+\. (.*)\.mp3/
+        },
         "Quartet15[Lindsay]" : {
             fixTrackName: /(\d+) Quartet for 2 Violins, Viola, and Cello no. 15 in A minor, op. 132: [IV]+\. (.*)\.mp3/
+        },
+        "Quartet15 [Tokyo]" : {
+            fixTrackName: /(\d+) String Quartet no. 15 in A minor, op. 132: [IV]+\. (.*)\.mp3/
         },
         "Quartet16[Lindsay]" : {
             firstTrackNumber: 6,
             fixTrackName: /(\d+) Quartet for 2 Violins, Viola, and Cello no. 16 in F major, op. 135: [IV]+\. (.*)\.mp3/
         },
+        "Quartet16 [Tokyo]" : {
+            firstTrackNumber: 6,
+            fixTrackName: /(\d+) String Quartet no. 16 in F major, op. 135: [IV]+\. (.*).mp3/
+        },
         "Quintet Op16[Richter]" : {
             firstTrackNumber: 5,
             fixTrackName: /(\d+) - Quintet in E flat, Op. 16 - \d+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Quintet [Tokyo]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /(\d+) String Quartet in C major, op. 29: [IV]+\. (.*).mp3/
         },
         "Sonata1[Goode]" : {
             fixTrackName: /(\d+) Goode - Piano Sonata No.1 F minor [IV]+\. (.*)\.mp3/
@@ -160,6 +230,11 @@ export function Create()
         "Sonata9[Gould]" : {
             firstTrackNumber: 4,
             fixTrackName: /(\d+) Sonata No.9 In E Major, Op.14, No. 1- [IV]+\. (.*).mp3/
+        },
+        // TODO should just be Sonata9[Tokyo quartet]
+        "Sonata9 arranged for strings [Tokyo]" : {
+            firstTrackNumber: 9,
+            fixTrackName: /(\d+) String Quartet in F major after Piano Sonata, op. 14-1: [IV]+\. (.*).mp3/
         },
         "Sonata10[Gould]" : {
             firstTrackNumber: 7,
