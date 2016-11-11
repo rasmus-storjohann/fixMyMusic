@@ -80,6 +80,7 @@ export function Create()
             fixTrackName: /(\d+) String Quartet no. 1 in F major, op. 18-1: [IV]+\. (.*)\.mp3/
         },
         "Quartet2 [Tokyo]" : {
+            //fixName: Quartet(Nr(2), Major("G"), OpNr(18, 2), By("Tokyo")),
             firstTrackNumber: 5,
             fixTrackName: /(\d+) String Quartet no. 2 in G major, op. 18-2: [IV]+\. (.*)\.mp3/
         },
@@ -222,6 +223,11 @@ export function Create()
             firstTrackNumber: 8
         },
         "Sonata8[Gould]" : {
+            //fixName: Sonata(Nr(8), Minor("C"), Op(13), Called("Patetique"), With("Gould")),
+            // Each helper function returns an instance of the same class, with two fields, "key" and "value".
+            // Sonata() and similar functions take N arguments of this class and forward to a common function
+            // that function builds a map from key to value, then builds up the name according to whatever scheme
+            // is wanted
             fixTrackName: /(\d+) Sonata No.8 IN C Minor, Op.13 'Pathetique'- [IV]+\. (.*)\.mp3/
         },
         "Sonata9[Goode]" : {
@@ -483,9 +489,11 @@ export function Create()
         },
         "ViolinConcerto" : {
             // Larghetto (feat. conductor_ Eugen Jochum)
+            //fixName: Concerto(For("Violin"), Major("D"), Op(61), With("Jochum")),
             fixTrackName: /(\d+) - Konzert für Violine und Orchester in D-dur, op. 61_ [IV]+\. (.*)\.mp3/
         },
         "ViolinSonata1 Op12No1" : {
+            //fixName: Sonata(For("SoloViolin"), Nr(1), Major("D"), OpNr(12, 1)),
             fixTrackName: /(\d+) Sonata for Violin and Piano in D major, Op. 12 No. 1_ [IV]+\. (.*)\.mp3/
         },
         "ViolinSonata10 Op96[Francescatti, Casadesus]" : {
