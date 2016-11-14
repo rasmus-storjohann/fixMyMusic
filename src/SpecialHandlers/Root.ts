@@ -101,7 +101,7 @@ export function Create()
                     if (!m) {
                         m = /(\d+) - (.*\.mp3)/.exec(name);
                     }
-                    return m[1] + " " + m[2];s
+                    return m[1] + " " + m[2];
                 }
             }
         },
