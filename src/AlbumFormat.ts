@@ -21,7 +21,6 @@ export interface Format
 
 export interface FormatOptions
 {
-
 }
 
 function setOpus(opus: number | number[], result: Format) : void
@@ -40,32 +39,25 @@ function setOpus(opus: number | number[], result: Format) : void
 function toString(format: Format) : string
 {
     var result = format.form;
-    if (format.num)
-    {
+    if (format.num) {
         result += " " + format.num;
     }
-    if (format.performer)
-    {
+    if (format.performer) {
         result += " [" + format.performer + "]";
     }
-    if (format.key && format.mode)
-    {
+    if (format.key && format.mode) {
         var key = format.key.toLowerCase();
-        if (format.mode === "major")
-        {
+        if (format.mode === "major") {
             key = key.charAt(0).toUpperCase() + key.slice(1);
         }
         result += " in " + key;
     }
-    if (format.subTitle)
-    {
+    if (format.subTitle) {
         result += " \"" + format.subTitle + "\"";
     }
-    if (format.opus)
-    {
+    if (format.opus) {
         result += " " + format.opus_prefix + format.opus;
-        if (format.opus_number)
-        {
+        if (format.opus_number) {
             result += " Nr." + format.opus_number;
         }
     }
@@ -109,7 +101,7 @@ function buildFormat(form: string, args?: FormatOptions) : Format {
                 break;
 
                 default:
-                throw new Error("");
+                throw new Error("Invalid format specifier: " + arg);
             }
         }
     }

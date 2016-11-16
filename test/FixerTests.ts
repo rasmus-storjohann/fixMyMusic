@@ -192,6 +192,18 @@ describe("Fixer", () => {
                 fixer.fix(album, undefined, specialHandling);
                 chai.expect(album.tracks[0].title).to.equal("01 fixed title.mp3");
             });
+            it("fixes album names from string", () => {
+                var mockRule = {
+                    "someArtist": {
+                        "someAlbum": {
+                            fixAlbumTitle: "fixed album name"
+                        }
+                    }
+                };
+                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
+                fixer.fix(album, undefined, specialHandling);
+                chai.expect(album.title).to.equal("fixed album name");
+            });
         });
     });
 });

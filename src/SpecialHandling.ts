@@ -7,6 +7,7 @@ import * as npmlog from "npmlog";
 export interface Rule
 {
     fixArtist: (album: Album, logger: npmlog.NpmLog) => void;
+    fixAlbumTitle?: string;
     fixTrack: (track: AlbumTrack, logger: npmlog.NpmLog) => void;
     validation: string[];
 }
@@ -116,6 +117,7 @@ export class SpecialHandling
 
         return {
             fixArtist : artistHandlers && artistHandlers.fixArtist,
+            fixAlbumTitle: albumHandlers && albumHandlers.fixAlbumTitle,
             fixTrack: this.buildFixTrack(albumHandlers),
             validation: albumHandlers && albumHandlers.validation
         };

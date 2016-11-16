@@ -16,6 +16,7 @@ export class Fixer
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
         this.fixTrackPrefix(album);
+        this.fixAlbumName(album, rule);
         this.fixArtist(album, artistName);
 
         var fixTrack = this.getFixTrackFunction(rule);
@@ -38,6 +39,15 @@ export class Fixer
                 track.title = "0" + track.title;
             }
         });
+    }
+
+    private fixAlbumName(album: Album, rule: Rule) : void
+    {
+        var title = rule && rule.fixAlbumTitle;
+        if (title)
+        {
+            album.title = title;
+        }
     }
 
     private fixArtist(album: Album, artistName: string) : void
