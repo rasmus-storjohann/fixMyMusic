@@ -19,11 +19,11 @@ export class Album
 
     public push(file: Track)
     {
-        if (file.artist != this.artist)
+        if (file.artist !== this.artist)
         {
             throw new Error("Music track cannot be added to this album: Wrong artist");
         }
-        if (file.album != this.title)
+        if (file.album !== this.title)
         {
             throw new Error("Music track cannot be added to this album: Wrong album title");
         }
@@ -39,7 +39,7 @@ export class Album
         this.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
             if (first.disk)
             {
-                if (!second.disk) throw new Error("Album contains tracks with and without disk number");
+                if (!second.disk) throw new Error(second.path + ": Album contains tracks with and without disk number");
                 if (first.disk < second.disk) return -1;
                 if (first.disk > second.disk) return 1;
             }

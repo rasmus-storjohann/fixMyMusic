@@ -155,6 +155,42 @@ export function Create()
                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 3 in D minor, Op. 108_ [IV]+\. (.*).mp3/
            }
         },
+        "Britten" : {
+            "The Turn of the Screw 1" : {
+                fixTrackNameFunc: function(name: string, logger) : string {
+                    if (name === "01 - Act 1- Prologue.mp3") {
+                        return "01 Prologue.mp3";
+                    }
+                    if (name === "02 - Theme - Scene 1_ The Journey.mp3") {
+                        return "02 The Journey.mp3";
+                    }
+                    var m = /(\d+) - Variation [IVX]+ - Scene \d+_ (.*)\.mp3/.exec(name);
+                    if (!m) {
+                        throw new Error("");
+                    }
+                    return m[1] + " " + m[2];
+                }
+            },
+            "The Turn of the Screw 2" : {
+                fixTrackName: /(\d+) - The Turn of the Screw_ Act II, Variation [IVX]+ - Act II, Scene \d+_ (.*)\.mp3/
+            },
+            "Violin Concerto" : {
+                fixTrackName: /(\d+) - Violin Concerto Op\.15 \-I+\- (.*)\.mp3/
+            },
+            "Young Person's Guide to the Orchestra" : {
+                firstTrackNumber: 23,
+                fixTrackName: /(\d+) - Young Person's Guide to the Orchestra, Op. 34_ [IVX]+\. (.*)\.mp3/
+            }
+        },
+        "Bruch" : {
+            "Scottish Fantasy" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Scottish Fantasy (.*).mp3/
+            },
+            "Violin Conc 1" : {
+                fixTrackName: /(\d+) - Concerto No.1 (.*)\.mp3/
+            }
+        },
         "Mozart" : {
             "Coronation Mass [Markevitch]": {
                 firstTrackNumber: 6,
@@ -211,6 +247,47 @@ export function Create()
                 firstTrackNumber: 20,
                 fixTrackName: /(\d+) Two Piano Pieces, Op. 33- A & B_ (.*).mp3/
             }
-        }
-    }
-}
+        },
+        "Camarón" : {
+            "Te Lo Dice Camarón" : {
+                fixTrackName: /(\d+) - Camarón - (.*)\.mp3/
+            }
+        },
+        "Corelli" : {
+            "Conc 1 D" : {
+                fixTrackName: /(\d+) - Concerto No.1 in D major [IV]+\.(.*)\.mp3/
+            },
+            "Conc 2 F" : {
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Concerto No.2 in F -[IV]+- (.*)\.mp3/
+            },
+            "Conc 3 c" : {
+                firstTrackNumber: 12,
+                fixTrackName: /(\d+) - Concerto No.3 in C minor -[IV]+- (.*)\.mp3/
+            },
+            "Conc 4 D" : {
+                firstTrackNumber: 17,
+                fixTrackName: /(\d+) - Concerto No.4 in D -[IV]+- (.*).mp3/
+            },
+            "Conc 5 B flat" : {
+                firstTrackNumber: 21,
+                fixTrackName: /(\d+) - Concerto #5 in B Flat [IV]+\. (.*).mp3/
+            },
+            "Conc 6 F" : {
+                firstTrackNumber: 25,
+                fixTrackName: /(\d+) - Concerto No.6 in F -[IV]+- (.*)\.mp3/
+            }
+        },
+        "Couperin" : {
+            "Two organ pieces" : {
+                firstTrackNumber: 6
+            }
+        },
+        "CPE Bach" : {
+            "Sonata Wq78" : {
+                firstTrackNumber: 14,
+                fixTrackName: /(\d+) - CPE Bach - Sonata Wq78 - (.*).mp3/
+            }
+        } // Artist
+    }  // return
+} // Create()
