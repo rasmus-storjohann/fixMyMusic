@@ -35,6 +35,17 @@ describe("Fixer", () => {
 
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
+        it("strips trailing dot from track numbers", () => {
+            var rule: Rule;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "01. track.mp3", path: "cccc" });
+
+            fixer.fix(album, undefined, rule);
+
+            chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
+        });
         it("assigns track numbers based on the disk number", () => {
             var rule: Rule;
             var artist = "the artist";
@@ -164,12 +175,12 @@ describe("Fixer", () => {
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
             it("fixes track names from regular expression", () => {
-                album.tracks[0].title = "09. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
+                album.tracks[0].title = "09 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
                 var mockRule = {
                     "Beethoven": {
                         "Eroica Variations E# op.35 [Gilels]": {
                             firstTrackNumber: 9,
-                            fixTrackName: /^(\d+)\. 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
+                            fixTrackName: /^(\d+) 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
                         }
                     }
                 };

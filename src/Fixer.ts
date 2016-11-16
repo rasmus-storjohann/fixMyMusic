@@ -38,6 +38,12 @@ export class Fixer
             {
                 track.title = "0" + track.title;
             }
+            var matchesTrackNumberWithDot = /^(\d+)\.(.*)$/;
+            var match = matchesTrackNumberWithDot.exec(track.title)
+            if (match)
+            {
+                track.title = match[1] + match[2];
+            }
         });
     }
 
