@@ -5,6 +5,7 @@ import * as log from "npmlog";
 import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
+import { sonata } from "../src/AlbumFormat";
 import { SpecialHandling, Rule } from "../src/SpecialHandling";
 
 var fixer: Fixer;
@@ -203,6 +204,19 @@ describe("Fixer", () => {
                 var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
                 fixer.fix(album, undefined, specialHandling);
                 chai.expect(album.title).to.equal("fixed album name");
+            });
+
+            it("fixes album names from function", () => {
+                var mockRule = {
+                    "someArtist": {
+                        "someAlbum": {
+                            fixAlbumTitle: sonata( { num : 10 } )
+                        }
+                    }
+                };
+                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
+                fixer.fix(album, undefined, specialHandling);
+                chai.expect(album.title).to.equal("Sonata 10");
             });
         });
     });

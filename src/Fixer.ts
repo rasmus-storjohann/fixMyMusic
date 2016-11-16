@@ -46,7 +46,7 @@ export class Fixer
         var title = rule && rule.fixAlbumTitle;
         if (title)
         {
-            album.title = title;
+            album.title = title.toString();
         }
     }
 
