@@ -52,7 +52,6 @@ describe("Album format specification", () => {
         chai.expect(result.opus_prefix).to.equal("BWV ");
     });
 
-
     it("can set subtitle", () => {
         var result = symphony( { subTitle: "Jupiter" } );
         chai.expect(result.subTitle).to.equal("Jupiter");
@@ -66,12 +65,12 @@ describe("Album format specification", () => {
     describe("can format to string", () => {
         it("with subtitle", () => {
             var result = symphony( { num : 3, major : "Eb", op: 55, subTitle: "Eroica", by: "Haitink" } ).toString();
-            chai.expect(result).to.equal("Symph 3 [Haitink] in Eb \"Eroica\" Op.55");
+            chai.expect(result).to.equal("Symph 3 [Haitink] \"Eroica\" in Eb Op.55");
         });
 
         it("with opus and opus number", () => {
             var result = sonata( { num : 10, major : "g", op : [14, 2], by: "Goode" } ).toString();
-            chai.expect(result).to.equal("Sonata 10 [Goode] in G Op.14 Nr.2");
+            chai.expect(result).to.equal("Sonata 10 [Goode] in G Op.14-2");
         });
 
         it("with BWV number", () => {

@@ -1,3 +1,4 @@
+import { Format, cantata, quartet, symphony, sonata } from "../AlbumFormat";
 import * as BachJs from "./BachJS";
 import * as Beethoven from "./Beethoven";
 

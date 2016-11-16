@@ -45,6 +45,9 @@ function toString(format: Format) : string
     if (format.performer) {
         result += " [" + format.performer + "]";
     }
+    if (format.subTitle) {
+        result += " \"" + format.subTitle + "\"";
+    }
     if (format.key && format.mode) {
         var key = format.key.toLowerCase();
         if (format.mode === "major") {
@@ -52,13 +55,10 @@ function toString(format: Format) : string
         }
         result += " in " + key;
     }
-    if (format.subTitle) {
-        result += " \"" + format.subTitle + "\"";
-    }
     if (format.opus) {
         result += " " + format.opus_prefix + format.opus;
         if (format.opus_number) {
-            result += " Nr." + format.opus_number;
+            result += "-" + format.opus_number;
         }
     }
     return result;

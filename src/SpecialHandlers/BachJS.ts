@@ -1,11 +1,8 @@
+import { Format, cantata, quartet, symphony, sonata } from "../AlbumFormat";
+
 export function Create()
 {
     return {
-        "ArtOfFugue[Gould,organ]" : {
-            // TODO rename "Kunst[Gould,organ]"
-            fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/,
-            validation : ["skipUniqueTrackNameCheck"]
-        },
         "BminorMass" : {
             fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/,
             validation : ["skipUniqueTrackNameCheck"]
@@ -55,112 +52,138 @@ export function Create()
             fixTrackName: /(\d+) Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
         },
         "Cantata BWV 51 Jauchzet" : {
+            fixAlbumTitle: cantata({ subTitle: "Jauchzet", BWV: 51 }),
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata, BWV 51 - \d+\. (.*).mp3/
         },
         "Cantata Aus der Tiefen [Suzuki] BWV131" : {
+            fixAlbumTitle: cantata({ subTitle: "Aus der Tiefe", BWV: 131, by: "Suzuki" }),
             firstTrackNumber: 8,
             fixTrackName: /(\d+) Cantata no. 131, BWV 131 "Aus der Tiefe rufe ich, Herr, zu dir": [IV]+. (.*).mp3/
         },
         "Cantata Aus der Tiefen [Koopman] BWV131" : {
+            fixAlbumTitle: cantata({ subTitle: "Aus der Tiefe", BWV: 131, by: "Koopman" }),
             firstTrackNumber: 12,
             fixTrackName: /(\d+) Cantata, BWV 131 "Aus der Tiefen rufe ich, Herr, zu dir": [IV]+. (.*).mp3/
         },
         "Cantata Barmherziges Herze [Koopman] BWV185" : {
+            fixAlbumTitle: cantata({ subTitle: "Barmherziges Herze", BWV: 185, by: "Koopman" }),
             firstTrackNumber: 10,
             fixTrackName: /(\d+) Kantate, BWV 185 "Barmherziges Herze der ewigen Liebe": [IV]+. (.*).mp3/
         },
         "Cantata Christ lag in Todesbanden [Koopman] BWV4" : {
+            fixAlbumTitle: cantata({ subTitle: "Christ lag in Todesbanden", BWV: 4, by: "Koopman" }),
             firstTrackNumber: 16,
             fixTrackName: /(\d+) Kantate, BWV 4 "Christ lag in Todesbanden": [IV]+. (.*).mp3/
         },
         "Cantata Christ lag in Todesbanden (appendix) [Koopman] BWV4" : {
+            fixAlbumTitle: cantata({ subTitle: "appendix: Christ lag in Todesbanden", BWV: 4, by: "Koopman" }),
             firstTrackNumber: 24,
             fixTrackName: /(\d+) Kantate, BWV 4 \(appendix\) "Christ lag in Todesbanden": [IV]+. (.*).mp3/
         },
         "Cantata Der Herr denket an uns [Koopman] BWV196" : {
+            fixAlbumTitle: cantata({ subTitle: "Der Herr denket an uns", BWV: 196, by: "Koopman" }),
             firstTrackNumber: 5,
             fixTrackName: /(\d+) - Der Herr denket an uns(?: BWV196)? - (.*).mp3/
         },
         "Cantata Der Himmel lacht [Koopman] BWV31" : {
+            fixAlbumTitle: cantata({ subTitle: "Der Himmel lacht", BWV: 31, by: "Koopman" }),
             fixTrackName: /(\d+) Kantate, BWV 31 "Der Himmel lacht! die Erde jubilieret": [IVX]+\. (.*).mp3/
         },
         "Cantata Ein feste Burg [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Ein feste Burg", BWV: 80, by: "Rifkin" }),
             firstTrackNumber: 11,
             fixTrackName: /(\d+) Cantata, BWV 80 "Ein feste Burg ist unser Gott": (.*).mp3/
         },
         "Cantata Ein feste Burg" : {
+            fixAlbumTitle: cantata({ subTitle: "Ein feste Burg", BWV: 80, by: "???" }),
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata No. 80_ [IV]+\. (.*).mp3/
         },
         "Cantata Geist und Seele [Mullejans] BWV35" : {
+            fixAlbumTitle: cantata({ subTitle: "Geist und Seele", BWV: 35, by: "Mullejans" }),
             firstTrackNumber: 13,
             fixTrackName: /(\d+) - Cantata BWV 35. \d+. (.*).mp3/
         },
         "Cantata Gott ist mein Konig [Koopman] BWV71" : {
-            // TODO
-            // title: "Cant[Koopman] Gott ist mein Konig"
+            fixAlbumTitle: cantata({ subTitle: "Gott ist mein Konig", BWV: 71, by: "Koopman" }),
             firstTrackNumber: 10,
             fixTrackName: /(\d+) - Gott ist mein Konig (?:BWV71 )?- (.*).mp3/
         },
         "Cantata Gott ist mein König [Suzuki] BWV71" : {
+            fixAlbumTitle: cantata({ subTitle: "Gott ist mein Konig", BWV: 71, by: "Suzuki" }),
             fixTrackName: /(\d+) Cantata no. 71, BWV 71 "Gott ist mein König": [IVX]+\. (.*).mp3/
         },
         "Cantata Gott soll allein mein Herze haben [Mullejans] BWV169" : {
+            fixAlbumTitle: cantata({ subTitle: "Gott soll allein mein Herze haben", BWV: 169, by: "Mullejans" }),
             fixTrackName: /(\d+) - Cantata BWV 169. \d+\. (.*)\.mp3/
         },
         "Cantata Gottes Zeit [Koopman] BWV106" : {
+            fixAlbumTitle: cantata({ subTitle: "Gottes Zeit", BWV: 106, by: "Koopman" }),
             fixTrackName: /(\d+) - Gottes Zeit BWV106 - (.*).mp3/
         },
         "Cantata Gottes Zeit [Suzuki] BWV106" : {
-            // title: "Cant[Suzuki] Gottes Zeit"
+            fixAlbumTitle: cantata({ subTitle: "Gottes Zeit", BWV: 106, by: "Suzuki" }),
             firstTrackNumber: 13,
             fixTrackName: /(\d+) Cantata no. 106, BWV 106 "Gottes Zeit ist die allerbeste Zeit": (.*).mp3/
         },
         "Cantata Herz und Mund und Tat und Leben [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Herz und Mund", BWV: 147, by: "Rifkin" }),
             fixTrackName: /(\d+) Cantata, BWV 147 "Herz und Mund und Tat und Leben": Part [IVX]+, (.*).mp3/
         },
         "Cantata Herz und Mund" : {
+            fixAlbumTitle: cantata({ subTitle: "Herz und Mund", BWV: 147, by: "???" }),
             fixTrackName: /(\d+) - Cantata No. 147_ Part I+. [IVX]+. (.*).mp3/
         },
         "Cantata ich habe genug BWV82" : {
+            fixAlbumTitle: cantata({ subTitle: "Ich habe genug", BWV: 82, by: "???" }),
             firstTrackNumber: 13,
             fixTrackName: /(\d*) Cantata "Ich habe genug", BWV 82: [IV]+. (.*).mp3/
         },
         "Cantata Ich hatte viel Bekümmernis [Koopman] BWV21" : {
+            fixAlbumTitle: cantata({ subTitle: "Ich hatte viel Bekümmernis", BWV: 21, by: "Koopman" }),
             fixTrackName: /(\d+) Cantata, BWV 21 "Ich hatte viel Bekümmernis": [IVX]+\. (.*).mp3/
         },
         "Cantata Ich hatte viel Bekümmernis (appendix) [Koopman] BWV21" : {
+            fixAlbumTitle: cantata({ subTitle: "appendix: Ich hatte viel Bekümmernis", BWV: 21, by: "Koopman" }),
             firstTrackNumber: 17,
             fixTrackName: /(\d+) Cantata, BWV 21 "Ich hatte viel Bekümmernis": \(appendix\) (.*).mp3/
         },
         "Cantata Jauchzet Gott in allem Landed [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Jauchzet Gott", BWV: 51, by: "Rifkin" }),
             firstTrackNumber: 8,
             fixTrackName: /(\d+) Cantata, BWV 51 "Jauchzet Gott in allen Landen": (.*).mp3/
         },
         "Cantata Jesu der du meine Seele [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Jesu der du meine Seele", BWV: 78, by: "Rifkin" }),
             firstTrackNumber: 13,
             fixTrackName: /(\d+) Cantata, BWV 78 "Jesu, der du meine Seele": (.*).mp3/
         },
         "Cantata Jesu meine Freunde BWV 227 " : {
+            fixAlbumTitle: cantata({ subTitle: "Jesu meine Freunde", BWV: 227, by: "???" }),
             firstTrackNumber: 11,
             fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227_ [IVX]+\.(.*).mp3/
         },
         "Cantata Liebster Gott [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Liebster Gott, wann werd ich sterben", BWV: 8, by: "Rifkin" }),
             firstTrackNumber: 19,
             fixTrackName: /(\d+) Cantata, BWV 8 "Liebster Gott, wann werd ich sterben": (.*).mp3/
         },
         "Cantata Nach dir, Herr [Koopman] BWV150" : {
+            fixAlbumTitle: cantata({ subTitle: "Nach dir, Herr, verlanget mich", BWV: 150, by: "Koopman" }),
             firstTrackNumber: 17,
             fixTrackName: /(\d*) - Nach dir, Herr, verlanget mich BWV150 - (.*).mp3/
         },
         "Cantata Wachet auf [Rifkin]" : {
+            fixAlbumTitle: cantata({ subTitle: "Wachet auf", BWV: 140, by: "Rifkin" }),
             fixTrackName: /(\d+) Cantata, BWV 140 "Wachet auf, ruft uns die Stimme": Part [IVX]+, (.*).mp3/
         },
         "Cantata Wachet auf" : {
+            fixAlbumTitle: cantata({ subTitle: "Wachet auf", BWV: 140, by: "???" }),
             fixTrackName: /(\d+) - Cantata No. 140_ [IVX]+\. (.*).mp3/
         },
         "Cantata Wie jammern [Mullejans] BWV170" : {
+            fixAlbumTitle: cantata({ subTitle: "Wie jammern", BWV: 170, by: "Mullejans" }),
             firstTrackNumber: 8,
             fixTrackName: /(\d+) - Cantata BWV 170. \d+. (.*).mp3/
         },
@@ -293,6 +316,11 @@ export function Create()
         },
         "Kunst [Münchinger]" : {
             fixTrackName: /(\d+) The Art of Fugue, BWV 1080: [\dab]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "ArtOfFugue[Gould,organ]" : {
+            fixAlbumTitle: "Kunst[Gould,organ]",
+            fixTrackName: /(\d+) The Art of the Fugue, BWV 1080: (.*).mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Magnificat" : {
