@@ -9,67 +9,133 @@ export interface KeyValue
 export interface Format
 {
     form: string,
-    num?: string,
+    num?: number,
     mode?: string,
     key?: string,
-    opus?: string,
-    opus_number?: string,
-    called?: string,
+    opus?: number,
+    opus_number?: number,
+    opus_prefix?: string,
+    subTitle?: string,
     performer?: string
 }
 
-function buildFormat(args: any[], result: any) : Format
+export interface FormatOptions
 {
-    args.forEach((arg) => {
-        var hasForEach = typeof arg.forEach === 'function';
-        if (hasForEach)
+
+}
+
+function setOpus(opus: number | number[], result: Format) : void
+{
+    if (opus instanceof Array)
+    {
+        result.opus = opus[0];
+        result.opus_number = opus[1];
+    }
+    else
+    {
+        result.opus = opus;
+    }
+}
+
+function toString(format: Format) : string
+{
+    var result = format.form;
+    if (format.num)
+    {
+        result += " " + format.num;
+    }
+    if (format.performer)
+    {
+        result += " [" + format.performer + "]";
+    }
+    if (format.key && format.mode)
+    {
+        var key = format.key.toLowerCase();
+        if (format.mode === "major")
         {
-            buildFormat(arg, result);
+            key = key.charAt(0).toUpperCase() + key.slice(1);
         }
-        else
+        result += " in " + key;
+    }
+    if (format.subTitle)
+    {
+        result += " \"" + format.subTitle + "\"";
+    }
+    if (format.opus)
+    {
+        result += " " + format.opus_prefix + format.opus;
+        if (format.opus_number)
         {
-            result[arg.key] = arg.value;
+            result += " Nr." + format.opus_number;
         }
-    });
+    }
     return result;
 }
 
-export function symphony(args: any[]) : Format
-{
-    return buildFormat([{key: "form", value: "Symph"}, args], {});
+function buildFormat(form: string, args?: FormatOptions) : Format {
+    var result: Format;
+    result = { form: form };
+    for (var arg in args) {
+        if (args.hasOwnProperty(arg)) {
+            switch(arg) {
+                case "major":
+                result.key = args[arg];
+                result.mode = "major";
+                break;
+
+                case "minor":
+                result.key = args[arg];
+                result.mode = "minor";
+                break;
+
+                case "by":
+                result.performer = args[arg];
+                break;
+
+                case "op":
+                setOpus(args[arg], result);
+                result.opus_prefix = "Op.";
+                break;
+
+                case "BWV":
+                result.opus = args[arg];
+                result.opus_prefix = "BWV ";
+                break;
+
+                case "by":
+                case "num":
+                case "subTitle":
+                result[arg] = args[arg];
+                break;
+
+                default:
+                throw new Error("");
+            }
+        }
+    }
+    result.toString = function()
+    {
+        return toString(this);
+    }
+    return result;
 }
 
-export function num(theNumber: number) : KeyValue
+export function cantata(args?: FormatOptions) : Format
 {
-    return { key: "num", value: "" + theNumber };
+    return buildFormat("Cantata", args);
 }
 
-export function opus(theOpus: number) : KeyValue
+export function quartet(args?: FormatOptions) : Format
 {
-    return { key: "opus", value: "" + theOpus };
+    return buildFormat("Quartet", args);
 }
 
-export function opus_number(theOpus: number, theNumber: number) : KeyValue[]
+export function symphony(args?: FormatOptions) : Format
 {
-    return [{ key: "opus", value: "" + theOpus }, { key: "opus_number", value: "" + theNumber }];
+    return buildFormat("Symph", args);
 }
 
-export function major(theKey: string) : KeyValue[]
+export function sonata(args?: FormatOptions) : Format
 {
-    return [{ key: "mode", value: "major" }, { key: "key", value: theKey }];
-}
-
-export function minor(theKey: string) : KeyValue[]
-{
-    return [{ key: "mode", value: "minor" }, { key: "key", value: theKey }];
-}
-
-export function called(theName: string) : KeyValue
-{
-    return { key: "called", value: theName };
-}
-
-export function by(theName: string) : KeyValue
-{
-    return { key: "performer", value: theName };
+    return buildFormat("Sonata", args);
 }
