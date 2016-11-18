@@ -46,6 +46,17 @@ describe("Fixer", () => {
 
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
+        it("replaces underscore with space in track names", () => {
+            var rule: Rule;
+            var artist = "the artist";
+            var albumTitle = "the album";
+            var album = new Album(artist, albumTitle);
+            album.push({ artist: artist, album: albumTitle, title: "01. track_one.mp3", path: "cccc" });
+
+            fixer.fix(album, undefined, rule);
+
+            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+        });
         it("assigns track numbers based on the disk number", () => {
             var rule: Rule;
             var artist = "the artist";
@@ -148,11 +159,11 @@ describe("Fixer", () => {
         });
 
         it("converts one digit track number to two digit", () => {
-            album.tracks[0].title = "3 Act I Scene 1_ The people are the heroes now (Chorus).mp3";
+            album.tracks[0].title = "3 Act I Scene 1  The people are the heroes now (Chorus).mp3";
             var mockRule = {
                 "Adams_John":{
                     "Nixon1":{
-                        fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
+                        fixTrackName: /(\d+) Act I Scene \d  (.*).mp3/,
                     }
                 }
             };

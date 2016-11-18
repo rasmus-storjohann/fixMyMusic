@@ -34,6 +34,7 @@ export class Fixer
     private fixTrackPrefix(album: Album)
     {
         album.tracks.forEach((track) => {
+            track.title = track.title.replace(/_/g, " ");
             if (/^\d[^\d]/.exec(track.title))
             {
                 track.title = "0" + track.title;
