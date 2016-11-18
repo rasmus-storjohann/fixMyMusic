@@ -35,6 +35,9 @@ export class Fixer
     {
         album.tracks.forEach((track) => {
             track.title = track.title.replace(/_/g, " ");
+            while (/  /.exec(track.title)) {
+                track.title = track.title.replace(/  /g, " ");
+            }
             if (/^\d[^\d]/.exec(track.title))
             {
                 track.title = "0" + track.title;

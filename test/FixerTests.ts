@@ -24,44 +24,41 @@ beforeEach(() => {
 
 describe("Fixer", () => {
     describe("track names", () => {
+        var rule: Rule;
+        var artist: string;
+        var albumTitle: string;
+        var album: Album;
+        beforeEach(() => {
+            artist = "the artist";
+            albumTitle = "the album";
+            album = new Album(artist, albumTitle);
+        });
         it("puts 0 prefix on one digit track numbers", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "1 track.mp3", path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
         it("strips trailing dot from track numbers", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "01. track.mp3", path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
         it("replaces underscore with space in track names", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "01. track_one.mp3", path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
+            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+        });
+        it("replaces repeated space with one space in track names", () => {
+            album.push({ artist: artist, album: albumTitle, title: "01. track     one.mp3", path: "cccc" });
+            fixer.fix(album, undefined, rule);
+            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+        });
+        it("replaces repeated space/underscores with one space in track names", () => {
+            album.push({ artist: artist, album: albumTitle, title: "01. track _ one.mp3", path: "cccc" });
+            fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
         });
         it("assigns track numbers based on the disk number", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk two.mp2", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "02 second track from disk three.mp2", disk: 3, path: "cccc" });
@@ -73,59 +70,35 @@ describe("Fixer", () => {
             chai.expect(album.tracks[2].title).to.equal("03 second track from disk three.mp2");
         });
         it("first track number of next disk is computed from last track number on current disk", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "02 second track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp3", disk: 3, path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("02 second track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("03 track from disk three.mp3");
         });
 
         it("index of tracks on next disk is offset by the number of tracks on the first disk", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("02 track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("04 track from disk three.mp3");
         });
 
         it("index tracks spanning three disks", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "03 track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "03 track from disk four.mp3", disk: 4, path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("03 track from disk two.mp3");
             chai.expect(album.tracks[1].title).to.equal("05 track from disk three.mp3");
             chai.expect(album.tracks[2].title).to.equal("08 track from disk four.mp3");
         });
 
         it("can fix numbers when the tracks are larger than 9", () => {
-            var rule: Rule;
-            var artist = "the artist";
-            var albumTitle = "the album";
-            var album = new Album(artist, albumTitle);
             album.push({ artist: artist, album: albumTitle, title: "12 track from disk two.mp2", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
-
             fixer.fix(album, undefined, rule);
-
             chai.expect(album.tracks[0].title).to.equal("12 track from disk two.mp2");
             chai.expect(album.tracks[1].title).to.equal("13 track from disk three.mp2");
         });
@@ -163,7 +136,7 @@ describe("Fixer", () => {
             var mockRule = {
                 "Adams_John":{
                     "Nixon1":{
-                        fixTrackName: /(\d+) Act I Scene \d  (.*).mp3/,
+                        fixTrackName: /(\d+) Act I Scene \d (.*).mp3/,
                     }
                 }
             };
