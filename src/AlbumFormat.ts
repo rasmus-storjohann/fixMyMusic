@@ -9,6 +9,7 @@ export interface KeyValue
 export interface Format
 {
     form: string,
+    instrument?: string,
     num?: number,
     mode?: string,
     key?: string,
@@ -38,7 +39,12 @@ function setOpus(opus: number | number[], result: Format) : void
 
 function toString(format: Format) : string
 {
-    var result = format.form;
+    var result = "";
+    if (format.instrument)
+    {
+        result += format.instrument;
+    }
+    result += format.form;
     if (format.num) {
         result += " " + format.num;
     }
@@ -84,6 +90,10 @@ function buildFormat(form: string, args?: FormatOptions) : Format {
                 result.performer = args[arg];
                 break;
 
+                case "for":
+                result.instrument = args[arg];
+                break;
+
                 case "op":
                 setOpus(args[arg], result);
                 result.opus_prefix = "Op.";
@@ -115,6 +125,11 @@ function buildFormat(form: string, args?: FormatOptions) : Format {
 export function cantata(args?: FormatOptions) : Format
 {
     return buildFormat("Cantata", args);
+}
+
+export function concerto(args?: FormatOptions) : Format
+{
+    return buildFormat("Conc", args);
 }
 
 export function quartet(args?: FormatOptions) : Format

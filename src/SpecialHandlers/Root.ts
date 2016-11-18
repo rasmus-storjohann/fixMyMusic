@@ -1,4 +1,4 @@
-import { Format, cantata, quartet, symphony, sonata } from "../AlbumFormat";
+import { Format, cantata, concerto, quartet, symphony, sonata } from "../AlbumFormat";
 import * as BachJs from "./BachJS";
 import * as Beethoven from "./Beethoven";
 
@@ -189,6 +189,25 @@ export function Create()
             },
             "Violin Conc 1" : {
                 fixTrackName: /(\d+) - Concerto No.1 (.*)\.mp3/
+            }
+        },
+        "Donizetti" : {
+            "Lucia1" : {
+                fixTrackName: /(\d+) Lucia di Lammermoor_ (.*)\.mp3/
+            },
+            "Lucia2" : {
+                fixTrackName: /(\d+) Lucia di Lammermoor_ (.*)\.mp3/
+            }
+        },
+        "Dvorak" : {
+            "Symph7" : {
+                fixTrackName: /(\d+) Dvorak- Sym#7- [IV]+\.(.*).mp3/
+            }
+        },
+        "Elgar" : {
+            "Cello" : {
+                fixAlbumTitle: concerto({ for: "Cello", op:85, minor : "E" }),
+                fixTrackName: /(\d+) - Cello Concerto in E minor, Op. 85_ [IV]+\. (.*)\.mp3/
             }
         },
         "Mozart" : {

@@ -1,13 +1,18 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import { cantata, quartet, symphony, sonata } from "../src/AlbumFormat";
+import { cantata, concerto, quartet, symphony, sonata } from "../src/AlbumFormat";
 
 describe("Album format specification", () => {
 
     it("can create symphony", () => {
         var result = symphony();
         chai.expect(result.form).to.equal("Symph");
+    });
+
+    it("can create concerto", () => {
+        var result = concerto();
+        chai.expect(result.form).to.equal("Conc");
     });
 
     it("can set number", () => {
@@ -62,10 +67,20 @@ describe("Album format specification", () => {
         chai.expect(result.performer).to.equal("Karajan");
     });
 
+    it("can set instrument", () => {
+        var result = sonata( { for: "Cello" } );
+        chai.expect(result.instrument).to.equal("Cello");
+    });
+
     describe("can format to string", () => {
         it("with subtitle", () => {
             var result = symphony( { num : 3, major : "Eb", op: 55, subTitle: "Eroica", by: "Haitink" } ).toString();
             chai.expect(result).to.equal("Symph 3 [Haitink] \"Eroica\" in Eb Op.55");
+        });
+
+        it("with instrument", () => {
+            var result = sonata( { for : "Violin", major : "G", op: [30,3] } ).toString();
+            chai.expect(result).to.equal("ViolinSonata in G Op.30-3");
         });
 
         it("with opus and opus number", () => {
