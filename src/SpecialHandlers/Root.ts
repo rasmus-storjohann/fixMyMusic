@@ -9,15 +9,15 @@ export function Create()
     return {
         "Adams_John" : {
             "Nixon1" : {
-                fixTrackName: /(\d+) Act I Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act I Scene \d (.*).mp3/,
                 fixNumberPrefixLength: 2
             },
             "Nixon2" : {
-                fixTrackName: /(\d+) Act II Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act II Scene \d (.*).mp3/,
                 fixNumberPrefixLength: 2
             },
             "Nixon3" : {
-                fixTrackName: /(\d+) Act III Scene \d_ (.*).mp3/,
+                fixTrackName: /(\d+) Act III Scene \d (.*).mp3/,
                 fixNumberPrefixLength: 2
             }
         },
@@ -57,6 +57,12 @@ export function Create()
             }
         },
         "Bach JS": BachJs.Create(),
+        "Barber" : {
+            "ViolinConc[Ehnes]" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*).mp3/
+            }
+        },
         "Bartok" : {
             "Concerto for Orchestra" : {
                 fixTrackName: /(\d+) - Concerto for orchestra - (.*).mp3/
@@ -81,17 +87,17 @@ export function Create()
             },
             "Lulu Suite" : {
                 firstTrackNumber: 10,
-                fixTrackName: /(\d+) - _Lulu_ Suite, \d+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Lulu Suite, \d+\. (.*)\.mp3/
             },
             // TODO remove _ in track names
             "Lulu2" : {
-                fixTrackName: /(\d+) - Lulu_ Akt II, Szene I+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Lulu Akt II, Szene I+\. (.*)\.mp3/
             },
             "Lulu3" : {
-                fixTrackName: /(\d+) - Lulu_ Akt III, Szene I+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Lulu Akt III, Szene I+\. (.*)\.mp3/
             },
             "ViolinConcerto" : {
-                fixTrackName: /(\d+) - Violinkonzert_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Violinkonzert [IV]+\. (.*)\.mp3/
             },
             "Wozzeck1" : {
                 fixTrackNameFunc: function(name: string, logger) : string {
@@ -123,36 +129,36 @@ export function Create()
                 fixTrackName: /(\d+) - Sieben Lieder-[IV]+\. (.*)\.mp3/
             },
             "Symph 1 c Op.68" : {
-               fixTrackName: /(\d+) Symphony No. 1 in C minor, Op. 68_ [IV]+\. (.*)\.mp3/
+               fixTrackName: /(\d+) Symphony No. 1 in C minor, Op. 68 [IV]+\. (.*)\.mp3/
             },
             "Symph 2 D Op.73" : {
-                fixTrackName: /(\d+) - Symphony No. 2 in D major, Op. 73_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Symphony No. 2 in D major, Op. 73 [IV]+\. (.*)\.mp3/
             },
             "Symph 3 F Op.90" : {
                 firstTrackNumber: 5,
-                fixTrackName: /(\d+) Symphony No. 3 in F major, Op. 90_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) Symphony No. 3 in F major, Op. 90 [IV]+\. (.*)\.mp3/
             },
             "Symph 4 e Op.98" : {
                 firstTrackNumber: 5,
-                fixTrackName: /(\d+) - Symphony No. 4 in E minor, Op. 98_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Symphony No. 4 in E minor, Op. 98 [IV]+\. (.*)\.mp3/
             },
             "Vier Gesänge" : {
                 firstTrackNumber: 4,
                 fixTrackName: /(\d+) - Vier Gesänge-[IV]+\. (.*)\.mp3/
             },
             "ViolConc D Op.77" : {
-                fixTrackName: /(\d+) - Konzert für Violine und Orchester D-Dur, Op. 77_ [IV]+\. (.*).mp3/
+                fixTrackName: /(\d+) - Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\. (.*).mp3/
             },
             "ViolSon 1 G Op.78" : {
                 firstTrackNumber: 4,
-                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 1 in G major, Op. 78_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\. (.*)\.mp3/
             },
             "ViolSon 2 A Op.100" : {
-                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 2 in A major, Op. 100_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\. (.*)\.mp3/
             },
             "ViolSon 3 d Op.108" : {
                firstTrackNumber: 7,
-               fixTrackName: /(\d+) - Sonata for Violin and Piano No. 3 in D minor, Op. 108_ [IV]+\. (.*).mp3/
+               fixTrackName: /(\d+) - Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\. (.*).mp3/
            }
         },
         "Britten" : {
@@ -161,10 +167,10 @@ export function Create()
                     if (name === "01 - Act 1- Prologue.mp3") {
                         return "01 Prologue.mp3";
                     }
-                    if (name === "02 - Theme - Scene 1_ The Journey.mp3") {
+                    if (name === "02 - Theme - Scene 1 The Journey.mp3") {
                         return "02 The Journey.mp3";
                     }
-                    var m = /(\d+) - Variation [IVX]+ - Scene \d+_ (.*)\.mp3/.exec(name);
+                    var m = /(\d+) - Variation [IVX]+ - Scene \d+ (.*)\.mp3/.exec(name);
                     if (!m) {
                         throw new Error("");
                     }
@@ -172,14 +178,14 @@ export function Create()
                 }
             },
             "The Turn of the Screw 2" : {
-                fixTrackName: /(\d+) - The Turn of the Screw_ Act II, Variation [IVX]+ - Act II, Scene \d+_ (.*)\.mp3/
+                fixTrackName: /(\d+) - The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \d+ (.*)\.mp3/
             },
             "Violin Concerto" : {
                 fixTrackName: /(\d+) - Violin Concerto Op\.15 \-I+\- (.*)\.mp3/
             },
             "Young Person's Guide to the Orchestra" : {
                 firstTrackNumber: 23,
-                fixTrackName: /(\d+) - Young Person's Guide to the Orchestra, Op. 34_ [IVX]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Young Person's Guide to the Orchestra, Op. 34 [IVX]+\. (.*)\.mp3/
             }
         },
         "Bruch" : {
@@ -193,10 +199,10 @@ export function Create()
         },
         "Donizetti" : {
             "Lucia1" : {
-                fixTrackName: /(\d+) Lucia di Lammermoor_ (.*)\.mp3/
+                fixTrackName: /(\d+) Lucia di Lammermoor (.*)\.mp3/
             },
             "Lucia2" : {
-                fixTrackName: /(\d+) Lucia di Lammermoor_ (.*)\.mp3/
+                fixTrackName: /(\d+) Lucia di Lammermoor (.*)\.mp3/
             }
         },
         "Dvorak" : {
@@ -207,7 +213,7 @@ export function Create()
         "Elgar" : {
             "Cello" : {
                 fixAlbumTitle: concerto({ for: "Cello", op:85, minor : "E" }),
-                fixTrackName: /(\d+) - Cello Concerto in E minor, Op. 85_ [IV]+\. (.*)\.mp3/
+                fixTrackName: /(\d+) - Cello Concerto in E minor, Op. 85 [IV]+\. (.*)\.mp3/
             }
         },
         "Mozart" : {
@@ -218,11 +224,11 @@ export function Create()
         },
         "Arnold Schönberg" : {
             "Erwartung[Boulez]" : {
-                fixTrackName: /(\d+) - Erwartung, Scene \d+_ (.*).mp3/
+                fixTrackName: /(\d+) - Erwartung, Scene \d+ (.*).mp3/
             },
             "Five Piano Pieces Op23" : {
                 firstTrackNumber: 4,
-                fixTrackName: /(\d+) Five Piano Pieces, Op. 23_ (.*).mp3/
+                fixTrackName: /(\d+) Five Piano Pieces, Op. 23 (.*).mp3/
             },
             "Lied der Waldtaube[Boulez]" : {
                 firstTrackNumber: 30,
@@ -237,26 +243,26 @@ export function Create()
                 fixTrackName: /(\d+) - Schoenberg Phantasy Op47 - (.*).mp3/
             },
             "Piano Concerto" : {
-                fixTrackName: /(\d+) - Concerto for Piano and Orchestra, Op. 42_ (.*).mp3/
+                fixTrackName: /(\d+) - Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
             },
             // TODO fix duplication
             "PianoConc Op42" : {
-                fixTrackName: /(\d+) Concerto for Piano and Orchestra, Op. 42_ (.*).mp3/
+                fixTrackName: /(\d+) Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
             },
             "Three Piano Pieces Op11" : {
-                fixTrackName: /(\d+) Three Piano Pieces, Op. 11_ (.*).mp3/
+                fixTrackName: /(\d+) Three Piano Pieces, Op. 11 (.*).mp3/
             },
             "Pierrot Lunaire[Boulez]" : {
                 firstTrackNumber: 9,
-                fixTrackName: /(\d+) - Pierrot Lunaire, Part I+_ (.*) \(.*\)\.mp3/
+                fixTrackName: /(\d+) - Pierrot Lunaire, Part I+ (.*) \(.*\)\.mp3/
             },
             "Six Little Piano Pieces Op19" : {
                 firstTrackNumber: 9,
-                fixTrackName: /(\d+) Six Little Piano Pieces, Op. 19_ (.*).mp3/
+                fixTrackName: /(\d+) Six Little Piano Pieces, Op. 19 (.*).mp3/
             },
             "Suite for Piano Op25" : {
                 firstTrackNumber: 15,
-                fixTrackName: /(\d+) Suite for Piano, Op. 25_ (.*).mp3/
+                fixTrackName: /(\d+) Suite for Piano, Op. 25 (.*).mp3/
             },
             "Three Pieces for Orchestra" : {
                 firstTrackNumber: 7,
@@ -264,7 +270,7 @@ export function Create()
             },
             "Two Piano Pieces Op33" : {
                 firstTrackNumber: 20,
-                fixTrackName: /(\d+) Two Piano Pieces, Op. 33- A & B_ (.*).mp3/
+                fixTrackName: /(\d+) Two Piano Pieces, Op. 33- A & B (.*).mp3/
             }
         },
         "Camarón" : {

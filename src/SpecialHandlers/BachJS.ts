@@ -8,48 +8,48 @@ export function Create()
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Brandenburg 1 [Karajan]" : {
-            fixTrackName: /(\d+) - Brandenburg Concerto No. 1 in F major, BWV 1046_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Brandenburg Concerto No. 1 in F major, BWV 1046 [IV]+\. (.*).mp3/
         },
         "Brandenburg 1 [Pinnock]" : {
-            fixTrackName: /(\d+) Concerto No. 1 in F major, BWV 1046_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 1 in F major, BWV 1046 [IV]+. (.*).mp3/
         },
         "Brandenburg 2 [Karajan]" : {
-            fixTrackName: /(\d+) - Concerto No. 2 in F Major_ l+\.+ (.*)\.mp3/
+            fixTrackName: /(\d+) - Concerto No. 2 in F Major l+\.+ (.*)\.mp3/
         },
         "Brandenburg 2 [Pinnock]" : {
             firstTrackNumber: 5,
-            fixTrackName: /(\d+) Concerto No. 2 in F major, BWV 1047_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 2 in F major, BWV 1047 [IV]+. (.*).mp3/
         },
         "Brandenburg 3 [Karajan]" : {
             firstTrackNumber: 5,
-            fixTrackName: /(\d+) - Brandenburg Concerto No. 3 in G major, BWV 1048_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Brandenburg Concerto No. 3 in G major, BWV 1048 [IV]+. (.*).mp3/
         },
         "Brandenburg 3 [Pinnock]" : {
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) Concerto No\. 3 in G major, BWV 1048_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No\. 3 in G major, BWV 1048 [IV]+\. (.*).mp3/
         },
         "Brandenburg 4 [Karajan]" : {
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) - Brandenburg Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Brandenburg Concerto No\. 4 in G major, BWV 1049 [IV]+\. (.*).mp3/
         },
         "Brandenburg 4 [Pinnock]" : {
             firstTrackNumber: 11,
-            fixTrackName: /(\d+) Concerto No\. 4 in G major, BWV 1049_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No\. 4 in G major, BWV 1049 [IV]+\. (.*).mp3/
         },
         "Brandenburg 5 [Karajan]" : {
             firstTrackNumber: 4,
-            fixTrackName: /(\d+) - Concerto No. 5 in D Major_ l+\. (.*).mp3/
+            fixTrackName: /(\d+) - Concerto No. 5 in D Major l+\. (.*).mp3/
         },
         "Brandenburg 5 [Pinnock]" : {
-            fixTrackName: /(\d+) Concerto No. 5, BWV 1050_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 5, BWV 1050 [IV]+\. (.*).mp3/
         },
         "Brandenburg 6 [Karajan]" : {
             firstTrackNumber: 7,
-            fixTrackName: /(\d+) - Concerto No. 6 in B Flat Major_ l+\. (.*).mp3/
+            fixTrackName: /(\d+) - Concerto No. 6 in B Flat Major l+\. (.*).mp3/
         },
         "Brandenburg 6 [Pinnock]" : {
             firstTrackNumber: 4,
-            fixTrackName: /(\d+) Concerto No. 6, BWV 1051_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) Concerto No. 6, BWV 1051 [IV]+\. (.*).mp3/
         },
         "Cantata BWV 51 Jauchzet" : {
             fixAlbumTitle: cantata({ subTitle: "Jauchzet", BWV: 51 }),
@@ -98,7 +98,7 @@ export function Create()
         "Cantata Ein feste Burg" : {
             fixAlbumTitle: cantata({ subTitle: "Ein feste Burg", BWV: 80, by: "???" }),
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) - Cantata No. 80_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cantata No. 80 [IV]+\. (.*).mp3/
         },
         "Cantata Geist und Seele [Mullejans] BWV35" : {
             fixAlbumTitle: cantata({ subTitle: "Geist und Seele", BWV: 35, by: "Mullejans" }),
@@ -133,7 +133,7 @@ export function Create()
         },
         "Cantata Herz und Mund" : {
             fixAlbumTitle: cantata({ subTitle: "Herz und Mund", BWV: 147, by: "???" }),
-            fixTrackName: /(\d+) - Cantata No. 147_ Part I+. [IVX]+. (.*).mp3/
+            fixTrackName: /(\d+) - Cantata No. 147 Part I+. [IVX]+. (.*).mp3/
         },
         "Cantata ich habe genug BWV82" : {
             fixAlbumTitle: cantata({ subTitle: "Ich habe genug", BWV: 82, by: "???" }),
@@ -162,7 +162,7 @@ export function Create()
         "Cantata Jesu meine Freunde BWV 227 " : {
             fixAlbumTitle: cantata({ subTitle: "Jesu meine Freunde", BWV: 227, by: "???" }),
             firstTrackNumber: 11,
-            fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227_ [IVX]+\.(.*).mp3/
+            fixTrackName: /(\d+) - Jesu, meine Freunde, BW 227 [IVX]+\.(.*).mp3/
         },
         "Cantata Liebster Gott [Rifkin]" : {
             fixAlbumTitle: cantata({ subTitle: "Liebster Gott, wann werd ich sterben", BWV: 8, by: "Rifkin" }),
@@ -180,7 +180,7 @@ export function Create()
         },
         "Cantata Wachet auf" : {
             fixAlbumTitle: cantata({ subTitle: "Wachet auf", BWV: 140, by: "???" }),
-            fixTrackName: /(\d+) - Cantata No. 140_ [IVX]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cantata No. 140 [IVX]+\. (.*).mp3/
         },
         "Cantata Wie jammern [Mullejans] BWV170" : {
             fixAlbumTitle: cantata({ subTitle: "Wie jammern", BWV: 170, by: "Mullejans" }),
@@ -188,34 +188,34 @@ export function Create()
             fixTrackName: /(\d+) - Cantata BWV 170. \d+. (.*).mp3/
         },
         "CelloSuite1" : {
-            fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007_ [IVab]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007 [IVab]+\. (.*)\.mp3/
         },
         "CelloSuite2" : {
-            fixTrackName: /(\d+) - Cello Suite No. 2 in D minor, BWV 1008_ [IVab]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 2 in D minor, BWV 1008 [IVab]+\. (.*).mp3/
         },
         "CelloSuite3" : {
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) - Cello Suite No. 3 in C major, BWV 1009_ [IVab]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 3 in C major, BWV 1009 [IVab]+\. (.*).mp3/
         },
         "CelloSuite4" : {
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) - Cello Suite No. 4 in E-flat major, BWV 1010_ [IVab]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 4 in E-flat major, BWV 1010 [IVab]+\. (.*).mp3/
         },
         "CelloSuite5" : {
             firstTrackNumber: 15,
-            fixTrackName: /(\d+) - Cello Suite No. 5 in C minor, BWV 1011_ [IVab]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 5 in C minor, BWV 1011 [IVab]+\. (.*).mp3/
         },
         "CelloSuite6" : {
             firstTrackNumber: 15,
-            fixTrackName: /(\d+) - Cello Suite No. 6 in D major, BWV 1012_ [IVab]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Cello Suite No. 6 in D major, BWV 1012 [IVab]+\. (.*).mp3/
         },
         "Conc2Violins[Stern] BWV1043" : {
             firstTrackNumber: 7,
-            fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Concerto for Two Violins and Orchestra in D minor, BWV 1043 [IV]+. (.*).mp3/
         },
         "ConcOboeViolin[Stern] BWV 1060" : {
             firstTrackNumber: 10,
-            fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Concerto for Oboe, Violin and Orchestra in C minor, BWV 1060 [IV]+. (.*).mp3/
         },
         "Fantasias, Preludes and Fugues [Herrick]" : {
             fixTrackNameFunc: function(name: string, logger) : string {
@@ -281,13 +281,13 @@ export function Create()
             }
         },
         "GoldbergCanadianBrass" : {
-            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ (.*).mp3/
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988 (.*).mp3/
         },
         "GoldbergGould1955" : {
-            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ (.*).mp3/
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988 (.*).mp3/
         },
         "GoldbergGould1981" : {
-            fixTrackName: /(\d+) - Goldberg Variations, BWV 988_ [IVX]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Goldberg Variations, BWV 988 [IVX]+\. (.*).mp3/
         },
         "Inventions[Gould]" : {
             firstTrackNumber: 3,
@@ -332,33 +332,33 @@ export function Create()
        },
        "Opfer [Münchinger]" : {
            firstTrackNumber: 4,
-           fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079_ (.*).mp3/
+           fixTrackName: /(\d+) - Musikalisches Opfer, BWV 1079 (.*).mp3/
        },
        "Orchestral Suite 2 [Karajan]" : {
             firstTrackNumber: 11,
-            fixTrackName: /(\d+) - Suite for Orchestra No. 2 in B minor, BWV 1067_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Suite for Orchestra No. 2 in B minor, BWV 1067 [IV]+. (.*).mp3/
         },
         "Orchestral Suite 3 [Karajan]" : {
             firstTrackNumber: 10,
-            fixTrackName: /(\d+) - Orchestral Suite No. 3 in D Major_ [lV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Orchestral Suite No. 3 in D Major [lV]+. (.*).mp3/
         },
         "Organ works including toccata and fugue in D minor" : {
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Ouverture 1 [Pinnock]" : {
             firstTrackNumber: 7,
-            fixTrackName: /(\d+) Ouverture No. 1, BWV 1066_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 1, BWV 1066 [IV]+\. (.*)\.mp3/
         },
         "Ouverture 2 [Pinnock]" : {
-            fixTrackName: /(\d+) Ouverture No. 2, BWV 1067_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 2, BWV 1067 [IV]+\. (.*)\.mp3/
         },
         "Ouverture 3 [Pinnock]" : {
             firstTrackNumber: 8,
-            fixTrackName: /(\d+) Ouverture No. 3, BWV 1068_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 3, BWV 1068 [IV]+\. (.*)\.mp3/
         },
         "Ouverture 4 [Pinnock]" : {
             firstTrackNumber: 13,
-            fixTrackName: /(\d+) Ouverture No. 4, BWV 1069_ [IV]+\. (.*)\.mp3/
+            fixTrackName: /(\d+) Ouverture No. 4, BWV 1069 [IV]+\. (.*)\.mp3/
         },
         "PianoConc1 BVW1052" : {
             fixTrackName: /(\d+) - Piano Concerto No.1 in D minor, BWV 1052 - \d+. (.*).mp3/
@@ -383,26 +383,26 @@ export function Create()
             fixTrackName: /(\d+) - Piano Concerto No.7 in G minor, BWV 1058 - \d+. (.*).mp3/
         },
         "PianoPartita1 BWV825" : {
-            fixTrackName: /(\d+) - Partita No.1 in G major, BWV 825_ [IV]+\. (.*).mp3/
+            fixTrackName: /(\d+) - Partita No.1 in G major, BWV 825 [IV]+\. (.*).mp3/
         },
         "PianoPartita2 BWV826" : {
             firstTrackNumber: 7,
-            fixTrackName: /(\d+) - Partita No.2 in C minor, BWV 826_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Partita No.2 in C minor, BWV 826 [IV]+. (.*).mp3/
         },
         "PianoPartita3 BWV827" : {
             firstTrackNumber: 13,
-            fixTrackName: /(\d+) - Partita No.3 in C minor, BWV 827_ [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Partita No.3 in C minor, BWV 827 [IV]+. (.*).mp3/
         },
         "PianoPartita4 BWV828" : {
             firstTrackNumber: 20,
-            fixTrackName: /(\d+) - Partita No.4 in D [Mm]ajor, BWV 828[_,\.] [IV]+. (.*).mp3/
+            fixTrackName: /(\d+) - Partita No.4 in D Major, BWV 828, [IV]+\. (.*)\.mp3/
         },
         "PianoPartita5 BWV829" : {
            firstTrackNumber: 27,
-           fixTrackName: /(\d+) - Partita No.5 in G major, BWV 829[_\.] [IV]+\. (.*)\.mp3/
+           fixTrackName: /(\d+) - Partita No.5 in G major, BWV 829\. [IV]+\. (.*)\.mp3/
        },
        "PianoPartita6 BWV830" : {
-           fixTrackName: /(\d+) - Partita No. 6 in E minor, BWV 830_ [IV]+\. (.*)\.mp3/
+           fixTrackName: /(\d+) - Partita No. 6 in E minor, BWV 830 [IV]+\. (.*)\.mp3/
        },
        "PianoWorks[Gould]" : {
            firstTrackNumber: 8,
@@ -423,40 +423,40 @@ export function Create()
           validation : ["skipUniqueTrackNameCheck"]
       },
       "St. Matthew Passion" : {
-          fixTrackName: /(\d+) - St. Matthew Passion, BWV 244_ Teil [I]+. (.*).mp3/
+          fixTrackName: /(\d+) - St. Matthew Passion, BWV 244 Teil [I]+. (.*).mp3/
       },
       "Two fugues from WellTemp2[Gould1955]" : {
           firstTrackNumber: 33,
-          fixTrackName: /(\d+) - The Well-Tempered Clavier_ (.*)\.mp3/
+          fixTrackName: /(\d+) - The Well-Tempered Clavier (.*)\.mp3/
       },
       "ViolinConc[Stern] BWV 1041" : {
-          fixTrackName: /(\d+) - Concerto for Violin and Orchestra in A minor, BWV 1041_ [IV]+\. (.*).mp3/
+          fixTrackName: /(\d+) - Concerto for Violin and Orchestra in A minor, BWV 1041 [IV]+\. (.*).mp3/
       },
       "ViolinConc[Stern] BWV 1042" : {
           firstTrackNumber: 4,
-          fixTrackName: /(\d+) - Concerto for Violin and Orchestra in E major, BWV 1042_ [IV]+. (.*).mp3/
+          fixTrackName: /(\d+) - Concerto for Violin and Orchestra in E major, BWV 1042 [IV]+. (.*).mp3/
       },
       "ViolinPartita1 BWV1002" : {
           firstTrackNumber: 5,
-          fixTrackName: /(\d+) - Partita No. 1 in B minor, BWV 1002_ [IV]+\. (.*)\.mp3/
+          fixTrackName: /(\d+) - Partita No. 1 in B minor, BWV 1002 [IV]+\. (.*)\.mp3/
       },
       "ViolinPartita2 BWV1004" : {
-          fixTrackName: /(\d+) - Partita No. 2 in D minor, BWV 1004_ [IV]+\. (.*).mp3/
+          fixTrackName: /(\d+) - Partita No. 2 in D minor, BWV 1004 [IV]+\. (.*).mp3/
       },
       "ViolinPartita3 BWV1006" : {
           firstTrackNumber: 10,
-          fixTrackName: /(\d+) - Partita No. 3 in E, BWV 1006_ [IV]+. (.*).mp3/
+          fixTrackName: /(\d+) - Partita No. 3 in E, BWV 1006 [IV]+. (.*).mp3/
       },
       "ViolinSoloSon1 BWV1001" : {
-          fixTrackName: /(\d+) - Sonata No. 1 in G minor, BWV 1001_ [IV]+. (.*).mp3/
+          fixTrackName: /(\d+) - Sonata No. 1 in G minor, BWV 1001 [IV]+. (.*).mp3/
       },
       "ViolinSoloSon2 BWV1003" : {
           firstTrackNumber: 13,
-          fixTrackName: /(\d+) - Sonata No. 2 in A minor, BWV 1003_ [IV]+\. (.*).mp3/
+          fixTrackName: /(\d+) - Sonata No. 2 in A minor, BWV 1003 [IV]+\. (.*).mp3/
       },
       "ViolinSoloSon3 BWV1005" : {
           firstTrackNumber: 6,
-          fixTrackName: /(\d+) - Sonata No. 3 in C, BWV 1005_ [IV]+. (.*).mp3/
+          fixTrackName: /(\d+) - Sonata No. 3 in C, BWV 1005 [IV]+. (.*).mp3/
       },
       "ViolinSonata BWV1014" : {
           fixTrackName: /(\d+) - ViolinSonata BWV1014 - (.*).mp3/

@@ -28,33 +28,37 @@ describe("Fixer", () => {
         var artist: string;
         var albumTitle: string;
         var album: Album;
+        function trackWithName(title: string) : Track
+        {
+            return { artist: artist, album: albumTitle, title: title, path: "cccc" };
+        }
         beforeEach(() => {
             artist = "the artist";
             albumTitle = "the album";
             album = new Album(artist, albumTitle);
         });
         it("puts 0 prefix on one digit track numbers", () => {
-            album.push({ artist: artist, album: albumTitle, title: "1 track.mp3", path: "cccc" });
+            album.push(trackWithName("1 track.mp3"));
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
         it("strips trailing dot from track numbers", () => {
-            album.push({ artist: artist, album: albumTitle, title: "01. track.mp3", path: "cccc" });
+            album.push(trackWithName("01. track.mp3"));
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track.mp3");
         });
         it("replaces underscore with space in track names", () => {
-            album.push({ artist: artist, album: albumTitle, title: "01. track_one.mp3", path: "cccc" });
+            album.push(trackWithName("01. track_one.mp3"));
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
         });
         it("replaces repeated space with one space in track names", () => {
-            album.push({ artist: artist, album: albumTitle, title: "01. track     one.mp3", path: "cccc" });
+            album.push(trackWithName("01. track     one.mp3"));
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
         });
         it("replaces repeated space/underscores with one space in track names", () => {
-            album.push({ artist: artist, album: albumTitle, title: "01. track _ one.mp3", path: "cccc" });
+            album.push(trackWithName("01. track _ one.mp3"));
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
         });

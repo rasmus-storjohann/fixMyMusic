@@ -56,7 +56,7 @@ export class SpecialHandling
             var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
                 var match = specification.fixTrackName.exec(track.title);
                 if (!match) {
-                    throw new Error("'" + track.title + "': Track name does not match fixer for fixTrackName: /" + specification.fixTrackName + "/");
+                    throw new Error("'" + track.path + "': Track name does not match fixer for fixTrackName: /" + specification.fixTrackName + "/");
                 }
                 var newTitle = match[1] + " " + match[2];
                 logger.silly("SpecialFixTrackName", track.title  + ": Extracting track name '" + newTitle + "'");
