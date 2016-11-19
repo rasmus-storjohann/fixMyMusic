@@ -23,44 +23,45 @@ export class TrackFactory
 
     public createTrack(path: string) : Track
     {
-        var withDiskIdInFolder = /\/([^\/]+)\/([^\/]+)\/disk(\d+)\/([^\/]+)$/;
-        var match = withDiskIdInFolder.exec(path);
+        var elements = path.split("/");
+        var elementCount = elements.length;
+        validateElementCount(elementCount, 4);
+
+        var artist = elements[elementCount - 3];
+        var album = elements[elementCount - 2];
+        var title = elements[elementCount - 1];
+        var disk: number;
+
+        var match = /disk(\d+)/.exec(album);
         if (match)
         {
-            return {
-                path: path,
-                artist: match[1],
-                album: match[2],
-                title: match[4],
-                disk: parseInt(match[3])
-            };
+            validateElementCount(elementCount, 5);
+            artist = elements[elementCount - 4];
+            album = elements[elementCount - 3];
+            disk = parseInt(match[1]);
         }
 
-        var withDiskIdInTrackName = /\/([^\/]+)\/([^\/]+)\/Disc (\d+) - (\d+) - (.*)$/;
-        match = withDiskIdInTrackName.exec(path);
+        match = /Disc (\d+) - (\d+) - (.*)/.exec(title);
         if (match)
         {
-            return {
-                path: path,
-                artist: match[1],
-                album: match[2],
-                title: match[4] + " " + match[5],
-                disk: parseInt(match[3])
-            };
+            disk = parseInt(match[1]);
+            title = match[2] + " " + match[3];
         }
 
-        var withoutDiskId = /\/([^\/]+)\/([^\/]+)\/([^\/]+)$/;
-        match = withoutDiskId.exec(path);
-        if (match)
+        return {
+            path: path,
+            artist: artist,
+            album: album,
+            title: title,
+            disk: disk
+        };
+    }
+
+    private validateElementCount(actual: number, expected: number)
+    {
+        if (actual < expected)
         {
-            return {
-                path: path,
-                artist: match[1],
-                album: match[2],
-                title: match[3]
-            };
+            throw new Error(path + ": Invalid path to music file, at least " + expected + " elements needed");
         }
-
-        throw new Error(path + ": Invalid path to music file");
     }
 };

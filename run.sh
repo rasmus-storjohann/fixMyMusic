@@ -1,1 +1,1 @@
-./node_modules/typescript/bin/tsc ; npm test; (cd .. && ./bin/dist/src/index.js --out out music/[ABCDE]*)
+./node_modules/typescript/bin/tsc ; npm test; (cd .. && ./bin/dist/src/index.js --dry-run --out out music/[ABCDEFG]*)

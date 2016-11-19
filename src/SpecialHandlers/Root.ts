@@ -216,6 +216,16 @@ export function Create()
                 fixTrackName: /(\d+) - Cello Concerto in E minor, Op. 85 [IV]+\. (.*)\.mp3/
             }
         },
+        "Erik Satie" : {
+            "3 Gymnopédies etc [Pascal Rogé]" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            }
+        },
+        "E.S.T." : {
+            "Tuesday Wonderland" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            }
+        },
         "Mozart" : {
             "Coronation Mass [Markevitch]": {
                 firstTrackNumber: 6,
