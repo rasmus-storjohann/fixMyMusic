@@ -17,8 +17,7 @@ export class AlbumFactory
     public create(tracks: Track[]) : Album[]
     {
         tracks.forEach((track) => {
-            // lazy getters are bad
-            var album = this.createAlbumIfNeeded(track);
+            var album = this.getAlbumForTrack(track) || this.createAlbumForTrack(track);
             album.push(track);
         });
         var albums = this.buildAlbums();
@@ -28,13 +27,20 @@ export class AlbumFactory
         return albums;
     }
 
-    private createAlbumIfNeeded(track: Track) : Album
+    private getAlbumForTrack(track: Track) : Album
     {
         var key = this.computeKey(track);
-        if (!this.working[key])
+        return this.working[key];
+    }
+
+    private createAlbumForTrack(track: Track) : Album
+    {
+        var key = this.computeKey(track);
+        if (this.working[key])
         {
-            this.working[key] = new Album(track.artist, track.album);
+            throw new Error("Cannot create album that already exists");
         }
+        this.working[key] = new Album(track.artist, track.album);
         return this.working[key];
     }
 

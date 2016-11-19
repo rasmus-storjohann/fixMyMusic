@@ -25,7 +25,7 @@ export class TrackFactory
     {
         var elements = path.split("/");
         var elementCount = elements.length;
-        validateElementCount(elementCount, 4);
+        this.validateElementCount(elementCount, 4, path);
 
         var artist = elements[elementCount - 3];
         var album = elements[elementCount - 2];
@@ -35,7 +35,7 @@ export class TrackFactory
         var match = /disk(\d+)/.exec(album);
         if (match)
         {
-            validateElementCount(elementCount, 5);
+            this.validateElementCount(elementCount, 5, path);
             artist = elements[elementCount - 4];
             album = elements[elementCount - 3];
             disk = parseInt(match[1]);
@@ -57,7 +57,7 @@ export class TrackFactory
         };
     }
 
-    private validateElementCount(actual: number, expected: number)
+    private validateElementCount(actual: number, expected: number, path: string)
     {
         if (actual < expected)
         {

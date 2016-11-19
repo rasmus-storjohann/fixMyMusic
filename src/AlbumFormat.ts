@@ -1,11 +1,5 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-export interface KeyValue
-{
-    key: string,
-    value: string
-}
-
 export interface Format
 {
     form: string,
@@ -18,10 +12,6 @@ export interface Format
     opus_prefix?: string,
     subTitle?: string,
     performer?: string
-}
-
-export interface FormatOptions
-{
 }
 
 function setOpus(opus: number | number[], result: Format) : void
@@ -70,48 +60,49 @@ function toString(format: Format) : string
     return result;
 }
 
-function buildFormat(form: string, args?: FormatOptions) : Format {
+function buildFormat(form: string, formatOptions?: any) : Format {
     var result: Format;
     result = { form: form };
-    for (var arg in args) {
-        if (args.hasOwnProperty(arg)) {
-            switch(arg) {
+    for (var option in formatOptions) {
+        if (formatOptions.hasOwnProperty(option)) {
+            var value = formatOptions[option];
+            switch(option) {
                 case "major":
-                result.key = args[arg];
+                result.key = value;
                 result.mode = "major";
                 break;
 
                 case "minor":
-                result.key = args[arg];
+                result.key = value;
                 result.mode = "minor";
                 break;
 
                 case "by":
-                result.performer = args[arg];
+                result.performer = value;
                 break;
 
                 case "for":
-                result.instrument = args[arg];
+                result.instrument = value;
                 break;
 
                 case "op":
-                setOpus(args[arg], result);
+                setOpus(value, result);
                 result.opus_prefix = "Op.";
                 break;
 
                 case "BWV":
-                result.opus = args[arg];
+                result.opus = value;
                 result.opus_prefix = "BWV ";
                 break;
 
                 case "by":
                 case "num":
                 case "subTitle":
-                result[arg] = args[arg];
+                result[option] = value;
                 break;
 
                 default:
-                throw new Error("Invalid format specifier: " + arg);
+                throw new Error("Invalid format specifier: " + option);
             }
         }
     }
@@ -122,27 +113,8 @@ function buildFormat(form: string, args?: FormatOptions) : Format {
     return result;
 }
 
-export function cantata(args?: FormatOptions) : Format
-{
-    return buildFormat("Cantata", args);
-}
-
-export function concerto(args?: FormatOptions) : Format
-{
-    return buildFormat("Conc", args);
-}
-
-export function quartet(args?: FormatOptions) : Format
-{
-    return buildFormat("Quartet", args);
-}
-
-export function symphony(args?: FormatOptions) : Format
-{
-    return buildFormat("Symph", args);
-}
-
-export function sonata(args?: FormatOptions) : Format
-{
-    return buildFormat("Sonata", args);
-}
+export function cantata(formatOptions?: any)  : Format { return buildFormat("Cantata", formatOptions); }
+export function concerto(formatOptions?: any) : Format { return buildFormat("Conc", formatOptions); }
+export function quartet(formatOptions?: any)  : Format { return buildFormat("Quartet", formatOptions); }
+export function symphony(formatOptions?: any) : Format { return buildFormat("Symph", formatOptions); }
+export function sonata(formatOptions?: any)   : Format { return buildFormat("Sonata", formatOptions); }

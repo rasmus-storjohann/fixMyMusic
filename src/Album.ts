@@ -19,14 +19,8 @@ export class Album
 
     public push(file: Track)
     {
-        if (file.artist !== this.artist)
-        {
-            throw new Error("Music track cannot be added to this album: Wrong artist");
-        }
-        if (file.album !== this.title)
-        {
-            throw new Error("Music track cannot be added to this album: Wrong album title");
-        }
+        this.validate(file.artist, file.album);
+
         this.tracks.push({
             path: file.path,
             title: file.title,
@@ -34,19 +28,34 @@ export class Album
         });
     }
 
+    private validate(artist: string, album: string)
+    {
+        if (artist !== this.artist)
+        {
+            throw new Error("Music track cannot be added to this album: Wrong artist");
+        }
+        if (album !== this.title)
+        {
+            throw new Error("Music track cannot be added to this album: Wrong album title");
+        }
+    }
+
     public sortTracks(): void
     {
-        this.tracks.sort((first: AlbumTrack, second: AlbumTrack) => {
-            if (first.disk)
-            {
-                if (!second.disk) throw new Error(second.path + ": Album contains tracks with and without disk number");
-                if (first.disk < second.disk) return -1;
-                if (first.disk > second.disk) return 1;
-            }
-            if (first.title < second.title) return -1;
-            if (first.title > second.title) return 1;
-            return 0;
-        });
+        this.tracks.sort(this.sortOrder);
+    }
+
+    private sortOrder(first: AlbumTrack, second: AlbumTrack)
+    {
+        if (first.disk)
+        {
+            if (!second.disk) throw new Error(second.path + ": Album contains tracks with and without disk number");
+            if (first.disk < second.disk) return -1;
+            if (first.disk > second.disk) return 1;
+        }
+        if (first.title < second.title) return -1;
+        if (first.title > second.title) return 1;
+        return 0;
     }
 
     artist: string;
