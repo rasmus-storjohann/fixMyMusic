@@ -1,22 +1,22 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import * as shelljs from 'shelljs';
+import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as log from "npmlog";
 import { Application } from "../src/Application";
 
 beforeEach(() => {
-    log.level = 'silent';
-    shelljs.rm('-rf', "testOutput/destination");
-    shelljs.mkdir('-p', "testOutput/destination");
+    log.level = "silent";
+    shelljs.rm("-rf", "testOutput/destination");
+    shelljs.mkdir("-p", "testOutput/destination");
 });
 
 describe("Acceptance tests", () => {
 
     beforeEach(() => {
-        log.level = 'silent';
-        shelljs.rm('-rf', "testOutput/source");
+        log.level = "silent";
+        shelljs.rm("-rf", "testOutput/source");
     });
 
     it("Has test prerequisites", () => {
@@ -24,18 +24,66 @@ describe("Acceptance tests", () => {
     });
 
     it("Copies file from source to destination", () => {
-        shelljs.mkdir('-p', "testOutput/source/artist/album/");
+        shelljs.mkdir("-p", "testOutput/source/artist/album/");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
-        log.level = 'silent';
+        log.level = "silent";
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
         chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
     });
 
+    describe("with special characters in filenames", () => {
+        it("supports []", () => {
+            shelljs.mkdir("-p", "testOutput/source/artist/album/");
+            shelljs.cp("test.mp3", "testOutput/source/artist/album/01 [abc].mp3");
+
+            log.level = "silent";
+            Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+            chai.expect(fileExists("testOutput/destination/artist/album/01 [abc].mp3")).is.true;
+        });
+        it("supports *", () => {
+            shelljs.mkdir("-p", "testOutput/source/artist/album/");
+            shelljs.cp("test.mp3", "testOutput/source/artist/album/01 abc*efg.mp3");
+
+            log.level = "silent";
+            Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+            chai.expect(fileExists("testOutput/destination/artist/album/01 abc*efg.mp3")).is.true;
+        });
+        it("supports ()", () => {
+            shelljs.mkdir("-p", "testOutput/source/artist/album/");
+            shelljs.cp("test.mp3", "testOutput/source/artist/album/01 (efg).mp3");
+
+            log.level = "silent";
+            Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+            chai.expect(fileExists("testOutput/destination/artist/album/01 (efg).mp3")).is.true;
+        });
+        it("supports \"", () => {
+            shelljs.mkdir("-p", "testOutput/source/artist/album/");
+            shelljs.cp("test.mp3", "testOutput/source/artist/album/01 \"efg\".mp3");
+
+            log.level = "silent";
+            Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+            chai.expect(fileExists("testOutput/destination/artist/album/01 \"efg\".mp3")).is.true;
+        });
+        it("supports '", () => {
+            shelljs.mkdir("-p", "testOutput/source/artist/album/");
+            shelljs.cp("test.mp3", "testOutput/source/artist/album/01 'efg'.mp3");
+
+            log.level = "silent";
+            Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+            chai.expect(fileExists("testOutput/destination/artist/album/01 'efg'.mp3")).is.true;
+        });
+    });
+
     it("Copies file with disk id in path from source to destination", () => {
-        shelljs.mkdir('-p', "testOutput/source/artist/album/disk1");
-        shelljs.mkdir('-p', "testOutput/source/artist/album/disk2");
+        shelljs.mkdir("-p", "testOutput/source/artist/album/disk1");
+        shelljs.mkdir("-p", "testOutput/source/artist/album/disk2");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/disk1/01 first track.mp3");
         shelljs.cp("test.mp3", "testOutput/source/artist/album/disk2/01 second track.mp3");
 
@@ -48,7 +96,7 @@ describe("Acceptance tests", () => {
     // TODO throws if the first track of the second disk is missing
 
     describe("Sets mp3 tags", () => {
-        shelljs.mkdir('-p', "testOutput/source/dummy artist/dummy album");
+        shelljs.mkdir("-p", "testOutput/source/dummy artist/dummy album");
         shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);

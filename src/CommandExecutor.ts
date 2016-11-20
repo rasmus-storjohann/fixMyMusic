@@ -2,6 +2,7 @@
 
 import { Command } from "../src/Command";
 import * as shelljs from 'shelljs';
+import * as fileExists from "file-exists";
 import * as npmlog from "npmlog";
 
 export class CommandExecutor
@@ -16,6 +17,11 @@ export class CommandExecutor
     public execute(commands: Command[]) : void
     {
         commands.forEach((command) => {
+            if (fileExists("stop"))
+            {
+                this.logger.error("abort: file \"stop\" exists");
+                return;
+            }
             if (command.command === "mkdir")
             {
                 this.logger.verbose("MKDIR " + command.target);
@@ -33,7 +39,7 @@ export class CommandExecutor
                 {
                     throw new Error(command.target + ": Failed to set mp3 tags, missing track attribute(s)");
                 }
-                this.logger.verbose("TAG   " + command.target);
+                this.logger.info("TAG   " + command.target);
                 var mp3infoCommand = [ "mp3info",
                                         "-a", this.quote(command.tags.artist),
                                         "-l", this.quote(command.tags.album),
@@ -54,7 +60,7 @@ export class CommandExecutor
 
     private quote(s: string) : string
     {
-        return "\"" + s + "\"";
+        return "\"" + s.replace(/\"/g, "\\\"") + "\"";
     }
 
     private ensureWritable(target: string, functionNeedingWriteAccess: () => void)
