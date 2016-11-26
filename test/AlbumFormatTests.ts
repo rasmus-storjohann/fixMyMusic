@@ -1,7 +1,7 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import * as chai from "chai";
-import { cantata, concerto, quartet, symphony, sonata } from "../src/AlbumFormat";
+import { cantata, concerto, quartet, symphony, sonata, suite } from "../src/AlbumFormat";
 
 describe("Album format specification", () => {
 
@@ -13,6 +13,11 @@ describe("Album format specification", () => {
     it("can create concerto", () => {
         var result = concerto();
         chai.expect(result.form).to.equal("Conc");
+    });
+
+    it("can create suite", () => {
+        var result = suite();
+        chai.expect(result.form).to.equal("Suite");
     });
 
     it("can set number", () => {

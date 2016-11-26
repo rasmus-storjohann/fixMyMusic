@@ -1,9 +1,10 @@
-import { Format, cantata, quartet, symphony, sonata } from "../AlbumFormat";
+import { Format, cantata, quartet, symphony, sonata, suite } from "../AlbumFormat";
 
 export function Create()
 {
     return {
         "BminorMass" : {
+            fixAlbumTitle: "Mass in b BWV232",
             fixTrackName: /(\d+) - (?:Mass in B minor -[IV]+- )?(.*).mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
@@ -188,25 +189,31 @@ export function Create()
             fixTrackName: /(\d+) - Cantata BWV 170. \d+. (.*).mp3/
         },
         "CelloSuite1" : {
+            fixAlbumTitle: suite({ for: "Cello", num: 1, major: "G", BWV: 1007 }),
             fixTrackName: /(\d+) - Cello Suite No. 1 in G major, BWV 1007 [IVab]+\. (.*)\.mp3/
         },
         "CelloSuite2" : {
+            fixAlbumTitle: suite({ for: "Cello", num: 2, minor: "D", BWV: 1008 }),
             fixTrackName: /(\d+) - Cello Suite No. 2 in D minor, BWV 1008 [IVab]+\. (.*).mp3/
         },
         "CelloSuite3" : {
             firstTrackNumber: 8,
+            fixAlbumTitle: suite({ for: "Cello", num: 3, major: "C", BWV: 1009 }),
             fixTrackName: /(\d+) - Cello Suite No. 3 in C major, BWV 1009 [IVab]+\. (.*).mp3/
         },
         "CelloSuite4" : {
             firstTrackNumber: 8,
+            fixAlbumTitle: suite({ for: "Cello", num: 4, major: "Eb", BWV: 1010 }),
             fixTrackName: /(\d+) - Cello Suite No. 4 in E-flat major, BWV 1010 [IVab]+\. (.*).mp3/
         },
         "CelloSuite5" : {
             firstTrackNumber: 15,
+            fixAlbumTitle: suite({ for: "Cello", num: 5, minor: "C", BWV: 1011 }),
             fixTrackName: /(\d+) - Cello Suite No. 5 in C minor, BWV 1011 [IVab]+\. (.*).mp3/
         },
         "CelloSuite6" : {
             firstTrackNumber: 15,
+            fixAlbumTitle: suite({ for: "Cello", num: 6, major: "D", BWV: 1012 }),
             fixTrackName: /(\d+) - Cello Suite No. 6 in D major, BWV 1012 [IVab]+\. (.*).mp3/
         },
         "Conc2Violins[Stern] BWV1043" : {

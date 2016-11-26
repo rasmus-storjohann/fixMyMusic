@@ -116,5 +116,6 @@ function buildFormat(form: string, formatOptions?: any) : Format {
 export function cantata(formatOptions?: any)  : Format { return buildFormat("Cantata", formatOptions); }
 export function concerto(formatOptions?: any) : Format { return buildFormat("Conc", formatOptions); }
 export function quartet(formatOptions?: any)  : Format { return buildFormat("Quartet", formatOptions); }
-export function symphony(formatOptions?: any) : Format { return buildFormat("Symph", formatOptions); }
 export function sonata(formatOptions?: any)   : Format { return buildFormat("Sonata", formatOptions); }
+export function suite(formatOptions?: any)    : Format { return buildFormat("Suite", formatOptions); }
+export function symphony(formatOptions?: any) : Format { return buildFormat("Symph", formatOptions); }

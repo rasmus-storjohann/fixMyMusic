@@ -7,6 +7,27 @@ import * as Beethoven from "./Beethoven";
 export function Create()
 {
     return {
+        "Aaron Copland" : {
+            "AppalachianSpring" : {
+                fixTrackName: /(\d+) Appalachian Spring \(Ballet for Martha\): (.*)\.mp3/
+            },
+            "ClarinetConcerto" : {
+                fixAlbumTitle: concerto({for:"Clarinet"}),
+                fixTrackName: /(\d+) Concerto for Clarinet and String Orchestra, [IV]+\. (.*)\.mp3/
+            },
+            "DancePanels" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) Dance Panels, [IV]+\. (.*)\.mp3/
+            },
+            "FallRiverLegend" : {
+                firstTrackNumber: 12,
+                fixTrackName: /(\d+) Fall River Legend: (.*)\.mp3/
+            },
+            "FourPieces" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) (.*)\.mp3/
+            }
+        },
         "Adams_John" : {
             "Nixon1" : {
                 fixTrackName: /(\d+) Act I Scene \d (.*).mp3/,
@@ -89,7 +110,6 @@ export function Create()
                 firstTrackNumber: 10,
                 fixTrackName: /(\d+) - Lulu Suite, \d+\. (.*)\.mp3/
             },
-            // TODO remove _ in track names
             "Lulu2" : {
                 fixTrackName: /(\d+) - Lulu Akt II, Szene I+\. (.*)\.mp3/
             },
@@ -98,6 +118,10 @@ export function Create()
             },
             "ViolinConcerto" : {
                 fixTrackName: /(\d+) - Violinkonzert [IV]+\. (.*)\.mp3/
+            },
+            "Three pieces for orchestra" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Alban Berg - 3 pieces for orchestra - (.*)\.mp3/
             },
             "Wozzeck1" : {
                 fixTrackNameFunc: function(name: string, logger) : string {
@@ -129,17 +153,21 @@ export function Create()
                 fixTrackName: /(\d+) - Sieben Lieder-[IV]+\. (.*)\.mp3/
             },
             "Symph 1 c Op.68" : {
-               fixTrackName: /(\d+) Symphony No. 1 in C minor, Op. 68 [IV]+\. (.*)\.mp3/
+                fixAlbumTitle: symphony({ num: 1, minor: "C", op: 68, by: "Karajan"}),
+                fixTrackName: /(\d+) Symphony No. 1 in C minor, Op. 68 [IV]+\. (.*)\.mp3/
             },
             "Symph 2 D Op.73" : {
+                fixAlbumTitle: symphony({ num: 2, major: "D", op: 73, by: "Karajan"}),
                 fixTrackName: /(\d+) - Symphony No. 2 in D major, Op. 73 [IV]+\. (.*)\.mp3/
             },
             "Symph 3 F Op.90" : {
                 firstTrackNumber: 5,
+                fixAlbumTitle: symphony({ num: 3, major: "F", op: 90, by: "Karajan"}),
                 fixTrackName: /(\d+) Symphony No. 3 in F major, Op. 90 [IV]+\. (.*)\.mp3/
             },
             "Symph 4 e Op.98" : {
                 firstTrackNumber: 5,
+                fixAlbumTitle: symphony({ num: 4, minor: "e", op: 98, by: "Karajan"}),
                 fixTrackName: /(\d+) - Symphony No. 4 in E minor, Op. 98 [IV]+\. (.*)\.mp3/
             },
             "Vier Gesänge" : {
@@ -147,17 +175,21 @@ export function Create()
                 fixTrackName: /(\d+) - Vier Gesänge-[IV]+\. (.*)\.mp3/
             },
             "ViolConc D Op.77" : {
+                fixAlbumTitle: concerto({ for:"Violinn", major: "D", op: 77}),
                 fixTrackName: /(\d+) - Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\. (.*).mp3/
             },
             "ViolSon 1 G Op.78" : {
                 firstTrackNumber: 4,
+                fixAlbumTitle: sonata({ for:"Violin", num: 1, major: "G", op: 78}),
                 fixTrackName: /(\d+) - Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\. (.*)\.mp3/
             },
             "ViolSon 2 A Op.100" : {
+                fixAlbumTitle: sonata({ for:"Violin", num: 2, major: "a", op: 100}),
                 fixTrackName: /(\d+) - Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\. (.*)\.mp3/
             },
             "ViolSon 3 d Op.108" : {
                firstTrackNumber: 7,
+               fixAlbumTitle: sonata({ for:"Violin", num: 3, minor: "d", op: 108}),
                fixTrackName: /(\d+) - Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\. (.*).mp3/
            }
         },
@@ -197,6 +229,54 @@ export function Create()
                 fixTrackName: /(\d+) - Concerto No.1 (.*)\.mp3/
             }
         },
+        "Frédéric Chopin" : {
+            "Ballades & Etudes" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            },
+            "CelloSonata" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) Cello Sonata in G minor, op. 65: [IV]+\. (.*) \(cello: Mstislav Rostropovich, piano: Martha Argerich\).mp3/
+            },
+            "Mazurkas" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            },
+            "Misc" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            },
+            "Nocturnes[Pires]" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            },
+            "PianoConc1" : {
+               fixTrackName: /(\d+) Concerto for Piano and Orchestra no. 1 in E minor, op. 11: [IV]+\. (.*)\.mp3/
+           },
+           "PianoConc2" : {
+               firstTrackNumber: 4,
+               fixTrackName: /(\d+) Concerto for Piano and Orchestra no. 2 in F minor, op. 21: [IV]+\. (.*)\.mp3/
+           },
+           "PianoTrio" : {
+               fixTrackName: /(\d+) Piano Trio in G minor, op. 8: [IV]+\. (.*) \(Beaux Arts Trio\).mp3/
+           },
+           "Polonaises" : {
+               validation : ["skipUniqueTrackNameCheck"]
+           },
+           "Preludes, Impromptus & Scherzoz" : {
+               validation : ["skipUniqueTrackNameCheck"]
+           },
+           "Sonata1" : {
+               fixTrackName: /(\d+) Piano Sonata no. 1 in C minor, op. 4: [IV]+\. (.*) \(feat. piano: Lilya Zilberstein\)\.mp3/
+           },
+           "Sonata2" : {
+               firstTrackNumber: 5,
+               fixTrackName: /(\d+) Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\)\.mp3/
+           },
+           "Sonata3" : {
+               firstTrackNumber: 9,
+               fixTrackName: /(\d+) Piano Sonata no. 3 in B minor, op. 58: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\).mp3/
+           },
+           "Waltzes[Ashkenazy]" : {
+               validation : ["skipUniqueTrackNameCheck"]
+            },
+        },
         "Donizetti" : {
             "Lucia1" : {
                 fixTrackName: /(\d+) Lucia di Lammermoor (.*)\.mp3/
@@ -226,6 +306,42 @@ export function Create()
                 validation : ["skipUniqueTrackNameCheck"]
             }
         },
+        "Furtwangler" : {
+            "Adagio" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Furtwangler - (Adagio solemne).mp3/
+            }
+        },
+        "George Gershwin" : {
+            "PianoConc" : {
+                fixTrackName: /(\d+) - Gershwin - Concerto for Piano and Orchestra in F - [IV]+\. (.*)\.mp3/
+            }
+        },
+        "Glen Gould" : {
+            "Byrd-Gibbons-Sweelinck" : {
+                validation : ["skipUniqueTrackNameCheck"]
+            }
+        },
+        "Granados" : {
+            "Pieces" : {
+                firstTrackNumber: 7
+            }
+        },
+        "Grigny" : {
+            "Two organ pieces" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Grigny - (.*)\.mp3/
+            }
+        },
+        "Haydn" : {
+            "CelloConc 1 C" : {
+                fixTrackName: /(\d+) - Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)\.mp3/
+            },
+            "CelloConc 2 D" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\. (.*)\.mp3/
+            }
+        },
         "Mozart" : {
             "Coronation Mass [Markevitch]": {
                 firstTrackNumber: 6,
@@ -239,6 +355,9 @@ export function Create()
             "Five Piano Pieces Op23" : {
                 firstTrackNumber: 4,
                 fixTrackName: /(\d+) Five Piano Pieces, Op. 23 (.*).mp3/
+            },
+            "Five pieces for orchestra" : {
+                fixTrackName: /(\d+) - Schoenberg - 5 pieces for orchestra Op 16 - (.*)\.mp3/
             },
             "Lied der Waldtaube[Boulez]" : {
                 firstTrackNumber: 30,
@@ -290,26 +409,32 @@ export function Create()
         },
         "Corelli" : {
             "Conc 1 D" : {
+                fixAlbumTitle: concerto({num: 1, major:"D", op:[6,1]}),
                 fixTrackName: /(\d+) - Concerto No.1 in D major [IV]+\.(.*)\.mp3/
             },
             "Conc 2 F" : {
                 firstTrackNumber: 8,
+                fixAlbumTitle: concerto({num: 2, major:"F", op:[6,2]}),
                 fixTrackName: /(\d+) - Concerto No.2 in F -[IV]+- (.*)\.mp3/
             },
             "Conc 3 c" : {
                 firstTrackNumber: 12,
+                fixAlbumTitle: concerto({num: 3, minor:"C", op:[6,3]}),
                 fixTrackName: /(\d+) - Concerto No.3 in C minor -[IV]+- (.*)\.mp3/
             },
             "Conc 4 D" : {
                 firstTrackNumber: 17,
+                fixAlbumTitle: concerto({num: 4, major:"D", op:[6,4]}),
                 fixTrackName: /(\d+) - Concerto No.4 in D -[IV]+- (.*).mp3/
             },
             "Conc 5 B flat" : {
                 firstTrackNumber: 21,
+                fixAlbumTitle: concerto({num: 5, major:"Bb", op:[6,5]}),
                 fixTrackName: /(\d+) - Concerto #5 in B Flat [IV]+\. (.*).mp3/
             },
             "Conc 6 F" : {
                 firstTrackNumber: 25,
+                fixAlbumTitle: concerto({num: 6, major:"F", op:[6,6]}),
                 fixTrackName: /(\d+) - Concerto No.6 in F -[IV]+- (.*)\.mp3/
             }
         },
