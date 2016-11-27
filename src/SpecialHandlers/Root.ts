@@ -1,4 +1,4 @@
-import { Format, cantata, concerto, quartet, symphony, sonata } from "../AlbumFormat";
+import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata } from "../AlbumFormat";
 import * as BachJs from "./BachJS";
 import * as Beethoven from "./Beethoven";
 
@@ -24,8 +24,23 @@ export function Create()
                 fixTrackName: /(\d+) Fall River Legend: (.*)\.mp3/
             },
             "FourPieces" : {
-                firstTrackNumber: 5,
-                fixTrackName: /(\d+) (.*)\.mp3/
+                fixTrackName: /(\d+) (.*)\.mp3/,
+                validation : ["skipTrackNumberCheck"]
+            },
+            "MusicForTheTheatre" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) Music for the Theatre: (.*)\.mp3/
+            },
+            "Symph3" : {
+                fixTrackName: /(\d+) Symphony No. 3: [IV]+\. (.*)\.mp3/
+            },
+            "Symphonette" : {
+                firstTrackNumber: 18,
+                fixTrackName: /(\d+) Latin-American Symphonette: [IV]+\. (.*)\.mp3/
+            },
+            "TenderLand" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) The Tender Land Suite: (.*)\.mp3/
             }
         },
         "Adams_John" : {
@@ -43,6 +58,12 @@ export function Create()
             }
         },
         "Albeniz" : {
+            "Cantos de España" : {
+                fixTrackName: /(\d+) Cantos de España: \d+\. (.*)\.mp3/
+            },
+            "Six Pieces" : {
+                firstTrackNumber: 6
+            },
             "Cordoba" : {
                 firstTrackNumber: 6
             },
@@ -333,15 +354,6 @@ export function Create()
                 fixTrackName: /(\d+) - Grigny - (.*)\.mp3/
             }
         },
-        "Haydn" : {
-            "CelloConc 1 C" : {
-                fixTrackName: /(\d+) - Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)\.mp3/
-            },
-            "CelloConc 2 D" : {
-                firstTrackNumber: 4,
-                fixTrackName: /(\d+) - Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\. (.*)\.mp3/
-            }
-        },
         "Mozart" : {
             "Coronation Mass [Markevitch]": {
                 firstTrackNumber: 6,
@@ -446,7 +458,277 @@ export function Create()
         "CPE Bach" : {
             "Sonata Wq78" : {
                 firstTrackNumber: 14,
-                fixTrackName: /(\d+) - CPE Bach - Sonata Wq78 - (.*).mp3/
+                fixTrackName: /(\d+) - CPE Bach - Sonata Wq78 - (.*)\.mp3/
+            }
+        },
+        "Handel" : {
+            "ConcertoInC" : {
+                fixAlbumTitle: concerto_grosso({major:"C"}),
+                fixTrackName: /(\d+) Concerto Grosso in C - \d+\.? (.*)\.mp3/
+            },
+            "ConcertoOp3-1" : {
+                fixAlbumTitle: concerto_grosso({major:"Bb", op:[3,1]}),
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Concerto Grosso Op. 3 No.1 in B flat - \d+ (.*)\.mp3/
+            },
+            "ConcertoOp3-3" : {
+                fixAlbumTitle: concerto_grosso({major:"G", op:[3,3]}),
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Concerto Grosso Op. 3 No.3 in G - \d+ (.*)\.mp3/
+            },
+            "ConcertoOp3-6" : {
+                fixAlbumTitle: concerto_grosso({major:"D", op:[3,6]}),
+                firstTrackNumber: 12,
+                fixTrackName: /(\d+) Concerto Grosso Op. 3 No.6 in D - \d+ (.*)\.mp3/
+            },
+            "ConcertoOp6-1" : {
+                fixAlbumTitle: concerto_grosso({major:"G", op:[6,1]}),
+                firstTrackNumber: 14,
+                fixTrackName: /(\d+) Concerto Grosso Op. 6 No.1 in G - \d+ (.*)\.mp3/
+            },
+            "ConcertoOp6-7" : {
+                fixAlbumTitle: concerto_grosso({major:"Bb", op:[6,7]}),
+                firstTrackNumber: 19,
+                fixTrackName: /(\d+) Concerto Grosso Op. 6 No.7 in B flat - \d+ (.*)\.mp3/
+            },
+            "ConcertoOp6-9" : {
+                fixAlbumTitle: concerto_grosso({major:"F", op:[6,9]}),
+                firstTrackNumber: 24,
+                fixTrackName: /(\d+) Concerto Grosso Op. 6 No.9 in F - \d+ (.*)\.mp3/
+            },
+            "Fireworks" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) Music for the Royal Fireworks - \d+ (.*)\.mp3/
+            },
+            "HarpConcerto" : {
+                fixAlbumTitle: concerto({for:"Harp", major:"Bb", HWV:294}),
+                fixTrackName: /(\d+) - Concerto for Harp in B flat major - HWV 294 - \d - (.*)\.mp3/
+            },
+            "HornConcerto" : {
+                fixAlbumTitle: concerto({num:2, for:"Two Horns", major:"F", HWV:333}),
+                firstTrackNumber: 12,
+                fixTrackName: /(\d+) - Concerto a due cori No.2 in F major - HWV 333 - \d - (.*)\.mp3/
+            },
+            "JudasMaccabeus" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) Judas Maccabeus - \d (.*).mp3/
+            },
+            "OboeConcerto" : {
+                fixAlbumTitle: concerto({num:3, for:"Oboe", minor:"G", HWV:287}),
+                firstTrackNumber: 8,
+                fixTrackName: /(\d+) - Concerto for Oboe No.3 in G minor - HWV 287 - \d - (.*).mp3/
+            },
+            "OrganConcerto" : {
+                fixAlbumTitle: concerto({for:"Organ", major:"F", HWV:295, subTitle:"Cuckoo and Nightingale"}),
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Concerto for Organ in F major - HWV 295 - Cuckoo and Nightingale - \d - (.*)\.mp3/
+            },
+            "Sinfonia" : {
+                fixTrackName: /(\d+) Sinfonia in B flat for 2 Violins and Continuo - \d (.*)\.mp3/
+            },
+            "SonataInA" : {
+                fixAlbumTitle: sonata({for:"Flute", minor:"A"}),
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Sonata in A minor Halle No.1 for Flute - \d (.*)\.mp3/
+            },
+            "SonataInB" : {
+                fixAlbumTitle: sonata({for:"Violin, Oboe, Strings and Continuo", major:"Bb"}),
+                firstTrackNumber: 29,
+                fixTrackName: /(\d+) Sonata à 5 in B flat for Violin, Oboe, Strings and Continuo - \d (.*)\.mp3/
+            },
+            "SonataInD" : {
+                fixAlbumTitle: sonata({for:"Recorder and Continuo", minor:"D"}),
+                firstTrackNumber: 13,
+                fixTrackName: /(\d+) Sonata in D minor for Recorder and Continuo - \d (.*)\.mp3/
+            },
+            "SonataInE" : {
+                fixAlbumTitle: sonata({for:"Two Flutes", minor:"E"}),
+                firstTrackNumber: 20,
+                fixTrackName: /(\d+) Sonata in E minor for 2 Flutes - \d (.*)\.mp3/
+            },
+            "SonataInF" : {
+                fixAlbumTitle: sonata({for:"Oboe and Continuo", minor:"F", op:[1,5]}),
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) Sonata in F, Op. 1 No.5 for Oboe and Continuo - \d (.*)\.mp3/
+            },
+            "SonataInG" : {
+                fixAlbumTitle: sonata({for:"Two Violins and Continuo", major:"G", op:[5,4]}),
+                firstTrackNumber: 24,
+                fixTrackName: /(\d+) Sonata in G, Op. 5 No.4 for Two Violins and Continuo - \d (.*).mp3/
+            },
+            "TheKingShallRejoice" : {
+                firstTrackNumber: 15,
+                fixTrackName: /(\d+) The King Shall Rejoice - \d (.*)\.mp3/
+            },
+            "WaterMusic2" : {
+                firstTrackNumber: 19,
+                fixTrackName: /(\d+) Water Music Suite 2 in D - \d (.*).mp3/
+            },
+            "WaterMusic3" : {
+                firstTrackNumber: 3,
+                fixTrackName: /(\d+) Water Music Suite 3 in G - \d (.*).mp3/
+            }
+        },
+        "Haydn":{
+            "Creation" : {
+                validation : ["skipTrackNumberCheck"]
+            },
+            "CelloConc 1 C" : {
+                fixTrackName: /(\d+) - Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)\.mp3/
+            },
+            "CelloConc 2 D" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\. (.*)\.mp3/
+            },
+            "PianoConc 11" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Piano Concerto No. 11 in D major, Hob XVIII 11 [IV]+\. (.*)\.mp3/
+            },
+            "PianoConc 3" : {
+                firstTrackNumber: 4,
+                fixTrackName: /(\d+) - Piano Concerto No. 3 in F major, Hob XVIII 3 [IV]+\. (.*)\.mp3/
+            },
+            "PianoConc 4" : {
+                fixTrackName: /(\d+) - Piano Concerto No. 4 in G major, Hob XVIII 4 [IV]+\. (.*)\.mp3/
+            },
+            "PianoTrio42 E flat" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) - Piano Trio in E-Flat Major, Hob. XV 30 No.42 \(1795\) - [IV]+\. (.*)\.mp3/
+            },
+            "PianoTrio43 C" : {
+                fixTrackName: /(\d+) - Piano Trio in C Major, Hob. XV 27 No.43 \(1797\) - [IV]+\. (.*)\.mp3/
+            },
+            "PianoTrio44 E" : {
+               firstTrackNumber: 4,
+               fixTrackName: /(\d+) - Piano Trio in E Major, Hob. XV 28 No.44 \(1797\) - [IV]+\. (.*)\.mp3/
+           },
+           "PianoTrio45 E flat" : {
+                firstTrackNumber: 7,
+                fixTrackName: /(\d+) - Piano Trio in E-Flat Major, Hob. XV 29 No.45 \(1797\) - [IV]+\. (.*)\.mp3/
+            },
+            "Quartet23 f Op20 No5" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Quartet No.23 in F Minor, Op. 20, No.5-(.*)\.mp3/
+            },
+            "Quartet24 A Op20 No6" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) - Quartet No.24 in A Major, Op. 20, No.6-(.*)\.mp3/
+            },
+            "Quartet25 C Op20 No2" : {
+                firstTrackNumber: 5
+            },
+            "Quartet26 g Op20 No3" : {
+                firstTrackNumber: 9
+            },
+            "Quartet27 D Op20 No4" : {
+                fixTrackName: /(\d+) - Quartet No.27 in D Major, Op. 20, No.4-(.*)\.mp3/
+            },
+            "Quartet29 G Op33 No5 'How do you do_'" : {
+                fixTrackName: /(\d+) - String Quartet in G major, Op. 33 No. 5 - (.*)\.mp3/
+            },
+            "Quartet30 E flat Op33 No2 'Joke'" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) - String Quartet in E-flat major, Op. 33 No. 2 - (.*)\.mp3/
+            },
+            "Quartet32 C Op33 No3 'Bird'" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - String Quartet in C major, Op. 33 No. 3 - (.*)\.mp3/
+            },
+            "Quartet54 B flat Op71 No1" : {
+               fixTrackName: /(\d+) - Op. 71-1 - (.*)\.mp3/
+           },
+           "Quartet55 D Op71 No2" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Op. 71-2 - (.*)\.mp3/
+            },
+            "Quartet56 E flat Op71 No3" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) - Op. 71-3 - (.*)\.mp3/
+            },
+            "Sonata 48 in C major, H.XVI_48" : {
+                firstTrackNumber: 3,
+                fixTrackName: /(\d+) [IV]+\. (.*)\.mp3/
+            },
+            "Sonata49 E flat" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) (?:Sonata in E-flat major, H.XVI 49 - )?[IV]+\. (.*)\.mp3/
+            },
+            "Symph100 G 'Military'" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Symphony in G, Hob. I 100 Military , [IV]+\. (.*)\.mp3/
+            },
+            "Symph101 D 'Clock'" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Symphony in D, Hob. I 101 Clock , [IV]+\. (.*)\.mp3/
+            },
+            "Symph102 B flat" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Symphony No. 102 in B flat major, Hob I 102 [IV]+\. (.*)\.mp3/
+            },
+            "Symph103 E-flat" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Symphony No. 103 in E flat major, Drumroll , Hob I 103 [IV]+\. (.*)\.mp3/
+            },
+            "Symph104 D" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Symphony No. 104 in D major, London , Hob I 104 [IV]+\. (.*)\.mp3/
+            },
+            "Symph22 E flat 'Philosopher'" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - [IV]+\. (.*)\.mp3/
+            },
+            "Symph64 A 'Tempora mutantur'" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) - [IV]+\. (.*)\.mp3/
+            },
+            "Symph93 D" : {
+                fixTrackName: /(\d+) Symphony in D, Hob. I 93, [IV]+\. (.*)\.mp3/
+            },
+            "Symph94 G 'Surprise'" : {
+               fixTrackName: /(\d+) Symphony in G, Hob. I 94 Surprise , [IV]+\. (.*)\.mp3/
+           },
+           "Symph95 c" : {
+                fixTrackName: /(\d+) Symphony No. 95 in C minor, Hob I 95 [IV]+\. (.*)\.mp3/
+            },
+            "Symph96 D 'Miracle'" : {
+                fixTrackName: /(\d+) Symphony No. 96 in D major, Miracle , Hob I 96 [IV]+\. (.*)\.mp3/
+            },
+            "Symph97 C" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Symphony in C, Hob. I 97, [IV]+\. (.*)\.mp3/
+            },
+            "Symph98 B flat" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Symphony No. 98 in B flat major, Hob I 98 [IV]+\. (.*)\.mp3/
+            },
+            "Symph99 E-flat" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) Symphony in E flat, Hob. I 99, [IV]+\. (.*)\.mp3/
+            }
+        },
+        "Ives" : {
+            "Hymns" : {
+                firstTrackNumber: 5,
+                fixTrackName: /(\d+) - Ives Hymns \d+ (.*)\.mp3/
+            },
+            "Symphony1" : {
+                fixTrackName: /(\d+) - Ives Symphony No.1 \d+ (.*)\.mp3/
+            },
+            "Symphony4" : {
+                firstTrackNumber: 10,
+                fixTrackName: /(\d+) - Ives Symphony No.4 \d+ (.*)\.mp3/
+            }
+        },
+        "Janáček" : {
+            "Jenůfa1" : {
+               fixTrackName: /(\d+) Jenůfa Jednání I\. (.*)\.mp3/
+           },
+           "Jenůfa2" : {
+                firstTrackNumber: 9,
+                fixTrackName: /(\d+) Jenůfa Jednání II\. (.*)\.mp3/
+            },
+            "Jenůfa Extras" : {
+                firstTrackNumber: 14
             }
         } // Artist
     }  // return

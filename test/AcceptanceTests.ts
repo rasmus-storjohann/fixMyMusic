@@ -33,6 +33,16 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
     });
 
+    it("With --dry-run does not copy file", () => {
+        shelljs.mkdir("-p", "testOutput/source/artist/album/");
+        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
+
+        log.level = "silent";
+        Application.main(["ignored", "ignored", "testOutput/source", "--dry-run", "--out", "testOutput/destination"], log);
+
+        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.false;
+    });
+
     describe("with special characters in filenames", () => {
         it("supports []", () => {
             shelljs.mkdir("-p", "testOutput/source/artist/album/");

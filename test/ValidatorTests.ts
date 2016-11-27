@@ -130,7 +130,6 @@ describe("Validator", () => {
             }).to.throw(Error, /bbbb: Album contains redundant track names/);
         });
 
-        // TODO make this shorter and have an option to disable this check on some albums
         it("does not throw similar track names if they're short enough", () => {
             musicTrack[0].title = "01 123456789.mp3";
             musicTrack[1].title = "02 123456789.mp3";

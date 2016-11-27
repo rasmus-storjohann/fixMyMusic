@@ -62,6 +62,7 @@ describe("Fixer", () => {
             fixer.fix(album, undefined, rule);
             chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
         });
+
         it("assigns track numbers based on the disk number", () => {
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk two.mp2", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
@@ -73,6 +74,7 @@ describe("Fixer", () => {
             chai.expect(album.tracks[1].title).to.equal("02 track from disk three.mp2");
             chai.expect(album.tracks[2].title).to.equal("03 second track from disk three.mp2");
         });
+
         it("first track number of next disk is computed from last track number on current disk", () => {
             album.push({ artist: artist, album: albumTitle, title: "02 second track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp3", disk: 3, path: "cccc" });

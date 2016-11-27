@@ -95,6 +95,11 @@ function buildFormat(form: string, formatOptions?: any) : Format {
                 result.opus_prefix = "BWV ";
                 break;
 
+                case "HWV":
+                result.opus = value;
+                result.opus_prefix = "HWV ";
+                break;
+
                 case "by":
                 case "num":
                 case "subTitle":
@@ -115,6 +120,7 @@ function buildFormat(form: string, formatOptions?: any) : Format {
 
 export function cantata(formatOptions?: any)  : Format { return buildFormat("Cantata", formatOptions); }
 export function concerto(formatOptions?: any) : Format { return buildFormat("Conc", formatOptions); }
+export function concerto_grosso(formatOptions?: any) : Format { return buildFormat("ConcGrosso", formatOptions); }
 export function quartet(formatOptions?: any)  : Format { return buildFormat("Quartet", formatOptions); }
 export function sonata(formatOptions?: any)   : Format { return buildFormat("Sonata", formatOptions); }
 export function suite(formatOptions?: any)    : Format { return buildFormat("Suite", formatOptions); }

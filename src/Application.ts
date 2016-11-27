@@ -18,7 +18,7 @@ export class Application
 {
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
-        logger.level = 'info';
+        logger.level = 'silly';
         new Application(logger).doIt(argv.splice(2));
     }
 
@@ -31,7 +31,7 @@ export class Application
     {
         var parsedArguments = parseArguments(argv);
         var fromDirectories = parsedArguments._;
-        var dryRun = parsedArguments["dryrun"];
+        var dryRun = parsedArguments["dry-run"];
         var toDir = parsedArguments["out"];
 
         if (!toDir)
