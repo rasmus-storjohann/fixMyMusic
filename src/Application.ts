@@ -1,9 +1,5 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import * as shelljs from 'shelljs';
-import * as fs from 'fs';
-import * as parseArguments from 'minimist';
-import * as npmlog from "npmlog";
 import { FileFactory } from "./FileFactory";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
@@ -13,6 +9,11 @@ import { Fixer } from "./Fixer";
 import { Validator } from "./Validator";
 import { CommandFactory } from "./CommandFactory";
 import { CommandExecutor } from "./CommandExecutor";
+
+import * as shelljs from 'shelljs';
+import * as fs from 'fs';
+import * as parseArguments from 'minimist';
+import * as npmlog from "npmlog";
 
 export class Application
 {

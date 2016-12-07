@@ -16,39 +16,61 @@ export class SpecialHandling
     private logger: npmlog.NpmLog;
     private rules;
 
-    private buildFixTrack(specification)
+    public getSpecialHandlers(artist: string, albumTitle: string) : Rule
+    {
+        var artistRules = this.rules[artist];
+        var albumRules = artistRules && artistRules[albumTitle];
+
+        var fixArtist = artistRules && artistRules.fixArtist;
+        var fixAlbumTitle = albumRules && albumRules.fixAlbumTitle;
+        var validation = albumRules && albumRules.validation;
+
+        var fixTrack = this.buildCustomTrackFixer(albumRules);
+
+        return {
+            fixArtist: fixArtist,
+            fixAlbumTitle: fixAlbumTitle,
+            fixTrack: fixTrack,
+            validation: validation
+        };
+    }
+
+    private buildCustomTrackFixer(specification)
     {
         if (!specification)
         {
-            return function(track: AlbumTrack, logger: npmlog.NpmLog) {
+            return function(track: AlbumTrack, logger: npmlog.NpmLog)
+            {
             }
         }
 
-        var fixers = [];
+        var customTrackFixers = [];
 
-        if (specification.fixTrackNameFunc && specification.fixTrackName) {
+        if (specification.fixTrackNameFunc && specification.fixTrackName)
+        {
             throw new Error("Can't have both kinds of track fixers");
         }
 
-        if (specification.fixTrackNameFunc) {
-
-            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
-
+        if (specification.fixTrackNameFunc)
+        {
+            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog)
+            {
                 var oldTitle = track.title;
                 var newTitle = specification.fixTrackNameFunc(oldTitle, logger);
                 logger.verbose("fixTrackNameFunc", "Changing old title '" + oldTitle + "' to '" + newTitle + "'");
                 track.title = newTitle;
-
             }
 
-            fixers.push(fixTrackName);
+            customTrackFixers.push(fixTrackName);
         }
 
-        if (specification.fixTrackName) {
-
-            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog) {
+        if (specification.fixTrackName)
+        {
+            var fixTrackName = function(track: AlbumTrack, logger: npmlog.NpmLog)
+            {
                 var match = specification.fixTrackName.exec(track.title);
-                if (!match) {
+                if (!match)
+                {
                     throw new Error("'" + track.path + "': Track name '" + track.title + "' does not match fixer for fixTrackName: " + specification.fixTrackName);
                 }
                 var newTitle = match[1];
@@ -56,11 +78,13 @@ export class SpecialHandling
                 track.title = newTitle;
             };
 
-            fixers.push(fixTrackName);
+            customTrackFixers.push(fixTrackName);
         }
 
-        if (specification.firstTrackNumber) {
-            var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
+        if (specification.firstTrackNumber)
+        {
+            var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog)
+            {
                 var trackNumber = track.trackNumber + 1 - specification.firstTrackNumber;
                 if (trackNumber != track.trackNumber)
                 {
@@ -73,38 +97,27 @@ export class SpecialHandling
                 }
             };
 
-            fixers.push(fixTrackNumber);
+            customTrackFixers.push(fixTrackNumber);
         }
 
-        var applyAllFixers = function(track: AlbumTrack, logger: npmlog.NpmLog) {
-            fixers.forEach((fixer) => {
-                fixer(track, logger);
+        var applyAllFixers = function(track: AlbumTrack, logger: npmlog.NpmLog)
+        {
+            customTrackFixers.forEach((customTrackFixer) => {
+                customTrackFixer(track, logger);
             });
         }
 
         return applyAllFixers;
     }
 
+    // TODO this does not belong in this file
     public getArtistName(artist: string) : string
     {
-        var artistHandlers = this.rules[artist];
+        var artistRules = this.rules[artist];
 
-        if (artistHandlers && artistHandlers.artistName)
+        if (artistRules && artistRules.artistName)
         {
-            return artistHandlers.artistName;
+            return artistRules.artistName;
         }
-    }
-
-    public getSpecialHandlers(artist: string, albumTitle: string) : Rule
-    {
-        var artistHandlers = this.rules[artist];
-        var albumHandlers = artistHandlers && artistHandlers[albumTitle];
-
-        return {
-            fixArtist : artistHandlers && artistHandlers.fixArtist,
-            fixAlbumTitle: albumHandlers && albumHandlers.fixAlbumTitle,
-            fixTrack: this.buildFixTrack(albumHandlers),
-            validation: albumHandlers && albumHandlers.validation
-        };
     }
 }
