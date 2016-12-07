@@ -19,24 +19,28 @@ describe("AlbumFactory", () => {
             artist: "aaaa",
             album: "bbbb",
             path: "cccc",
+            trackNumber: 1,
             title: "dddd"
         };
         aTrackWithSameArtistAndAlbum = {
             artist: aTrack.artist,
             album: aTrack.album,
             path: "eeee",
+            trackNumber: 1,
             title: "ffff"
         };
         aTrackWithSameAlbum = {
             artist: "gggg",
             album: aTrack.album,
             path: "hhhh",
+            trackNumber: 1,
             title: "iiii"
         };
         aTrackWithSameArtist = {
             artist: aTrack.artist,
             album: "jjjj",
             path: "kkkk",
+            trackNumber: 1,
             title: "llll"
         };
     });

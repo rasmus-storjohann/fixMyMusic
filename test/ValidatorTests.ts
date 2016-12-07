@@ -24,13 +24,15 @@ describe("Validator", () => {
                 artist: artist,
                 album: albumTitle,
                 path: "aaaa",
-                title: "01 bbbb"
+                trackNumber: 1,
+                title: "bbbb"
             },
             {
                 artist: artist,
                 album: albumTitle,
                 path: "cccc",
-                title: "02 dddd"
+                trackNumber: 2,
+                title: "dddd"
             }];
     });
 
@@ -55,6 +57,7 @@ describe("Validator", () => {
                 path: track.path,
                 artist: artistName,
                 album: albumName,
+                trackNumber: track.trackNumber,
                 title: track.title
             });
         });
@@ -68,33 +71,17 @@ describe("Validator", () => {
 
     describe("on tracks", () => {
         it("throws on missing track number", () => {
-            musicTrack[0].title = "dddd";
+            musicTrack[0].trackNumber = undefined;
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Failed validation of \'aaaa\': title \'dddd\' should have a two digit prefix/);
-        });
-
-        it("throws on too few digits in track number", () => {
-            musicTrack[0].title = "1 dddd";
-
-            chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Failed validation of \'aaaa\': title \'1 dddd\' should have a two digit prefix/);
-        });
-
-        it("throws on too many digits in track number", () => {
-            musicTrack[0].title = "111 dddd";
-
-            chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Failed validation of \'aaaa\': title \'111 dddd\' should have a two digit prefix/);
+            }).to.throw(Error, /Track number out of order, expected 1 but got <undefined>/);
         });
 
         it("throws on tracks out of order", () => {
 
-            musicTrack[0].title = "02 dddd";
-            musicTrack[1].title = "01 dddd";
+            musicTrack[0].trackNumber = 2;
+            musicTrack[1].trackNumber = 1;
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -103,8 +90,8 @@ describe("Validator", () => {
 
         it("throws on missing tracks", () => {
 
-            musicTrack[0].title = "02 dddd";
-            musicTrack[1].title = "03 dddd";
+            musicTrack[0].trackNumber = 2;
+            musicTrack[1].trackNumber = 3;
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -113,8 +100,8 @@ describe("Validator", () => {
 
         it("throws on duplicate tracks", () => {
 
-            musicTrack[0].title = "01 dddd";
-            musicTrack[1].title = "01 eeee";
+            musicTrack[0].trackNumber = 1;
+            musicTrack[1].trackNumber = 1;
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);
@@ -122,8 +109,8 @@ describe("Validator", () => {
         });
 
         it("throws on very similar track names", () => {
-            musicTrack[0].title = "01 1234567890.mp3";
-            musicTrack[1].title = "02 1234567890.mp3";
+            musicTrack[0].title = "123456789012345 bla.mp3";
+            musicTrack[1].title = "123456789012345 foo.mp3";
 
             chai.expect(() => {
                 _theValidator.validate(createAlbum(), rule);

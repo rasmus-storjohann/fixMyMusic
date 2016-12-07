@@ -30,6 +30,7 @@ export class TrackFactory
         var artist = elements[elementCount - 3];
         var album = elements[elementCount - 2];
         var title = elements[elementCount - 1];
+        var trackNumber: number;
         var disk: number;
 
         var match = /disk(\d+)/.exec(album);
@@ -48,11 +49,19 @@ export class TrackFactory
             title = match[2] + " " + match[3];
         }
 
+        match = /^(\d+)\.? *(.*)$/.exec(title);
+        if (match)
+        {
+            trackNumber = parseInt(match[1]);
+            title = match[2];
+        }
+
         return {
             path: path,
             artist: artist,
             album: album,
             title: title,
+            trackNumber: trackNumber,
             disk: disk
         };
     }

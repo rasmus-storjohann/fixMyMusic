@@ -5,6 +5,7 @@ export interface AlbumTrack
 {
     path: string,
     title: string,
+    trackNumber: number,
     disk?: number
 }
 
@@ -24,6 +25,7 @@ export class Album
         this.tracks.push({
             path: file.path,
             title: file.title,
+            trackNumber: file.trackNumber,
             disk: file.disk
         });
     }
@@ -53,8 +55,8 @@ export class Album
             if (first.disk < second.disk) return -1;
             if (first.disk > second.disk) return 1;
         }
-        if (first.title < second.title) return -1;
-        if (first.title > second.title) return 1;
+        if (first.trackNumber < second.trackNumber) return -1;
+        if (first.trackNumber > second.trackNumber) return 1;
         return 0;
     }
 

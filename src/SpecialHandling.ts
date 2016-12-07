@@ -58,7 +58,7 @@ export class SpecialHandling
                 if (!match) {
                     throw new Error("'" + track.path + "': Track name '" + track.title + "' does not match fixer for fixTrackName: " + specification.fixTrackName);
                 }
-                var newTitle = match[1] + " " + match[2];
+                var newTitle = match[1];
                 logger.silly("SpecialFixTrackName", track.title  + ": Extracting track name '" + newTitle + "'");
                 track.title = newTitle;
             };
@@ -68,23 +68,15 @@ export class SpecialHandling
 
         if (specification.firstTrackNumber) {
             var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog) {
-                var match = /^(\d+)(.*)$/.exec(track.title);
-                if (!match) {
-                    throw new Error(track.title + ": Track name does not have expected number prefix");
-                }
-                var trackNumber = parseInt(match[1]);
-                logger.silly("SpecialFixTrackNumber", track.title  + ": Adjusting current track number of " + trackNumber + " with first track number " + specification.firstTrackNumber);
-                trackNumber = trackNumber + 1 - specification.firstTrackNumber;
-                if (trackNumber <= 0)
+                var trackNumber = track.trackNumber + 1 - specification.firstTrackNumber;
+                if (trackNumber != track.trackNumber)
                 {
-                    throw new Error(track.title + ": fixing track number gave negative result of " + trackNumber);
-                }
-                var numberAsString = ("0" + trackNumber).substr(-2);
-                var newTitle = numberAsString + match[2];
-                if (track.title != newTitle)
-                {
-                    track.title = newTitle;
-                    logger.verbose("SpecialFixTrackNumber", track.path  + ": Fixed track number to '" + track.title + "'")
+                    if (trackNumber <= 0)
+                    {
+                        throw new Error(track.title + ": fixing track number gave negative result of " + trackNumber);
+                    }
+                    track.trackNumber = trackNumber;
+                    logger.verbose("SpecialFixTrackNumber", track.path  + ": Fixed track number to " + trackNumber)
                 }
             };
 

@@ -43,7 +43,8 @@ export class CommandFactory
     {
         var result = new Array<Command>();
         album.tracks.forEach((track) => {
-            var target = [this.outputDirectory, album.artist, album.title, track.title].join("/");
+            var trackTitle = this.buildTrackTitleWithNumberPrefix(track);
+            var target = [this.outputDirectory, album.artist, album.title, trackTitle].join("/");
             result.push({
                 command: "cp",
                 source: track.path,
@@ -55,11 +56,17 @@ export class CommandFactory
                 tags: {
                     artist: album.artist,
                     album: album.title,
-                    track: this.stripFileExtension(track.title)
+                    track: this.stripFileExtension(trackTitle)
                 }
             });
         });
         return result;
+    }
+
+    private buildTrackTitleWithNumberPrefix(track: AlbumTrack) : string
+    {
+        var formattedNumber = ("00" + track.trackNumber).slice(-2);
+        return formattedNumber + " " + track.title;
     }
 
     private stripFileExtension(name: string) : string

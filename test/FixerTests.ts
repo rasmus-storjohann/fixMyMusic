@@ -18,7 +18,8 @@ beforeEach(() => {
         path: "cccc",
         artist: "aaaa",
         album: "bbbb",
-        title: "01 dddd"
+        trackNumber: 1,
+        title: "dddd"
     });
 });
 
@@ -30,7 +31,7 @@ describe("Fixer", () => {
         var album: Album;
         function trackWithName(title: string) : Track
         {
-            return { artist: artist, album: albumTitle, title: title, path: "cccc" };
+            return { artist: artist, album: albumTitle, trackNumber: 1, title: title, path: "cccc" };
         }
         beforeEach(() => {
             artist = "the artist";
@@ -64,49 +65,49 @@ describe("Fixer", () => {
         });
 
         it("assigns track numbers based on the disk number", () => {
-            album.push({ artist: artist, album: albumTitle, title: "01 track from disk two.mp2", disk: 2, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "02 second track from disk three.mp2", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 1, title: "aaaa.mp2", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 1, title: "aaaa.mp2", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "aaaa.mp2", disk: 3, path: "cccc" });
 
             fixer.fix(album, undefined, rule);
 
-            chai.expect(album.tracks[0].title).to.equal("01 track from disk two.mp2");
-            chai.expect(album.tracks[1].title).to.equal("02 track from disk three.mp2");
-            chai.expect(album.tracks[2].title).to.equal("03 second track from disk three.mp2");
+            chai.expect(album.tracks[0].trackNumber).to.equal(1);
+            chai.expect(album.tracks[1].trackNumber).to.equal(2);
+            chai.expect(album.tracks[2].trackNumber).to.equal(3);
         });
 
         it("first track number of next disk is computed from last track number on current disk", () => {
-            album.push({ artist: artist, album: albumTitle, title: "02 second track from disk two.mp3", disk: 2, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp3", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "second track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 1, title: "track from disk three.mp3", disk: 3, path: "cccc" });
             fixer.fix(album, undefined, rule);
-            chai.expect(album.tracks[0].title).to.equal("02 second track from disk two.mp3");
-            chai.expect(album.tracks[1].title).to.equal("03 track from disk three.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(2);
+            chai.expect(album.tracks[1].trackNumber).to.equal(3);
         });
 
         it("index of tracks on next disk is offset by the number of tracks on the first disk", () => {
-            album.push({ artist: artist, album: albumTitle, title: "02 track from disk two.mp3", disk: 2, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk three.mp3", disk: 3, path: "cccc" });
             fixer.fix(album, undefined, rule);
-            chai.expect(album.tracks[0].title).to.equal("02 track from disk two.mp3");
-            chai.expect(album.tracks[1].title).to.equal("04 track from disk three.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(2);
+            chai.expect(album.tracks[1].trackNumber).to.equal(4);
         });
 
         it("index tracks spanning three disks", () => {
-            album.push({ artist: artist, album: albumTitle, title: "03 track from disk two.mp3", disk: 2, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "02 track from disk three.mp3", disk: 3, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "03 track from disk four.mp3", disk: 4, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 3, title: "track from disk two.mp3", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk three.mp3", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 3, title: "track from disk four.mp3", disk: 4, path: "cccc" });
             fixer.fix(album, undefined, rule);
-            chai.expect(album.tracks[0].title).to.equal("03 track from disk two.mp3");
-            chai.expect(album.tracks[1].title).to.equal("05 track from disk three.mp3");
-            chai.expect(album.tracks[2].title).to.equal("08 track from disk four.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(3);
+            chai.expect(album.tracks[1].trackNumber).to.equal(5);
+            chai.expect(album.tracks[2].trackNumber).to.equal(8);
         });
 
         it("can fix numbers when the tracks are larger than 9", () => {
-            album.push({ artist: artist, album: albumTitle, title: "12 track from disk two.mp2", disk: 2, path: "cccc" });
-            album.push({ artist: artist, album: albumTitle, title: "01 track from disk three.mp2", disk: 3, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber: 12, title: "track from disk two.mp2", disk: 2, path: "cccc" });
+            album.push({ artist: artist, album: albumTitle, trackNumber:  1, title: "track from disk three.mp2", disk: 3, path: "cccc" });
             fixer.fix(album, undefined, rule);
-            chai.expect(album.tracks[0].title).to.equal("12 track from disk two.mp2");
-            chai.expect(album.tracks[1].title).to.equal("13 track from disk three.mp2");
+            chai.expect(album.tracks[0].trackNumber).to.equal(12);
+            chai.expect(album.tracks[1].trackNumber).to.equal(13);
         });
         // TODO throw if some but not all tracks in a work has a disk id
     });
@@ -137,20 +138,6 @@ describe("Fixer", () => {
             chai.expect(album.artist).to.equal("One Two Three");
         });
 
-        it("converts one digit track number to two digit", () => {
-            album.tracks[0].title = "3 Act I Scene 1  The people are the heroes now (Chorus).mp3";
-            var mockRule = {
-                "Adams_John":{
-                    "Nixon1":{
-                        fixTrackName: /(\d+) Act I Scene \d (.*).mp3/,
-                    }
-                }
-            };
-            var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Adams_John", "Nixon1");
-            fixer.fix(album, undefined, specialHandling);
-            chai.expect(album.tracks[0].title).to.equal("03 The people are the heroes now (Chorus)");
-        });
-
         describe("special case handling", () => {
             it("fixes artist name", () => {
                 album.artist = "Beady Belle";
@@ -165,34 +152,32 @@ describe("Fixer", () => {
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
             it("fixes track names from regular expression", () => {
-                album.tracks[0].title = "09 15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
+                album.tracks[0].title = "15 Variationen mit Fuge Es-dur op.35 'Eroica' - Introduzione col Basso del Tema. Allegretto vivace.mp3";
                 var mockRule = {
                     "Beethoven": {
                         "Eroica Variations E# op.35 [Gilels]": {
-                            firstTrackNumber: 9,
-                            fixTrackName: /^(\d+) 15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
+                            fixTrackName: /^15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
                         }
                     }
                 };
                 var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
                 fixer.fix(album, undefined, specialHandling);
-                chai.expect(album.tracks[0].title).to.equal("01 Introduzione col Basso del Tema. Allegretto vivace");
+                chai.expect(album.tracks[0].title).to.equal("Introduzione col Basso del Tema. Allegretto vivace");
             });
             it("fixes track names from function", () => {
-                album.tracks[0].title = "09 original title";
+                album.tracks[0].title = "original title";
                 var mockRule = {
                     "someArtist": {
                         "someAlbum": {
-                            firstTrackNumber: 9,
                             fixTrackNameFunc: function(title: string): string {
-                                return "09 fixed title.mp3";
+                                return "fixed title.mp3";
                             }
                         }
                     }
                 };
                 var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
                 fixer.fix(album, undefined, specialHandling);
-                chai.expect(album.tracks[0].title).to.equal("01 fixed title.mp3");
+                chai.expect(album.tracks[0].title).to.equal("fixed title.mp3");
             });
             it("fixes album names from string", () => {
                 var mockRule = {

@@ -5,5 +5,6 @@ export interface Track {
     artist: string,
     album: string,
     title: string,
+    trackNumber: number,
     disk?: number
 }

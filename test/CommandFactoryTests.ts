@@ -16,7 +16,8 @@ describe("Command factory", () => {
         album.push({
             artist: "aaaa",
             album: "bbbb",
-            title: "01 cccc.mp3",
+            trackNumber: 1,
+            title: "cccc.mp3",
             path: "artist/album/01 track.mp3"
         });
         commands = new CommandFactory("out", log).create([album]);
@@ -63,13 +64,15 @@ describe("Command factory", () => {
             secondAlbum.push({
                 artist: "pppp",
                 album: "qqqq",
-                title: "01 rrrr.mp3",
+                trackNumber: 1,
+                title: "rrrr.mp3",
                 path: "artist2/album2/01 track.mp3"
             });
             secondAlbum.push({
                 artist: "pppp",
                 album: "qqqq",
-                title: "02 ssss.mp3",
+                trackNumber: 2,
+                title: "ssss.mp3",
                 path: "artist2/album2/02 track.mp3"
             });
             commands = new CommandFactory("out", log).create([album, secondAlbum]);

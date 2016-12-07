@@ -34,21 +34,15 @@ export class Validator
         var index = 1;
         var numberPrefixLength: number;
         album.tracks.forEach((track) => {
-            this.logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.title + "]");
+            this.logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.trackNumber + " " + track.title + "]");
 
-            var match = /^(\d\d) /.exec(track.title);
-            if (!match)
+            if (track.trackNumber != index)
             {
-                throw new Error("Failed validation of '" + track.path + "': title '" + track.title + "' should have a two digit prefix");
-            }
-
-            var trackNumber = parseInt(match[1]);
-            if (trackNumber != index)
-            {
+                var trackNumber = track.trackNumber || "<undefined>"
                 var suggestedSpecialHandler = "\"" + album.artist + " (as on disk!)\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
                                               "        firstTrackNumber: " + trackNumber + ",\n" +
-                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\..mp3/\n" +
+                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\.mp3/\n" +
                                               "    }\n" +
                                               "}";
                 throw new Error(track.title + ": Track number out of order, expected " + index + " but got " + trackNumber +
@@ -78,7 +72,7 @@ export class Validator
             if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title)) {
                 var suggestedSpecialHandler = "\"" + album.artist + " (as on disk!)\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
-                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\..mp3/\n" +
+                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\.mp3/\n" +
                                               "    }\n" +
                                               "}";
 

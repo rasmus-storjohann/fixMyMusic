@@ -22,10 +22,11 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "artist",
                     album: "title",
-                    title: "1 track"
+                    trackNumber: 1,
+                    title: "track"
                 };
             album.push(track);
-            chai.expect(album.tracks[0].title).to.equal("1 track");
+            chai.expect(album.tracks[0].title).to.equal("track");
         });
         it("throws when adding track with wrong artist", () => {
             var album = new Album("artist", "title");
@@ -33,7 +34,8 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "badArtist",
                     album: "title",
-                    title: "1 track"
+                    trackNumber: 1,
+                    title: "track"
                 };
 
             chai.expect(() => {
@@ -46,7 +48,8 @@ describe("Album", () => {
                     path: "aaaa",
                     artist: "artist",
                     album: "badTitle",
-                    title: "1 track"
+                    trackNumber: 1,
+                    title: "track"
                 };
 
             chai.expect(() => {
@@ -55,30 +58,29 @@ describe("Album", () => {
         });
     });
     describe("sorting tracks", () => {
-        it("Sorts the tracks by track title", () => {
+        it("Sorts the tracks by track number", () => {
             var album = new Album("artist", "album");
-
-            var firstTrackTitle = "01 aaaa.mp3";
-            var secondTrackTitle = "02 aaaa.mp3";
 
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: secondTrackTitle
+                trackNumber: 2,
+                title: "aaaa.mp3"
             });
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: firstTrackTitle
+                trackNumber: 1,
+                title: "aaaa.mp3"
             });
 
             album.sortTracks();
 
             chai.expect(album.tracks).to.have.lengthOf(2);
-            chai.expect(album.tracks[0].title).to.equal(firstTrackTitle);
-            chai.expect(album.tracks[1].title).to.equal(secondTrackTitle);
+            chai.expect(album.tracks[0].trackNumber).to.equal(1);
+            chai.expect(album.tracks[1].trackNumber).to.equal(2);
         });
 
         it("sorts the tracks by disk id", () => {
@@ -88,14 +90,16 @@ describe("Album", () => {
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: "01 aaaa.mp3",
+                trackNumber: 1,
+                title: "aaaa.mp3",
                 disk: 2
             });
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: "01 aaaa.mp3",
+                trackNumber: 1,
+                title: "aaaa.mp3",
                 disk: 1
             });
 
@@ -105,40 +109,39 @@ describe("Album", () => {
             chai.expect(album.tracks[1].disk).to.equal(2);
         });
 
-        it("sorts by disk id then by track name", () => {
+        it("sorts by disk id then by track number", () => {
             var album = new Album("artist", "album");
-
-            var firstTrackTitle = "01 aaaa.mp3";
-            var secondTrackTitle = "02 aaaa.mp3";
-            var thirdTrackTitle = "03 aaaa.mp3";
 
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: firstTrackTitle,
+                trackNumber: 1,
+                title: "aaaa.mp3",
                 disk: 2
             });
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: secondTrackTitle,
+                trackNumber: 2,
+                title: "aaaa.mp3",
                 disk: 1
             });
             album.push({
                 path: "",
                 artist: "artist",
                 album: "album",
-                title: thirdTrackTitle,
+                trackNumber: 3,
+                title: "aaaa.mp3",
                 disk: 1
             });
 
             album.sortTracks();
 
-            chai.expect(album.tracks[0].title).to.equal(secondTrackTitle);
-            chai.expect(album.tracks[1].title).to.equal(thirdTrackTitle);
-            chai.expect(album.tracks[2].title).to.equal(firstTrackTitle);
+            chai.expect(album.tracks[0].trackNumber).to.equal(2);
+            chai.expect(album.tracks[1].trackNumber).to.equal(3);
+            chai.expect(album.tracks[2].trackNumber).to.equal(1);
         });
     });
 });

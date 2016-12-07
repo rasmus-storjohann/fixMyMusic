@@ -111,30 +111,8 @@ export class Fixer
                 lastTrackNumberOnLastDisk = trackNumber;
                 lastDiskNumber = diskNumber;
             }
-            trackNumber = this.getTrackNumber(track) + lastTrackNumberOnLastDisk;
-            this.setTrackNumber(track, trackNumber);
+            track.trackNumber += lastTrackNumberOnLastDisk;
+            trackNumber = track.trackNumber;
         });
-    }
-
-    private getTrackNumber(track: AlbumTrack): number
-    {
-        var match = /^(\d+)/.exec(track.title);
-        if (!match) {
-            throw new Error(track.path + ": Could not extract number from track title'" + track.title + "'");
-        }
-        return parseInt(match[1]);
-    }
-
-    private setTrackNumber(track: AlbumTrack, newNumber: number): void
-    {
-        var match = /^(\d+)(.*)$/.exec(track.title);
-        var formattedNumber = "00" + newNumber;
-        var newTitle = formattedNumber.slice(-2) + match[2];
-
-        if (track.title != newTitle)
-        {
-            track.title = newTitle;
-            this.logger.verbose("Fixer", track.path + ": Setting track title to '" + newTitle + "'");
-        }
     }
 }

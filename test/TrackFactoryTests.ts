@@ -29,8 +29,12 @@ describe("TrackFactory", () => {
             chai.expect(_track.album).equals("album");
         });
 
+        it("Gets the track number from the path", () => {
+            chai.expect(_track.trackNumber).equals(1);
+        });
+
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("01 track.mp3");
+            chai.expect(_track.title).equals("track.mp3");
         });
     });
 
@@ -53,8 +57,12 @@ describe("TrackFactory", () => {
             chai.expect(_track.disk).equals(2);
         });
 
+        it("Gets the track number from the path", () => {
+            chai.expect(_track.trackNumber).equals(1);
+        });
+
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("01 track.mp3");
+            chai.expect(_track.title).equals("track.mp3");
         });
     });
 
@@ -77,8 +85,26 @@ describe("TrackFactory", () => {
             chai.expect(_track.disk).equals(2);
         });
 
+        it("Gets the track number from path", () => {
+            chai.expect(_track.trackNumber).equals(1);
+        });
+
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("01 track.mp3");
+            chai.expect(_track.title).equals("track.mp3");
+        });
+    });
+
+    describe("with track number", () => {
+        it("of just one digit", () => {
+            var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");
+            chai.expect(track.trackNumber).equals(1);
+            chai.expect(track.title).equals("track.mp3");
+        });
+
+        it("with trailing dot", () => {
+            var track = _theTrackFactory.createTrack("root/artist/album/1. track.mp3");
+            chai.expect(track.trackNumber).equals(1);
+            chai.expect(track.title).equals("track.mp3");
         });
     });
 
@@ -93,7 +119,8 @@ describe("TrackFactory", () => {
         it("looks at three last path elements", () => {
             chai.expect(_track.artist).equals("artist");
             chai.expect(_track.album).equals("album");
-            chai.expect(_track.title).equals("01 track.mp3");
+            chai.expect(_track.trackNumber).equals(1);
+            chai.expect(_track.title).equals("track.mp3");
         });
     });
 
