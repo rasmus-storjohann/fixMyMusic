@@ -1,7 +1,6 @@
 /// <reference path = "../typings/auto.d.ts" />
 
 import { Album, AlbumTrack } from "./Album";
-import * as Root from "./SpecialHandlers/Root";
 import * as npmlog from "npmlog";
 
 export interface Rule
