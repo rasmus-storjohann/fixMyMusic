@@ -7,7 +7,7 @@ import { Album } from "../src/Album";
 import { Track } from "../src/Track";
 import { sonata } from "../src/AlbumFormat";
 import { Rule } from "../src/Rule";
-import { SpecialHandling } from "../src/SpecialHandling";
+import { CustomFixerFactory } from "../src/CustomFixerFactory";
 
 var fixer: Fixer;
 var album: Album;
@@ -147,8 +147,8 @@ describe("Fixer", () => {
                         artistName: "Beady_Belle"
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log);
-                var artistName = specialHandling.getArtistName(album.artist);
+                var customFixer = new CustomFixerFactory(mockRule, log);
+                var artistName = customFixer.getArtistName(album.artist);
                 fixer.fix(album, artistName, undefined);
                 chai.expect(album.artist).to.equal("Beady_Belle");
             });
@@ -161,8 +161,8 @@ describe("Fixer", () => {
                         }
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("Beethoven", "Eroica Variations E# op.35 [Gilels]");
-                fixer.fix(album, undefined, specialHandling);
+                var customFixer = new CustomFixerFactory(mockRule, log).create("Beethoven", "Eroica Variations E# op.35 [Gilels]");
+                fixer.fix(album, undefined, customFixer);
                 chai.expect(album.tracks[0].title).to.equal("Introduzione col Basso del Tema. Allegretto vivace");
             });
             it("fixes track names from function", () => {
@@ -176,8 +176,8 @@ describe("Fixer", () => {
                         }
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
-                fixer.fix(album, undefined, specialHandling);
+                var customFixer = new CustomFixerFactory(mockRule, log).create("someArtist", "someAlbum");
+                fixer.fix(album, undefined, customFixer);
                 chai.expect(album.tracks[0].title).to.equal("fixed title.mp3");
             });
             it("fixes album names from string", () => {
@@ -188,8 +188,8 @@ describe("Fixer", () => {
                         }
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
-                fixer.fix(album, undefined, specialHandling);
+                var customFixer = new CustomFixerFactory(mockRule, log).create("someArtist", "someAlbum");
+                fixer.fix(album, undefined, customFixer);
                 chai.expect(album.title).to.equal("fixed album name");
             });
 
@@ -201,8 +201,8 @@ describe("Fixer", () => {
                         }
                     }
                 };
-                var specialHandling = new SpecialHandling(mockRule, log).getSpecialHandlers("someArtist", "someAlbum");
-                fixer.fix(album, undefined, specialHandling);
+                var customFixer = new CustomFixerFactory(mockRule, log).create("someArtist", "someAlbum");
+                fixer.fix(album, undefined, customFixer);
                 chai.expect(album.title).to.equal("Sonata 10");
             });
         });

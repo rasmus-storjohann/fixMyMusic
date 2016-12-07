@@ -7,7 +7,7 @@ import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
 import { Rule } from "../src/Rule";
-import { SpecialHandling } from "../src/SpecialHandling";
+import { CustomFixerFactory } from "../src/CustomFixerFactory";
 
 var _theValidator : Validator;
 var rule: Rule;

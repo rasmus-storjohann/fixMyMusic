@@ -4,7 +4,7 @@ import { FileFactory } from "./FileFactory";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import { RulesFactory } from "./Rules/RulesFactory";
-import { SpecialHandling } from "./SpecialHandling";
+import { CustomFixerFactory } from "./CustomFixerFactory";
 import { Fixer } from "./Fixer";
 import { Validator } from "./Validator";
 import { CommandFactory } from "./CommandFactory";
@@ -45,13 +45,13 @@ export class Application
         var albums = new AlbumFactory(this.logger).create(tracks);
         var rules = new RulesFactory().create();
 
-        var specialHandling = new SpecialHandling(rules, this.logger);
+        var specialHandling = new CustomFixerFactory(rules, this.logger);
         var fixer = new Fixer(this.logger);
         var validator = new Validator(this.logger);
 
         albums.forEach(album => {
             var artistName = specialHandling.getArtistName(album.artist);
-            var rules = specialHandling.getSpecialHandlers(album.artist, album.title);
+            var rules = specialHandling.create(album.artist, album.title);
             fixer.fix(album, artistName, rules);
             album.sortTracks();
             validator.validate(album, rules);

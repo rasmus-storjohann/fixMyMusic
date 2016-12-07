@@ -1,7 +1,7 @@
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
 import { Rule } from "./Rule";
-import { SpecialHandling } from "./SpecialHandling";
+import { CustomFixerFactory } from "./CustomFixerFactory";
 import * as npmlog from "npmlog";
 
 export class Fixer

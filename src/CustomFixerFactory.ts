@@ -5,7 +5,7 @@ import { AlbumTrack } from "./AlbumTrack";
 import { Rule } from "./Rule";
 import * as npmlog from "npmlog";
 
-export class SpecialHandling
+export class CustomFixerFactory
 {
     public constructor(rules, logger: npmlog.NpmLog)
     {
@@ -16,7 +16,7 @@ export class SpecialHandling
     private logger: npmlog.NpmLog;
     private rules;
 
-    public getSpecialHandlers(artist: string, albumTitle: string) : Rule
+    public create(artist: string, albumTitle: string) : Rule
     {
         var artistRules = this.rules[artist];
         var albumRules = artistRules && artistRules[albumTitle];
@@ -44,7 +44,7 @@ export class SpecialHandling
             }
         }
 
-        var customTrackFixers = [];
+        var fixers = [];
 
         if (specification.fixTrackNameFunc && specification.fixTrackName)
         {
@@ -61,7 +61,7 @@ export class SpecialHandling
                 track.title = newTitle;
             }
 
-            customTrackFixers.push(fixTrackName);
+            fixers.push(fixTrackName);
         }
 
         if (specification.fixTrackName)
@@ -78,7 +78,7 @@ export class SpecialHandling
                 track.title = newTitle;
             };
 
-            customTrackFixers.push(fixTrackName);
+            fixers.push(fixTrackName);
         }
 
         if (specification.firstTrackNumber)
@@ -97,13 +97,13 @@ export class SpecialHandling
                 }
             };
 
-            customTrackFixers.push(fixTrackNumber);
+            fixers.push(fixTrackNumber);
         }
 
         var applyAllFixers = function(track: AlbumTrack, logger: npmlog.NpmLog)
         {
-            customTrackFixers.forEach((customTrackFixer) => {
-                customTrackFixer(track, logger);
+            fixers.forEach((fixer) => {
+                fixer(track, logger);
             });
         }
 
