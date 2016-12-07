@@ -6,7 +6,8 @@ import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
 import { sonata } from "../src/AlbumFormat";
-import { SpecialHandling, Rule } from "../src/SpecialHandling";
+import { Rule } from "../src/Rule";
+import { SpecialHandling } from "../src/SpecialHandling";
 
 var fixer: Fixer;
 var album: Album;

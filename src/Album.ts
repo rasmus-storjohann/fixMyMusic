@@ -1,13 +1,6 @@
 /// <reference path = "../typings/auto.d.ts" />
 import { Track } from "./Track";
-
-export interface AlbumTrack
-{
-    path: string,
-    title: string,
-    trackNumber: number,
-    disk?: number
-}
+import { AlbumTrack } from "./AlbumTrack";
 
 export class Album
 {

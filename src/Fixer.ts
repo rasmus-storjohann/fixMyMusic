@@ -1,5 +1,7 @@
-import { Album, AlbumTrack } from "./Album";
-import { SpecialHandling, Rule } from "./SpecialHandling";
+import { Album } from "./Album";
+import { AlbumTrack } from "./AlbumTrack";
+import { Rule } from "./Rule";
+import { SpecialHandling } from "./SpecialHandling";
 import * as npmlog from "npmlog";
 
 export class Fixer

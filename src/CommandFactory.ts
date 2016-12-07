@@ -1,8 +1,9 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import { Track } from "../src/Track";
-import { Album, AlbumTrack } from "../src/Album";
-import { Command } from "../src/Command";
+import { Track } from "./Track";
+import { Album } from "./Album";
+import { AlbumTrack } from "./AlbumTrack";
+import { Command } from "./Command";
 import * as npmlog from "npmlog";
 
 export class CommandFactory

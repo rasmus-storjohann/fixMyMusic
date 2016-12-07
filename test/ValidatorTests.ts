@@ -4,8 +4,10 @@ import * as chai from "chai";
 import * as log from "npmlog";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
-import { Album, AlbumTrack } from "../src/Album";
-import { SpecialHandling, Rule } from "../src/SpecialHandling";
+import { Album } from "../src/Album";
+import { AlbumTrack } from "../src/AlbumTrack";
+import { Rule } from "../src/Rule";
+import { SpecialHandling } from "../src/SpecialHandling";
 
 var _theValidator : Validator;
 var rule: Rule;
