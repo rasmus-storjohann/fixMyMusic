@@ -570,9 +570,6 @@ export function Create()
             }
         },
         "Haydn":{
-            "Creation" : {
-                validation : ["skipTrackNumberCheck"]
-            },
             "CelloConc 1 C" : {
                 fixTrackName: /- Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)\.mp3/
             },

@@ -42,11 +42,11 @@ export class TrackFactory
             disk = parseInt(match[1]);
         }
 
-        match = /Disc (\d+) - (\d+) - (.*)/.exec(title);
+        match = /Disc (\d+) - (\d+)( -)? (.*)/.exec(title);
         if (match)
         {
             disk = parseInt(match[1]);
-            title = match[2] + " " + match[3];
+            title = match[2] + " " + match[4];
         }
 
         match = /^(\d+)\.? *(.*)$/.exec(title);

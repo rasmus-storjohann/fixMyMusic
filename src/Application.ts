@@ -4,7 +4,7 @@ import * as shelljs from 'shelljs';
 import * as fs from 'fs';
 import * as parseArguments from 'minimist';
 import * as npmlog from "npmlog";
-import { getFiles } from "./GetFiles";
+import { FileFactory } from "./FileFactory";
 import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
 import * as SpecialHandlers from "./SpecialHandlers/Root"
@@ -39,7 +39,7 @@ export class Application
             throw new Error("Specify --out argument");
         }
 
-        var files = getFiles(fromDirectories, this.logger);
+        var files = new FileFactory(this.logger).create(fromDirectories);
         var tracks = new TrackFactory(this.logger).create(files);
         var albums = new AlbumFactory(this.logger).create(tracks);
 
