@@ -19,7 +19,7 @@ export class Application
 {
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
-        logger.level = "silly";
+        logger.level = "info";
         new Application(logger).doIt(argv.splice(2));
     }
 

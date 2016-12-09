@@ -6,8 +6,8 @@ export class Album
 {
     constructor(artist: string, title: string)
     {
-        this.artist = artist;
-        this.title = title;
+        this.artist = this.originalArtist = artist;
+        this.title = this.originalTitle = title;
         this.tracks = [];
     }
 
@@ -55,5 +55,7 @@ export class Album
 
     artist: string;
     title: string;
+    originalArtist: string;
+    originalTitle: string;
     tracks: AlbumTrack[];
 }

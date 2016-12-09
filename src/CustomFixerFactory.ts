@@ -18,8 +18,8 @@ export class CustomFixerFactory
 
     public create(album: Album) : Rule
     {
-        var artist = album.artist;
-        var albumTitle = album.title;
+        var artist = album.originalArtist;
+        var albumTitle = album.originalTitle;
 
         this.logger.silly("Custom factory", "called with " + artist + " and " + albumTitle);
 
