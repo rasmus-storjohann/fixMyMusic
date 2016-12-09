@@ -1,21 +1,26 @@
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
 import { Rule } from "./Rule";
-import { CustomFixerFactory } from "./CustomFixerFactory";
+import { IRuleFactory } from "./IRuleFactory";
 import * as npmlog from "npmlog";
 
 export class Fixer
 {
-    public constructor(logger: npmlog.NpmLog)
+    public constructor(customFixerFactory: IRuleFactory, logger: npmlog.NpmLog)
     {
+        this.customFixerFactory = customFixerFactory;
         this.logger = logger;
     }
 
+    private customFixerFactory: IRuleFactory;
     private logger: npmlog.NpmLog;
 
-    public fix(album: Album, artistName: string, rule: Rule) : void
+    public fix(album: Album) : void
     {
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
+
+        var rule = this.customFixerFactory.create(album.artist, album.title);
+        var artistName = this.customFixerFactory.getArtistName(album.artist);
 
         this.fixTrackPrefix(album);
         this.fixAlbumName(album, rule);

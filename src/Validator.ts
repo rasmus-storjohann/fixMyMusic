@@ -3,33 +3,34 @@
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
 import { Rule } from "./Rule";
-import { CustomFixerFactory } from "./CustomFixerFactory";
+import { IRuleFactory } from "./IRuleFactory";
 import * as npmlog from "npmlog";
 
 export class Validator
 {
-    public constructor(logger: npmlog.NpmLog)
+    public constructor(customFixerFactory: IRuleFactory, logger: npmlog.NpmLog)
     {
+        this.customFixerFactory = customFixerFactory;
         this.logger = logger;
     }
 
+    private customFixerFactory: IRuleFactory;
     private logger: npmlog.NpmLog;
 
-    public validate(album: Album, rule: Rule) : void
+    public validate(album: Album) : void
     {
+        var rule = this.customFixerFactory.create(album.artist, album.title);
         var validationOptions = (rule && rule.validation) || [];
 
-        this.validateTracks(album, validationOptions, this.logger);
-
+        this.validateTracks(album, validationOptions);
         this.validateTrackUniqueness(album, validationOptions);
-
-        this.defaultValidateArtist(album, this.logger);
+        this.defaultValidateArtist(album);
     }
 
-    private validateTracks(album: Album, validationOptions: string[], logger: npmlog.NpmLog) : void
+    private validateTracks(album: Album, validationOptions: string[]) : void
     {
         if (validationOptions.indexOf("skipTrackNumberCheck") >= 0) {
-            logger.info("Validate", "Skipping track number check for ", "[" + album.artist + "][" + album.title + "]");
+            this.logger.info("Validate", "Skipping track number check for ", "[" + album.artist + "][" + album.title + "]");
             return;
         }
 
@@ -54,7 +55,7 @@ export class Validator
         });
     }
 
-    private defaultValidateArtist(album: Album, logger: npmlog.NpmLog) : void
+    private defaultValidateArtist(album: Album) : void
     {
         if (album.artist.indexOf(" ") !== -1)
         {

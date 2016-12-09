@@ -1,20 +1,36 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import * as chai from "chai";
-import * as log from "npmlog";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
 import { Rule } from "../src/Rule";
-import { CustomFixerFactory } from "../src/CustomFixerFactory";
+import * as npmlog from "npmlog";
+import * as chai from "chai";
 
 var _theValidator : Validator;
-var rule: Rule;
 beforeEach(() =>
 {
-    log.level = 'silent';
-    _theValidator = new Validator(log);
+    npmlog.level = "silent";
+
+    var customFixerFactory = {
+        create: function(artist: string, albumTitle: string) : Rule
+        {
+            var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
+            var fixAlbumTitle = "";
+            var validation = [];
+            var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
+            return {
+                fixArtist: fixArtist,
+                fixAlbumTitle: fixAlbumTitle,
+                validation: validation,
+                fixTrack: fixTrack
+            };
+        },
+        getArtistName: function(artist: string) : string { return ""; }
+    };
+
+    _theValidator = new Validator(customFixerFactory, npmlog);
 });
 
 describe("Validator", () => {
@@ -50,25 +66,8 @@ describe("Validator", () => {
         return album;
     }
 
-    function createAlbumWithTrack(artistName: string, albumName: string, tracks: AlbumTrack[]) : Album
-    {
-        var album = new Album(artistName, albumName);
-
-        tracks.forEach(track => {
-            album.push({
-                path: track.path,
-                artist: artistName,
-                album: albumName,
-                trackNumber: track.trackNumber,
-                title: track.title
-            });
-        });
-
-        return album;
-    }
-
     it("accepts a valid tracks in correct order", () => {
-        _theValidator.validate(createAlbum(), rule);
+        _theValidator.validate(createAlbum());
     });
 
     describe("on tracks", () => {
@@ -76,102 +75,106 @@ describe("Validator", () => {
             musicTrack[0].trackNumber = undefined;
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order, expected 1 but got <undefined>/);
         });
 
         it("throws on tracks out of order", () => {
-
             musicTrack[0].trackNumber = 2;
             musicTrack[1].trackNumber = 1;
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
         it("throws on missing tracks", () => {
-
             musicTrack[0].trackNumber = 2;
             musicTrack[1].trackNumber = 3;
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
         it("throws on duplicate tracks", () => {
-
             musicTrack[0].trackNumber = 1;
             musicTrack[1].trackNumber = 1;
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
 
-        it("throws on very similar track names", () => {
-            musicTrack[0].title = "123456789012345 bla.mp3";
-            musicTrack[1].title = "123456789012345 foo.mp3";
+        it("throws on similar track names", () => {
+            musicTrack[0].title = "12345678901 bla.mp3";
+            musicTrack[1].title = "12345678901 foo.mp3";
 
             chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
+                _theValidator.validate(createAlbum());
             }).to.throw(Error, /bbbb: Album contains redundant track names/);
         });
 
         it("does not throw similar track names if they're short enough", () => {
-            musicTrack[0].title = "01 123456789.mp3";
-            musicTrack[1].title = "02 123456789.mp3";
+            musicTrack[0].title = "1234567890 bla.mp3";
+            musicTrack[1].title = "1234567890 foo.mp3";
 
-            _theValidator.validate(createAlbum(), rule);
+            _theValidator.validate(createAlbum());
         });
     });
-    describe("on albums", () => {
-        it("throws on space in artist", () => {
-            musicTrack[0].artist = "aaaa bbbb";
-            musicTrack[1].artist = "aaaa bbbb";
-            chai.expect(() => {
-                _theValidator.validate(createAlbum(), rule);
-            }).to.throw(Error, /Artist contains a space/);
-        });
+
+    it("throws on space in artist", () => {
+        musicTrack[0].artist = "aaaa bbbb";
+        musicTrack[1].artist = "aaaa bbbb";
+
+        chai.expect(() => {
+            _theValidator.validate(createAlbum());
+        }).to.throw(Error, /Artist contains a space/);
     });
-    describe("overrides", () => {
-        describe("skipping number validation", () => {
-            it("ignores out of order tracks", ()=> {
-                var mockRule = {
-                    fixArtist: undefined,
-                    fixTrack: undefined,
-                    validation : ["skipTrackNumberCheck"]
-                };
-                musicTrack[0].title = "02 dddd";
-                musicTrack[1].title = "01 dddd";
 
-                _theValidator.validate(createAlbum(), mockRule);
-            });
-            it("ignores track prefix length", ()=> {
-                var mockRule = {
-                    fixArtist: undefined,
-                    fixTrack: undefined,
-                    validation : ["skipTrackNumberCheck"]
-                };
-                musicTrack[0].title = "1 dddd";
-                musicTrack[1].title = "2 dddd";
+    describe("with custom fixers", () => {
+        it("can ignore out of order tracks", ()=> {
+            var mockCustomFixerFactory = {
+                create: function(artist: string, albumTitle: string) : Rule
+                {
+                    var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
+                    var fixAlbumTitle = "";
+                    var validation = ["skipTrackNumberCheck"];
+                    var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
+                    return {
+                        fixArtist: fixArtist,
+                        fixAlbumTitle: fixAlbumTitle,
+                        validation: validation,
+                        fixTrack: fixTrack
+                    };
+                },
+                getArtistName: function(artist: string) { return ""; }
+            };
+            musicTrack[0].trackNumber = 2;
+            musicTrack[1].trackNumber = 1;
 
-                _theValidator.validate(createAlbum(), mockRule);
-            });
+            new Validator(mockCustomFixerFactory, npmlog).validate(createAlbum());
         });
-        describe("skipping track name uniqueness validation", () => {
-            it("ignores out of order tracks", ()=> {
-                var mockRule = {
-                    fixArtist: undefined,
-                    fixTrack: undefined,
-                    validation : ["skipUniqueTrackNameCheck"]
-                };
-                musicTrack[0].title = "01 dddddddddddddddddddddddddddd";
-                musicTrack[1].title = "02 dddddddddddddddddddddddddddd";
+        it("can ignores similar track names", ()=> {
+            var customFixerFactory = {
+                create: function(artist: string, albumTitle: string) : Rule {
+                    var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
+                    var fixAlbumTitle = "fixed album name";
+                    var validation = ["skipUniqueTrackNameCheck"];
+                    var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
+                    return {
+                        fixArtist: fixArtist,
+                        fixAlbumTitle: fixAlbumTitle,
+                        validation: validation,
+                        fixTrack: fixTrack
+                    };
+                },
+                getArtistName: function(artist: string) { return "Fixed_name"; }
+            };
+            musicTrack[0].title = "12345678901234567890.mp3";
+            musicTrack[1].title = "12345678901234567890.mp3";
 
-                _theValidator.validate(createAlbum(), mockRule);
-            });
+            new Validator(customFixerFactory, npmlog).validate(createAlbum());
         });
         // add tests confirming that skipping one test does not skip the other
     });

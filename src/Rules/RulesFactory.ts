@@ -21,6 +21,7 @@ var rules = {
             fixTrackName: /Fall River Legend: (.*)\.mp3/
         },
         "FourPieces" : {
+            fixAlbumTitle: "Four Pieces",
             fixTrackName: /(.*)\.mp3/,
             validation : ["skipTrackNumberCheck"]
         },

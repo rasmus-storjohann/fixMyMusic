@@ -19,7 +19,7 @@ export class Application
 {
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
-        logger.level = 'info';
+        logger.level = "silly";
         new Application(logger).doIt(argv.splice(2));
     }
 
@@ -46,15 +46,13 @@ export class Application
         var rules = new RulesFactory().create();
 
         var specialHandling = new CustomFixerFactory(rules, this.logger);
-        var fixer = new Fixer(this.logger);
-        var validator = new Validator(this.logger);
+        var validator = new Validator(specialHandling, this.logger);
+        var fixer = new Fixer(specialHandling, this.logger);
 
         albums.forEach(album => {
-            var artistName = specialHandling.getArtistName(album.artist);
-            var rules = specialHandling.create(album.artist, album.title);
-            fixer.fix(album, artistName, rules);
+            fixer.fix(album);
             album.sortTracks();
-            validator.validate(album, rules);
+            validator.validate(album);
         });
 
         var commands = new CommandFactory(toDir, this.logger).create(albums);

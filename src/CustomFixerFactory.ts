@@ -18,6 +18,7 @@ export class CustomFixerFactory
 
     public create(artist: string, albumTitle: string) : Rule
     {
+        this.logger.silly("Custom factory", "called with " + artist + " and " + albumTitle);
         var artistRules = this.rules[artist];
         var albumRules = artistRules && artistRules[albumTitle];
 

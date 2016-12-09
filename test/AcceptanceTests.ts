@@ -103,6 +103,21 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
     });
 
+    it("Supports validation directive to ignore track numbers", () => {
+        shelljs.mkdir("-p", "testOutput/source/Aaron Copland/FourPieces");
+        shelljs.cp("test.mp3", "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 05 - Grohg - Cortège macabre.mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 06 - Letter From Home.mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 07 - John Henry.mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Aaron Copland/FourPieces/Disc 2 - 09 - Quiet City.mp3");
+
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/01 Grohg - Cortège macabre.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/02 Letter From Home.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/03 John Henry.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/04 Quiet City.mp3")).is.true;
+    });
+
     // TODO throws if the first track of the second disk is missing
 
     describe("Sets mp3 tags", () => {
