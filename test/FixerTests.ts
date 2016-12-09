@@ -17,7 +17,7 @@ beforeEach(() => {
     npmlog.level = "silent";
 
     var customFixerFactory = {
-        create: function(artist: string, albumTitle: string) : Rule
+        create: function(album: Album) : Rule
         {
             var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
             var fixAlbumTitle = "";
@@ -152,7 +152,7 @@ describe("Fixer", () => {
             it("can set the artist name", () => {
 
                 var mockRuleFactory = {
-                    create: function(artist: string, albumTitle: string) : Rule {
+                    create: function(album: Album) : Rule {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "";
                         var validation = [];
@@ -173,7 +173,7 @@ describe("Fixer", () => {
 
             it("can set album name", () => {
                 var mockCustomFixerFactory = {
-                    create: function(artist: string, albumTitle: string) : Rule
+                    create: function(album: Album) : Rule
                     {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "fixed album name";
@@ -196,7 +196,7 @@ describe("Fixer", () => {
 
             it("can set the track name", () => {
                 var mockCustomFixerFactory = {
-                    create: function(artist: string, albumTitle: string) : Rule
+                    create: function(album: Album) : Rule
                     {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "";

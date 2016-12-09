@@ -19,7 +19,7 @@ export class Fixer
     {
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
-        var rule = this.customFixerFactory.create(album.artist, album.title);
+        var rule = this.customFixerFactory.create(album);
         var artistName = this.customFixerFactory.getArtistName(album.artist);
 
         this.fixTrackPrefix(album);

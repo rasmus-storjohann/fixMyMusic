@@ -19,7 +19,7 @@ export class Validator
 
     public validate(album: Album) : void
     {
-        var rule = this.customFixerFactory.create(album.artist, album.title);
+        var rule = this.customFixerFactory.create(album);
         var validationOptions = (rule && rule.validation) || [];
 
         this.validateTracks(album, validationOptions);

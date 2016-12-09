@@ -16,9 +16,13 @@ export class CustomFixerFactory
     private logger: npmlog.NpmLog;
     private rules;
 
-    public create(artist: string, albumTitle: string) : Rule
+    public create(album: Album) : Rule
     {
+        var artist = album.artist;
+        var albumTitle = album.title;
+
         this.logger.silly("Custom factory", "called with " + artist + " and " + albumTitle);
+
         var artistRules = this.rules[artist];
         var albumRules = artistRules && artistRules[albumTitle];
 
