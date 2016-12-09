@@ -44,8 +44,9 @@ export class CommandFactory
     {
         var result = new Array<Command>();
         album.tracks.forEach((track) => {
-            var trackTitle = this.buildTrackTitleWithNumberPrefix(track);
-            var target = [this.outputDirectory, album.artist, album.title, trackTitle].join("/");
+            var trackTitle = this.buildTrackName(track);
+
+            var target = [this.outputDirectory, album.artist, album.title, trackTitle + ".mp3"].join("/");
             result.push({
                 command: "cp",
                 source: track.path,
@@ -57,26 +58,22 @@ export class CommandFactory
                 tags: {
                     artist: album.artist,
                     album: album.title,
-                    track: this.stripFileExtension(trackTitle)
+                    track: trackTitle
                 }
             });
         });
         return result;
     }
 
-    private buildTrackTitleWithNumberPrefix(track: AlbumTrack) : string
+    private buildTrackName(track: AlbumTrack) : string
     {
-        var formattedNumber = ("00" + track.trackNumber).slice(-2);
-        return formattedNumber + " " + track.title;
-    }
-
-    private stripFileExtension(name: string) : string
-    {
-        var index = name.indexOf(".mp3");
+        var title = track.title;
+        var index = title.indexOf(".mp3");
         if (index !== -1)
         {
-            return name.slice(0, index);
+            title = title.slice(0, index);
         }
-        return name;
+        var formattedNumber = ("00" + track.trackNumber).slice(-2);
+        return formattedNumber + " " + title;
     }
 }

@@ -53,6 +53,15 @@ export class Album
         return 0;
     }
 
+    public reassignTrackNumbers()
+    {
+        var i = 1;
+        this.tracks.forEach((track => {
+            track.trackNumber = i;
+            i++;
+        }));
+    }
+
     artist: string;
     title: string;
     originalArtist: string;

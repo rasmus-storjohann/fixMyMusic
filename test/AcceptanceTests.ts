@@ -16,7 +16,8 @@ describe("Acceptance tests", () => {
 
     beforeEach(() => {
         log.level = "silent";
-        shelljs.rm("-rf", "testOutput/source");
+        shelljs.chmod("a+w", "-R", "testOutput");
+        shelljs.rm("-rf", "testOutput");
     });
 
     it("Has test prerequisites", () => {
@@ -112,10 +113,10 @@ describe("Acceptance tests", () => {
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/01 Grohg - Cortège macabre.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/02 Letter From Home.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/03 John Henry.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Aaron Copland/FourPieces/04 Quiet City.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/01 Grohg - Cortège macabre.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/02 Letter From Home.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3")).is.true;
     });
 
     // TODO throws if the first track of the second disk is missing

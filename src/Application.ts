@@ -53,6 +53,7 @@ export class Application
             fixer.fix(album);
             album.sortTracks();
             validator.validate(album);
+            album.reassignTrackNumbers();
         });
 
         var commands = new CommandFactory(toDir, this.logger).create(albums);
