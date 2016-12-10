@@ -1,14 +1,14 @@
 /// <reference path = "../typings/auto.d.ts" />
 
-import { FileFactory } from "./FileFactory";
-import { TrackFactory } from "./TrackFactory";
 import { AlbumFactory } from "./AlbumFactory";
-import { RulesFactory } from "./Rules/RulesFactory";
-import { CustomFixerFactory } from "./CustomFixerFactory";
-import { Fixer } from "./Fixer";
-import { Validator } from "./Validator";
-import { CommandFactory } from "./CommandFactory";
 import { CommandExecutor } from "./CommandExecutor";
+import { CommandFactory } from "./CommandFactory";
+import { CustomFixerFactory } from "./CustomFixerFactory";
+import { FileFactory } from "./FileFactory";
+import { Fixer } from "./Fixer";
+import { RulesFactory } from "./RulesFactory";
+import { TrackFactory } from "./TrackFactory";
+import { Validator } from "./Validator";
 
 import * as shelljs from 'shelljs';
 import * as fs from 'fs';
@@ -20,7 +20,7 @@ export class Application
     public static main(argv: string[], logger: npmlog.NpmLog)
     {
         logger.level = "info";
-        new Application(logger).doIt(argv.splice(2));
+        new Application(logger).execute(argv.splice(2));
     }
 
     constructor(logger: npmlog.NpmLog)
@@ -28,7 +28,7 @@ export class Application
         this.logger = logger;
     }
 
-    public doIt(argv: string[])
+    public execute(argv: string[])
     {
         var parsedArguments = parseArguments(argv);
         var fromDirectories = parsedArguments._;

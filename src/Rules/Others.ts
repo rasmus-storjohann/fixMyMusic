@@ -1,9 +1,6 @@
 import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata } from "../AlbumFormat";
 
-import * as BachJs from "./BachJS";
-import * as Beethoven from "./Beethoven";
-
-var rules = {
+export var rules = {
     "Aaron Copland" : {
         "AppalachianSpring" : {
             fixTrackName: /Appalachian Spring \(Ballet for Martha\): (.*)\.mp3/
@@ -96,7 +93,6 @@ var rules = {
             fixTrackName: /Sagn, (.*).mp3/
         }
     },
-    "Bach JS": BachJs.Create(),
     "Barber" : {
         "ViolinConc[Ehnes]" : {
             firstTrackNumber: 4,
@@ -120,7 +116,6 @@ var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         }
     },
-    "Beethoven": Beethoven.Create(),
     "Berg" : {
         "Lulu Suite" : {
             firstTrackNumber: 10,
@@ -722,12 +717,4 @@ var rules = {
             firstTrackNumber: 14
         }
     }
-};
-
-export class RulesFactory
-{
-    public create()
-    {
-        return rules;
-    };
 };

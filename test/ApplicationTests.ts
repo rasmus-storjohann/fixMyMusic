@@ -32,7 +32,7 @@ describe("Application", () => {
     it("throws if out argument is not given", () => {
         var validName = "root/Artist/Album/01 Track.mp3";
         chai.expect(() => {
-            application.doIt([validName]);
+            application.execute([validName]);
         }).to.throw(Error, /Specify --out argument/);
     });
 
