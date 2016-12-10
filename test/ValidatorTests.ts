@@ -4,7 +4,7 @@ import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
-import { Rule } from "../src/Rule";
+import { CustomFixer } from "../src/CustomFixer";
 import * as npmlog from "npmlog";
 import * as chai from "chai";
 
@@ -14,7 +14,7 @@ beforeEach(() =>
     npmlog.level = "silent";
 
     var customFixerFactory = {
-        create: function(album: Album) : Rule
+        create: function(album: Album) : CustomFixer
         {
             var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
             var fixAlbumTitle = "";
@@ -135,7 +135,7 @@ describe("Validator", () => {
     describe("with custom fixers", () => {
         it("can ignore out of order tracks", ()=> {
             var mockCustomFixerFactory = {
-                create: function(album: Album) : Rule
+                create: function(album: Album) : CustomFixer
                 {
                     var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                     var fixAlbumTitle = "";
@@ -157,7 +157,8 @@ describe("Validator", () => {
         });
         it("can ignores similar track names", ()=> {
             var customFixerFactory = {
-                create: function(album: Album) : Rule {
+                create: function(album: Album) : CustomFixer
+                {
                     var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                     var fixAlbumTitle = "fixed album name";
                     var validation = ["skipUniqueTrackNameCheck"];

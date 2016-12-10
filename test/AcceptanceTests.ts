@@ -16,7 +16,6 @@ describe("Acceptance tests", () => {
 
     beforeEach(() => {
         log.level = "silent";
-        shelljs.chmod("a+w", "-R", "testOutput");
         shelljs.rm("-rf", "testOutput");
     });
 

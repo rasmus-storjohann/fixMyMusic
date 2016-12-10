@@ -1,32 +1,32 @@
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
-import { Rule } from "./Rule";
-import { IRuleFactory } from "./IRuleFactory";
+import { CustomFixer } from "./CustomFixer";
+import { ICustomFixerFactory } from "./ICustomFixerFactory";
 import * as npmlog from "npmlog";
 
 export class Fixer
 {
-    public constructor(customFixerFactory: IRuleFactory, logger: npmlog.NpmLog)
+    public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)
     {
         this.customFixerFactory = customFixerFactory;
         this.logger = logger;
     }
 
-    private customFixerFactory: IRuleFactory;
+    private customFixerFactory: ICustomFixerFactory;
     private logger: npmlog.NpmLog;
 
     public fix(album: Album) : void
     {
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
-        var rule = this.customFixerFactory.create(album);
+        var customFixer = this.customFixerFactory.create(album);
         var artistName = this.customFixerFactory.getArtistName(album.artist);
 
         this.fixTrackPrefix(album);
-        this.fixAlbumName(album, rule);
+        this.fixAlbumName(album, customFixer);
         this.fixArtist(album, artistName);
 
-        var fixTrack = this.getFixTrackFunction(rule);
+        var fixTrack = this.getFixTrackFunction(customFixer);
         if (fixTrack)
         {
             album.tracks.forEach((track) => {
@@ -58,9 +58,9 @@ export class Fixer
         });
     }
 
-    private fixAlbumName(album: Album, rule: Rule) : void
+    private fixAlbumName(album: Album, customFixer: CustomFixer) : void
     {
-        var title = rule && rule.fixAlbumTitle;
+        var title = customFixer && customFixer.fixAlbumTitle;
         if (title)
         {
             album.title = title.toString();
@@ -96,9 +96,9 @@ export class Fixer
         album.artist = artist;
     }
 
-    private getFixTrackFunction(rule: Rule) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
+    private getFixTrackFunction(customFixer: CustomFixer) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
     {
-        return rule && rule.fixTrack;
+        return customFixer && customFixer.fixTrack;
     }
 
     private fixTrackNumbering(album: Album): void

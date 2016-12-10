@@ -2,7 +2,7 @@
 
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
-import { Rule } from "./Rule";
+import { CustomFixer } from "./CustomFixer";
 import * as npmlog from "npmlog";
 
 export class CustomFixerFactory
@@ -16,7 +16,7 @@ export class CustomFixerFactory
     private logger: npmlog.NpmLog;
     private rules;
 
-    public create(album: Album) : Rule
+    public create(album: Album) : CustomFixer
     {
         var artist = album.originalArtist;
         var albumTitle = album.originalTitle;

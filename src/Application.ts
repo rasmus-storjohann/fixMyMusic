@@ -43,11 +43,12 @@ export class Application
         var files = new FileFactory(this.logger).create(fromDirectories);
         var tracks = new TrackFactory(this.logger).create(files);
         var albums = new AlbumFactory(this.logger).create(tracks);
-        var rules = new RulesFactory().create();
 
-        var specialHandling = new CustomFixerFactory(rules, this.logger);
-        var validator = new Validator(specialHandling, this.logger);
-        var fixer = new Fixer(specialHandling, this.logger);
+        var rules = new RulesFactory().create();
+        var customFixerFactory = new CustomFixerFactory(rules, this.logger);
+
+        var validator = new Validator(customFixerFactory, this.logger);
+        var fixer = new Fixer(customFixerFactory, this.logger);
 
         albums.forEach(album => {
             fixer.fix(album);

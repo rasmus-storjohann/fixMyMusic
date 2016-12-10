@@ -5,8 +5,7 @@ import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
 import { Track } from "../src/Track";
 import { sonata } from "../src/AlbumFormat";
-import { Rule } from "../src/Rule";
-import { IRuleFactory } from "../src/IRuleFactory";
+import { CustomFixer } from "../src/CustomFixer";
 import * as chai from "chai";
 import * as npmlog from "npmlog";
 
@@ -16,8 +15,8 @@ var album: Album;
 beforeEach(() => {
     npmlog.level = "silent";
 
-    var customFixerFactory = {
-        create: function(album: Album) : Rule
+    var mockCustomFixerFactory = {
+        create: function(album: Album) : CustomFixer
         {
             var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
             var fixAlbumTitle = "";
@@ -33,7 +32,7 @@ beforeEach(() => {
         getArtistName: function(artist: string) : string { return ""; }
     };
 
-    fixer = new Fixer(customFixerFactory, npmlog);
+    fixer = new Fixer(mockCustomFixerFactory, npmlog);
     album = new Album("aaaa", "bbbb");
     album.push({
         path: "cccc",
@@ -152,7 +151,8 @@ describe("Fixer", () => {
             it("can set the artist name", () => {
 
                 var mockRuleFactory = {
-                    create: function(album: Album) : Rule {
+                    create: function(album: Album) : CustomFixer
+                    {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "";
                         var validation = [];
@@ -173,7 +173,7 @@ describe("Fixer", () => {
 
             it("can set album name", () => {
                 var mockCustomFixerFactory = {
-                    create: function(album: Album) : Rule
+                    create: function(album: Album) : CustomFixer
                     {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "fixed album name";
@@ -196,7 +196,7 @@ describe("Fixer", () => {
 
             it("can set the track name", () => {
                 var mockCustomFixerFactory = {
-                    create: function(album: Album) : Rule
+                    create: function(album: Album) : CustomFixer
                     {
                         var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "";

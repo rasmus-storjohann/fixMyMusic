@@ -3,7 +3,7 @@ import { AlbumTrack } from "./AlbumTrack";
 
 import * as npmlog from "npmlog";
 
-export interface Rule
+export interface CustomFixer
 {
     fixArtist: (album: Album, logger: npmlog.NpmLog) => void;
     fixAlbumTitle?: string;
