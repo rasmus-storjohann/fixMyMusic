@@ -100,7 +100,6 @@ function buildFormat(form: string, formatOptions?: any) : Format {
                 result.opus_prefix = "HWV ";
                 break;
 
-                case "by":
                 case "num":
                 case "subTitle":
                 result[option] = value;
