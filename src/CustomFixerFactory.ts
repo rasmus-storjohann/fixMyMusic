@@ -10,7 +10,36 @@ export class CustomFixerFactory
     public constructor(rules, logger: npmlog.NpmLog)
     {
         this.logger = logger;
-        this.rules = rules;
+        this.rules = this.validate(rules);
+    }
+
+    private validate(allRules)
+    {
+        for (var artist in allRules) {
+            if (allRules.hasOwnProperty(artist)) {
+                var rulesForArtist = allRules[artist];
+                for (var album in rulesForArtist) {
+                    if (rulesForArtist.hasOwnProperty(album) && album !== "artistName") {
+                        var rulesForAlbum = rulesForArtist[album];
+                        for (var rule in rulesForAlbum) {
+                            if (rulesForAlbum.hasOwnProperty(rule)) {
+                                this.validateRule(rule, artist, album);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return allRules;
+    }
+
+    private validateRule(ruleName: string, artist: string, album: string)
+    {
+        var validRules = [ "fixAlbumTitle", "fixTrackName", "fixTrackNameFunc", "firstTrackNumber", "validation" ];
+
+        if (validRules.indexOf(ruleName) === -1) {
+            throw new Error(ruleName + ": Invalid custom rule for [" + artist + "][" + album + "]");
+        }
     }
 
     private logger: npmlog.NpmLog;
@@ -21,14 +50,14 @@ export class CustomFixerFactory
         var artist = album.originalArtist;
         var albumTitle = album.originalTitle;
 
-        this.logger.silly("Custom factory", "called with " + artist + " and " + albumTitle);
+        this.logger.silly("Custom fixer factory", "called with " + artist + " and " + albumTitle);
 
         var artistRules = this.rules[artist];
         var albumRules = artistRules && artistRules[albumTitle];
 
         var fixArtist = artistRules && artistRules.fixArtist;
         var fixAlbumTitle = albumRules && albumRules.fixAlbumTitle;
-        var validation = albumRules && albumRules.validation;
+        var validation = this.validateValidationOptions(albumRules);
 
         var fixTrack = this.buildCustomTrackFixer(albumRules);
 
@@ -38,6 +67,23 @@ export class CustomFixerFactory
             fixTrack: fixTrack,
             validation: validation
         };
+    }
+
+    private validateValidationOptions(albumRules)
+    {
+        var result = albumRules && albumRules.validation;
+
+        if (result)
+        {
+            result.forEach((value) => {
+                if (value !== "skipTrackNumberCheck" && value !== "skipUniqueTrackNameCheck")
+                {
+                    throw new Error(value + ": Invalid validation option");
+                }
+            });
+        }
+
+        return result;
     }
 
     private buildCustomTrackFixer(specification)
