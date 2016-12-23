@@ -45,15 +45,11 @@ export class Fixer
             while (/  /.exec(track.title)) {
                 track.title = track.title.replace(/  /g, " ");
             }
-            if (/^\d[^\d]/.exec(track.title))
-            {
-                track.title = "0" + track.title;
-            }
-            var matchesTrackNumberWithDot = /^(\d+)\.(.*)$/;
-            var match = matchesTrackNumberWithDot.exec(track.title)
+            var match = /^(\d+)\.? (.*)/.exec(track.title);
             if (match)
             {
-                track.title = match[1] + match[2];
+                track.trackNumber = parseInt(match[1]);
+                track.title = match[2];
             }
         });
     }
