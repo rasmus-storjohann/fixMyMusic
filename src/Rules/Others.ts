@@ -40,16 +40,13 @@ export var rules = {
     },
     "Adams_John" : {
         "Nixon1" : {
-            fixTrackName: /Act I Scene \d (.*).mp3/,
-            fixNumberPrefixLength: 2
+            fixTrackName: /Act I Scene \d (.*).mp3/
         },
         "Nixon2" : {
-            fixTrackName: /Act II Scene \d (.*).mp3/,
-            fixNumberPrefixLength: 2
+            fixTrackName: /Act II Scene \d (.*).mp3/
         },
         "Nixon3" : {
-            fixTrackName: /Act III Scene \d (.*).mp3/,
-            fixNumberPrefixLength: 2
+            fixTrackName: /Act III Scene \d (.*).mp3/
         }
     },
     "Albeniz" : {
@@ -243,6 +240,19 @@ export var rules = {
             fixTrackName: /- Concerto No.1 (.*)\.mp3/
         }
     },
+    "Bruckner" : {
+        "Mass in C Minor" : {
+            firstTrackNumber: 9,
+            fixTrackName: /- Mass in C Minor - (.*)\.mp3/
+        },
+        "Mass in E Minor" : {
+            fixTrackName: /- Mass No 2 in E minor - (.*)\.mp3/
+        },
+        "Two songs" : {
+            firstTrackNumber: 7,
+            fixTrackName: /- (.*)\.mp3/
+        }
+    },
     "Frédéric Chopin" : {
         "Ballades & Etudes" : {
             validation : ["skipUniqueTrackNameCheck"]
@@ -277,13 +287,16 @@ export var rules = {
            validation : ["skipUniqueTrackNameCheck"]
        },
        "Sonata1" : {
+           fixAlbumTitle: sonata({num: 1, minor:"C", op: 4, by: "Zilberstein"}),
            fixTrackName: /Piano Sonata no. 1 in C minor, op. 4: [IV]+\. (.*) \(feat. piano: Lilya Zilberstein\)\.mp3/
        },
        "Sonata2" : {
+           fixAlbumTitle: sonata({num: 2, minor:"Bb", op: 35, by: "Pollini"}),
            firstTrackNumber: 5,
            fixTrackName: /Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\)\.mp3/
        },
        "Sonata3" : {
+           fixAlbumTitle: sonata({num: 3, minor:"B", op: 58, by: "Pollini"}),
            firstTrackNumber: 9,
            fixTrackName: /Piano Sonata no. 3 in B minor, op. 58: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\).mp3/
        },
@@ -301,7 +314,17 @@ export var rules = {
     },
     "Dvorak" : {
         "Symph7" : {
+            fixAlbumTitle: symphony({num: 7}),
             fixTrackName: /Dvorak- Sym#7- [IV]+\.(.*).mp3/
+        },
+        "Symph8" : {
+            fixAlbumTitle: symphony({num: 8, major: "C", op: 88}),
+            fixTrackName: /- Symphony 8 in C major Op 88 - (.*)\.mp3/
+        },
+        "Symph9" : {
+            fixAlbumTitle: symphony({num: 9, minor: "E", op: 95, subTitle: "New World"}),
+            firstTrackNumber: 5,
+            fixTrackName: /- Symphony 9 in E minor Op 95 New World - (.*)\.mp3/
         }
     },
     "Elgar" : {
@@ -326,9 +349,18 @@ export var rules = {
             fixTrackName: /- Furtwangler - (Adagio solemne).mp3/
         }
     },
-    "George Gershwin" : {
+    "Gershwin" : {
+        "An American in Paris[Previn]" : {
+            firstTrackNumber: 2
+        },
         "PianoConc" : {
+            fixAlbumTitle: concerto({for: "Piano", major: "F"}),
             fixTrackName: /- Gershwin - Concerto for Piano and Orchestra in F - [IV]+\. (.*)\.mp3/
+        },
+        "PianoConc[Previn]" : {
+            fixAlbumTitle: concerto({for: "Piano", major: "F", by: "Previn"}),
+            firstTrackNumber: 3,
+            fixTrackName: /Piano Concerto in F: [IV]+\. (.*)\.mp3/
         }
     },
     "Glen Gould" : {
@@ -711,10 +743,14 @@ export var rules = {
     },
     "Janáček" : {
         "Jenůfa1" : {
-           fixTrackName: /Jenůfa Jednání I\. (.*)\.mp3/
-       },
+            fixTrackName: /Jenůfa Jednání I\. (.*)\.mp3/
+        },
         "Jenůfa Extras" : {
             firstTrackNumber: 14
+        },
+        "Jenůfa2" : {
+            firstTrackNumber: 9,
+            fixTrackName: /Jenůfa Jednání II\. (.*)\.mp3/
         }
     }
 };
