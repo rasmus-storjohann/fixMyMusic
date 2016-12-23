@@ -60,17 +60,20 @@ describe("Fixer", () => {
         it("replaces underscore with space in track names", () => {
             album.push(trackWithName("01. track_one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
         it("replaces repeated space with one space in track names", () => {
             album.push(trackWithName("01. track     one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
         it("replaces repeated space/underscores with one space in track names", () => {
             album.push(trackWithName("01. track _ one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("01 track one.mp3");
+            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
 
         it("assigns track numbers based on the disk number", () => {
