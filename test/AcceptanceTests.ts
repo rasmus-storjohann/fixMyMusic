@@ -118,9 +118,35 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3")).is.true;
     });
 
+    it("supports disk starting at track number above one and spanning disks", () => {
+        shelljs.mkdir("-p", "testOutput/source/Janáček/Jenůfa2");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 10 - Jenůfa_ Jednání II. _Nechám ještě dveře otevřeny_ (Kostelnička).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 11 - Jenůfa_ Jednání II. _Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 12 - Jenůfa_ Jednání II. _Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 13 - Jenůfa_ Jednání II. _Ale viděl jsem vcházet šohaje_ (Laca).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 9 - Jenůfa_ Jednání II. Úvod.mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 1 - Jenůfa_ Jednání II. _Co chvíla... co chvíla_ (Kostelnička).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 2 - Jenůfa_ Jednání II. _Mamičko, mám těžkou hlavu_ (Jenůfa).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 3 - Jenůfa_ Jednání II. _Kdo to je__ (Jenůfa).mp3");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 4 - Jenůfa_ Jednání II. _Tot' zrovna jde!_ (Kostelnička).mp3");
+
+        Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
+
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Nechám ještě dveře otevřeny_ (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/02 Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje_ (Laca).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/06 Úvod.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/07 Co chvíla... co chvíla_ (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/08 Mamičko, mám těžkou hlavu_ (Jenůfa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Kdo to je__ (Jenůfa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/10 Tot' zrovna jde!_ (Kostelnička).mp3")).is.true;
+    });
+
     // TODO throws if the first track of the second disk is missing
 
-    describe("Sets mp3 tags", () => {
+    it("sets mp3 tags", () => {
         shelljs.mkdir("-p", "testOutput/source/dummy artist/dummy album");
         shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
 
