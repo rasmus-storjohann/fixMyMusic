@@ -58,22 +58,19 @@ describe("Fixer", () => {
             album = new Album(artist, albumTitle);
         });
         it("replaces underscore with space in track names", () => {
-            album.push(trackWithName("01. track_one.mp3"));
+            album.push(trackWithName("track_one.mp3"));
             fixer.fix(album);
             chai.expect(album.tracks[0].title).to.equal("track one.mp3");
-            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
         it("replaces repeated space with one space in track names", () => {
-            album.push(trackWithName("01. track     one.mp3"));
+            album.push(trackWithName("track     one.mp3"));
             fixer.fix(album);
             chai.expect(album.tracks[0].title).to.equal("track one.mp3");
-            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
         it("replaces repeated space/underscores with one space in track names", () => {
-            album.push(trackWithName("01. track _ one.mp3"));
+            album.push(trackWithName("track _ one.mp3"));
             fixer.fix(album);
             chai.expect(album.tracks[0].title).to.equal("track one.mp3");
-            chai.expect(album.tracks[0].trackNumber).to.equal(1);
         });
 
         it("assigns track numbers based on the disk number", () => {
@@ -150,29 +147,6 @@ describe("Fixer", () => {
         });
 
         describe("with custom fixer", () => {
-
-            it("can set the artist name", () => {
-
-                var mockRuleFactory = {
-                    create: function(album: Album) : CustomFixer
-                    {
-                        var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
-                        var fixAlbumTitle = "";
-                        var validation = [];
-                        var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
-                        return {
-                            fixArtist: fixArtist,
-                            fixAlbumTitle: fixAlbumTitle,
-                            validation: validation,
-                            fixTrack: fixTrack
-                        };
-                    },
-                    getArtistName: function(artist: string) { return "Fixed_name"; }
-                }
-                album.artist = "Original name";
-                new Fixer(mockRuleFactory, npmlog).fix(album);
-                chai.expect(album.artist).to.equal("Fixed_name");
-            });
 
             it("can set album name", () => {
                 var mockCustomFixerFactory = {

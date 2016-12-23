@@ -105,9 +105,6 @@ export var rules = {
             fixTrackName: /- Music for Strings, Percussion and Celesta - (.*).mp3/
         }
     },
-    "Beady Belle": {
-        artistName: "Beady_Belle"
-    },
     "Beatles" : {
         "Sgt. Pepper" : {
             validation : ["skipUniqueTrackNameCheck"]

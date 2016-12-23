@@ -20,11 +20,10 @@ export class Fixer
         this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
         var customFixer = this.customFixerFactory.create(album);
-        var artistName = this.customFixerFactory.getArtistName(album.artist);
 
         this.fixTrackPrefix(album);
         this.fixAlbumName(album, customFixer);
-        this.fixArtist(album, artistName);
+        this.fixArtist(album);
 
         var fixTrack = this.getFixTrackFunction(customFixer);
         if (fixTrack)
@@ -45,12 +44,6 @@ export class Fixer
             while (/  /.exec(track.title)) {
                 track.title = track.title.replace(/  /g, " ");
             }
-            var match = /^(\d+)\.? (.*)/.exec(track.title);
-            if (match)
-            {
-                track.trackNumber = parseInt(match[1]);
-                track.title = match[2];
-            }
         });
     }
 
@@ -63,20 +56,7 @@ export class Fixer
         }
     }
 
-    private fixArtist(album: Album, artistName: string) : void
-    {
-        if (artistName)
-        {
-            album.artist = artistName;
-            this.logger.verbose("Fixer", "Fixed artist name '" + artistName + "'");
-        }
-        else
-        {
-            this.defaultFixArtist(album);
-        }
-    }
-
-    private defaultFixArtist(album: Album): void
+    private fixArtist(album: Album) : void
     {
         var artist = album.artist;
         var hasThePrefix = /^The (.*)/.exec(artist);
