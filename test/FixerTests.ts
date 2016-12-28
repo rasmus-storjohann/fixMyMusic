@@ -26,8 +26,7 @@ beforeEach(() => {
                 validation: validation,
                 fixTrack: fixTrack
             };
-        },
-        getArtistName: function(artist: string) : string { return ""; }
+        }
     };
 
     fixer = new Fixer(mockCustomFixerFactory, npmlog);
@@ -158,8 +157,7 @@ describe("Fixer", () => {
                             validation: validation,
                             fixTrack: fixTrack
                         };
-                    },
-                    getArtistName: function(artist: string) { return ""; }
+                    }
                 }
 
                 album.title = "original album name";
@@ -182,8 +180,7 @@ describe("Fixer", () => {
                             validation: validation,
                             fixTrack: fixTrack
                         };
-                    },
-                    getArtistName: function(artist: string) { return ""; }
+                    }
                 }
 
                 album.tracks[0].title = "Original track.mp3";

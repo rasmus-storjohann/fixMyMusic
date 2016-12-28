@@ -161,15 +161,4 @@ export class CustomFixerFactory
 
         return applyAllFixers;
     }
-
-    // TODO this does not belong in this file
-    public getArtistName(artist: string) : string
-    {
-        var artistRules = this.rules[artist];
-
-        if (artistRules && artistRules.artistName)
-        {
-            return artistRules.artistName;
-        }
-    }
 }

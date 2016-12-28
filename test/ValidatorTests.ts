@@ -24,8 +24,7 @@ beforeEach(() =>
                 validation: validation,
                 fixTrack: fixTrack
             };
-        },
-        getArtistName: function(artist: string) : string { return ""; }
+        }
     };
 
     _theValidator = new Validator(customFixerFactory, npmlog);
@@ -143,8 +142,7 @@ describe("Validator", () => {
                         validation: validation,
                         fixTrack: fixTrack
                     };
-                },
-                getArtistName: function(artist: string) { return ""; }
+                }
             };
             musicTrack[0].trackNumber = 2;
             musicTrack[1].trackNumber = 1;
@@ -163,8 +161,7 @@ describe("Validator", () => {
                         validation: validation,
                         fixTrack: fixTrack
                     };
-                },
-                getArtistName: function(artist: string) { return "Fixed_name"; }
+                }
             };
             musicTrack[0].title = "12345678901234567890.mp3";
             musicTrack[1].title = "12345678901234567890.mp3";
