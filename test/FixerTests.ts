@@ -18,12 +18,10 @@ beforeEach(() => {
     var mockCustomFixerFactory = {
         create: function(album: Album) : CustomFixer
         {
-            var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
             var fixAlbumTitle = "";
             var validation = [];
             var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
             return {
-                fixArtist: fixArtist,
                 fixAlbumTitle: fixAlbumTitle,
                 validation: validation,
                 fixTrack: fixTrack
@@ -152,12 +150,10 @@ describe("Fixer", () => {
                 var mockCustomFixerFactory = {
                     create: function(album: Album) : CustomFixer
                     {
-                        var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "fixed album name";
                         var validation = [];
                         var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
                         return {
-                            fixArtist: fixArtist,
                             fixAlbumTitle: fixAlbumTitle,
                             validation: validation,
                             fixTrack: fixTrack
@@ -175,7 +171,6 @@ describe("Fixer", () => {
                 var mockCustomFixerFactory = {
                     create: function(album: Album) : CustomFixer
                     {
-                        var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                         var fixAlbumTitle = "";
                         var validation = [];
                         var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog)
@@ -184,7 +179,6 @@ describe("Fixer", () => {
                             track.title = "Fixed track.mp3";
                         }
                         return {
-                            fixArtist: fixArtist,
                             fixAlbumTitle: fixAlbumTitle,
                             validation: validation,
                             fixTrack: fixTrack

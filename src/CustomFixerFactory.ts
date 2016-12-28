@@ -55,14 +55,12 @@ export class CustomFixerFactory
         var artistRules = this.rules[artist];
         var albumRules = artistRules && artistRules[albumTitle];
 
-        var fixArtist = artistRules && artistRules.fixArtist;
         var fixAlbumTitle = albumRules && albumRules.fixAlbumTitle;
         var validation = this.validateValidationOptions(albumRules);
 
         var fixTrack = this.buildCustomTrackFixer(albumRules);
 
         return {
-            fixArtist: fixArtist,
             fixAlbumTitle: fixAlbumTitle,
             fixTrack: fixTrack,
             validation: validation

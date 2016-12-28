@@ -16,12 +16,10 @@ beforeEach(() =>
     var customFixerFactory = {
         create: function(album: Album) : CustomFixer
         {
-            var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
             var fixAlbumTitle = "";
             var validation = [];
             var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
             return {
-                fixArtist: fixArtist,
                 fixAlbumTitle: fixAlbumTitle,
                 validation: validation,
                 fixTrack: fixTrack
@@ -137,12 +135,10 @@ describe("Validator", () => {
             var mockCustomFixerFactory = {
                 create: function(album: Album) : CustomFixer
                 {
-                    var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                     var fixAlbumTitle = "";
                     var validation = ["skipTrackNumberCheck"];
                     var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
                     return {
-                        fixArtist: fixArtist,
                         fixAlbumTitle: fixAlbumTitle,
                         validation: validation,
                         fixTrack: fixTrack
@@ -159,12 +155,10 @@ describe("Validator", () => {
             var customFixerFactory = {
                 create: function(album: Album) : CustomFixer
                 {
-                    var fixArtist = function(album: Album, logger: npmlog.NpmLog) {}
                     var fixAlbumTitle = "fixed album name";
                     var validation = ["skipUniqueTrackNameCheck"];
                     var fixTrack = function(track: AlbumTrack, logger: npmlog.NpmLog) {}
                     return {
-                        fixArtist: fixArtist,
                         fixAlbumTitle: fixAlbumTitle,
                         validation: validation,
                         fixTrack: fixTrack
