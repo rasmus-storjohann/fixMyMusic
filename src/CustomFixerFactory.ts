@@ -88,7 +88,7 @@ export class CustomFixerFactory
     {
         if (!specification)
         {
-            return function(track: AlbumTrack, logger: npmlog.NpmLog)
+            return function(album: Album, logger: npmlog.NpmLog)
             {
             }
         }
@@ -132,6 +132,7 @@ export class CustomFixerFactory
 
         if (specification.firstTrackNumber)
         {
+            // TODO this function needs to know about spanning multiple disks
             var fixTrackNumber = function(track: AlbumTrack, logger: npmlog.NpmLog)
             {
                 var trackNumber = track.trackNumber + 1 - specification.firstTrackNumber;
@@ -149,10 +150,12 @@ export class CustomFixerFactory
             fixers.push(fixTrackNumber);
         }
 
-        var applyAllFixers = function(track: AlbumTrack, logger: npmlog.NpmLog)
+        var applyAllFixers = function(album: Album, logger: npmlog.NpmLog)
         {
-            fixers.forEach((fixer) => {
-                fixer(track, logger);
+            album.tracks.forEach((track) => {
+                fixers.forEach((fixer) => {
+                    fixer(track, logger);
+                });
             });
         }
 

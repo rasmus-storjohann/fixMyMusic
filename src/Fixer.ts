@@ -21,23 +21,20 @@ export class Fixer
 
         var customFixer = this.customFixerFactory.create(album);
 
-        this.fixTrackPrefix(album);
+        this.fixTrackTitleSpacing(album);
         this.fixAlbumName(album, customFixer);
         this.fixArtist(album);
 
-        var fixTrack = this.getFixTrackFunction(customFixer);
-        if (fixTrack)
+        var fixTracks = customFixer && customFixer.fixTrack;
+        if (fixTracks)
         {
-            album.tracks.forEach((track) => {
-                fixTrack(track, this.logger);
-                this.logger.verbose("Fixer", "Fixed title '" + track.title + "'");
-            });
+            fixTracks(album, this.logger);
         }
 
         this.fixTrackNumbering(album);
     }
 
-    private fixTrackPrefix(album: Album)
+    private fixTrackTitleSpacing(album: Album)
     {
         album.tracks.forEach((track) => {
             track.title = track.title.replace(/_/g, " ");
@@ -70,11 +67,6 @@ export class Fixer
             artist = hasTwoNames[2] + "_" + hasTwoNames[1];
         }
         album.artist = artist;
-    }
-
-    private getFixTrackFunction(customFixer: CustomFixer) : (track: AlbumTrack, logger: npmlog.NpmLog) => void
-    {
-        return customFixer && customFixer.fixTrack;
     }
 
     private fixTrackNumbering(album: Album): void
