@@ -52,7 +52,6 @@ export class Application
 
         albums.forEach(album => {
             fixer.fix(album);
-            album.sortTracks();
             validator.validate(album);
             album.reassignTrackNumbers();
         });

@@ -24,6 +24,7 @@ export class Fixer
         this.fixTrackTitleSpacing(album);
         this.fixAlbumName(album, customFixer);
         this.fixArtist(album);
+        album.sortTracks();
 
         var fixTracks = customFixer && customFixer.fixTrack;
         if (fixTracks)
@@ -31,6 +32,7 @@ export class Fixer
             fixTracks(album, this.logger);
         }
 
+        album.sortTracks();
         this.fixTrackNumbering(album);
     }
 
@@ -71,7 +73,6 @@ export class Fixer
 
     private fixTrackNumbering(album: Album): void
     {
-        album.sortTracks();
         var lastDiskNumber = album.tracks[0].disk;
         if (!lastDiskNumber)
         {

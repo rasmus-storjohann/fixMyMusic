@@ -11,15 +11,14 @@ beforeEach(() => {
 });
 
 describe("CustomFixerFactory", () => {
+    function buildFixer(artis: string, album: string, rules)
+    {
+        var theFactory = new CustomFixerFactory(rules, npmlog);
+        var theAlbum = new Album(artis, album);
+        return theFactory.create(theAlbum);
+    }
+
     describe("builds fixer attributes", () => {
-
-        function buildFixer(artis: string, album: string, rules)
-        {
-            var theFactory = new CustomFixerFactory(rules, npmlog);
-            var theAlbum = new Album(artis, album);
-            return theFactory.create(theAlbum);
-        }
-
         it("with fixAlbumTitle as string", () => {
             var rules = {
                 "artist name": {
@@ -37,16 +36,17 @@ describe("CustomFixerFactory", () => {
             var rules = {
                 "artist name": {
                     "the original album name": {
-                        fixAlbumTitle: cantata({ subTitle: "Aus der Tiefe", BWV: 131, by: "Suzuki" })
+                        fixAlbumTitle: cantata({ BWV: 131 })
                     }
                 }
             };
             var customFixer = buildFixer("artist name", "the original album name", rules);
 
-            chai.expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata [Suzuki] \"Aus der Tiefe\" BWV 131");
+            chai.expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV 131");
         });
 
         describe("with valid validation options as strings", () => {
+
             it("skipUniqueTrackNameCheck", () => {
                 var rules = {
                     "artist name": {
@@ -72,6 +72,21 @@ describe("CustomFixerFactory", () => {
                 var customFixer = buildFixer("artist name", "album name", rules);
 
                 chai.expect(customFixer.validation).to.have.length(1);
+                chai.expect(customFixer.validation).to.contain("skipTrackNumberCheck");
+            });
+
+            it("supports multiple flags", () => {
+                var rules = {
+                    "artist name": {
+                        "album name": {
+                            validation: ["skipUniqueTrackNameCheck", "skipTrackNumberCheck"]
+                        }
+                    }
+                };
+                var customFixer = buildFixer("artist name", "album name", rules);
+
+                chai.expect(customFixer.validation).to.have.length(2);
+                chai.expect(customFixer.validation).to.contain("skipUniqueTrackNameCheck");
                 chai.expect(customFixer.validation).to.contain("skipTrackNumberCheck");
             });
         });
@@ -104,21 +119,111 @@ describe("CustomFixerFactory", () => {
             }).to.throw(Error, /invalidOption: Invalid custom rule/);
         });
     });
+
     describe("builds track fixing function", () => {
+
+        function fixTracks(theAlbum: Album, rules)
+        {
+            var theFactory = new CustomFixerFactory(rules, npmlog);
+            var fixer = theFactory.create(theAlbum);
+            fixer.fixTrack(theAlbum, npmlog);
+        }
+
         it("does nothing by default", () => {
-            chai.expect(1).to.equal(0);
+            var rules = { };
+            var theAlbum = new Album("artis", "album");
+            var theTrack = { path: "", artist: "artis", album: "album", title: "track title", trackNumber: 1};
+            theAlbum.push(theTrack);
+
+            fixTracks(theAlbum, rules);
+
+            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
+            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
         });
+
         it("returns fix track name function if specified", () => {
-            chai.expect(1).to.equal(0);
+            var rules = {
+                "artist name": {
+                    "the album name": {
+                        fixTrackNameFunc: function(name: string, logger) : string
+                        {
+                            return "fixed track title";
+                        }
+                    }
+                }
+            };
+            var theAlbum = new Album("artist name", "the album name");
+            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "This is the track title", trackNumber: 1};
+            theAlbum.push(theTrack);
+
+            fixTracks(theAlbum, rules);
+
+            chai.expect(theAlbum.tracks[0].title).to.equal("fixed track title");
         });
-        it("returns function applying fix track regular expression if specified", () => {
-            chai.expect(1).to.equal(0);
+        it("returns function applying regular expression if specified", () => {
+            var rules = {
+                "artist name": {
+                    "the album name": {
+                        fixTrackName: /This is the (.*)/
+                    }
+                }
+            };
+            var theAlbum = new Album("artist name", "the album name");
+            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "This is the track title", trackNumber: 1};
+            theAlbum.push(theTrack);
+
+            fixTracks(theAlbum, rules);
+
+            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
         });
+
         it("returns function fixing track number", () => {
-            chai.expect(1).to.equal(0);
+            var rules = {
+                "artist name": {
+                    "the album name": {
+                        firstTrackNumber: 2
+                    }
+                }
+            };
+            var theAlbum = new Album("artist name", "the album name");
+            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 3};
+            theAlbum.push(theTrack);
+
+            fixTracks(theAlbum, rules);
+
+            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(2);
         });
+
         it("composes fixer functions", () => {
-            chai.expect(1).to.equal(0);
+            var rules = {
+                "artist name": {
+                    "the album name": {
+                        fixTrackName: /This is the (.*)/,
+                        firstTrackNumber: 2
+                    }
+                }
+            };
+            var theAlbum = new Album("artist name", "the album name");
+            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "This is the track title", trackNumber: 3};
+            theAlbum.push(theTrack);
+
+            fixTracks(theAlbum, rules);
+
+            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
+            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(2);
+        });
+
+        describe("with firstTrackNumber option", () => {
+            it ("adjusts the track number", () => {
+            });
+            it ("throws if the adjusted track number is less than one", () => {
+            });
+            it ("throws on missing track", () => {
+            });
+            it ("throws on duplicate track", () => {
+            });
+            it ("handles multiple disks", () => {
+            });
         });
     });
 });
