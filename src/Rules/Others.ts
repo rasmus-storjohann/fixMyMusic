@@ -1,6 +1,7 @@
 import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata } from "../AlbumFormat";
 
 export var rules = {
+    // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
     "Aaron Copland" : {
         "AppalachianSpring" : {
             fixTrackName: /Appalachian Spring \(Ballet for Martha\): (.*)\.mp3/
@@ -90,6 +91,61 @@ export var rules = {
             fixTrackName: /Sagn, (.*).mp3/
         }
     },
+    "Arnold Schönberg" : {
+        "Erwartung[Boulez]" : {
+            fixTrackName: /- Erwartung, Scene \d+ (.*).mp3/
+        },
+        "Five Piano Pieces Op23" : {
+            firstTrackNumber: 4,
+            fixTrackName: /Five Piano Pieces, Op. 23 (.*).mp3/
+        },
+        "Five pieces for orchestra" : {
+            fixTrackName: /- Schoenberg - 5 pieces for orchestra Op 16 - (.*)\.mp3/
+        },
+        "Lied der Waldtaube[Boulez]" : {
+            firstTrackNumber: 30,
+            fixTrackName: /- (.*) \(Chamber Orchestra version\) .*.mp3/
+        },
+        "Ode to Napoleon Buonaparte" : {
+            firstTrackNumber: 7,
+            fixTrackName: /(Ode to Napoleon Buonaparte), Op. 41.mp3/
+        },
+        "Phantasy[Gould-Menuhin] Op47" : {
+            firstTrackNumber: 9,
+            fixTrackName: /- Schoenberg Phantasy Op47 - (.*).mp3/
+        },
+        "Piano Concerto" : {
+            fixTrackName: /- Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
+        },
+        // TODO fix duplication
+        "PianoConc Op42" : {
+            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
+        },
+        "Three Piano Pieces Op11" : {
+            fixTrackName: /Three Piano Pieces, Op. 11 (.*).mp3/
+        },
+        "Pierrot Lunaire[Boulez]" : {
+            firstTrackNumber: 9,
+            fixTrackName: /- Pierrot Lunaire, Part I+ (.*) \(.*\)\.mp3/
+        },
+        "Six Little Piano Pieces Op19" : {
+            firstTrackNumber: 9,
+            fixTrackName: /Six Little Piano Pieces, Op. 19 (.*).mp3/
+        },
+        "Suite for Piano Op25" : {
+            firstTrackNumber: 15,
+            fixTrackName: /Suite for Piano, Op. 25 (.*).mp3/
+        },
+        "Three Pieces for Orchestra" : {
+            firstTrackNumber: 7,
+            fixTrackName: /- Three Pieces for Orchestra, \d. (.*).mp3/
+        },
+        "Two Piano Pieces Op33" : {
+            firstTrackNumber: 20,
+            fixTrackName: /Two Piano Pieces, Op. 33- A & B (.*).mp3/
+        }
+    },
+    // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
     "Barber" : {
         "ViolinConc[Ehnes]" : {
             firstTrackNumber: 4,
@@ -250,6 +306,54 @@ export var rules = {
             fixTrackName: /- (.*)\.mp3/
         }
     },
+    // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+    "Camarón" : {
+        "Te Lo Dice Camarón" : {
+            fixTrackName: /- Camarón - (.*)\.mp3/
+        }
+    },
+    "Corelli" : {
+        "Conc 1 D" : {
+            fixAlbumTitle: concerto({num: 1, major:"D", op:[6,1]}),
+            fixTrackName: /- Concerto No.1 in D major [IV]+\.(.*)\.mp3/
+        },
+        "Conc 2 F" : {
+            firstTrackNumber: 8,
+            fixAlbumTitle: concerto({num: 2, major:"F", op:[6,2]}),
+            fixTrackName: /- Concerto No.2 in F -[IV]+- (.*)\.mp3/
+        },
+        "Conc 3 c" : {
+            firstTrackNumber: 12,
+            fixAlbumTitle: concerto({num: 3, minor:"C", op:[6,3]}),
+            fixTrackName: /- Concerto No.3 in C minor -[IV]+- (.*)\.mp3/
+        },
+        "Conc 4 D" : {
+            firstTrackNumber: 17,
+            fixAlbumTitle: concerto({num: 4, major:"D", op:[6,4]}),
+            fixTrackName: /- Concerto No.4 in D -[IV]+- (.*).mp3/
+        },
+        "Conc 5 B flat" : {
+            firstTrackNumber: 21,
+            fixAlbumTitle: concerto({num: 5, major:"Bb", op:[6,5]}),
+            fixTrackName: /- Concerto #5 in B Flat [IV]+\. (.*).mp3/
+        },
+        "Conc 6 F" : {
+            firstTrackNumber: 25,
+            fixAlbumTitle: concerto({num: 6, major:"F", op:[6,6]}),
+            fixTrackName: /- Concerto No.6 in F -[IV]+- (.*)\.mp3/
+        }
+    },
+    "Couperin" : {
+        "Two organ pieces" : {
+            firstTrackNumber: 6
+        }
+    },
+    "CPE Bach" : {
+        "Sonata Wq78" : {
+            firstTrackNumber: 14,
+            fixTrackName: /- CPE Bach - Sonata Wq78 - (.*)\.mp3/
+        }
+    },
     "Frédéric Chopin" : {
         "Ballades & Etudes" : {
             validation : ["skipUniqueTrackNameCheck"]
@@ -301,6 +405,7 @@ export var rules = {
            validation : ["skipUniqueTrackNameCheck"]
         },
     },
+    // DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDdd
     "Donizetti" : {
         "Lucia1" : {
             fixTrackName: /Lucia di Lammermoor (.*)\.mp3/
@@ -324,6 +429,7 @@ export var rules = {
             fixTrackName: /- Symphony 9 in E minor Op 95 New World - (.*)\.mp3/
         }
     },
+    // EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     "Elgar" : {
         "Cello" : {
             fixAlbumTitle: concerto({ for: "Cello", op:85, minor : "E" }),
@@ -340,12 +446,14 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         }
     },
+    // FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     "Furtwangler" : {
         "Adagio" : {
             firstTrackNumber: 5,
             fixTrackName: /- Furtwangler - (Adagio solemne).mp3/
         }
     },
+    // GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
     "Gershwin" : {
         "An American in Paris[Previn]" : {
             firstTrackNumber: 2
@@ -376,113 +484,7 @@ export var rules = {
             fixTrackName: /- Grigny - (.*)\.mp3/
         }
     },
-    "Mozart" : {
-        "Coronation Mass [Markevitch]": {
-            firstTrackNumber: 6,
-            fixTrackName: /Coronation Mass - (.*).mp3/
-        }
-    },
-    "Arnold Schönberg" : {
-        "Erwartung[Boulez]" : {
-            fixTrackName: /- Erwartung, Scene \d+ (.*).mp3/
-        },
-        "Five Piano Pieces Op23" : {
-            firstTrackNumber: 4,
-            fixTrackName: /Five Piano Pieces, Op. 23 (.*).mp3/
-        },
-        "Five pieces for orchestra" : {
-            fixTrackName: /- Schoenberg - 5 pieces for orchestra Op 16 - (.*)\.mp3/
-        },
-        "Lied der Waldtaube[Boulez]" : {
-            firstTrackNumber: 30,
-            fixTrackName: /- (.*) \(Chamber Orchestra version\) .*.mp3/
-        },
-        "Ode to Napoleon Buonaparte" : {
-            firstTrackNumber: 7,
-            fixTrackName: /(Ode to Napoleon Buonaparte), Op. 41.mp3/
-        },
-        "Phantasy[Gould-Menuhin] Op47" : {
-            firstTrackNumber: 9,
-            fixTrackName: /- Schoenberg Phantasy Op47 - (.*).mp3/
-        },
-        "Piano Concerto" : {
-            fixTrackName: /- Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
-        },
-        // TODO fix duplication
-        "PianoConc Op42" : {
-            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
-        },
-        "Three Piano Pieces Op11" : {
-            fixTrackName: /Three Piano Pieces, Op. 11 (.*).mp3/
-        },
-        "Pierrot Lunaire[Boulez]" : {
-            firstTrackNumber: 9,
-            fixTrackName: /- Pierrot Lunaire, Part I+ (.*) \(.*\)\.mp3/
-        },
-        "Six Little Piano Pieces Op19" : {
-            firstTrackNumber: 9,
-            fixTrackName: /Six Little Piano Pieces, Op. 19 (.*).mp3/
-        },
-        "Suite for Piano Op25" : {
-            firstTrackNumber: 15,
-            fixTrackName: /Suite for Piano, Op. 25 (.*).mp3/
-        },
-        "Three Pieces for Orchestra" : {
-            firstTrackNumber: 7,
-            fixTrackName: /- Three Pieces for Orchestra, \d. (.*).mp3/
-        },
-        "Two Piano Pieces Op33" : {
-            firstTrackNumber: 20,
-            fixTrackName: /Two Piano Pieces, Op. 33- A & B (.*).mp3/
-        }
-    },
-    "Camarón" : {
-        "Te Lo Dice Camarón" : {
-            fixTrackName: /- Camarón - (.*)\.mp3/
-        }
-    },
-    "Corelli" : {
-        "Conc 1 D" : {
-            fixAlbumTitle: concerto({num: 1, major:"D", op:[6,1]}),
-            fixTrackName: /- Concerto No.1 in D major [IV]+\.(.*)\.mp3/
-        },
-        "Conc 2 F" : {
-            firstTrackNumber: 8,
-            fixAlbumTitle: concerto({num: 2, major:"F", op:[6,2]}),
-            fixTrackName: /- Concerto No.2 in F -[IV]+- (.*)\.mp3/
-        },
-        "Conc 3 c" : {
-            firstTrackNumber: 12,
-            fixAlbumTitle: concerto({num: 3, minor:"C", op:[6,3]}),
-            fixTrackName: /- Concerto No.3 in C minor -[IV]+- (.*)\.mp3/
-        },
-        "Conc 4 D" : {
-            firstTrackNumber: 17,
-            fixAlbumTitle: concerto({num: 4, major:"D", op:[6,4]}),
-            fixTrackName: /- Concerto No.4 in D -[IV]+- (.*).mp3/
-        },
-        "Conc 5 B flat" : {
-            firstTrackNumber: 21,
-            fixAlbumTitle: concerto({num: 5, major:"Bb", op:[6,5]}),
-            fixTrackName: /- Concerto #5 in B Flat [IV]+\. (.*).mp3/
-        },
-        "Conc 6 F" : {
-            firstTrackNumber: 25,
-            fixAlbumTitle: concerto({num: 6, major:"F", op:[6,6]}),
-            fixTrackName: /- Concerto No.6 in F -[IV]+- (.*)\.mp3/
-        }
-    },
-    "Couperin" : {
-        "Two organ pieces" : {
-            firstTrackNumber: 6
-        }
-    },
-    "CPE Bach" : {
-        "Sonata Wq78" : {
-            firstTrackNumber: 14,
-            fixTrackName: /- CPE Bach - Sonata Wq78 - (.*)\.mp3/
-        }
-    },
+    // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     "Handel" : {
         "ConcertoInC" : {
             fixAlbumTitle: concerto_grosso({major:"C"}),
@@ -725,6 +727,7 @@ export var rules = {
             fixTrackName: /Symphony in E flat, Hob. I 99, [IV]+\. (.*)\.mp3/
         }
     },
+    // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     "Ives" : {
         "Hymns" : {
             firstTrackNumber: 5,
@@ -738,16 +741,28 @@ export var rules = {
             fixTrackName: /- Ives Symphony No.4 \d+ (.*)\.mp3/
         }
     },
+    // JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
     "Janáček" : {
         "Jenůfa1" : {
             fixTrackName: /Jenůfa Jednání I\. (.*)\.mp3/
         },
-        "Jenůfa Extras" : {
-            firstTrackNumber: 14
-        },
         "Jenůfa2" : {
             firstTrackNumber: 9,
             fixTrackName: /Jenůfa Jednání II\. (.*)\.mp3/
+        },
+        "Jenůfa3" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Jenůfa Jednání III\. (.*)\.mp3/
+        },
+        "Jenůfa Extras" : {
+            firstTrackNumber: 14
+        }
+    },
+    // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    "Mozart" : {
+        "Coronation Mass [Markevitch]": {
+            firstTrackNumber: 6,
+            fixTrackName: /Coronation Mass - (.*).mp3/
         }
     }
 };
