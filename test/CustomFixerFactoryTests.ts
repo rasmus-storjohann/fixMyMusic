@@ -177,23 +177,6 @@ describe("CustomFixerFactory", () => {
             chai.expect(theAlbum.tracks[0].title).to.equal("track title");
         });
 
-        it("returns function fixing track number", () => {
-            var rules = {
-                "artist name": {
-                    "the album name": {
-                        firstTrackNumber: 2
-                    }
-                }
-            };
-            var theAlbum = new Album("artist name", "the album name");
-            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 3};
-            theAlbum.push(theTrack);
-
-            fixTracks(theAlbum, rules);
-
-            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(2);
-        });
-
         it("composes fixer functions", () => {
             var rules = {
                 "artist name": {
@@ -204,25 +187,102 @@ describe("CustomFixerFactory", () => {
                 }
             };
             var theAlbum = new Album("artist name", "the album name");
-            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "This is the track title", trackNumber: 3};
+            var theTrack = { path: "", artist: "artist name", album: "the album name", title: "This is the track title", trackNumber: 2};
             theAlbum.push(theTrack);
 
             fixTracks(theAlbum, rules);
 
             chai.expect(theAlbum.tracks[0].title).to.equal("track title");
-            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(2);
+            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
         });
 
         describe("with firstTrackNumber option", () => {
             it ("adjusts the track number", () => {
+                var rules = {
+                    "artist name": {
+                        "the album name": {
+                            firstTrackNumber: 2
+                        }
+                    }
+                };
+                var theAlbum = new Album("artist name", "the album name");
+                var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2};
+                theAlbum.push(theTrack);
+
+                fixTracks(theAlbum, rules);
+
+                chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
             });
             it ("throws if the adjusted track number is less than one", () => {
+                var rules = {
+                    "artist name": {
+                        "the album name": {
+                            firstTrackNumber: 2
+                        }
+                    }
+                };
+                var theAlbum = new Album("artist name", "the album name");
+                var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 1};
+                theAlbum.push(theTrack);
+
+                chai.expect(() => {
+                    fixTracks(theAlbum, rules);
+                }).to.throw(Error, /fixing track number gave negative result/);
             });
             it ("throws on missing track", () => {
+                var rules = {
+                    "artist name": {
+                        "the album name": {
+                            firstTrackNumber: 2
+                        }
+                    }
+                };
+                var theAlbum = new Album("artist name", "the album name");
+                var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2};
+                theAlbum.push(theTrack);
+                theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 4};
+                theAlbum.push(theTrack);
+
+                chai.expect(() => {
+                    fixTracks(theAlbum, rules);
+                }).to.throw(Error, /missing track/);
             });
             it ("throws on duplicate track", () => {
+                var rules = {
+                    "artist name": {
+                        "the album name": {
+                            firstTrackNumber: 2
+                        }
+                    }
+                };
+                var theAlbum = new Album("artist name", "the album name");
+                var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2};
+                theAlbum.push(theTrack);
+                theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2};
+                theAlbum.push(theTrack);
+
+                chai.expect(() => {
+                    fixTracks(theAlbum, rules);
+                }).to.throw(Error, /duplicate track number/);
             });
             it ("handles multiple disks", () => {
+                var rules = {
+                    "artist name": {
+                        "the album name": {
+                            firstTrackNumber: 2
+                        }
+                    }
+                };
+                var theAlbum = new Album("artist name", "the album name");
+                var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2, disk: 3};
+                theAlbum.push(theTrack);
+                theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 1, disk: 4};
+                theAlbum.push(theTrack);
+
+                fixTracks(theAlbum, rules);
+
+                chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
+                chai.expect(theAlbum.tracks[1].trackNumber).to.equal(2);
             });
         });
     });

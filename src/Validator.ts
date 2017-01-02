@@ -21,6 +21,7 @@ export class Validator
         var rule = this.customFixerFactory.create(album);
         var validationOptions = (rule && rule.validation) || [];
 
+        album.sortTracks();
         this.validateTracks(album, validationOptions);
         this.validateTrackUniqueness(album, validationOptions);
         this.defaultValidateArtist(album);

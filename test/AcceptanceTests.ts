@@ -118,13 +118,13 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3")).is.true;
     });
 
-    it("supports disk starting at track number above one and spanning disks", () => {
+    it ("supports disk starting at track number above one and spanning disks", () => {
         shelljs.mkdir("-p", "testOutput/source/Janáček/Jenůfa2");
+        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 9 - Jenůfa_ Jednání II. Úvod.mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 10 - Jenůfa_ Jednání II. _Nechám ještě dveře otevřeny_ (Kostelnička).mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 11 - Jenůfa_ Jednání II. _Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 12 - Jenůfa_ Jednání II. _Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 13 - Jenůfa_ Jednání II. _Ale viděl jsem vcházet šohaje_ (Laca).mp3");
-        shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 1 - 9 - Jenůfa_ Jednání II. Úvod.mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 1 - Jenůfa_ Jednání II. _Co chvíla... co chvíla_ (Kostelnička).mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 2 - Jenůfa_ Jednání II. _Mamičko, mám těžkou hlavu_ (Jenůfa).mp3");
         shelljs.cp("test.mp3", "testOutput/source/Janáček/Jenůfa2/Disc 2 - 3 - Jenůfa_ Jednání II. _Kdo to je__ (Jenůfa).mp3");
