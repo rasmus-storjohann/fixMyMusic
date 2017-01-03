@@ -137,6 +137,7 @@ export class CustomFixerFactory
 
         if (specification.firstTrackNumber)
         {
+            var self = this;
             var fixTrackNumber = function(album: Album, logger: npmlog.NpmLog)
             {
                 var adjustment = 1 - specification.firstTrackNumber;
@@ -151,14 +152,10 @@ export class CustomFixerFactory
                     }
 
                     track.trackNumber += adjustment;
-                    track.disk = undefined;
                     var expectedTrackNumber = previousTrackNumber + 1;
+                    self.validateTrackNumber(track, expectedTrackNumber, logger);
 
-                    if (track.trackNumber < 1)                   throw new Error(track.title + ": fixing track number gave negative result of " + track.trackNumber);
-                    if (track.trackNumber < expectedTrackNumber) throw new Error(track.title + ": duplicate track number " + expectedTrackNumber);
-                    if (track.trackNumber > expectedTrackNumber) throw new Error(track.title + ": missing track number " + expectedTrackNumber);
-
-                    logger.verbose("SpecialFixTrackNumber", track.title  + ": setting track number to " + track.trackNumber);
+                    track.disk = undefined;
                     previousTrackNumber = track.trackNumber;
                 });
             };
@@ -174,5 +171,22 @@ export class CustomFixerFactory
         }
 
         return applyAllFixers;
+    }
+
+    private validateTrackNumber(track: AlbumTrack, expectedTrackNumber: number, logger: npmlog.NpmLog)
+    {
+        if (track.trackNumber < 1)
+        {
+            throw new Error(track.title + ": fixing track number gave negative result of " + track.trackNumber);
+        }
+        if (track.trackNumber < expectedTrackNumber)
+        {
+            throw new Error(track.title + ": duplicate track number " + expectedTrackNumber);
+        }
+        if (track.trackNumber > expectedTrackNumber)
+        {
+            throw new Error(track.title + ": missing track number " + expectedTrackNumber);
+        }
+        this.logger.verbose("SpecialFixTrackNumber", track.title  + ": setting track number to " + track.trackNumber);
     }
 }

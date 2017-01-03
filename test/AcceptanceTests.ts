@@ -132,16 +132,15 @@ describe("Acceptance tests", () => {
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Nechám ještě dveře otevřeny_ (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/02 Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje_ (Laca).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/06 Úvod.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/07 Co chvíla... co chvíla_ (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/08 Mamičko, mám těžkou hlavu_ (Jenůfa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Kdo to je__ (Jenůfa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/10 Tot' zrovna jde!_ (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/02 Nechám ještě dveře otevřeny (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku (Števa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje (Laca).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/06 Co chvíla... co chvíla (Kostelnička).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/07 Mamičko, mám těžkou hlavu (Jenůfa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3")).is.true;
+        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Tot' zrovna jde! (Kostelnička).mp3")).is.true;
     });
 
     // TODO throws if the first track of the second disk is missing

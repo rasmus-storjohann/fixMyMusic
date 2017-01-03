@@ -758,6 +758,11 @@ export var rules = {
             firstTrackNumber: 14
         }
     },
+    "Jan Garbarek" : {
+        "Officium" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        }
+    },
     // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     "Mozart" : {
         "Coronation Mass [Markevitch]": {

@@ -76,13 +76,11 @@ describe("Validator", () => {
             }).to.throw(Error, /Track number out of order, expected 1 but got <undefined>/);
         });
 
-        it("throws on tracks out of order", () => {
+        it("accepts tracks out of order", () => {
             musicTrack[0].trackNumber = 2;
             musicTrack[1].trackNumber = 1;
 
-            chai.expect(() => {
-                _theValidator.validate(createAlbum());
-            }).to.throw(Error, /Track number out of order/);
+            _theValidator.validate(createAlbum());
         });
 
         it("throws on missing tracks", () => {
