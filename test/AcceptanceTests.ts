@@ -143,8 +143,6 @@ describe("Acceptance tests", () => {
         chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Tot' zrovna jde! (Kostelnička).mp3")).is.true;
     });
 
-    // TODO throws if the first track of the second disk is missing
-
     it("sets mp3 tags", () => {
         shelljs.mkdir("-p", "testOutput/source/dummy artist/dummy album");
         shelljs.cp("test.mp3", "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
