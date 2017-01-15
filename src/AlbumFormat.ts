@@ -124,3 +124,4 @@ export function quartet(formatOptions?: any)  : Format { return buildFormat("Qua
 export function sonata(formatOptions?: any)   : Format { return buildFormat("Sonata", formatOptions); }
 export function suite(formatOptions?: any)    : Format { return buildFormat("Suite", formatOptions); }
 export function symphony(formatOptions?: any) : Format { return buildFormat("Symph", formatOptions); }
+export function trio(formatOptions?: any) : Format { return buildFormat("Trio", formatOptions); }
