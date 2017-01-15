@@ -664,7 +664,7 @@ export var rules = {
         fixTrackName: /Sonata for Violin and Piano in C minor, Op. 30 No. 2 [IV]+\. (.*)\.mp3/
     },
     "ViolinSonata8 Op30No3" : {
-        fixAlbumTitle: sonata({ for:"Violin", num : 8, op:[30,3], major: "G" }),
+        fixAlbumTitle: sonata({ for: "Violin", num : 8, op:[30,3], major: "G" }),
         fixTrackName: /Sonata for Violin and Piano in G major, Op. 30 No. 3 [IV]+\. (.*)\.mp3/
     },
     "ViolinSonata9 Op47 \"Kreutzer\"[Francescatti, Casadesus]" : {
