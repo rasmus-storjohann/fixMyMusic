@@ -32,8 +32,9 @@ export class TrackFactory
         var title = elements[elementCount - 1];
         var trackNumber: number;
         var disk: number;
+        var match: RegExpExecArray;
 
-        var match = /disk(\d+)/.exec(album);
+        match = /disk(\d+)/.exec(album);
         if (match)
         {
             this.validateElementCount(elementCount, 5, path);
@@ -42,18 +43,22 @@ export class TrackFactory
             disk = parseInt(match[1]);
         }
 
-        match = /Disc (\d+) - (\d+)( -)? (.*)/.exec(title);
-        if (match)
-        {
-            disk = parseInt(match[1]);
-            title = match[2] + " " + match[4];
-        }
-
-        match = /^(\d+)\.? *(.*)$/.exec(title);
-        if (match)
+        if (match = /^(\d+)\.? *(.*)$/.exec(title))
         {
             trackNumber = parseInt(match[1]);
             title = match[2];
+        }
+        else if (match = /^Disc (\d+) - (\d+)( -)? (.*)$/.exec(title))
+        {
+            disk = parseInt(match[1]);
+            trackNumber = parseInt(match[2]);
+            title = match[4];
+        }
+        else if (match = /d(\d+)t(\d+)\. (.*)/.exec(title))
+        {
+            disk = parseInt(match[1]);
+            trackNumber = parseInt(match[2]);
+            title = match[3];
         }
 
         return {

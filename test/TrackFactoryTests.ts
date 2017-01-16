@@ -94,6 +94,34 @@ describe("TrackFactory", () => {
         });
     });
 
+    describe("with track name containing disk id in d1t01 format", () => {
+        var _track: Track;
+        beforeEach(() =>
+        {
+            var path = "root/artist/album/d2t01. track.mp3";
+            _track = _theTrackFactory.createTrack(path);
+        });
+        it("Gets the artist name from path", () => {
+            chai.expect(_track.artist).equals("artist");
+        });
+
+        it("Gets the album name from path", () => {
+            chai.expect(_track.album).equals("album");
+        });
+
+        it("Gets the disk id from the path", () => {
+            chai.expect(_track.disk).equals(2);
+        });
+
+        it("Gets the track number from path", () => {
+            chai.expect(_track.trackNumber).equals(1);
+        });
+
+        it("Gets the track name from path", () => {
+            chai.expect(_track.title).equals("track.mp3");
+        });
+    });
+
     describe("with track number", () => {
         it("of just one digit", () => {
             var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");

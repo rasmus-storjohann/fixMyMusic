@@ -31,13 +31,16 @@ export class Validator
     {
         if (validationOptions.indexOf("skipTrackNumberCheck") >= 0) {
             this.logger.info("Validate", "Skipping track number check for ", "[" + album.artist + "][" + album.title + "]");
+            album.tracks.forEach((track) => {
+                this.logger.info("Skipped", "[" + album.artist + "][" + album.title + "][" + track.trackNumber + "][" + track.title + "]");
+            });
             return;
         }
 
         var index = 1;
         var numberPrefixLength: number;
         album.tracks.forEach((track) => {
-            this.logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.trackNumber + " " + track.title + "]");
+            this.logger.info("Validate", "[" + album.artist + "][" + album.title + "][" + track.trackNumber + "][" + track.title + "]");
 
             if (track.trackNumber != index)
             {
@@ -75,7 +78,8 @@ export class Validator
             if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title)) {
                 var suggestedSpecialHandler = "\"" + album.artist + " (as on disk!)\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
-                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\.mp3/\n" +
+                                              "        fixTrackName: /(\\d+) " + track.title + "(.*)\\.mp3/,\n" +
+                                              "        validation : [\"skipUniqueTrackNameCheck\"]\n" +
                                               "    }\n" +
                                               "}";
 
