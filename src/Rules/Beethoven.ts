@@ -58,16 +58,16 @@ export var rules = {
         firstTrackNumber: 5
     },
     "Mass in C Major" : {
-        fixTrackName: /- Mass in C Major (?:Op. 86 )?- (.*)\.mp3/
+        fixTrackName: /Mass in C Major (?:Op. 86 )?- (.*)\.mp3/
     },
     "PianoConc1" : {
         fixAlbumTitle: concerto({num:1, for:"Piano", major:"C", op:15 }),
-        fixTrackName: /- Klavierkonzert Nr. 1 C-dur, Op. 15 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Klavierkonzert Nr. 1 C-dur, Op. 15 [IV]+\. (.*)\.mp3/
     },
     "PianoConc2" : {
         firstTrackNumber: 4,
         fixAlbumTitle: concerto({num:2, for:"Piano", major:"B", op:19 }),
-        fixTrackName: /- Klavierkonzert Nr. 2 B-dur, Op. 19 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Klavierkonzert Nr. 2 B-dur, Op. 19 [IV]+\. (.*)\.mp3/
     },
     "PianoConc3" : {
         fixAlbumTitle: concerto({num:3, for:"Piano", minor:"C", op:37 }),
@@ -75,17 +75,17 @@ export var rules = {
     "PianoConc4" : {
         firstTrackNumber: 4,
         fixAlbumTitle: concerto({num:4, for:"Piano", major:"G", op:58 }),
-        fixTrackName: /- \d+\. (.*).mp3/
+        fixTrackName: /\d+\. (.*).mp3/
     },
     "PianoConc5" : {
         fixAlbumTitle: concerto({num:5, for:"Piano", major:"Eb", op:73 }),
     },
     "PianoConc5[Gould]" : {
         fixAlbumTitle: concerto({num:5, for:"Piano", major:"Eb", op:73, by:"Gould" }),
-        fixTrackName: /- Beethoven Piano Concerto 5 - \d+ - (.*).mp3/
+        fixTrackName: /Beethoven Piano Concerto 5 - \d+ - (.*).mp3/
     },
     "PianoTrio7[Richter] Op97 Archduke" : {
-        fixTrackName: /- Piano Trio No\.7 in B flat, Op\. 97 Archduke - \d+\. (.*).mp3/,
+        fixTrackName: /Piano Trio No\.7 in B flat, Op\. 97 Archduke - \d+\. (.*).mp3/,
         validation : ["skipUniqueTrackNameCheck"]
     },
     "Quartet1 [Tokyo]" : {
@@ -99,7 +99,7 @@ export var rules = {
     },
     "Quartet3 Op18No3 [Kodaly]" : {
         fixAlbumTitle: quartet({num:3, major:"D", op:[18,3], by:"Kodaly"}),
-        fixTrackName: /- Beethoven String Quartet in D Major, Op.18, No.3 - [IV]+\. (.*)\.mp3/
+        fixTrackName: /Beethoven String Quartet in D Major, Op.18, No.3 - [IV]+\. (.*)\.mp3/
     },
     "Quartet3 [Tokyo]" : {
         fixAlbumTitle: quartet({num:3, major:"D", op:[18,3], by:"Tokyo"}),
@@ -108,7 +108,7 @@ export var rules = {
     "Quartet4 Op18No4 [Kodaly]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: quartet({num:4, minor:"C", op:[18,4], by:"Kodaly"}),
-        fixTrackName: /- Beethoven String Quartet in C Minor, Op.18, No.4 - [IV]+\. (.*)\.mp3/
+        fixTrackName: /Beethoven String Quartet in C Minor, Op.18, No.4 - [IV]+\. (.*)\.mp3/
     },
     "Quartet4 [Tokyo]" : {
         firstTrackNumber: 5,
@@ -121,7 +121,7 @@ export var rules = {
     },
     "StringQuartet5 Op18No5" : {
         fixAlbumTitle: quartet({num:5, major:"A", op:[18,5] }),
-        fixTrackName: /- String quartet in A major, op 18, No.5; (.*)\.mp3/
+        fixTrackName: /String quartet in A major, op 18, No.5; (.*)\.mp3/
     },
     "Quartet6 [Tokyo]" : {
         firstTrackNumber: 9,
@@ -177,7 +177,7 @@ export var rules = {
     // TODO make second versions with Grosse Fuge as last movement
     "StringQuartetOp130[Amadeus]" : {
         fixAlbumTitle: quartet({num:13, major:"Bb", op:130, /*subTitle:"Große Fuge",*/ by:"Amadeus"}),
-        fixTrackName: /- String quartet Op 130 - \d+ - (.*)\.mp3/
+        fixTrackName: /String quartet Op 130 - \d+ - (.*)\.mp3/
     },
     "Quartet14[Lindsay]" : {
         fixAlbumTitle: quartet({num:14, minor:"C#", op:131, by:"Lindsay"}),
@@ -211,13 +211,13 @@ export var rules = {
     "StringQuartetOp135[Amadeus]" : {
         firstTrackNumber: 8,
         fixAlbumTitle: quartet({num:16, major:"F", op:135, by:"Amadeus"}),
-        fixTrackName: /- String quartet Op 135 - \d+ - (.*)\.mp3/
+        fixTrackName: /String quartet Op 135 - \d+ - (.*)\.mp3/
     },
     // Quartet16 F Op135 [Bernstein], they're ogg files
     "Quintet Op16[Richter]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: "Quintet [Richter] in Eb Op.16",
-        fixTrackName: /- Quintet in E flat, Op. 16 - \d+\. (.*)\.mp3/,
+        fixTrackName: /Quintet in E flat, Op. 16 - \d+\. (.*)\.mp3/,
         validation : ["skipUniqueTrackNameCheck"]
     },
     "Quintet [Tokyo]" : {
@@ -385,7 +385,7 @@ export var rules = {
     },
     "Sonata18[Richter]" : {
         fixAlbumTitle: sonata({ num : 18, op:[31,3], major : "Eb", by: "Richter" }),
-        fixTrackName: /- \d+\. (.*)\.mp3/
+        fixTrackName: /\d+\. (.*)\.mp3/
     },
     "Sonata19[Goode]" : {
         fixAlbumTitle: sonata({ num : 19, op:49, minor : "G", by: "Goode" })
@@ -416,7 +416,7 @@ export var rules = {
     },
     "Sonata24[Demidenko]" : {
         fixAlbumTitle: sonata({ num : 24, subTitle: "à Thérèse", op:78, minor : "F#", by: "Demidenko" }),
-        fixTrackName: /- Sonata24 - (.*).mp3/
+        fixTrackName: /Sonata24 - (.*).mp3/
     },
     "Sonata24[Goode]" : {
         firstTrackNumber: 5,
@@ -445,7 +445,7 @@ export var rules = {
     "Sonata28[Richter]" : {
         firstTrackNumber: 7,
         fixAlbumTitle: sonata({ num : 28, op:101, major : "A", by: "Richter" }),
-        fixTrackName: /- Sonata No.28 in A, Op. 101 - \d+\. (.*)\.mp3/
+        fixTrackName: /Sonata No.28 in A, Op. 101 - \d+\. (.*)\.mp3/
     },
     "Sonata29[Goode]" : {
         firstTrackNumber: 4,
@@ -491,7 +491,7 @@ export var rules = {
     },
     "Symph1[Norrington]" : {
         fixAlbumTitle: symphony({ num : 1, op:21, major : "C", by: "Norrington" }),
-        fixTrackName: /- Symphony No. 1 in C major, Op. 21 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No. 1 in C major, Op. 21 [IV]+\. (.*)\.mp3/
     },
     "Symph2[Karajan]" : {
         fixAlbumTitle: symphony({ num : 2, op:36, major : "D", by: "Karajan" }),
@@ -499,7 +499,7 @@ export var rules = {
     },
     "Symph2[Norrington]" : {
         fixAlbumTitle: symphony({ num : 2, op:36, major : "D", by: "Norrington" }),
-        fixTrackName: /- Symphony No. 2 in D major, Op. 36 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No. 2 in D major, Op. 36 [IV]+\. (.*)\.mp3/
     },
     "Symph3[Haitink]" : {
         fixAlbumTitle: symphony({ num : 3, subTitle:"Eroica", op:55, major : "Eb", by: "Haitink" }),
@@ -513,7 +513,7 @@ export var rules = {
     "Symph3[Norrington]" : {
         firstTrackNumber: 2,
         fixAlbumTitle: symphony({ num : 3, subTitle:"Eroica", op:55, major : "Eb", by: "Norrington" }),
-        fixTrackName: /- Symphony No.3 In E Flat Major, Op.55 (.*)\.mp3/
+        fixTrackName: /Symphony No.3 In E Flat Major, Op.55 (.*)\.mp3/
     },
     "Symph4[Karajan]" : {
        firstTrackNumber: 5,
@@ -522,11 +522,11 @@ export var rules = {
    },
    "Symph4[Norrington]" : {
        fixAlbumTitle: symphony({ num : 4, op:60, major : "Bb", by: "Norrington" }),
-       fixTrackName: /- Symphony No. 4 in B-flat major, Op. 60 [IV]+\. (.*)\.mp3/
+       fixTrackName: /Symphony No. 4 in B-flat major, Op. 60 [IV]+\. (.*)\.mp3/
    },
    "Symph5[Furtwangler]" : {
        fixAlbumTitle: symphony({ num : 5, op:67, minor : "c", by: "Furtwangler" }),
-       fixTrackName: /- Beethoven Symph 5 - \d+ - (.*).mp3/
+       fixTrackName: /Beethoven Symph 5 - \d+ - (.*).mp3/
    },
    "Symph5[Karajan]" : {
        fixAlbumTitle: symphony({ num : 5, op:67, minor : "c", by: "Karajan" }),
@@ -534,16 +534,16 @@ export var rules = {
     },
     "Symph5[Kleiber]" : {
         fixAlbumTitle: symphony({ num : 5, op:67, minor : "c", by: "Kleiber" }),
-        fixTrackName: /- Symphonie No. 5 C-moll, Op. 67 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphonie No. 5 C-moll, Op. 67 [IV]+\. (.*)\.mp3/
     },
     "Symph5[Norrington]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: symphony({ num : 5, op:67, minor : "c", by: "Norrington" }),
-        fixTrackName: /- Symphony No. 5 in C minor, Op. 67 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No. 5 in C minor, Op. 67 [IV]+\. (.*)\.mp3/
     },
     "Symph6[Gould]" : {
         fixAlbumTitle: symphony({ num : 6, op:68, major : "F", subTitle:"Pastoral", by: "Gould" }),
-        fixTrackName: /- Symphony No.6 Op.68 Pastoral [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No.6 Op.68 Pastoral [IV]+\. (.*)\.mp3/
     },
     "Symph6[Karajan]" : {
         firstTrackNumber: 5,
@@ -553,7 +553,7 @@ export var rules = {
     "Symph6[Norrington]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: symphony({ num : 6, op:68, major : "F", subTitle:"Pastoral", by: "Norrington" }),
-        fixTrackName: /- Symphony No. 6 in F major, Op. 68 Pastoral [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No. 6 in F major, Op. 68 Pastoral [IV]+\. (.*)\.mp3/
     },
     "Symph7[Karajan]" : {
         fixAlbumTitle: symphony({ num : 7, op:92, major : "A", by: "Karajan" }),
@@ -562,12 +562,12 @@ export var rules = {
     "Symph7[Kleiber]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: symphony({ num : 7, op:92, major : "A", by: "Kleiber" }),
-        fixTrackName: /- Symphonie No. 7 A-dur, Op. 92 [IV]+\. (.*).mp3/
+        fixTrackName: /Symphonie No. 7 A-dur, Op. 92 [IV]+\. (.*).mp3/
     },
     "Symph7[Norrington]" : {
         firstTrackNumber: 3,
         fixAlbumTitle: symphony({ num : 7, op:92, major : "A", by: "Norrington" }),
-        fixTrackName: /- Symphony No.7 in A [Mm]ajor, op.92 - [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No.7 in A [Mm]ajor, op.92 - [IV]+\. (.*)\.mp3/
     },
     "Symph8[Karajan]" : {
         firstTrackNumber: 5,
@@ -578,16 +578,16 @@ export var rules = {
     "Symph8[Norrington]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: symphony({ num : 8, op:93, major : "F", by: "Norrington" }),
-        fixTrackName: /- Symphony No. 8 in F major, Op. 93 [IV]+\. (.*)\.mp3/,
+        fixTrackName: /Symphony No. 8 in F major, Op. 93 [IV]+\. (.*)\.mp3/,
         validation : ["skipUniqueTrackNameCheck"]
     },
     "Symph9[Furtwangler]" : {
         fixAlbumTitle: symphony({ num : 9, op:125, minor: "D", by: "Furtwangler" }),
-        fixTrackName: /- Symphony No. 9 in D minor, Op. 125 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphony No. 9 in D minor, Op. 125 [IV]+\. (.*)\.mp3/
     },
     "Symph9[Karajan]" : {
         fixAlbumTitle: symphony({ num : 9, op:125, minor: "D", by: "Karajan" }),
-        fixTrackName: /- Symphonie No. 9 d-Moll, Op. 125 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Symphonie No. 9 d-Moll, Op. 125 [IV]+\. (.*)\.mp3/
     },
     "ViolinSon 9 Kreutzer" : {
         firstTrackNumber: 5,
@@ -609,7 +609,7 @@ export var rules = {
     },
     "ViolinConcerto" : {
         fixAlbumTitle: concerto({for: "Violin", major: "D", op:61}),
-        fixTrackName: /- Konzert für Violine und Orchester in D-dur, op. 61 [IV]+\. (.*)\.mp3/
+        fixTrackName: /Konzert für Violine und Orchester in D-dur, op. 61 [IV]+\. (.*)\.mp3/
     },
     "ViolinSonata1 Op12No1" : {
         fixAlbumTitle: sonata({ for:"Violin", num : 1, op:[12,1], major: "D" }),
@@ -618,7 +618,7 @@ export var rules = {
     "ViolinSonata10 Op96[Francescatti, Casadesus]" : {
         firstTrackNumber: 8,
         fixAlbumTitle: sonata({ for:"Violin", num : 10, op:96, major: "G", by:"Francescatti, Casadesus" }),
-        fixTrackName: /- Violinsonate No.10 G-dur op. 96 - (.*)\.mp3/
+        fixTrackName: /Violinsonate No.10 G-dur op. 96 - (.*)\.mp3/
     },
     "ViolinSonata10 Op96" : {
         firstTrackNumber: 7,
@@ -628,7 +628,7 @@ export var rules = {
     "ViolinSonata10[Gould-Menuhin]" : {
        firstTrackNumber: 5,
        fixAlbumTitle: sonata({ for:"Violin", num : 10, op:96, major: "G", by:"Gould, Menuhin" }),
-       fixTrackName: /- Beethoven ViolinSonata Op96 - (.*)\.mp3/
+       fixTrackName: /Beethoven ViolinSonata Op96 - (.*)\.mp3/
    },
    "ViolinSonata2 Op12No2" : {
         firstTrackNumber: 4,
@@ -651,7 +651,7 @@ export var rules = {
     },
     "ViolinSonata5 Op24[Francescatti, Casadesus]" : {
         fixAlbumTitle: sonata({ for:"Violin", num : 5, op:24, major: "F", subTitle:"Frühling", by:"Francescatti, Casadesus" }),
-        fixTrackName: /- Violinsonate No.5 F-dur op. 24 \'Frühling\' - (.*).mp3/
+        fixTrackName: /Violinsonate No.5 F-dur op. 24 \'Frühling\' - (.*).mp3/
     },
     "ViolinSonata6 Op30No1" : {
         firstTrackNumber: 5,
@@ -670,7 +670,7 @@ export var rules = {
     "ViolinSonata9 Op47 \"Kreutzer\"[Francescatti, Casadesus]" : {
         firstTrackNumber: 5,
         fixAlbumTitle: sonata({ for:"Violin", num : 9, op:47, major: "A", subTitle:"Kreutzer", by:"Francescatti, Casadesus" }),
-        fixTrackName: /- Violinsonate No.9 A-dur op. 47 \'Kreutzer\' - (.*)\.mp3/
+        fixTrackName: /Violinsonate No.9 A-dur op. 47 \'Kreutzer\' - (.*)\.mp3/
     },
     "ViolinSonata9 Op47 \"Kreutzer\"" : {
         firstTrackNumber: 4,

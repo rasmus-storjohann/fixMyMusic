@@ -43,7 +43,7 @@ export class TrackFactory
             disk = parseInt(match[1]);
         }
 
-        if (match = /^(\d+)\.? *(.*)$/.exec(title))
+        if (match = /^(\d+)[ \.-]*(.*)$/.exec(title))
         {
             trackNumber = parseInt(match[1]);
             title = match[2];
