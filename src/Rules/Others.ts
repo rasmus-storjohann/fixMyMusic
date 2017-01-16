@@ -200,6 +200,16 @@ export var rules = {
             firstTrackNumber: 8
         }
     },
+    "Billy Joel" : {
+        "Piano Man: The Very Best of Billy Joel" : {
+            fixTrackName: /Billy Joel - (.*)\.mp3/
+        }
+    },
+    "Bizet" : {
+        "CarmenSuite" : {
+            fixTrackName: /Carmen Suite No. \d+: (.*)\.mp3/
+        }
+    },
     "Brahms" : {
         "Drei Gesänge" : {
             fixTrackName: /- Drei Gesänge-I+\. (.*)\.mp3/
@@ -354,6 +364,13 @@ export var rules = {
             fixTrackName: /- CPE Bach - Sonata Wq78 - (.*)\.mp3/
         }
     },
+
+    "Charles-François Gounod" : {
+        "Messe Solennelle de Sainte Cécile - St. Cecilia Mass - Cäcilienmesse" : {
+            fixTrackName: /Messe Solennelle de Sainte Cécile: (?:[IVX]+\. )?(.*)\.mp3/
+        }
+    },
+
     "Frédéric Chopin" : {
         "Ballades & Etudes" : {
             validation : ["skipUniqueTrackNameCheck"]
@@ -476,6 +493,30 @@ export var rules = {
     "Granados" : {
         "Pieces" : {
             firstTrackNumber: 7
+        }
+    },
+    "Grieg" : {
+        "From_Holberg's_Time" : {
+            firstTrackNumber: 9,
+            fixTrackName: /From Holberg's Time, op. 40: [IV]+\. (.*)\.mp3/
+        },
+        "PeerGynt1" : {
+            fixTrackName: /Peer Gynt Suite no. 1, op. 46: [IV]+\. (.*)\.mp3/
+        },
+        "PeerGynt2" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Peer Gynt Suite no. 2, op. 55: [IV]+\. (.*)\.mp3/
+        },
+        "PianoConcerto[Richter]" : {
+            fixTrackName: /Piano concerto a minor op 16 - Richter - (.*)\.mp3/
+        },
+        "Three psalms" : {
+            firstTrackNumber: 7,
+            fixTrackName: /Psalms - (.*)\.mp3/
+        },
+        "ViolinSonata" : {
+            firstTrackNumber: 4,
+            fixTrackName: /ViolinSonata G major Op 13 - (.*)\.mp3/
         }
     },
     "Grigny" : {
@@ -764,6 +805,11 @@ export var rules = {
         }
     },
     // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+    "In_the_country" : {
+        "Losing stones, collecting bones" : {
+            fixTrackName: /In the country - (.*)\.mp3/
+        }
+    },
     "Ives" : {
         "Hymns" : {
             firstTrackNumber: 5,
@@ -780,6 +826,11 @@ export var rules = {
         }
     },
     // JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+    "Jackie_Treehorn" : {
+        "We are Jackie Treehorn" : {
+            fixTrackName: /Jackie Treehorn - (.*)\.mp3/
+        }
+    },
     "Janáček" : {
         "Jenůfa1" : {
             fixTrackName: /Jenůfa Jednání I\. (.*)\.mp3/
@@ -845,6 +896,38 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         }
     },
+    "Karkwa" : {
+        "Les Chemins de verre" : {
+            fixTrackName: /Karkwa - (.*)\.mp3/
+        }
+    },
+    "Kayhan Kalhor" : {
+        "Ali Akbar Moradi" : {
+            fixTrackName: /Kayhan Kalhor - (.*)\.mp3/
+        }
+    },
+    "Knut Reiersrud" : {
+        "Himmelskip" : {
+            fixTrackName: /Knut Reiersrud - (.*)\.mp3/
+        }
+    },
+    "Kristorn" : {
+        "69" : {
+            fixTrackName: /Kriston - 69-\d+ (.*)\.mp3/
+        }
+    },
+    // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+    "Lisa LeBlanc" : {
+        "Lisa LeBlanc" : {
+            fixTrackName: /Lisa LeBlanc - (.*)\.mp3/
+        }
+    },
+    "Liszt (as on disk!)" : {
+        "PianoConcerto2[Brendel]" : {
+            firstTrackNumber: 6,
+            fixTrackName: /List - Piano concerto No 2 in A major - (.*)\.mp3/
+        }
+    },
     // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     "Mahler" : {
         "Symph8" : {
@@ -867,8 +950,34 @@ export var rules = {
     "Medtner" : {
         "SonateOp11" : {
             firstTrackNumber: 7,
-            fixTrackName: / - Sonaten-Triade op\. 11 - Nr\. \d (.*)\.mp3/
+            fixTrackName: /- (?:Sonaten-Triade op\. 11 - )?Nr\. \d (.*)\.mp3/
+        },
+        "Zwei Märchen" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Zwei Märchen op. 8 - I+\. (.*)\.mp3/
+        },
+    },
+    "Maurice Jarre" : {
+        "Lawrence of Arabia Soundtrack" : {
+            fixTrackName: /Maurice Jarre - (.*)\.mp3/
         }
+    },
+    "Miles Davis" : {
+        "Ascenseur pour l'Échafaud" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Dingo" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Live at Montreux" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Music From Siesta" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "We Want Miles" : {
+           validation : ["skipUniqueTrackNameCheck"]
+       }
     },
     "Mozart" : {
         "Coronation Mass [Markevitch]": {
