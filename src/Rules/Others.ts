@@ -930,10 +930,89 @@ export var rules = {
     },
     // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     "Mahler" : {
-        "Symph8" : {
-            // TODO can do better with the two sections here
-            fixTrackName: /Symphony No. 8 in E-flat major, Symphony of a Thousand (?:I\. Hymnus Veni, Creator Spiritus|II\. Final Scene from Faust II) [a-z]\. (.*)\.mp3/
-        }
+        "Fahrenden Gesellen[Ludwig]" : {
+            fixTrackName: /Lieder eines Fahrenden Gesellen - (.*)\.mp3/,
+        },
+        "Five Songs[Ludwig]" : {
+            firstTrackNumber: 10
+        },
+        "Kindertotenlieder[Ludwig]" : {
+           firstTrackNumber: 5,
+           fixTrackName: /Kindertotenlieder - (.*)\.mp3/
+       },
+       "Symph1[Chailly]" : {
+            fixTrackName: /Symphony No. 1 in D major: [IV]+\. (.*)\.mp3/
+        },
+        "Symph1[Haitink]" : {
+            fixTrackName: /Symphony No. 1 in D Titan [IV]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph2[Chailly]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Symphony No. 2 in C minor: [IVi\-]+\. (.*)\.mp3/
+        },
+        "Symph2[Haitink]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Symphony No. 2 in C minor Resurrection [IV]+\. (.*)\.mp3/
+        },
+        "Symph3[Chailly]" : {
+            fixTrackName: /Symphony No. 3 in D minor: [IV]+\. (.*)\.mp3/
+        },
+        "Symph3[Haitink]" : {
+            fixTrackName: /Symphony No. 3 in D minor [IV]+\. Part I+\. (.*)\.mp3/,
+        },
+        "Symph4[Chailly]" : {
+            firstTrackNumber: 2,
+            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
+        },
+        "Symph4[Haitink]" : {
+            firstTrackNumber: 2,
+            fixTrackName: /Symphony No. 4 in G major [IV]+\. (.*)\.mp3/
+        },
+        "Symph4[Solti]" : {
+            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
+        },
+        "Symph5[Chailly]" : {
+            fixTrackName: /Symphony No. 5 in C-sharp minor: [IV]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph5[Haitink]" : {
+            fixTrackName: /Symphony No. 5 in C-sharp minor [IV]+\. Part I+\. (.*)\.mp3/
+        },
+        "Symph6[Chailly]" : {
+            fixTrackName: /Symphony No. 6 in A minor: [IV]+\. (.*)\.mp3/
+        },
+        "Symph6[Haitink]" : {
+            firstTrackNumber: 2,
+            fixTrackName: /Symphony No. 6 in A minor [IV]+\. (.*)\.mp3/
+        },
+        "Symph7[Chailly]" : {
+            firstTrackNumber: 2,
+            fixTrackName: /Symphony No. 7 in E minor: [IV]+\. (.*)\.mp3/
+        },
+        "Symph7[Haitink]" : {
+            fixTrackName: /Symphony No. 7 in E minor [IV]+\. (.*)\.mp3/
+        },
+        "Symph8[Chailly]" : {
+            firstTrackNumber: 4,
+            fixTrackName: /Symphony No. 8 in E-flat major: [IVivx\-]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph8[Haitink]" : {
+            fixTrackName: /Symphony no. 8 in E-flat major "Symphony of a Thousand": Teil \d: (.*)\.mp3/
+        },
+        "Symph8[Järvi]" : {
+            fixTrackName: /Symphony No. 8 in E-flat major, Symphony of a Thousand (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph9[Chailly]" : {
+            fixTrackName: /Symphony No. 9 in D major: [IV]+\. (.*)\.mp3/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Symph9[Haitink]" : {
+           firstTrackNumber: 2,
+           fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)\.mp3/
+       }
     },
     "Malcolm Arnold" : {
         "Symph1":{
@@ -979,10 +1058,13 @@ export var rules = {
            validation : ["skipUniqueTrackNameCheck"]
        }
     },
-    "Mozart" : {
-        "Coronation Mass [Markevitch]": {
-            firstTrackNumber: 6,
-            fixTrackName: /Coronation Mass - (.*).mp3/
+    "Moussorgsky" : {
+        "Pictures (original)" : {
+            firstTrackNumber: 16,
+            fixTrackName: /Pictures at an exhibition - Original version \d+\. (.*)\.mp3/
+        },
+        "Pictures (orchestral)" : {
+            fixTrackName: /Pictures at an exhibition - Orchestral version by Ravel \d+\. (.*)\.mp3/
         }
     }
 };
