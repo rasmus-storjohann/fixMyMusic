@@ -42,7 +42,7 @@ describe("CustomFixerFactory", () => {
             };
             var customFixer = buildFixer("artist name", "the original album name", rules);
 
-            chai.expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV 131");
+            chai.expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV.131");
         });
 
         describe("with valid validation options as strings", () => {

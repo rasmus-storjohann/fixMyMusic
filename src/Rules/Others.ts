@@ -941,75 +941,98 @@ export var rules = {
            fixTrackName: /Kindertotenlieder - (.*)\.mp3/
        },
        "Symph1[Chailly]" : {
-            fixTrackName: /Symphony No. 1 in D major: [IV]+\. (.*)\.mp3/
+           fixAlbumTitle: symphony({ num : 1, subTitle:"Titan", major : "D", by: "Chailly" }),
+           fixTrackName: /Symphony No. 1 in D major: [IV]+\. (.*)\.mp3/
         },
         "Symph1[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 1, subTitle:"Titan", major : "D", by: "Haitink" }),
             fixTrackName: /Symphony No. 1 in D Titan [IV]+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph2[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 2, subTitle:"Resurrection", minor : "C", by: "Chailly" }),
             firstTrackNumber: 5,
             fixTrackName: /Symphony No. 2 in C minor: [IVi\-]+\. (.*)\.mp3/
         },
         "Symph2[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 2, subTitle:"Resurrection", minor : "C", by: "Haitink" }),
             firstTrackNumber: 5,
             fixTrackName: /Symphony No. 2 in C minor Resurrection [IV]+\. (.*)\.mp3/
         },
         "Symph3[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 3, minor : "D", by: "Chailly" }),
             fixTrackName: /Symphony No. 3 in D minor: [IV]+\. (.*)\.mp3/
         },
         "Symph3[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 3, minor : "D", by: "Haitink" }),
             fixTrackName: /Symphony No. 3 in D minor [IV]+\. Part I+\. (.*)\.mp3/,
         },
         "Symph4[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 4, major: "G", by: "Chailly" }),
             firstTrackNumber: 2,
             fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
         },
         "Symph4[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 4, major: "G", by: "Haitink" }),
             firstTrackNumber: 2,
             fixTrackName: /Symphony No. 4 in G major [IV]+\. (.*)\.mp3/
         },
         "Symph4[Solti]" : {
+            fixAlbumTitle: symphony({ num : 4, major: "G", by: "Solti" }),
             fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
         },
+        "Symph5[Barbirolli]" : {
+            fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Barbirolli" })
+        },
         "Symph5[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Chailly" }),
             fixTrackName: /Symphony No. 5 in C-sharp minor: [IV]+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph5[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Haitink" }),
             fixTrackName: /Symphony No. 5 in C-sharp minor [IV]+\. Part I+\. (.*)\.mp3/
         },
         "Symph6[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 6, subTitle:"Tragic", minor : "A", by: "Chailly" }),
             fixTrackName: /Symphony No. 6 in A minor: [IV]+\. (.*)\.mp3/
         },
         "Symph6[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 6, subTitle:"Tragic", minor : "A", by: "Haitink" }),
             firstTrackNumber: 2,
             fixTrackName: /Symphony No. 6 in A minor [IV]+\. (.*)\.mp3/
         },
         "Symph7[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 7, minor : "E", by: "Chailly" }),
             firstTrackNumber: 2,
             fixTrackName: /Symphony No. 7 in E minor: [IV]+\. (.*)\.mp3/
         },
         "Symph7[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 7, minor : "E", by: "Haitink" }),
             fixTrackName: /Symphony No. 7 in E minor [IV]+\. (.*)\.mp3/
         },
         "Symph8[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Chailly" }),
             firstTrackNumber: 4,
             fixTrackName: /Symphony No. 8 in E-flat major: [IVivx\-]+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph8[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Haitink" }),
             fixTrackName: /Symphony no. 8 in E-flat major "Symphony of a Thousand": Teil \d: (.*)\.mp3/
         },
         "Symph8[Järvi]" : {
+            fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Järvi" }),
             fixTrackName: /Symphony No. 8 in E-flat major, Symphony of a Thousand (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph9[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 9, major : "D", by: "Chailly" }),
             fixTrackName: /Symphony No. 9 in D major: [IV]+\. (.*)\.mp3/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph9[Haitink]" : {
+            fixAlbumTitle: symphony({ num : 9, major : "D", by: "Haitink" }),
            firstTrackNumber: 2,
            fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)\.mp3/
        }

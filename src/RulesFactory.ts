@@ -13,6 +13,7 @@ export class RulesFactory
 
         allTheRules["Bach JS"] = BachJs.rules;
         allTheRules["Beethoven"] = Beethoven.rules;
+        allTheRules["Mozart"] = Mozart.rules;
 
         return allTheRules;
     };

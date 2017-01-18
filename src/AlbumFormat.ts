@@ -90,14 +90,19 @@ function buildFormat(form: string, formatOptions?: any) : Format {
                 result.opus_prefix = "Op.";
                 break;
 
+                case "K":
+                result.opus = value;
+                result.opus_prefix = "K.";
+                break;
+
                 case "BWV":
                 result.opus = value;
-                result.opus_prefix = "BWV ";
+                result.opus_prefix = "BWV.";
                 break;
 
                 case "HWV":
                 result.opus = value;
-                result.opus_prefix = "HWV ";
+                result.opus_prefix = "HWV.";
                 break;
 
                 case "num":

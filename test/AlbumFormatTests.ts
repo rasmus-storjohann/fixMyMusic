@@ -69,7 +69,13 @@ describe("Album format specification", () => {
     it("can set BWV number", () => {
         var result = symphony( { BWV : 12 } );
         chai.expect(result.opus).to.equal(12);
-        chai.expect(result.opus_prefix).to.equal("BWV ");
+        chai.expect(result.opus_prefix).to.equal("BWV.");
+    });
+
+    it("can set K number", () => {
+        var result = symphony( { K : 12 } );
+        chai.expect(result.opus).to.equal(12);
+        chai.expect(result.opus_prefix).to.equal("K.");
     });
 
     it("can set subtitle", () => {
@@ -105,7 +111,7 @@ describe("Album format specification", () => {
 
         it("with BWV number", () => {
             var result = cantata( { subTitle: "Der Himmel lacht! die Erde jubilieret", BWV : 31, by: "Norrington" } ).toString();
-            chai.expect(result).to.equal("Cantata [Norrington] \"Der Himmel lacht! die Erde jubilieret\" BWV 31");
+            chai.expect(result).to.equal("Cantata [Norrington] \"Der Himmel lacht! die Erde jubilieret\" BWV.31");
         });
 
         it("with minor key", () => {
