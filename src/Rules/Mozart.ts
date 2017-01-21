@@ -29,6 +29,9 @@ export var rules = {
         firstTrackNumber: 12,
         fixTrackName: /(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act II, Scene [IVXd]+\. )?(?:Anhang\. )?(?:No\. [\db]+ )?(.*)\.mp3/
     },
+    "Eine kleine Nachtmusik K525 [Bohm]" : {
+        fixTrackName: /Eine kleine Nachtmusik K525 - (.*)\.mp3/
+    },
     "FantasieK475" : {
         firstTrackNumber: 7
     },
@@ -113,6 +116,18 @@ export var rules = {
     },
     "RondoK373" : {
        firstTrackNumber: 11
+    },
+    "Serenata Notturna KV239 [Bohm]" : {
+        firstTrackNumber: 5,
+        fixTrackName: /Serenata Notturna KV239 - (.*)\.mp3/
+    },
+    "Sinfornia Concertante K364 [Bohm]" : {
+        firstTrackNumber: 8,
+        fixTrackName: /Sinfornia Concertante K364 - (.*)\.mp3/
+    },
+    "Sinfonia Concertante K364 [who]" : {
+        firstTrackNumber: 7,
+        fixTrackName: /Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\. (.*)\.mp3/
     },
     "SonataK46d" : {
         //fixAlbumTitle: sonata({ K: 46, major: "C" }),

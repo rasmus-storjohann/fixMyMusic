@@ -68,6 +68,10 @@ export class CommandFactory
     private buildTrackName(track: AlbumTrack) : string
     {
         var title = track.title;
+        if (!title)
+        {
+            throw new Error(track.path + ": title is null");
+        }
         var index = title.indexOf(".mp3");
         if (index !== -1)
         {

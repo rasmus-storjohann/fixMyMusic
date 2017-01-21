@@ -166,6 +166,12 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         }
     },
+    "Bellini" : {
+        "I Puritani3 [Callas]" : {
+            firstTrackNumber: 11,
+            fixTrackName: /Act 3 - (.*)\.mp3/
+        }
+    },
     "Berg" : {
         "Lulu Suite" : {
             firstTrackNumber: 10,
@@ -301,6 +307,10 @@ export var rules = {
         },
         "Violin Conc 1" : {
             fixTrackName: /Concerto No.1 (.*)\.mp3/
+        },
+        "ViolinConcert[Menuhin]" : {
+            firstTrackNumber: 4,
+            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)\.mp3/
         }
     },
     "Bruckner" : {
@@ -1033,9 +1043,13 @@ export var rules = {
         },
         "Symph9[Haitink]" : {
             fixAlbumTitle: symphony({ num : 9, major : "D", by: "Haitink" }),
-           firstTrackNumber: 2,
-           fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)\.mp3/
-       }
+            firstTrackNumber: 2,
+            fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)\.mp3/
+        },
+        "Symph10[Chailly]" : {
+            fixAlbumTitle: symphony({ num : 10, major : "F#", by: "Chailly/Deryck Cooke" }),
+            fixTrackName: /Symphony no. 10: [IV]+\. (.*)\.mp3/
+        }
     },
     "Malcolm Arnold" : {
         "Symph1":{
@@ -1049,6 +1063,11 @@ export var rules = {
             firstTrackNumber: 7
         }
     },
+    "Madredeus" : {
+        "O Espírito da Paz" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        }
+    },
     "Medtner" : {
         "SonateOp11" : {
             firstTrackNumber: 7,
@@ -1058,6 +1077,11 @@ export var rules = {
             firstTrackNumber: 5,
             fixTrackName: /Zwei Märchen op. 8 - I+\. (.*)\.mp3/
         },
+    },
+    "Mendelssohn" : {
+        "ViolinConcert[Menuhin]" : {
+            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)\.mp3/
+        }
     },
     "Maurice Jarre" : {
         "Lawrence of Arabia Soundtrack" : {

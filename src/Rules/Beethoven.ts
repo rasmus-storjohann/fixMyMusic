@@ -1,7 +1,7 @@
 import { Format, cantata, quartet, symphony, sonata, concerto } from "../AlbumFormat";
 
 export var rules = {
-    "Eroica Variations E# op.35 [Gilels]": {
+    "EroicaVariations-Gilels": {
         firstTrackNumber: 9,
         fixTrackName: /15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*).mp3$/
     },
@@ -243,6 +243,10 @@ export var rules = {
         firstTrackNumber: 5,
         fixTrackName: /Sonata No. 2 in A major, Op. 2, No. 2 - [IV]+\. (.*).mp3/
     },
+    "Sonata2-Gilels" : {
+        fixAlbumTitle: sonata({ num : 2, op:[2, 2], major : "A", by: "Gilels" }),
+        fixTrackName: /Sonate No.2 A-dur op.2 No.2 - \d\. (.*)\.mp3/
+    },
     "Sonata3[Goode]" : {
         fixAlbumTitle: sonata({ num : 3, op:[2, 3], major : "C", by: "Goode" }),
         firstTrackNumber: 9,
@@ -253,6 +257,18 @@ export var rules = {
         firstTrackNumber: 9,
         fixTrackName: /Sonata No. 3 in C major, Op. 2, No. 3 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata3-Gilels" : {
+        fixAlbumTitle: sonata({ num : 3, op:[2, 3], major : "C", by: "Gilels" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Sonate No.3 C-Dur, op. 2 No.3 - \d\. (.*)\.mp3/
+    },
+    "Sonata4[Goode]" : {
+        fixAlbumTitle: sonata({ num : 4, op:7, major : "Eb", by: "Goode" }),
+    },
+    "Sonata4-Gilels" : {
+        fixAlbumTitle: sonata({ num : 4, op:7, major : "Eb", by: "Gilels" }),
+        fixTrackName: /Sonate No.4 Es-dur op.7 - \d\. (.*)\.mp3/
+    },
     "Sonata5[Goode]" : {
         fixAlbumTitle: sonata({ num : 5, op:[10, 1], minor : "C", by: "Goode" }),
         fixTrackName: /No.5 in C minor, op.10, no.1- (.*)\.mp3/
@@ -260,6 +276,10 @@ export var rules = {
     "Sonata5[Gould]" : {
         fixAlbumTitle: sonata({ num : 5, op:[10, 1], minor : "C", by: "Gould" }),
         fixTrackName: /Sonata No. 5 in C minor, Op. 10, No. 1 - [IV]+\. (.*).mp3/
+    },
+    "Sonata5-Gilels" : {
+        fixAlbumTitle: sonata({ num : 5, op:[10, 1], minor : "C", by: "Gilels" }),
+        fixTrackName: /Piano Sonata No. 5 in C minor, Op. 10 No. 1 \d\. (.*)\.mp3/
     },
     "Sonata6[Goode]" : {
         fixAlbumTitle: sonata({ num : 6, op:[10, 2], major : "F", by: "Goode" }),
@@ -271,6 +291,11 @@ export var rules = {
         firstTrackNumber: 4,
         fixTrackName: /Sonata No. 6 in F major, Op. 10, No. 2 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata6-Gilels" : {
+        fixAlbumTitle: sonata({ num : 6, op:[10, 2], major : "F", by: "Gilels" }),
+        firstTrackNumber: 4,
+        fixTrackName: /Piano Sonata No. 6 in F major, Op. 10 No. 2 \d\. (.*)\.mp3/
+    },
     "Sonata7[Goode]" : {
         fixAlbumTitle: sonata({ num : 7, op:[10, 3], major : "D", by: "Goode" }),
         firstTrackNumber: 7,
@@ -281,6 +306,11 @@ export var rules = {
         firstTrackNumber: 7,
         fixTrackName: /Sonata No. 7 in D major, Op. 10, No. 3 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata7-Gilels" : {
+        fixAlbumTitle: sonata({ num : 7, op:[10, 3], major : "D", by: "Gilels" }),
+        firstTrackNumber: 7,
+        fixTrackName: /Piano Sonata No. 7 in D major, Op. 10 No. 3 \d\. (.*)\.mp3/
+    },
     "Sonata8[Goode]" : {
         fixAlbumTitle: sonata({ num : 8, op:13, subTitle: "Pathetique", minor : "C", by: "Goode" }),
         firstTrackNumber: 8
@@ -288,6 +318,11 @@ export var rules = {
     "Sonata8[Gould]" : {
         fixAlbumTitle: sonata({ num : 8, op:13, subTitle: "Pathetique", minor : "C", by: "Gould" }),
         fixTrackName: /Sonata No.8 IN C Minor, Op.13 'Pathetique'- [IV]+\. (.*)\.mp3/
+    },
+    "Sonata8-Gilels" : {
+        fixAlbumTitle: sonata({ num : 8, op:13, subTitle: "Pathetique", minor : "C", by: "Gilels" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Sonate No.8 C-Moll Op. 13 'Pathétique' - \d\. (.*)\.mp3/
     },
     "Sonata9[Goode]" : {
         fixAlbumTitle: sonata({ num : 9, op:[14, 1], major : "E", by: "Goode" }),
@@ -312,10 +347,19 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 10, op:[14, 2], major : "G", by: "Goode" }),
         fixTrackName: /No.10 in G major, op.14, no.\d- (.*)\.mp3/
     },
+    "Sonata10-Gilels" : {
+        fixAlbumTitle: sonata({ num : 10, op:[14, 2], major : "G", by: "Gilels" }),
+        firstTrackNumber: 8,
+        fixTrackName: /Sonate No.10 G-dur op.14 No.2 - \d. (.*)\.mp3/
+    },
     "Sonata11[Goode]" : {
         firstTrackNumber: 4,
         fixAlbumTitle: sonata({ num : 11, op:22, minor : "b", by: "Goode" }),
         fixTrackName: /No.11 in B-moll major, op.22- (.*)\.mp3/
+    },
+    "Sonata11-Gilels" : {
+        fixAlbumTitle: sonata({ num : 11, op:22, minor : "b", by: "Gilels" }),
+        fixTrackName: /Sonate No.11 B[ -]dur op.22 \d. (.*)\.mp3/
     },
     "Sonata12[Goode]" : {
         firstTrackNumber: 8,
@@ -327,6 +371,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 12, op:26, major : "Ab", by: "Gould" }),
         fixTrackName: /Sonata No. 12 in A flat major, Op. 26 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata12-Gilels" : {
+        fixAlbumTitle: sonata({ num : 12, op:26, major : "Ab", by: "Gilels" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Sonate No.12 As[ -]dur op. ?26[ -]*\d\. (.*)\.mp3/
+    },
     "Sonata13[Goode]" : {
         fixAlbumTitle: sonata({ num : 13, op:[27,1], major : "Eb", by: "Goode" }),
         fixTrackName: /No.13 in E-moll major, op.27, no.1- (.*)\.mp3/
@@ -335,6 +384,10 @@ export var rules = {
         firstTrackNumber: 10,
         fixAlbumTitle: sonata({ num : 13, op:[27,1], major : "Eb", by: "Gould" }),
         fixTrackName: /Sonata No.13 In E-Flat Major, Op.27, No.1- [IV]+\. (.*)\.mp3/
+    },
+    "Sonata13-Gilels" : {
+        fixAlbumTitle: sonata({ num : 13, op:[27,1], major : "Eb", by: "Gilels" }),
+        fixTrackName: /Sonate No.13 Es-dur op. 27 No.1 \(Sonata quasi una fantasia\) - \d\. (.*)\.mp3/
     },
     "Sonata14[Goode]" : {
         firstTrackNumber: 5,
@@ -346,6 +399,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 14, op:[27,2], subTitle:"Moonlight", minor : "C#", by: "Gould" }),
         fixTrackName: /Sonata No.14 In C-Sharp Minor, Op.27, No.2 'Moonlight'- [IV]+\. (.*)\.mp3/
     },
+    "Sonata14-Gilels" : {
+        fixAlbumTitle: sonata({ num : 14, op:[27,2], subTitle:"Moonlight", minor : "C#", by: "Gilels" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Sonate No.14 cis-moll op. 27 No.2 'Mondschein' \(Sonata quasi una fantasia\) - \d\. (.*)\.mp3/
+    },
     "Sonata15[Goode]" : {
         firstTrackNumber: 8,
         fixAlbumTitle: sonata({ num : 15, op:28, major : "D", by: "Goode" }),
@@ -355,6 +413,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 15, op:28, major : "D", by: "Gould" }),
         fixTrackName: /Sonata No. 15 in D major, [IV]+\. (.*).mp3/
     },
+    "Sonata15-Gilels" : {
+        fixAlbumTitle: sonata({ num : 15, op:28, major : "D", by: "Gilels" }),
+        firstTrackNumber: 8,
+        fixTrackName: /Sonate No.15 D-dur op.28 'Pastorale' - \d\. (.*)\.mp3/
+    },
     "Sonata16[Goode]" : {
         fixAlbumTitle: sonata({ num : 16, op:[31,1], major : "G", by: "Goode" }),
         fixTrackName: /Sonata No.16 in G major,Op.31,No.1 - [IV]+\. (.*)\.mp3/
@@ -362,6 +425,10 @@ export var rules = {
     "Sonata16[Gould]" : {
         fixAlbumTitle: sonata({ num : 16, op:[31,1], major : "G", by: "Gould" }),
         fixTrackName: /Sonata No. 16 in G major, op. 31,1 - [IV]+\. (.*)\.mp3/
+    },
+    "Sonata16-Gilels" : {
+        fixAlbumTitle: sonata({ num : 16, op:[31,1], major : "G", by: "Gilels" }),
+       fixTrackName: /Sonate No.16 G-dur op.31 No.1 - \d\. (.*)\.mp3/
     },
     "Sonata17[Goode]" : {
         firstTrackNumber: 4,
@@ -373,6 +440,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 17, op:[31,2], subTitle:"Tempest", minor : "D", by: "Gould" }),
         fixTrackName: /Sonata No. 17 in D minor, op. 31,2 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata17-Gilels" : {
+        fixAlbumTitle: sonata({ num : 17, op:[31,2], subTitle:"Tempest", minor : "D", by: "Gilels" }),
+        firstTrackNumber: 4,
+        fixTrackName: /Sonate No.17 d-moll op.31 No.2 'Der Sturm' - \d\. (.*)\.mp3/
+    },
     "Sonata18[Goode]" : {
         firstTrackNumber: 7,
         fixAlbumTitle: sonata({ num : 18, op:[31,3], major : "Eb", by: "Goode" }),
@@ -383,12 +455,21 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 18, op:[31,3], major : "Eb", by: "Gould" }),
         fixTrackName: /Sonata No. 18 in E-flat major, op. 31,3 - [IV]+\. (.*)\.mp3/
     },
+    "Sonata18-Gilels" : {
+        fixAlbumTitle: sonata({ num : 18, op:[31,3], major : "Eb", by: "Gilels" }),
+        firstTrackNumber: 7,
+        fixTrackName: /Sonate No\.18 Es-[Dd]ur,? op\. ?31 No.3 - \d\. (.*)\.mp3/
+    },
     "Sonata18[Richter]" : {
         fixAlbumTitle: sonata({ num : 18, op:[31,3], major : "Eb", by: "Richter" }),
         fixTrackName: /\d+\. (.*)\.mp3/
     },
     "Sonata19[Goode]" : {
-        fixAlbumTitle: sonata({ num : 19, op:49, minor : "G", by: "Goode" })
+        fixAlbumTitle: sonata({ num : 19, op:[49, 1], minor : "G", by: "Goode" })
+    },
+    "Sonata19-Gilels" : {
+        fixAlbumTitle: sonata({ num : 19, op:[49, 1], minor : "G", by: "Gilels" }),
+        fixTrackName: /Sonate No.19 g-moll op.49 No.1 - \d\. (.*)\.mp3/
     },
     "Sonata20[Goode]" : {
         firstTrackNumber: 3,
@@ -398,6 +479,11 @@ export var rules = {
     "Sonata21[Goode]" : {
         fixAlbumTitle: sonata({ num : 21, op:53, major : "C", subTitle: "Waldstein", by: "Goode" }),
         fixTrackName: /Sonata No. 21 in C Major \(Waldstein\), Op. 53- (.*)\.mp3/
+    },
+    "Sonata21-Gilels" : {
+        fixAlbumTitle: sonata({ num : 21, op:53, major : "C", subTitle: "Waldstein", by: "Gilels" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Sonate No.21 C-[Dd]ur op. ?53 '?Waldstein'? - \d\. (.*)\.mp3/
     },
     "Sonata22[Goode]" : {
         firstTrackNumber: 4,
@@ -413,6 +499,11 @@ export var rules = {
         firstTrackNumber: 5,
         fixAlbumTitle: sonata({ num : 23, subTitle: "Appassionata", op:57, minor : "F", by: "Gould" }),
         fixTrackName: /Sonata No. 23 in F minor, [IV]+\. (.*)\.mp3/
+    },
+    "Sonata23-Gilels" : {
+        fixAlbumTitle: sonata({ num : 23, subTitle: "Appassionata", op:57, minor : "F", by: "Gilels" }),
+        firstTrackNumber: 8,
+        fixTrackName: /Sonate No.23 [Ff]-[Mm]oll [Oo]p. ?57 'Appassionata' - \d\. (.*)\.mp3/
     },
     "Sonata24[Demidenko]" : {
         fixAlbumTitle: sonata({ num : 24, subTitle: "à Thérèse", op:78, minor : "F#", by: "Demidenko" }),
@@ -432,21 +523,42 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 25, op:79, major : "G", by: "Goode" }),
         fixTrackName: /[IV]+\. (.*)\.mp3/
     },
+    "Sonata25-Gilels" : {
+        fixAlbumTitle: sonata({ num : 25, op:79, major : "G", by: "Gilels" }),
+        firstTrackNumber: 11,
+        fixTrackName: /Sonate No.25 G-dur op. 79 - \d\. (.*)\.mp3/
+    },
     "Sonata26[Goode]" : {
         firstTrackNumber: 10,
         fixAlbumTitle: sonata({ num : 26, op:81, major : "Eb", by: "Goode" }),
         fixTrackName: /[IV]+\. (.*)\.mp3/
+    },
+    "Sonata26-Gilels" : {
+        fixAlbumTitle: sonata({ num : 26, op:81, major : "Eb", by: "Gilels" }),
+        fixTrackName: /Sonate No.26 Es-dur op. ?81a 'Les Adieux' - \d\. (.*)\.mp3/
     },
     "Sonata27[Goode]" : {
         firstTrackNumber: 13,
         fixAlbumTitle: sonata({ num : 27, op:90, minor : "E", by: "Goode" }),
         fixTrackName: /No.27 in E minor, op.90- (.*)\.mp3/
     },
+    "Sonata27-Gilels" : {
+        fixAlbumTitle: sonata({ num : 27, op:90, minor : "E", by: "Gilels" }),
+        firstTrackNumber: 4,
+        fixTrackName: /Sonate No.27 e-moll op. ?90 - \d\. (.*)\.mp3/
+    },
     "Sonata28[Richter]" : {
         firstTrackNumber: 7,
         fixAlbumTitle: sonata({ num : 28, op:101, major : "A", by: "Richter" }),
         fixTrackName: /Sonata No.28 in A, Op. 101 - \d+\. (.*)\.mp3/
     },
+    "Sonata28-Gilels" : {
+        fixAlbumTitle: sonata({ num : 28, op:101, major : "A", by: "Gilels" }),
+        fixTrackName: /Sonata No.28 in A major, Op.101 - \d\. (.*)\.mp3/
+    },
+    "Sonata28[Goode]" : {
+        fixAlbumTitle: sonata({ num : 28, op:101, major : "A", by: "Goode" })
+    }
     "Sonata29[Goode]" : {
         firstTrackNumber: 4,
         fixAlbumTitle: sonata({ num : 29, subTitle: "Hammerklavier", op:106, major : "Bb", by: "Goode" }),
@@ -457,6 +569,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 29, subTitle: "Hammerklavier", op:106, major : "Bb", by: "Gould" }),
         fixTrackName: /Sonata No. 29 in B-flat major, Op. 106 "Hammerklavier": [IV]+\. (.*)\.mp3/
     },
+    "Sonata29-Gilels" : {
+        fixAlbumTitle: sonata({ num : 29, subTitle: "Hammerklavier", op:106, major : "Bb", by: "Gilels" }),
+       firstTrackNumber: 5,
+       fixTrackName: /Sonata No.29 in B dur, Op.106 Hammerklavier - \d\. (.*)\.mp3/
+    },
     "Sonata30[Goode]" : {
         fixAlbumTitle: sonata({ num : 30, op:109, major : "E", by: "Goode" }),
         fixTrackName: /Sonata No.30 in E major, Op.109 - [IV]+\. (.*).mp3/
@@ -464,6 +581,11 @@ export var rules = {
     "Sonata30[Gould]" : {
         fixAlbumTitle: sonata({ num : 30, op:109, major : "E", by: "Gould" }),
         fixTrackName: /Sonata No. 30 In E Major, Op. 109- [IV]+\. (.*)\.mp3/
+    },
+    "Sonata30-Gilels" : {
+        fixAlbumTitle: sonata({ num : 30, op:109, major : "E", by: "Gilels" }),
+        firstTrackNumber: 6,
+        fixTrackName: /Sonate No.30 E-dur op.109 - \d\. (.*)\.mp3/
     },
     "Sonata31[Goode]" : {
         firstTrackNumber: 4,
@@ -475,6 +597,11 @@ export var rules = {
         fixAlbumTitle: sonata({ num : 31, op:110, major : "Ab", by: "Gould" }),
         fixTrackName: /Sonata No. 31 In A-Flat Major, Op. 110- [IV]+\. (.*)\.mp3/
     },
+    "Sonata31-Gilels" : {
+        fixAlbumTitle: sonata({ num : 31, op:110, major : "Ab", by: "Giles" }),
+        firstTrackNumber: 15,
+        fixTrackName: /Sonate No.31 As-dur op.110 - \d\. (.*)\.mp3/
+    },
     "Sonata32[Goode]" : {
         firstTrackNumber: 7,
         fixAlbumTitle: sonata({ num : 32, op:111, minor : "C", by: "Goode" }),
@@ -484,6 +611,14 @@ export var rules = {
         firstTrackNumber: 7,
         fixAlbumTitle: sonata({ num : 32, op:111, minor : "C", by: "Gould" }),
         fixTrackName: /Sonata No. 32 In C Minor, Op. 111- [IV]+\. (.*)\.mp3/
+    },
+    "SonataWoo47-1-Gilels" : {
+        firstTrackNumber: 9,
+        fixTrackName: /Sonate Es-dur WoO 47 No.1 - \d\. (.*)\.mp3/
+    },
+    "SonataWoo47-2-Gilels" : {
+       firstTrackNumber: 12,
+       fixTrackName: /Sonate f-moll WoO 47 No.2 - \d\. (.*)\.mp3/
     },
     "Symph1[Karajan]" : {
         fixAlbumTitle: symphony({ num : 1, op:21, major : "C", by: "Karajan" }),

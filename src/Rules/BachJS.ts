@@ -269,18 +269,14 @@ export var rules = {
     },
     "Goldberg-Strings" : {
         fixTrackNameFunc: function(name: string, logger) : string {
-            var m = /(\d+) - J.S. Bach Goldberg-Variationen, BWV 988 - Variatio (\d+)[^\d].*\.mp3/.exec(name);
-            if (m)
+            if (name === "J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3") {
+                return "Aria";
+            }
+            var match = /J.S. Bach Goldberg-Variationen, BWV 988 - Variatio (\d+)¡E\d+¡E\d+.mp3/.exec(name);
+            if (match)
             {
-                var trackNumber = m[1];
-                var variationNumber = parseInt(m[2]);
-                return trackNumber + " Variations " + variationNumber + "-" + (variationNumber + 2) + ".mp3";
-            }
-            if (name === "01 - J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3") {
-                return "01 Aria.mp3";
-            }
-            if (name === "12 - J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3") {
-                return "12 Aria da capo.mp3";
+                var variationNumber = parseInt(match[1]);
+                return "Variations " + variationNumber + "-" + (variationNumber + 2);
             }
         }
     },
