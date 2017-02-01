@@ -34,7 +34,7 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track.mp3");
+            chai.expect(_track.title).equals("track");
         });
     });
 
@@ -62,7 +62,7 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track.mp3");
+            chai.expect(_track.title).equals("track");
         });
     });
 
@@ -90,7 +90,7 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track.mp3");
+            chai.expect(_track.title).equals("track");
         });
     });
 
@@ -118,7 +118,7 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track.mp3");
+            chai.expect(_track.title).equals("track");
         });
     });
 
@@ -126,13 +126,13 @@ describe("TrackFactory", () => {
         it("of just one digit", () => {
             var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");
             chai.expect(track.trackNumber).equals(1);
-            chai.expect(track.title).equals("track.mp3");
+            chai.expect(track.title).equals("track");
         });
 
         it("with trailing dot", () => {
             var track = _theTrackFactory.createTrack("root/artist/album/1. track.mp3");
             chai.expect(track.trackNumber).equals(1);
-            chai.expect(track.title).equals("track.mp3");
+            chai.expect(track.title).equals("track");
         });
     });
 
@@ -148,7 +148,7 @@ describe("TrackFactory", () => {
             chai.expect(_track.artist).equals("artist");
             chai.expect(_track.album).equals("album");
             chai.expect(_track.trackNumber).equals(1);
-            chai.expect(_track.title).equals("track.mp3");
+            chai.expect(_track.title).equals("track");
         });
     });
 

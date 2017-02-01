@@ -4,55 +4,54 @@ export var rules = {
     // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
     "Aaron Copland" : {
         "AppalachianSpring" : {
-            fixTrackName: /Appalachian Spring \(Ballet for Martha\): (.*)\.mp3/
+            fixTrackName: /Appalachian Spring \(Ballet for Martha\): (.*)/
         },
         "ClarinetConcerto" : {
             fixAlbumTitle: concerto({for:"Clarinet"}),
-            fixTrackName: /Concerto for Clarinet and String Orchestra, [IV]+\. (.*)\.mp3/
+            fixTrackName: /Concerto for Clarinet and String Orchestra, [IV]+\. (.*)/
         },
         "DancePanels" : {
             firstTrackNumber: 10,
-            fixTrackName: /Dance Panels, [IV]+\. (.*)\.mp3/
+            fixTrackName: /Dance Panels, [IV]+\. (.*)/
         },
         "FallRiverLegend" : {
             firstTrackNumber: 12,
-            fixTrackName: /Fall River Legend: (.*)\.mp3/
+            fixTrackName: /Fall River Legend: (.*)/
         },
         "FourPieces" : {
             fixAlbumTitle: "Four Pieces",
-            fixTrackName: /(.*)\.mp3/,
             validation : ["skipTrackNumberCheck"]
         },
         "MusicForTheTheatre" : {
             firstTrackNumber: 4,
-            fixTrackName: /Music for the Theatre: (.*)\.mp3/
+            fixTrackName: /Music for the Theatre: (.*)/
         },
         "Symph3" : {
-            fixTrackName: /Symphony No. 3: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 3: [IV]+\. (.*)/
         },
         "Symphonette" : {
             firstTrackNumber: 18,
-            fixTrackName: /Latin-American Symphonette: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Latin-American Symphonette: [IV]+\. (.*)/
         },
         "TenderLand" : {
             firstTrackNumber: 9,
-            fixTrackName: /The Tender Land Suite: (.*)\.mp3/
+            fixTrackName: /The Tender Land Suite: (.*)/
         }
     },
     "Adams_John" : {
         "Nixon1" : {
-            fixTrackName: /Act I Scene \d (.*).mp3/
+            fixTrackName: /Act I Scene \d (.*)/
         },
         "Nixon2" : {
-            fixTrackName: /Act II Scene \d (.*).mp3/
+            fixTrackName: /Act II Scene \d (.*)/
         },
         "Nixon3" : {
-            fixTrackName: /Act III Scene \d (.*).mp3/
+            fixTrackName: /Act III Scene \d (.*)/
         }
     },
     "Albeniz" : {
         "Cantos de España" : {
-            fixTrackName: /Cantos de España: \d+\. (.*)\.mp3/
+            fixTrackName: /Cantos de España: \d+\. (.*)/
         },
         "Six Pieces" : {
             firstTrackNumber: 6
@@ -76,89 +75,89 @@ export var rules = {
         },
         "Le festin d'Esope" : {
             firstTrackNumber: 10,
-            fixTrackName: /(.*), op. 39 no. 12.mp3/
+            fixTrackName: /(.*), op. 39 no. 12/
         },
         "Sonatine" : {
             firstTrackNumber: 5,
-            fixTrackName: /Sonatine, op. 61: [IV]+. (.*).mp3/
+            fixTrackName: /Sonatine, op. 61: [IV]+. (.*)/
         },
         "Grande sonate op33 \"Les quatre âges\"" : {
-            fixTrackName: /Grande sonate, op\. 33 \"Les quatre âges\": [IV]+\. (.*)\.mp3/
+            fixTrackName: /Grande sonate, op\. 33 \"Les quatre âges\": [IV]+\. (.*)/
         }
     },
     "Arild Andersen" : {
         "Sagn" : {
-            fixTrackName: /Sagn, (.*).mp3/
+            fixTrackName: /Sagn, (.*)/
         }
     },
     "Arnold Schönberg" : {
         "Erwartung[Boulez]" : {
-            fixTrackName: /Erwartung, Scene \d+ (.*).mp3/
+            fixTrackName: /Erwartung, Scene \d+ (.*)/
         },
         "Five Piano Pieces Op23" : {
             firstTrackNumber: 4,
-            fixTrackName: /Five Piano Pieces, Op. 23 (.*).mp3/
+            fixTrackName: /Five Piano Pieces, Op. 23 (.*)/
         },
         "Five pieces for orchestra" : {
-            fixTrackName: /Schoenberg - 5 pieces for orchestra Op 16 - (.*)\.mp3/
+            fixTrackName: /Schoenberg - 5 pieces for orchestra Op 16 - (.*)/
         },
         "Lied der Waldtaube[Boulez]" : {
             firstTrackNumber: 30,
-            fixTrackName: /(.*) \(Chamber Orchestra version\) .*.mp3/
+            fixTrackName: /(.*) \(Chamber Orchestra version\) .*/
         },
         "Ode to Napoleon Buonaparte" : {
             firstTrackNumber: 7,
-            fixTrackName: /(Ode to Napoleon Buonaparte), Op. 41.mp3/
+            fixTrackName: /(Ode to Napoleon Buonaparte), Op. 41/
         },
         "Phantasy[Gould-Menuhin] Op47" : {
             firstTrackNumber: 9,
-            fixTrackName: /Schoenberg Phantasy Op47 - (.*).mp3/
+            fixTrackName: /Schoenberg Phantasy Op47 - (.*)/
         },
         "Piano Concerto" : {
-            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
+            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*)/
         },
         // TODO fix duplication
         "PianoConc Op42" : {
-            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*).mp3/
+            fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*)/
         },
         "Three Piano Pieces Op11" : {
-            fixTrackName: /Three Piano Pieces, Op. 11 (.*).mp3/
+            fixTrackName: /Three Piano Pieces, Op. 11 (.*)/
         },
         "Pierrot Lunaire[Boulez]" : {
             firstTrackNumber: 9,
-            fixTrackName: /Pierrot Lunaire, Part I+ (.*) \(.*\)\.mp3/
+            fixTrackName: /Pierrot Lunaire, Part I+ (.*) \(.*\)/
         },
         "Six Little Piano Pieces Op19" : {
             firstTrackNumber: 9,
-            fixTrackName: /Six Little Piano Pieces, Op. 19 (.*).mp3/
+            fixTrackName: /Six Little Piano Pieces, Op. 19 (.*)/
         },
         "Suite for Piano Op25" : {
             firstTrackNumber: 15,
-            fixTrackName: /Suite for Piano, Op. 25 (.*).mp3/
+            fixTrackName: /Suite for Piano, Op. 25 (.*)/
         },
         "Three Pieces for Orchestra" : {
             firstTrackNumber: 7,
-            fixTrackName: /Three Pieces for Orchestra, \d. (.*).mp3/
+            fixTrackName: /Three Pieces for Orchestra, \d. (.*)/
         },
         "Two Piano Pieces Op33" : {
             firstTrackNumber: 20,
-            fixTrackName: /Two Piano Pieces, Op. 33- A & B (.*).mp3/
+            fixTrackName: /Two Piano Pieces, Op. 33- A & B (.*)/
         }
     },
     // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
     "Barber" : {
         "ViolinConc[Ehnes]" : {
             firstTrackNumber: 4,
-            fixTrackName: /Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*).mp3/
+            fixTrackName: /Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*)/
         }
     },
     "Bartok" : {
         "Concerto for Orchestra" : {
-            fixTrackName: /Concerto for orchestra - (.*).mp3/
+            fixTrackName: /Concerto for orchestra - (.*)/
         },
         "Music for Strings, Percussion and Celesta" : {
             firstTrackNumber: 6,
-            fixTrackName: /Music for Strings, Percussion and Celesta - (.*).mp3/
+            fixTrackName: /Music for Strings, Percussion and Celesta - (.*)/
         }
     },
     "Beatles" : {
@@ -169,37 +168,37 @@ export var rules = {
     "Bellini" : {
         "I Puritani3 [Callas]" : {
             firstTrackNumber: 11,
-            fixTrackName: /Act 3 - (.*)\.mp3/
+            fixTrackName: /Act 3 - (.*)/
         }
     },
     "Berg" : {
         "Lulu Suite" : {
             firstTrackNumber: 10,
-            fixTrackName: /Lulu Suite, \d+\. (.*)\.mp3/
+            fixTrackName: /Lulu Suite, \d+\. (.*)/
         },
         "Lulu2" : {
-            fixTrackName: /Lulu Akt II, Szene I+\. (.*)\.mp3/
+            fixTrackName: /Lulu Akt II, Szene I+\. (.*)/
         },
         "Lulu3" : {
-            fixTrackName: /Lulu Akt III, Szene I+\. (.*)\.mp3/
+            fixTrackName: /Lulu Akt III, Szene I+\. (.*)/
         },
         "ViolinConcerto" : {
-            fixTrackName: /Violinkonzert [IV]+\. (.*)\.mp3/
+            fixTrackName: /Violinkonzert [IV]+\. (.*)/
         },
         "Three pieces for orchestra" : {
             firstTrackNumber: 7,
-            fixTrackName: /Alban Berg - 3 pieces for orchestra - (.*)\.mp3/
+            fixTrackName: /Alban Berg - 3 pieces for orchestra - (.*)/
         },
         "Wozzeck1" : {
             fixTrackNameFunc: function(name: string, logger) : string {
-                if (name === "Wozzeck - Act One - Scene 1 - Langsam, Wozzeck, langsam!.mp3") {
+                if (name === "Wozzeck - Act One - Scene 1 - Langsam, Wozzeck, langsam!") {
                     return "Langsam, Wozzeck, langsam!.mp3";
                 }
-                var m = /Scene \d- (.*\.mp3)/.exec(name);
-                if (!m) {
-                    m = /(.*\.mp3)/.exec(name);
+                var m = /Scene \d- (.*)/.exec(name);
+                if (m) {
+                    return m[1];
                 }
-                return m[1];
+                return name;
             }
         },
         "Wozzeck2" : {
@@ -208,159 +207,159 @@ export var rules = {
     },
     "Billy Joel" : {
         "Piano Man: The Very Best of Billy Joel" : {
-            fixTrackName: /Billy Joel - (.*)\.mp3/
+            fixTrackName: /Billy Joel - (.*)/
         }
     },
     "Bizet" : {
         "CarmenSuite" : {
-            fixTrackName: /Carmen Suite No. \d+: (.*)\.mp3/
+            fixTrackName: /Carmen Suite No. \d+: (.*)/
         }
     },
     "Brahms" : {
         "Drei Gesänge" : {
-            fixTrackName: /Drei Gesänge-I+\. (.*)\.mp3/
+            fixTrackName: /Drei Gesänge-I+\. (.*)/
         },
         "Fünf Gesänge" : {
             firstTrackNumber: 15,
-            fixTrackName: /Fünf Gesänge-[IV]+\. (.*)\.mp3/
+            fixTrackName: /Fünf Gesänge-[IV]+\. (.*)/
         },
         "In stiller Nacht" : {
             firstTrackNumber: 20,
-            fixTrackName: /(.*)\.mp3/
+            fixTrackName: /(.*)/
         },
         "Sieben Lieder" : {
             firstTrackNumber: 8,
-            fixTrackName: /Sieben Lieder-[IV]+\. (.*)\.mp3/
+            fixTrackName: /Sieben Lieder-[IV]+\. (.*)/
         },
         "Symph 1 c Op.68" : {
             fixAlbumTitle: symphony({ num: 1, minor: "C", op: 68, by: "Karajan"}),
-            fixTrackName: /Symphony No. 1 in C minor, Op. 68 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 1 in C minor, Op. 68 [IV]+\. (.*)/
         },
         "Symph 2 D Op.73" : {
             fixAlbumTitle: symphony({ num: 2, major: "D", op: 73, by: "Karajan"}),
-            fixTrackName: /Symphony No. 2 in D major, Op. 73 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 2 in D major, Op. 73 [IV]+\. (.*)/
         },
         "Symph 3 F Op.90" : {
             firstTrackNumber: 5,
             fixAlbumTitle: symphony({ num: 3, major: "F", op: 90, by: "Karajan"}),
-            fixTrackName: /Symphony No. 3 in F major, Op. 90 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 3 in F major, Op. 90 [IV]+\. (.*)/
         },
         "Symph 4 e Op.98" : {
             firstTrackNumber: 5,
             fixAlbumTitle: symphony({ num: 4, minor: "e", op: 98, by: "Karajan"}),
-            fixTrackName: /Symphony No. 4 in E minor, Op. 98 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 4 in E minor, Op. 98 [IV]+\. (.*)/
         },
         "Vier Gesänge" : {
             firstTrackNumber: 4,
-            fixTrackName: /Vier Gesänge-[IV]+\. (.*)\.mp3/
+            fixTrackName: /Vier Gesänge-[IV]+\. (.*)/
         },
         "ViolConc D Op.77" : {
             fixAlbumTitle: concerto({ for:"Violinn", major: "D", op: 77}),
-            fixTrackName: /Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\. (.*).mp3/
+            fixTrackName: /Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\. (.*)/
         },
         "ViolSon 1 G Op.78" : {
             firstTrackNumber: 4,
             fixAlbumTitle: sonata({ for:"Violin", num: 1, major: "G", op: 78}),
-            fixTrackName: /Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\. (.*)/
         },
         "ViolSon 2 A Op.100" : {
             fixAlbumTitle: sonata({ for:"Violin", num: 2, major: "a", op: 100}),
-            fixTrackName: /Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\. (.*)/
         },
         "ViolSon 3 d Op.108" : {
            firstTrackNumber: 7,
            fixAlbumTitle: sonata({ for:"Violin", num: 3, minor: "d", op: 108}),
-           fixTrackName: /Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\. (.*).mp3/
+           fixTrackName: /Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\. (.*)/
        }
     },
     "Britten" : {
         "The Turn of the Screw 1" : {
             fixTrackNameFunc: function(name: string, logger) : string {
-                if (name === "Act 1- Prologue.mp3") {
-                    return "Prologue.mp3";
+                if (name === "Act 1- Prologue") {
+                    return "Prologue";
                 }
-                if (name === "Theme - Scene 1 The Journey.mp3") {
-                    return "The Journey.mp3";
+                if (name === "Theme - Scene 1 The Journey") {
+                    return "The Journey";
                 }
-                var m = /Variation [IVX]+ - Scene \d+ (.*)\.mp3/.exec(name);
+                var m = /Variation [IVX]+ - Scene \d+ (.*)/.exec(name);
                 if (!m) {
-                    throw new Error("");
+                    throw new Error("Pattern mismatch in Britten/Turn of the screw 1");
                 }
                 return m[1];
             }
         },
         "The Turn of the Screw 2" : {
-            fixTrackName: /The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \d+ (.*)\.mp3/
+            fixTrackName: /The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \d+ (.*)/
         },
         "Violin Concerto" : {
-            fixTrackName: /Violin Concerto Op\.15 \-I+\- (.*)\.mp3/
+            fixTrackName: /Violin Concerto Op\.15 \-I+\- (.*)/
         },
         "Young Person's Guide to the Orchestra" : {
             firstTrackNumber: 23,
-            fixTrackName: /Young Person's Guide to the Orchestra, Op. 34 [IVX]+\. (.*)\.mp3/
+            fixTrackName: /Young Person's Guide to the Orchestra, Op. 34 [IVX]+\. (.*)/
         }
     },
     "Bruch" : {
         "Scottish Fantasy" : {
             firstTrackNumber: 4,
-            fixTrackName: /Scottish Fantasy (.*).mp3/
+            fixTrackName: /Scottish Fantasy (.*)/
         },
         "Violin Conc 1" : {
-            fixTrackName: /Concerto No.1 (.*)\.mp3/
+            fixTrackName: /Concerto No.1 (.*)/
         },
         "ViolinConcert[Menuhin]" : {
             firstTrackNumber: 4,
-            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)/
         }
     },
     "Bruckner" : {
         "Mass in C Minor" : {
             firstTrackNumber: 9,
-            fixTrackName: /Mass in C Minor - (.*)\.mp3/
+            fixTrackName: /Mass in C Minor - (.*)/
         },
         "Mass in E Minor" : {
-            fixTrackName: /Mass No 2 in E minor - (.*)\.mp3/
+            fixTrackName: /Mass No 2 in E minor - (.*)/
         },
         "Two songs" : {
             firstTrackNumber: 7,
-            fixTrackName: /(.*)\.mp3/
+            fixTrackName: /(.*)/
         }
     },
     // CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
     "Camarón" : {
         "Te Lo Dice Camarón" : {
-            fixTrackName: /Camarón - (.*)\.mp3/
+            fixTrackName: /Camarón - (.*)/
         }
     },
     "Corelli" : {
         "Conc 1 D" : {
             fixAlbumTitle: concerto({num: 1, major:"D", op:[6,1]}),
-            fixTrackName: /Concerto No.1 in D major [IV]+\.(.*)\.mp3/
+            fixTrackName: /Concerto No.1 in D major [IV]+\.(.*)/
         },
         "Conc 2 F" : {
             firstTrackNumber: 8,
             fixAlbumTitle: concerto({num: 2, major:"F", op:[6,2]}),
-            fixTrackName: /Concerto No.2 in F -[IV]+- (.*)\.mp3/
+            fixTrackName: /Concerto No.2 in F -[IV]+- (.*)/
         },
         "Conc 3 c" : {
             firstTrackNumber: 12,
             fixAlbumTitle: concerto({num: 3, minor:"C", op:[6,3]}),
-            fixTrackName: /Concerto No.3 in C minor -[IV]+- (.*)\.mp3/
+            fixTrackName: /Concerto No.3 in C minor -[IV]+- (.*)/
         },
         "Conc 4 D" : {
             firstTrackNumber: 17,
             fixAlbumTitle: concerto({num: 4, major:"D", op:[6,4]}),
-            fixTrackName: /Concerto No.4 in D -[IV]+- (.*).mp3/
+            fixTrackName: /Concerto No.4 in D -[IV]+- (.*)/
         },
         "Conc 5 B flat" : {
             firstTrackNumber: 21,
             fixAlbumTitle: concerto({num: 5, major:"Bb", op:[6,5]}),
-            fixTrackName: /Concerto #5 in B Flat [IV]+\. (.*).mp3/
+            fixTrackName: /Concerto #5 in B Flat [IV]+\. (.*)/
         },
         "Conc 6 F" : {
             firstTrackNumber: 25,
             fixAlbumTitle: concerto({num: 6, major:"F", op:[6,6]}),
-            fixTrackName: /Concerto No.6 in F -[IV]+- (.*)\.mp3/
+            fixTrackName: /Concerto No.6 in F -[IV]+- (.*)/
         }
     },
     "Couperin" : {
@@ -371,13 +370,13 @@ export var rules = {
     "CPE Bach" : {
         "Sonata Wq78" : {
             firstTrackNumber: 14,
-            fixTrackName: /CPE Bach - Sonata Wq78 - (.*)\.mp3/
+            fixTrackName: /CPE Bach - Sonata Wq78 - (.*)/
         }
     },
 
     "Charles-François Gounod" : {
         "Messe Solennelle de Sainte Cécile - St. Cecilia Mass - Cäcilienmesse" : {
-            fixTrackName: /Messe Solennelle de Sainte Cécile: (?:[IVX]+\. )?(.*)\.mp3/
+            fixTrackName: /Messe Solennelle de Sainte Cécile: (?:[IVX]+\. )?(.*)/
         }
     },
 
@@ -387,7 +386,7 @@ export var rules = {
         },
         "CelloSonata" : {
             firstTrackNumber: 7,
-            fixTrackName: /Cello Sonata in G minor, op. 65: [IV]+\. (.*) \(cello: Mstislav Rostropovich, piano: Martha Argerich\).mp3/
+            fixTrackName: /Cello Sonata in G minor, op. 65: [IV]+\. (.*) \(cello: Mstislav Rostropovich, piano: Martha Argerich\)/
         },
         "Mazurkas" : {
             validation : ["skipUniqueTrackNameCheck"]
@@ -398,15 +397,26 @@ export var rules = {
         "Nocturnes[Pires]" : {
             validation : ["skipUniqueTrackNameCheck"]
         },
+        "Nocturnes[Rubinstein]" : {
+            firstTrackNumber: 8,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
         "PianoConc1" : {
-           fixTrackName: /Concerto for Piano and Orchestra no. 1 in E minor, op. 11: [IV]+\. (.*)\.mp3/
+           fixTrackName: /Concerto for Piano and Orchestra no. 1 in E minor, op. 11: [IV]+\. (.*)/
        },
+       "PianoConcerto1[Rubinstein]" : {
+            fixTrackName: /Concerto for Piano and Orchestra No. 1 in E minor, Op. 11: [IV]+\. (.*)/
+        },
        "PianoConc2" : {
            firstTrackNumber: 4,
-           fixTrackName: /Concerto for Piano and Orchestra no. 2 in F minor, op. 21: [IV]+\. (.*)\.mp3/
+           fixTrackName: /Concerto for Piano and Orchestra no. 2 in F minor, op. 21: [IV]+\. (.*)/
        },
+        "PianoConcerto2[Rubinstein]" : {
+            firstTrackNumber: 4,
+            fixTrackName: /Concerto for Piano and Orchestra No. 2 in F minor, Op. 21: [IV]+\. (.*)/
+        },
        "PianoTrio" : {
-           fixTrackName: /Piano Trio in G minor, op. 8: [IV]+\. (.*) \(Beaux Arts Trio\).mp3/
+           fixTrackName: /Piano Trio in G minor, op. 8: [IV]+\. (.*) \(Beaux Arts Trio\)/
        },
        "Polonaises" : {
            validation : ["skipUniqueTrackNameCheck"]
@@ -416,51 +426,94 @@ export var rules = {
        },
        "Sonata1" : {
            fixAlbumTitle: sonata({num: 1, minor:"C", op: 4, by: "Zilberstein"}),
-           fixTrackName: /Piano Sonata no. 1 in C minor, op. 4: [IV]+\. (.*) \(feat. piano: Lilya Zilberstein\)\.mp3/
+           fixTrackName: /Piano Sonata no. 1 in C minor, op. 4: [IV]+\. (.*) \(feat. piano: Lilya Zilberstein\)/
        },
        "Sonata2" : {
            fixAlbumTitle: sonata({num: 2, minor:"Bb", op: 35, by: "Pollini"}),
            firstTrackNumber: 5,
-           fixTrackName: /Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\)\.mp3/
+           fixTrackName: /Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\)/
        },
        "Sonata3" : {
            fixAlbumTitle: sonata({num: 3, minor:"B", op: 58, by: "Pollini"}),
            firstTrackNumber: 9,
-           fixTrackName: /Piano Sonata no. 3 in B minor, op. 58: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\).mp3/
+           fixTrackName: /Piano Sonata no. 3 in B minor, op. 58: [IV]+\. (.*) \(feat. piano: Maurizio Pollini\)/
        },
        "Waltzes[Ashkenazy]" : {
            validation : ["skipUniqueTrackNameCheck"]
         },
+        "WaltzOp65[Rubinstein]" : {
+            firstTrackNumber: 7
+        }
     },
     // DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDdd
+    "Debussy" : {
+        "ChildrensCorner" : {
+            firstTrackNumber: 7,
+            fixTrackName: /Children's Corner, suite for piano \(or orchestra\), L\. 113: (.*)/
+        },
+        "EnBlancEtNoire" : {
+           firstTrackNumber: 8,
+           fixTrackName: /En blanc et noir, L 134: I+\. (.*)/
+       },
+       "epigraphes antiques" : {
+            firstTrackNumber: 16,
+            fixTrackName: /6 épigraphes antiques, L 131: [IV]+\. (.*)/
+        },
+        "Etudes" : {
+            firstTrackNumber: 19,
+            fixTrackName: /Études \(6\) for piano, Book 2, L. 136-7-12: (.*)/
+        },
+        "Images" : {
+            firstTrackNumber: 4,
+            fixTrackName: /Images \(3\), for piano, Set I+, L\. \d+: (.*)/
+        },
+        "MidiDunFaune" : {
+            firstTrackNumber: 7
+        },
+        "PetiteSuiteL65" : {
+            firstTrackNumber: 11,
+            fixTrackName: /Petite suite, L 65: [IV]+\. (.*)/
+        },
+        "PianoPieces" : {
+            validation : ["skipTrackNumberCheck"]
+        },
+        "Preludes" : {
+            firstTrackNumber: 11,
+            fixTrackName: /Préludes \(12\) for piano, Book [I]+, L. \d+: (.*)/
+        },
+        "SuiteBergamasque" : {
+            firstTrackNumber: 15,
+            fixTrackName: /Suite Bergamasque, L 75: [IV]+\. (.*)/
+        }
+    },
     "Donizetti" : {
         "Lucia1" : {
-            fixTrackName: /Lucia di Lammermoor (.*)\.mp3/
+            fixTrackName: /Lucia di Lammermoor (.*)/
         },
         "Lucia2" : {
-            fixTrackName: /Lucia di Lammermoor (.*)\.mp3/
+            fixTrackName: /Lucia di Lammermoor (.*)/
         }
     },
     "Dvorak" : {
         "Symph7" : {
             fixAlbumTitle: symphony({num: 7}),
-            fixTrackName: /Dvorak- Sym#7- [IV]+\.(.*).mp3/
+            fixTrackName: /Dvorak- Sym#7- [IV]+\.(.*)/
         },
         "Symph8" : {
             fixAlbumTitle: symphony({num: 8, major: "C", op: 88}),
-            fixTrackName: /Symphony 8 in C major Op 88 - (.*)\.mp3/
+            fixTrackName: /Symphony 8 in C major Op 88 - (.*)/
         },
         "Symph9" : {
             fixAlbumTitle: symphony({num: 9, minor: "E", op: 95, subTitle: "New World"}),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony 9 in E minor Op 95 New World - (.*)\.mp3/
+            fixTrackName: /Symphony 9 in E minor Op 95 New World - (.*)/
         }
     },
     // EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     "Elgar" : {
         "Cello" : {
             fixAlbumTitle: concerto({ for: "Cello", op:85, minor : "E" }),
-            fixTrackName: /Cello Concerto in E minor, Op. 85 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Cello Concerto in E minor, Op. 85 [IV]+\. (.*)/
         }
     },
     "Erik Satie" : {
@@ -477,7 +530,7 @@ export var rules = {
     "Furtwangler" : {
         "Adagio" : {
             firstTrackNumber: 5,
-            fixTrackName: /Furtwangler - (Adagio solemne).mp3/
+            fixTrackName: /Furtwangler - (Adagio solemne)/
         }
     },
     // GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
@@ -487,12 +540,12 @@ export var rules = {
         },
         "PianoConc" : {
             fixAlbumTitle: concerto({for: "Piano", major: "F"}),
-            fixTrackName: /Gershwin - Concerto for Piano and Orchestra in F - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Gershwin - Concerto for Piano and Orchestra in F - [IV]+\. (.*)/
         },
         "PianoConc[Previn]" : {
             fixAlbumTitle: concerto({for: "Piano", major: "F", by: "Previn"}),
             firstTrackNumber: 3,
-            fixTrackName: /Piano Concerto in F: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Concerto in F: [IV]+\. (.*)/
         }
     },
     "Glen Gould" : {
@@ -506,196 +559,224 @@ export var rules = {
         }
     },
     "Grieg" : {
-        "From_Holberg's_Time" : {
-            firstTrackNumber: 9,
-            fixTrackName: /From Holberg's Time, op. 40: [IV]+\. (.*)\.mp3/
+        "CelloSonata" : {
+            fixTrackName: /Cello Sonata in A minor, op. 36: [IV]+\. (.*)/
         },
+        "FourPieces" : {
+            firstTrackNumber: 7,
+            fixTrackName: /Four Pieces, op. 78: [IV]+\. (.*)/
+        },
+        "From Holberg's Time" : {
+            firstTrackNumber: 9,
+            fixTrackName: /From Holberg's Time, op. 40: [IV]+\. (.*)/
+        },
+        "Haugtussa[vonOtter]" : {
+           fixTrackName: /»Haugtussa« Op. 67: [IV]+\. (.*)/
+       },
+       "LyricPieces[Andsnes]" : {
+           firstTrackNumber: 8,
+           fixTrackName: /Lyrical Pieces op. 65: [IV]+\. (.*)/
+       },
         "PeerGynt1" : {
-            fixTrackName: /Peer Gynt Suite no. 1, op. 46: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Peer Gynt Suite no. 1, op. 46: [IV]+\. (.*)/
         },
         "PeerGynt2" : {
             firstTrackNumber: 5,
-            fixTrackName: /Peer Gynt Suite no. 2, op. 55: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Peer Gynt Suite no. 2, op. 55: [IV]+\. (.*)/
         },
         "PianoConcerto[Richter]" : {
-            fixTrackName: /Piano concerto a minor op 16 - Richter - (.*)\.mp3/
+            fixTrackName: /Piano concerto a minor op 16 - Richter - (.*)/
+        },
+        "PianoConcerto[Andsnes]" : {
+            fixTrackName: /Piano Concerto: [IV]+\. (.*)/
+        },
+        "Sanger[vonOtter]" : {
+           firstTrackNumber: 15,
+           validation : ["skipUniqueTrackNameCheck"]
+       },
+       "SeksSange[vonOtter]" : {
+            firstTrackNumber: 9,
+            fixTrackName: /Seks Sange Op. 48: [IV]+\. (.*)/
         },
         "Three psalms" : {
             firstTrackNumber: 7,
-            fixTrackName: /Psalms - (.*)\.mp3/
+            fixTrackName: /Psalms - (.*)/
         },
+        "TwoOtherPieces" : {
+           firstTrackNumber: 4
+       },
         "ViolinSonata" : {
             firstTrackNumber: 4,
-            fixTrackName: /ViolinSonata G major Op 13 - (.*)\.mp3/
+            fixTrackName: /ViolinSonata G major Op 13 - (.*)/
         }
     },
     "Grigny" : {
         "Two organ pieces" : {
             firstTrackNumber: 4,
-            fixTrackName: /Grigny - (.*)\.mp3/
+            fixTrackName: /Grigny - (.*)/
         }
     },
     // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     "Handel" : {
         "ConcertoInC" : {
             fixAlbumTitle: concerto_grosso({major:"C"}),
-            fixTrackName: /Concerto Grosso in C - \d+\.? (.*)\.mp3/
+            fixTrackName: /Concerto Grosso in C - \d+\.? (.*)/
         },
         "ConcertoOp3-1" : {
             fixAlbumTitle: concerto_grosso({major:"Bb", op:[3,1]}),
             firstTrackNumber: 9,
-            fixTrackName: /Concerto Grosso Op. 3 No.1 in B flat - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 3 No.1 in B flat - \d+ (.*)/
         },
         "ConcertoOp3-3" : {
             fixAlbumTitle: concerto_grosso({major:"G", op:[3,3]}),
             firstTrackNumber: 5,
-            fixTrackName: /Concerto Grosso Op. 3 No.3 in G - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 3 No.3 in G - \d+ (.*)/
         },
         "ConcertoOp3-6" : {
             fixAlbumTitle: concerto_grosso({major:"D", op:[3,6]}),
             firstTrackNumber: 12,
-            fixTrackName: /Concerto Grosso Op. 3 No.6 in D - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 3 No.6 in D - \d+ (.*)/
         },
         "ConcertoOp6-1" : {
             fixAlbumTitle: concerto_grosso({major:"G", op:[6,1]}),
             firstTrackNumber: 14,
-            fixTrackName: /Concerto Grosso Op. 6 No.1 in G - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 6 No.1 in G - \d+ (.*)/
         },
         "ConcertoOp6-7" : {
             fixAlbumTitle: concerto_grosso({major:"Bb", op:[6,7]}),
             firstTrackNumber: 19,
-            fixTrackName: /Concerto Grosso Op. 6 No.7 in B flat - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 6 No.7 in B flat - \d+ (.*)/
         },
         "ConcertoOp6-9" : {
             fixAlbumTitle: concerto_grosso({major:"F", op:[6,9]}),
             firstTrackNumber: 24,
-            fixTrackName: /Concerto Grosso Op. 6 No.9 in F - \d+ (.*)\.mp3/
+            fixTrackName: /Concerto Grosso Op. 6 No.9 in F - \d+ (.*)/
         },
         "Fireworks" : {
             firstTrackNumber: 10,
-            fixTrackName: /Music for the Royal Fireworks - \d+ (.*)\.mp3/
+            fixTrackName: /Music for the Royal Fireworks - \d+ (.*)/
         },
         "HarpConcerto" : {
             fixAlbumTitle: concerto({for:"Harp", major:"Bb", HWV:294}),
-            fixTrackName: /Concerto for Harp in B flat major - HWV 294 - \d - (.*)\.mp3/
+            fixTrackName: /Concerto for Harp in B flat major - HWV 294 - \d - (.*)/
         },
         "HornConcerto" : {
             fixAlbumTitle: concerto({num:2, for:"Two Horns", major:"F", HWV:333}),
             firstTrackNumber: 12,
-            fixTrackName: /Concerto a due cori No.2 in F major - HWV 333 - \d - (.*)\.mp3/
+            fixTrackName: /Concerto a due cori No.2 in F major - HWV 333 - \d - (.*)/
         },
         "JudasMaccabeus" : {
             firstTrackNumber: 7,
-            fixTrackName: /Judas Maccabeus - \d (.*).mp3/
+            fixTrackName: /Judas Maccabeus - \d (.*)/
         },
         "OboeConcerto" : {
             fixAlbumTitle: concerto({num:3, for:"Oboe", minor:"G", HWV:287}),
             firstTrackNumber: 8,
-            fixTrackName: /Concerto for Oboe No.3 in G minor - HWV 287 - \d - (.*).mp3/
+            fixTrackName: /Concerto for Oboe No.3 in G minor - HWV 287 - \d - (.*)/
         },
         "OrganConcerto" : {
             fixAlbumTitle: concerto({for:"Organ", major:"F", HWV:295, subTitle:"Cuckoo and Nightingale"}),
             firstTrackNumber: 4,
-            fixTrackName: /Concerto for Organ in F major - HWV 295 - Cuckoo and Nightingale - \d - (.*)\.mp3/
+            fixTrackName: /Concerto for Organ in F major - HWV 295 - Cuckoo and Nightingale - \d - (.*)/
         },
         "Sinfonia" : {
-            fixTrackName: /Sinfonia in B flat for 2 Violins and Continuo - \d (.*)\.mp3/
+            fixTrackName: /Sinfonia in B flat for 2 Violins and Continuo - \d (.*)/
         },
         "SonataInA" : {
             fixAlbumTitle: sonata({for:"Flute", minor:"A"}),
             firstTrackNumber: 9,
-            fixTrackName: /Sonata in A minor Halle No.1 for Flute - \d (.*)\.mp3/
+            fixTrackName: /Sonata in A minor Halle No.1 for Flute - \d (.*)/
         },
         "SonataInB" : {
             fixAlbumTitle: sonata({for:"Violin, Oboe, Strings and Continuo", major:"Bb"}),
             firstTrackNumber: 29,
-            fixTrackName: /Sonata à 5 in B flat for Violin, Oboe, Strings and Continuo - \d (.*)\.mp3/
+            fixTrackName: /Sonata à 5 in B flat for Violin, Oboe, Strings and Continuo - \d (.*)/
         },
         "SonataInD" : {
             fixAlbumTitle: sonata({for:"Recorder and Continuo", minor:"D"}),
             firstTrackNumber: 13,
-            fixTrackName: /Sonata in D minor for Recorder and Continuo - \d (.*)\.mp3/
+            fixTrackName: /Sonata in D minor for Recorder and Continuo - \d (.*)/
         },
         "SonataInE" : {
             fixAlbumTitle: sonata({for:"Two Flutes", minor:"E"}),
             firstTrackNumber: 20,
-            fixTrackName: /Sonata in E minor for 2 Flutes - \d (.*)\.mp3/
+            fixTrackName: /Sonata in E minor for 2 Flutes - \d (.*)/
         },
         "SonataInF" : {
             fixAlbumTitle: sonata({for:"Oboe and Continuo", minor:"F", op:[1,5]}),
             firstTrackNumber: 4,
-            fixTrackName: /Sonata in F, Op. 1 No.5 for Oboe and Continuo - \d (.*)\.mp3/
+            fixTrackName: /Sonata in F, Op. 1 No.5 for Oboe and Continuo - \d (.*)/
         },
         "SonataInG" : {
             fixAlbumTitle: sonata({for:"Two Violins and Continuo", major:"G", op:[5,4]}),
             firstTrackNumber: 24,
-            fixTrackName: /Sonata in G, Op. 5 No.4 for Two Violins and Continuo - \d (.*).mp3/
+            fixTrackName: /Sonata in G, Op. 5 No.4 for Two Violins and Continuo - \d (.*)/
         },
         "TheKingShallRejoice" : {
             firstTrackNumber: 15,
-            fixTrackName: /The King Shall Rejoice - \d (.*)\.mp3/
+            fixTrackName: /The King Shall Rejoice - \d (.*)/
         },
         "WaterMusic2" : {
             firstTrackNumber: 19,
-            fixTrackName: /Water Music Suite 2 in D - \d (.*).mp3/
+            fixTrackName: /Water Music Suite 2 in D - \d (.*)/
         },
         "WaterMusic3" : {
             firstTrackNumber: 3,
-            fixTrackName: /Water Music Suite 3 in G - \d (.*).mp3/
+            fixTrackName: /Water Music Suite 3 in G - \d (.*)/
         }
     },
     "Haydn":{
         "CelloConc 1 C" : {
             fixAlbumTitle: concerto({ for:"Cello", num : 1, major: "C" }),
-            fixTrackName: /Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\. (.*)/
         },
         "CelloConc 2 D" : {
             fixAlbumTitle: concerto({ for:"Cello", num : 2, major: "D" }),
             firstTrackNumber: 4,
-            fixTrackName: /Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\. (.*)/
         },
         "PianoConc 11" : {
             fixAlbumTitle: concerto({ for:"Piano", num : 11, major: "D" }),
             firstTrackNumber: 7,
-            fixTrackName: /Piano Concerto No. 11 in D major, Hob XVIII 11 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Concerto No. 11 in D major, Hob XVIII 11 [IV]+\. (.*)/
         },
         "PianoConc 3" : {
             fixAlbumTitle: concerto({ for:"Piano", num : 3, major: "F" }),
             firstTrackNumber: 4,
-            fixTrackName: /Piano Concerto No. 3 in F major, Hob XVIII 3 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Concerto No. 3 in F major, Hob XVIII 3 [IV]+\. (.*)/
         },
         "PianoConc 4" : {
             fixAlbumTitle: concerto({ for:"Piano", num : 4, major: "G" }),
-            fixTrackName: /Piano Concerto No. 4 in G major, Hob XVIII 4 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Concerto No. 4 in G major, Hob XVIII 4 [IV]+\. (.*)/
         },
         "PianoTrio42 E flat" : {
             fixAlbumTitle: trio({ for:"Piano", num : 42, major: "Eb" }),
             firstTrackNumber: 10,
-            fixTrackName: /Piano Trio in E-Flat Major, Hob. XV 30 No.42 \(1795\) - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Trio in E-Flat Major, Hob. XV 30 No.42 \(1795\) - [IV]+\. (.*)/
         },
         "PianoTrio43 C" : {
             fixAlbumTitle: trio({ for:"Piano", num : 43, major: "C" }),
-            fixTrackName: /Piano Trio in C Major, Hob. XV 27 No.43 \(1797\) - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Trio in C Major, Hob. XV 27 No.43 \(1797\) - [IV]+\. (.*)/
         },
         "PianoTrio44 E" : {
             fixAlbumTitle: trio({ for:"Piano", num : 44, major: "E" }),
             firstTrackNumber: 4,
-            fixTrackName: /Piano Trio in E Major, Hob. XV 28 No.44 \(1797\) - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Piano Trio in E Major, Hob. XV 28 No.44 \(1797\) - [IV]+\. (.*)/
        },
        "PianoTrio45 E flat" : {
            fixAlbumTitle: trio({ for:"Piano", num : 45, major: "Eb" }),
            firstTrackNumber: 7,
-           fixTrackName: /Piano Trio in E-Flat Major, Hob. XV 29 No.45 \(1797\) - [IV]+\. (.*)\.mp3/
+           fixTrackName: /Piano Trio in E-Flat Major, Hob. XV 29 No.45 \(1797\) - [IV]+\. (.*)/
         },
         "Quartet23 f Op20 No5" : {
             fixAlbumTitle: quartet({ num : 23, minor: "f", op: [20, 5] }),
             firstTrackNumber: 5,
-            fixTrackName: /Quartet No.23 in F Minor, Op. 20, No.5-(.*)\.mp3/
+            fixTrackName: /Quartet No.23 in F Minor, Op. 20, No.5-(.*)/
         },
         "Quartet24 A Op20 No6" : {
             fixAlbumTitle: quartet({ num : 24, major: "A", op: [20, 6] }),
             firstTrackNumber: 9,
-            fixTrackName: /Quartet No.24 in A Major, Op. 20, No.6-(.*)\.mp3/
+            fixTrackName: /Quartet No.24 in A Major, Op. 20, No.6-(.*)/
         },
         "Quartet25 C Op20 No2" : {
             fixAlbumTitle: quartet({ num : 25, major: "C", op: [20, 2] }),
@@ -707,151 +788,151 @@ export var rules = {
         },
         "Quartet27 D Op20 No4" : {
             fixAlbumTitle: quartet({ num : 27, major: "D", op: [20, 4] }),
-            fixTrackName: /Quartet No.27 in D Major, Op. 20, No.4-(.*)\.mp3/
+            fixTrackName: /Quartet No.27 in D Major, Op. 20, No.4-(.*)/
         },
         "Quartet29 G Op33 No5 'How do you do_'" : {
             fixAlbumTitle: quartet({ num : 29, major: "G", op: [33, 5], subTitle: "How do you do" }),
-            fixTrackName: /String Quartet in G major, Op. 33 No. 5 - (.*)\.mp3/
+            fixTrackName: /String Quartet in G major, Op. 33 No. 5 - (.*)/
         },
         "Quartet30 E flat Op33 No2 'Joke'" : {
             fixAlbumTitle: quartet({ num : 30, major: "Eb", op: [33, 2], subTitle: "Joke" }),
             firstTrackNumber: 9,
-            fixTrackName: /String Quartet in E-flat major, Op. 33 No. 2 - (.*)\.mp3/
+            fixTrackName: /String Quartet in E-flat major, Op. 33 No. 2 - (.*)/
         },
         "Quartet32 C Op33 No3 'Bird'" : {
             fixAlbumTitle: quartet({ num : 32, major: "C", op: [33, 3], subTitle: "Bird" }),
             firstTrackNumber: 5,
-            fixTrackName: /String Quartet in C major, Op. 33 No. 3 - (.*)\.mp3/
+            fixTrackName: /String Quartet in C major, Op. 33 No. 3 - (.*)/
         },
         "Quartet54 B flat Op71 No1" : {
             fixAlbumTitle: quartet({ num : 55, major: "Bb", op: [71, 1] }),
-            fixTrackName: /Op. 71-1 - (.*)\.mp3/
+            fixTrackName: /Op. 71-1 - (.*)/
        },
        "Quartet55 D Op71 No2" : {
            fixAlbumTitle: quartet({ num : 55, major: "D", op: [71, 2] }),
             firstTrackNumber: 5,
-            fixTrackName: /Op. 71-2 - (.*)\.mp3/
+            fixTrackName: /Op. 71-2 - (.*)/
         },
         "Quartet56 E flat Op71 No3" : {
             fixAlbumTitle: quartet({ num : 56, major: "Eb", op: [71, 3] }),
             firstTrackNumber: 9,
-            fixTrackName: /Op. 71-3 - (.*)\.mp3/
+            fixTrackName: /Op. 71-3 - (.*)/
         },
         "Sonata 48 in C major, H.XVI_48" : {
             fixAlbumTitle: sonata({ num : 48, major: "C" }),
             firstTrackNumber: 3,
-            fixTrackName: /[IV]+\. (.*)\.mp3/
+            fixTrackName: /[IV]+\. (.*)/
         },
         "Sonata49 E flat" : {
             fixAlbumTitle: sonata({ num : 49, major: "Eb" }),
             firstTrackNumber: 5,
-            fixTrackName: /(?:Sonata in E-flat major, H.XVI 49 - )?[IV]+\. (.*)\.mp3/
+            fixTrackName: /(?:Sonata in E-flat major, H.XVI 49 - )?[IV]+\. (.*)/
         },
         "Symph100 G 'Military'" : {
             fixAlbumTitle: symphony({ num : 100, major: "G", subTitle:"Military" }),
             firstTrackNumber: 9,
-            fixTrackName: /Symphony in G, Hob. I 100 Military , [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in G, Hob. I 100 Military , [IV]+\. (.*)/
         },
         "Symph101 D 'Clock'" : {
             fixAlbumTitle: symphony({ num : 101, major: "D", subTitle:"Clock" }),
             firstTrackNumber: 9,
-            fixTrackName: /Symphony in D, Hob. I 101 Clock , [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in D, Hob. I 101 Clock , [IV]+\. (.*)/
         },
         "Symph102 B flat" : {
             fixAlbumTitle: symphony({ num : 102, major: "Bb" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony No. 102 in B flat major, Hob I 102 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 102 in B flat major, Hob I 102 [IV]+\. (.*)/
         },
         "Symph103 E-flat" : {
             fixAlbumTitle: symphony({ num : 103, major: "Eb", subTitle:"Drumroll" }),
             firstTrackNumber: 9,
-            fixTrackName: /Symphony No. 103 in E flat major, Drumroll , Hob I 103 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 103 in E flat major, Drumroll , Hob I 103 [IV]+\. (.*)/
         },
         "Symph104 D" : {
             fixAlbumTitle: symphony({ num : 104, major: "D" }),
             firstTrackNumber: 9,
-            fixTrackName: /Symphony No. 104 in D major, London , Hob I 104 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 104 in D major, London , Hob I 104 [IV]+\. (.*)/
         },
         "Symph22 E flat 'Philosopher'" : {
             fixAlbumTitle: symphony({ num : 22, major: "Eb", subTitle:"Philosopher" }),
             firstTrackNumber: 5,
-            fixTrackName: /[IV]+\. (.*)\.mp3/
+            fixTrackName: /[IV]+\. (.*)/
         },
         "Symph64 A 'Tempora mutantur'" : {
             fixAlbumTitle: symphony({ num : 64, major: "A", subTitle:"Tempora mutantur" }),
             firstTrackNumber: 9,
-            fixTrackName: /[IV]+\. (.*)\.mp3/
+            fixTrackName: /[IV]+\. (.*)/
         },
         "Symph93 D" : {
             fixAlbumTitle: symphony({ num : 93, major: "D" }),
-            fixTrackName: /Symphony in D, Hob. I 93, [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in D, Hob. I 93, [IV]+\. (.*)/
         },
         "Symph94 G 'Surprise'" : {
             fixAlbumTitle: symphony({ num : 94, major: "G", subTitle:"Surprise" }),
-            fixTrackName: /Symphony in G, Hob. I 94 Surprise , [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in G, Hob. I 94 Surprise , [IV]+\. (.*)/
        },
        "Symph95 c" : {
            fixAlbumTitle: symphony({ num : 95, minor: "c" }),
-           fixTrackName: /Symphony No. 95 in C minor, Hob I 95 [IV]+\. (.*)\.mp3/
+           fixTrackName: /Symphony No. 95 in C minor, Hob I 95 [IV]+\. (.*)/
         },
         "Symph96 D 'Miracle'" : {
             fixAlbumTitle: symphony({ num : 96, major: "D", subTitle:"Miracle" }),
-            fixTrackName: /Symphony No. 96 in D major, Miracle , Hob I 96 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 96 in D major, Miracle , Hob I 96 [IV]+\. (.*)/
         },
         "Symph97 C" : {
             fixAlbumTitle: symphony({ num : 97, major: "C" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony in C, Hob. I 97, [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in C, Hob. I 97, [IV]+\. (.*)/
         },
         "Symph98 B flat" : {
             fixAlbumTitle: symphony({ num : 98, major: "Bb" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony No. 98 in B flat major, Hob I 98 [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 98 in B flat major, Hob I 98 [IV]+\. (.*)/
         },
         "Symph99 E-flat" : {
             fixAlbumTitle: symphony({ num : 99, major: "Eb" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony in E flat, Hob. I 99, [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony in E flat, Hob. I 99, [IV]+\. (.*)/
         }
     },
     // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     "In_the_country" : {
         "Losing stones, collecting bones" : {
-            fixTrackName: /In the country - (.*)\.mp3/
+            fixTrackName: /In the country - (.*)/
         }
     },
     "Ives" : {
         "Hymns" : {
             firstTrackNumber: 5,
-            fixTrackName: /Ives Hymns \d+ (.*)\.mp3/
+            fixTrackName: /Ives Hymns \d+ (.*)/
         },
         "Symphony1" : {
             fixAlbumTitle: symphony({ num: 1 }),
-            fixTrackName: /Ives Symphony No.1 \d+ (.*)\.mp3/
+            fixTrackName: /Ives Symphony No.1 \d+ (.*)/
         },
         "Symphony4" : {
             fixAlbumTitle: symphony({ num: 4 }),
             firstTrackNumber: 10,
-            fixTrackName: /Ives Symphony No.4 \d+ (.*)\.mp3/
+            fixTrackName: /Ives Symphony No.4 \d+ (.*)/
         }
     },
     // JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
     "Jackie_Treehorn" : {
         "We are Jackie Treehorn" : {
-            fixTrackName: /Jackie Treehorn - (.*)\.mp3/
+            fixTrackName: /Jackie Treehorn - (.*)/
         }
     },
     "Janáček" : {
         "Jenůfa1" : {
-            fixTrackName: /Jenůfa Jednání I\. (.*)\.mp3/
+            fixTrackName: /Jenůfa Jednání I\. (.*)/
         },
         "Jenůfa2" : {
             firstTrackNumber: 9,
-            fixTrackName: /Jenůfa Jednání II\. (.*)\.mp3/
+            fixTrackName: /Jenůfa Jednání II\. (.*)/
         },
         "Jenůfa3" : {
             firstTrackNumber: 5,
-            fixTrackName: /Jenůfa Jednání III\. (.*)\.mp3/
+            fixTrackName: /Jenůfa Jednání III\. (.*)/
         },
         "Jenůfa Extras" : {
             firstTrackNumber: 14
@@ -859,11 +940,11 @@ export var rules = {
     },
     "James MacMillan" : {
         "Seven Last Words from the Cross" : {
-            fixTrackName: /Seven Last Words from the Cross \(1993\) \d. (.*)\.mp3/
+            fixTrackName: /Seven Last Words from the Cross \(1993\) \d. (.*)/
         },
         "Cantos Sagrados" : {
             firstTrackNumber: 8,
-            fixTrackName: /Cantos Sagrados \(1989\) \d. (.*)\.mp3/
+            fixTrackName: /Cantos Sagrados \(1989\) \d. (.*)/
         }
     },
     "Jan Garbarek" : {
@@ -874,31 +955,31 @@ export var rules = {
     "Joan Cererols" : {
         "Missa de Batalla" : {
             firstTrackNumber: 11,
-            fixTrackName: /Missa de batalla - (.*)\.mp3/
+            fixTrackName: /Missa de batalla - (.*)/
         },
         "Missa pro Defunctis" : {
-            fixTrackName: /Missa [Pp]ro [Dd]efunctis - (.*)\.mp3/
+            fixTrackName: /Missa [Pp]ro [Dd]efunctis - (.*)/
         }
     },
     // KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
     "Khachaturian" : {
         "Piano Concerto" : {
             fixAlbumTitle: concerto({ for: "Piano", major: "Db" }),
-            fixTrackName: /Khachaturian Piano Concerto in Db - [I]+ (.*)\.mp3/
+            fixTrackName: /Khachaturian Piano Concerto in Db - [I]+ (.*)/
         },
         "Sonatina" : {
             firstTrackNumber: 4,
-            fixTrackName: /(?:Khachaturian Sonatina - )?I+\.? (.*)\.mp3/
+            fixTrackName: /(?:Khachaturian Sonatina - )?I+\.? (.*)/
         },
         "Toccata" : {
             firstTrackNumber: 7,
-            fixTrackName: /(Toccata) \(1932\)\.mp3/
+            fixTrackName: /(Toccata) \(1932\)/
         }
     },
     "Korngold" : {
         "ViolinConc[Ehnes]" : {
             fixAlbumTitle: concerto({ for: "Violin", op:[35], major: "D" }),
-            fixTrackName: /Korngold - Violin Concerto in D, [Oo]p\. ?35 - I+ - (.*)\.mp3/
+            fixTrackName: /Korngold - Violin Concerto in D, [Oo]p\. ?35 - I+ - (.*)/
         }
     },
     "Kronos_Quartet" : {
@@ -908,156 +989,156 @@ export var rules = {
     },
     "Karkwa" : {
         "Les Chemins de verre" : {
-            fixTrackName: /Karkwa - (.*)\.mp3/
+            fixTrackName: /Karkwa - (.*)/
         }
     },
     "Kayhan Kalhor" : {
         "Ali Akbar Moradi" : {
-            fixTrackName: /Kayhan Kalhor - (.*)\.mp3/
+            fixTrackName: /Kayhan Kalhor - (.*)/
         }
     },
     "Knut Reiersrud" : {
         "Himmelskip" : {
-            fixTrackName: /Knut Reiersrud - (.*)\.mp3/
+            fixTrackName: /Knut Reiersrud - (.*)/
         }
     },
     "Kristorn" : {
         "69" : {
-            fixTrackName: /Kriston - 69-\d+ (.*)\.mp3/
+            fixTrackName: /Kriston - 69-\d+ (.*)/
         }
     },
     // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
     "Lisa LeBlanc" : {
         "Lisa LeBlanc" : {
-            fixTrackName: /Lisa LeBlanc - (.*)\.mp3/
+            fixTrackName: /Lisa LeBlanc - (.*)/
         }
     },
     "Liszt (as on disk!)" : {
         "PianoConcerto2[Brendel]" : {
             firstTrackNumber: 6,
-            fixTrackName: /List - Piano concerto No 2 in A major - (.*)\.mp3/
+            fixTrackName: /List - Piano concerto No 2 in A major - (.*)/
         }
     },
     // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     "Mahler" : {
         "Fahrenden Gesellen[Ludwig]" : {
-            fixTrackName: /Lieder eines Fahrenden Gesellen - (.*)\.mp3/,
+            fixTrackName: /Lieder eines Fahrenden Gesellen - (.*)/,
         },
         "Five Songs[Ludwig]" : {
             firstTrackNumber: 10
         },
         "Kindertotenlieder[Ludwig]" : {
            firstTrackNumber: 5,
-           fixTrackName: /Kindertotenlieder - (.*)\.mp3/
+           fixTrackName: /Kindertotenlieder - (.*)/
        },
        "Symph1[Chailly]" : {
            fixAlbumTitle: symphony({ num : 1, subTitle:"Titan", major : "D", by: "Chailly" }),
-           fixTrackName: /Symphony No. 1 in D major: [IV]+\. (.*)\.mp3/
+           fixTrackName: /Symphony No. 1 in D major: [IV]+\. (.*)/
         },
         "Symph1[Haitink]" : {
             fixAlbumTitle: symphony({ num : 1, subTitle:"Titan", major : "D", by: "Haitink" }),
-            fixTrackName: /Symphony No. 1 in D Titan [IV]+\. (.*)\.mp3/,
+            fixTrackName: /Symphony No. 1 in D Titan [IV]+\. (.*)/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph2[Chailly]" : {
             fixAlbumTitle: symphony({ num : 2, subTitle:"Resurrection", minor : "C", by: "Chailly" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony No. 2 in C minor: [IVi\-]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 2 in C minor: [IVi\-]+\. (.*)/
         },
         "Symph2[Haitink]" : {
             fixAlbumTitle: symphony({ num : 2, subTitle:"Resurrection", minor : "C", by: "Haitink" }),
             firstTrackNumber: 5,
-            fixTrackName: /Symphony No. 2 in C minor Resurrection [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 2 in C minor Resurrection [IV]+\. (.*)/
         },
         "Symph3[Chailly]" : {
             fixAlbumTitle: symphony({ num : 3, minor : "D", by: "Chailly" }),
-            fixTrackName: /Symphony No. 3 in D minor: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 3 in D minor: [IV]+\. (.*)/
         },
         "Symph3[Haitink]" : {
             fixAlbumTitle: symphony({ num : 3, minor : "D", by: "Haitink" }),
-            fixTrackName: /Symphony No. 3 in D minor [IV]+\. Part I+\. (.*)\.mp3/,
+            fixTrackName: /Symphony No. 3 in D minor [IV]+\. Part I+\. (.*)/,
         },
         "Symph4[Chailly]" : {
             fixAlbumTitle: symphony({ num : 4, major: "G", by: "Chailly" }),
             firstTrackNumber: 2,
-            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)/
         },
         "Symph4[Haitink]" : {
             fixAlbumTitle: symphony({ num : 4, major: "G", by: "Haitink" }),
             firstTrackNumber: 2,
-            fixTrackName: /Symphony No. 4 in G major [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 4 in G major [IV]+\. (.*)/
         },
         "Symph4[Solti]" : {
             fixAlbumTitle: symphony({ num : 4, major: "G", by: "Solti" }),
-            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 4 in G major: [IV]+\. (.*)/
         },
         "Symph5[Barbirolli]" : {
             fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Barbirolli" })
         },
         "Symph5[Chailly]" : {
             fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Chailly" }),
-            fixTrackName: /Symphony No. 5 in C-sharp minor: [IV]+\. (.*)\.mp3/,
+            fixTrackName: /Symphony No. 5 in C-sharp minor: [IV]+\. (.*)/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph5[Haitink]" : {
             fixAlbumTitle: symphony({ num : 5, minor: "C#", by: "Haitink" }),
-            fixTrackName: /Symphony No. 5 in C-sharp minor [IV]+\. Part I+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 5 in C-sharp minor [IV]+\. Part I+\. (.*)/
         },
         "Symph6[Chailly]" : {
             fixAlbumTitle: symphony({ num : 6, subTitle:"Tragic", minor : "A", by: "Chailly" }),
-            fixTrackName: /Symphony No. 6 in A minor: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 6 in A minor: [IV]+\. (.*)/
         },
         "Symph6[Haitink]" : {
             fixAlbumTitle: symphony({ num : 6, subTitle:"Tragic", minor : "A", by: "Haitink" }),
             firstTrackNumber: 2,
-            fixTrackName: /Symphony No. 6 in A minor [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 6 in A minor [IV]+\. (.*)/
         },
         "Symph7[Chailly]" : {
             fixAlbumTitle: symphony({ num : 7, minor : "E", by: "Chailly" }),
             firstTrackNumber: 2,
-            fixTrackName: /Symphony No. 7 in E minor: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 7 in E minor: [IV]+\. (.*)/
         },
         "Symph7[Haitink]" : {
             fixAlbumTitle: symphony({ num : 7, minor : "E", by: "Haitink" }),
-            fixTrackName: /Symphony No. 7 in E minor [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 7 in E minor [IV]+\. (.*)/
         },
         "Symph8[Chailly]" : {
             fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Chailly" }),
             firstTrackNumber: 4,
-            fixTrackName: /Symphony No. 8 in E-flat major: [IVivx\-]+\. (.*)\.mp3/,
+            fixTrackName: /Symphony No. 8 in E-flat major: [IVivx\-]+\. (.*)/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph8[Haitink]" : {
             fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Haitink" }),
-            fixTrackName: /Symphony no. 8 in E-flat major "Symphony of a Thousand": Teil \d: (.*)\.mp3/
+            fixTrackName: /Symphony no. 8 in E-flat major "Symphony of a Thousand": Teil \d: (.*)/
         },
         "Symph8[Järvi]" : {
             fixAlbumTitle: symphony({ num : 8, subTitle:"Of A Thousand", major : "Eb", by: "Järvi" }),
-            fixTrackName: /Symphony No. 8 in E-flat major, Symphony of a Thousand (.*)\.mp3/,
+            fixTrackName: /Symphony No. 8 in E-flat major, Symphony of a Thousand (.*)/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph9[Chailly]" : {
             fixAlbumTitle: symphony({ num : 9, major : "D", by: "Chailly" }),
-            fixTrackName: /Symphony No. 9 in D major: [IV]+\. (.*)\.mp3/,
+            fixTrackName: /Symphony No. 9 in D major: [IV]+\. (.*)/,
             validation : ["skipUniqueTrackNameCheck"]
         },
         "Symph9[Haitink]" : {
             fixAlbumTitle: symphony({ num : 9, major : "D", by: "Haitink" }),
             firstTrackNumber: 2,
-            fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony No. 9 in D major [IV]+\. (.*)/
         },
         "Symph10[Chailly]" : {
             fixAlbumTitle: symphony({ num : 10, major : "F#", by: "Chailly/Deryck Cooke" }),
-            fixTrackName: /Symphony no. 10: [IV]+\. (.*)\.mp3/
+            fixTrackName: /Symphony no. 10: [IV]+\. (.*)/
         }
     },
     "Malcolm Arnold" : {
         "Symph1":{
-            fixTrackName: /(.*) - Symphony No\.1 Op\.22\.mp3/
+            fixTrackName: /(.*) - Symphony No\.1 Op\.22/
         },
         "PianoConcerto 3 hands" : {
             firstTrackNumber: 4,
-            fixTrackName: /(.*) - Concerto for 2 Pianos \(3 Hands\) Op\.104\.mp3/
+            fixTrackName: /(.*) - Concerto for 2 Pianos \(3 Hands\) Op\.104/
         },
         "Five orch pieces" : {
             firstTrackNumber: 7
@@ -1071,21 +1152,21 @@ export var rules = {
     "Medtner" : {
         "SonateOp11" : {
             firstTrackNumber: 7,
-            fixTrackName: /(?:Sonaten-Triade op\. 11 - )?Nr\. \d (.*)\.mp3/
+            fixTrackName: /(?:Sonaten-Triade op\. 11 - )?Nr\. \d (.*)/
         },
         "Zwei Märchen" : {
             firstTrackNumber: 5,
-            fixTrackName: /Zwei Märchen op. 8 - I+\. (.*)\.mp3/
+            fixTrackName: /Zwei Märchen op. 8 - I+\. (.*)/
         },
     },
     "Mendelssohn" : {
         "ViolinConcert[Menuhin]" : {
-            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)\.mp3/
+            fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)/
         }
     },
     "Maurice Jarre" : {
         "Lawrence of Arabia Soundtrack" : {
-            fixTrackName: /Maurice Jarre - (.*)\.mp3/
+            fixTrackName: /Maurice Jarre - (.*)/
         }
     },
     "Miles Davis" : {
@@ -1108,10 +1189,10 @@ export var rules = {
     "Moussorgsky" : {
         "Pictures (original)" : {
             firstTrackNumber: 16,
-            fixTrackName: /Pictures at an exhibition - Original version \d+\. (.*)\.mp3/
+            fixTrackName: /Pictures at an exhibition - Original version \d+\. (.*)/
         },
         "Pictures (orchestral)" : {
-            fixTrackName: /Pictures at an exhibition - Orchestral version by Ravel \d+\. (.*)\.mp3/
+            fixTrackName: /Pictures at an exhibition - Orchestral version by Ravel \d+\. (.*)/
         }
     }
 };

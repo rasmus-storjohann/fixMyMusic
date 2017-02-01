@@ -19,8 +19,7 @@ export class CustomFixerFactory
             if (allRules.hasOwnProperty(artist)) {
                 var rulesForArtist = allRules[artist];
                 for (var album in rulesForArtist) {
-                    // TODO artistName is no longer supported
-                    if (rulesForArtist.hasOwnProperty(album) && album !== "artistName") {
+                    if (rulesForArtist.hasOwnProperty(album)) {
                         var rulesForAlbum = rulesForArtist[album];
                         for (var rule in rulesForAlbum) {
                             if (rulesForAlbum.hasOwnProperty(rule)) {

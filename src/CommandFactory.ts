@@ -72,10 +72,9 @@ export class CommandFactory
         {
             throw new Error(track.path + ": title is null");
         }
-        var index = title.indexOf(".mp3");
-        if (index !== -1)
+        if (title.indexOf(".mp3") !== -1)
         {
-            title = title.slice(0, index);
+            throw new Error(track.path + ": track name contains the mp3 extension");
         }
         var formattedNumber = ("00" + track.trackNumber).slice(-2);
         return formattedNumber + " " + title;

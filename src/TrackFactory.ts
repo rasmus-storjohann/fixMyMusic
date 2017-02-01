@@ -42,18 +42,18 @@ export class TrackFactory
             disk = parseInt(match[1]);
         }
 
-        if (match = /^(\d+)[ \.-]*(.*)$/.exec(title))
+        if (match = /^(\d+)[ \.-]*(.*)\.mp3$/.exec(title))
         {
             trackNumber = parseInt(match[1]);
             title = match[2];
         }
-        else if (match = /^Disc (\d+) - (\d+)[ -]*(.*)$/.exec(title))
+        else if (match = /^Disc (\d+) - (\d+)[ -]*(.*)\.mp3$/.exec(title))
         {
             disk = parseInt(match[1]);
             trackNumber = parseInt(match[2]);
             title = match[3];
         }
-        else if (match = /d(\d+)t(\d+)\. (.*)/.exec(title))
+        else if (match = /^d(\d+)t(\d+)\. (.*)\.mp3$/.exec(title))
         {
             disk = parseInt(match[1]);
             trackNumber = parseInt(match[2]);
