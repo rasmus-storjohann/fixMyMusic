@@ -1,4 +1,3 @@
-/// <reference path = "../typings/auto.d.ts" />
 import { Album } from "./Album";
 import { AlbumTrack } from "./AlbumTrack";
 import { Track } from "./Track";

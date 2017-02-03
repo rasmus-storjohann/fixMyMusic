@@ -1,6 +1,5 @@
-/// <reference path = "../typings/auto.d.ts" />
-
-import * as chai from "chai";
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import * as log from "npmlog";
 import { Track } from "../src/Track";
 import { TrackFactory } from "../src/TrackFactory";
@@ -22,19 +21,19 @@ describe("TrackFactory", () => {
         });
 
         it("Gets the artist name from path", () => {
-            chai.expect(_track.artist).equals("artist");
+            expect(_track.artist).equals("artist");
         });
 
         it("Gets the album name from path", () => {
-            chai.expect(_track.album).equals("album");
+            expect(_track.album).equals("album");
         });
 
         it("Gets the track number from the path", () => {
-            chai.expect(_track.trackNumber).equals(1);
+            expect(_track.trackNumber).equals(1);
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track");
+            expect(_track.title).equals("track");
         });
     });
 
@@ -46,23 +45,23 @@ describe("TrackFactory", () => {
             _track = _theTrackFactory.createTrack(deepPath);
         });
         it("Gets the artist name from path", () => {
-            chai.expect(_track.artist).equals("artist");
+            expect(_track.artist).equals("artist");
         });
 
         it("Gets the album name from path", () => {
-            chai.expect(_track.album).equals("album");
+            expect(_track.album).equals("album");
         });
 
         it("Gets the disk id from the path", () => {
-            chai.expect(_track.disk).equals(2);
+            expect(_track.disk).equals(2);
         });
 
         it("Gets the track number from the path", () => {
-            chai.expect(_track.trackNumber).equals(1);
+            expect(_track.trackNumber).equals(1);
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track");
+            expect(_track.title).equals("track");
         });
     });
 
@@ -74,23 +73,23 @@ describe("TrackFactory", () => {
             _track = _theTrackFactory.createTrack(path);
         });
         it("Gets the artist name from path", () => {
-            chai.expect(_track.artist).equals("artist");
+            expect(_track.artist).equals("artist");
         });
 
         it("Gets the album name from path", () => {
-            chai.expect(_track.album).equals("album");
+            expect(_track.album).equals("album");
         });
 
         it("Gets the disk id from the path", () => {
-            chai.expect(_track.disk).equals(2);
+            expect(_track.disk).equals(2);
         });
 
         it("Gets the track number from path", () => {
-            chai.expect(_track.trackNumber).equals(1);
+            expect(_track.trackNumber).equals(1);
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track");
+            expect(_track.title).equals("track");
         });
     });
 
@@ -102,37 +101,37 @@ describe("TrackFactory", () => {
             _track = _theTrackFactory.createTrack(path);
         });
         it("Gets the artist name from path", () => {
-            chai.expect(_track.artist).equals("artist");
+            expect(_track.artist).equals("artist");
         });
 
         it("Gets the album name from path", () => {
-            chai.expect(_track.album).equals("album");
+            expect(_track.album).equals("album");
         });
 
         it("Gets the disk id from the path", () => {
-            chai.expect(_track.disk).equals(2);
+            expect(_track.disk).equals(2);
         });
 
         it("Gets the track number from path", () => {
-            chai.expect(_track.trackNumber).equals(1);
+            expect(_track.trackNumber).equals(1);
         });
 
         it("Gets the track name from path", () => {
-            chai.expect(_track.title).equals("track");
+            expect(_track.title).equals("track");
         });
     });
 
     describe("with track number", () => {
         it("of just one digit", () => {
             var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");
-            chai.expect(track.trackNumber).equals(1);
-            chai.expect(track.title).equals("track");
+            expect(track.trackNumber).equals(1);
+            expect(track.title).equals("track");
         });
 
         it("with trailing dot", () => {
             var track = _theTrackFactory.createTrack("root/artist/album/1. track.mp3");
-            chai.expect(track.trackNumber).equals(1);
-            chai.expect(track.title).equals("track");
+            expect(track.trackNumber).equals(1);
+            expect(track.title).equals("track");
         });
     });
 
@@ -145,10 +144,10 @@ describe("TrackFactory", () => {
         });
 
         it("looks at three last path elements", () => {
-            chai.expect(_track.artist).equals("artist");
-            chai.expect(_track.album).equals("album");
-            chai.expect(_track.trackNumber).equals(1);
-            chai.expect(_track.title).equals("track");
+            expect(_track.artist).equals("artist");
+            expect(_track.album).equals("album");
+            expect(_track.trackNumber).equals(1);
+            expect(_track.title).equals("track");
         });
     });
 
@@ -161,14 +160,14 @@ describe("TrackFactory", () => {
         });
 
         it("still gets the track name from path", () => {
-            chai.expect(_track.title).equals("track.mp3");
+            expect(_track.title).equals("track.mp3");
         });
     });
 
     describe("error handling", () => {
         it("throws on path that is missing required elements", () => {
             var tooShortPath = "album/track.mp3";
-            chai.expect(() => {
+            expect(() => {
                 _theTrackFactory.createTrack(tooShortPath);
             }).to.throw(Error, /Invalid path to music file/);
         });

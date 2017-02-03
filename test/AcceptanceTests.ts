@@ -1,6 +1,5 @@
-/// <reference path = "../typings/auto.d.ts" />
-
-import * as chai from "chai";
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as log from "npmlog";
@@ -20,7 +19,7 @@ describe("Acceptance tests", () => {
     });
 
     it("Has test prerequisites", () => {
-        chai.expect(fileExists("test.mp3")).is.true;
+        expect(fileExists("test.mp3")).is.true;
     });
 
     it("Copies file from source to destination", () => {
@@ -30,7 +29,7 @@ describe("Acceptance tests", () => {
         log.level = "silent";
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
+        expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
     });
 
     it("With --dry-run does not copy file", () => {
@@ -40,7 +39,7 @@ describe("Acceptance tests", () => {
         log.level = "silent";
         Application.main(["ignored", "ignored", "testOutput/source", "--dry-run", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.false;
+        expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.false;
     });
 
     describe("with special characters in filenames", () => {
@@ -51,7 +50,7 @@ describe("Acceptance tests", () => {
             log.level = "silent";
             Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-            chai.expect(fileExists("testOutput/destination/artist/album/01 [abc].mp3")).is.true;
+            expect(fileExists("testOutput/destination/artist/album/01 [abc].mp3")).is.true;
         });
         it("supports *", () => {
             shelljs.mkdir("-p", "testOutput/source/artist/album/");
@@ -60,7 +59,7 @@ describe("Acceptance tests", () => {
             log.level = "silent";
             Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-            chai.expect(fileExists("testOutput/destination/artist/album/01 abc*efg.mp3")).is.true;
+            expect(fileExists("testOutput/destination/artist/album/01 abc*efg.mp3")).is.true;
         });
         it("supports ()", () => {
             shelljs.mkdir("-p", "testOutput/source/artist/album/");
@@ -69,7 +68,7 @@ describe("Acceptance tests", () => {
             log.level = "silent";
             Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-            chai.expect(fileExists("testOutput/destination/artist/album/01 (efg).mp3")).is.true;
+            expect(fileExists("testOutput/destination/artist/album/01 (efg).mp3")).is.true;
         });
         it("supports \"", () => {
             shelljs.mkdir("-p", "testOutput/source/artist/album/");
@@ -78,7 +77,7 @@ describe("Acceptance tests", () => {
             log.level = "silent";
             Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-            chai.expect(fileExists("testOutput/destination/artist/album/01 \"efg\".mp3")).is.true;
+            expect(fileExists("testOutput/destination/artist/album/01 \"efg\".mp3")).is.true;
         });
         it("supports '", () => {
             shelljs.mkdir("-p", "testOutput/source/artist/album/");
@@ -87,7 +86,7 @@ describe("Acceptance tests", () => {
             log.level = "silent";
             Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-            chai.expect(fileExists("testOutput/destination/artist/album/01 'efg'.mp3")).is.true;
+            expect(fileExists("testOutput/destination/artist/album/01 'efg'.mp3")).is.true;
         });
     });
 
@@ -99,8 +98,8 @@ describe("Acceptance tests", () => {
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
+        expect(fileExists("testOutput/destination/artist/album/01 first track.mp3")).is.true;
+        expect(fileExists("testOutput/destination/artist/album/02 second track.mp3")).is.true;
     });
 
     it("Supports validation directive to ignore track numbers", () => {
@@ -112,10 +111,10 @@ describe("Acceptance tests", () => {
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/01 Grohg - Cortège macabre.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/02 Letter From Home.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3")).is.true;
+        expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/01 Grohg - Cortège macabre.mp3")).is.true;
+        expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/02 Letter From Home.mp3")).is.true;
+        expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3")).is.true;
+        expect(fileExists("testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3")).is.true;
     });
 
     it ("supports disk starting at track number above one and spanning disks", () => {
@@ -132,15 +131,15 @@ describe("Acceptance tests", () => {
 
         Application.main(["ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"], log);
 
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/02 Nechám ještě dveře otevřeny (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku (Števa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje (Laca).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/06 Co chvíla... co chvíla (Kostelnička).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/07 Mamičko, mám těžkou hlavu (Jenůfa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3")).is.true;
-        chai.expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Tot' zrovna jde! (Kostelnička).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/02 Nechám ještě dveře otevřeny (Kostelnička).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl (Kostelnička).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku (Števa).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje (Laca).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/06 Co chvíla... co chvíla (Kostelnička).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/07 Mamičko, mám těžkou hlavu (Jenůfa).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3")).is.true;
+        expect(fileExists("testOutput/destination/Janáček/Jenůfa2/09 Tot' zrovna jde! (Kostelnička).mp3")).is.true;
     });
 
     it("sets mp3 tags", () => {
@@ -156,7 +155,7 @@ describe("Acceptance tests", () => {
 
         shelljs.exec(mp3infoCommand, function(code, stdout, stderr) {
             var expected = "artist='artist_dummy' album='dummy album' track='01 dummy track'\n";
-            chai.expect(stdout).to.equal(expected);
+            expect(stdout).to.equal(expected);
         });
     });
 });

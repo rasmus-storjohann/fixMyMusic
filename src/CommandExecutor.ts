@@ -1,5 +1,3 @@
-/// <reference path = "../typings/auto.d.ts" />
-
 import { Command } from "../src/Command";
 import * as shelljs from 'shelljs';
 import * as fileExists from "file-exists";

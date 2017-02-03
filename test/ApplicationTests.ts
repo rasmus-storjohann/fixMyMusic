@@ -1,6 +1,5 @@
-/// <reference path = "../typings/auto.d.ts" />
-
-import * as chai from "chai";
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import * as log from "npmlog";
 import { Application } from "../src/Application";
 
@@ -31,14 +30,14 @@ beforeEach(() =>
 describe("Application", () => {
     it("throws if out argument is not given", () => {
         var validName = "root/Artist/Album/01 Track.mp3";
-        chai.expect(() => {
+        expect(() => {
             application.execute([validName]);
         }).to.throw(Error, /Specify --out argument/);
     });
 
     // it("throws if input file is invalid", () => {
     //     var invalidPathWithSpaceInArtistName = "root/Artist Name/Album/01 Track.mp3";
-    //     chai.expect(() => {
+    //     expect(() => {
     //         application.doIt(["--out", "out", invalidPathWithSpaceInArtistName]);
     //     }).to.throw(Error, /Bla/);
     // });

@@ -1,4 +1,3 @@
-/// <reference path = "../typings/auto.d.ts" />
 import { Track } from "./Track";
 import * as npmlog from "npmlog";
 

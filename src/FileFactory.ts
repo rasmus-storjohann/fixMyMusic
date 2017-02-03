@@ -1,7 +1,5 @@
-/// <reference path = "../typings/auto.d.ts" />
-
 import * as shelljs from 'shelljs';
-import * as fs from 'fs';
+import * as fs from 'fs.realpath';
 import * as npmlog from "npmlog";
 
 
@@ -30,7 +28,7 @@ export class FileFactory
     {
         var result = shelljs.find(directories).filter((path) =>
         {
-            var isIncluded = /mp3$/.exec(path) && fs.statSync(path).isFile();
+            var isIncluded = /mp3$/.test(path);
             this.log(path, isIncluded, this.logger);
             return isIncluded;
         });

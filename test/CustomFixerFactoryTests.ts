@@ -1,9 +1,8 @@
-/// <reference path = "../typings/auto.d.ts" />
-
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import { CustomFixerFactory } from "../src/CustomFixerFactory";
 import { Album } from "../src/Album";
 import { Format, cantata } from "../src/AlbumFormat";
-import * as chai from "chai";
 import * as npmlog from "npmlog";
 
 beforeEach(() => {
@@ -29,7 +28,7 @@ describe("CustomFixerFactory", () => {
             };
             var customFixer = buildFixer("artist name", "the original album name", rules);
 
-            chai.expect(customFixer.fixAlbumTitle).to.equal("the fixed album name");
+            expect(customFixer.fixAlbumTitle).to.equal("the fixed album name");
         });
 
         it("with fixAlbumTitle as a spec", () => {
@@ -42,7 +41,7 @@ describe("CustomFixerFactory", () => {
             };
             var customFixer = buildFixer("artist name", "the original album name", rules);
 
-            chai.expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV.131");
+            expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV.131");
         });
 
         describe("with valid validation options as strings", () => {
@@ -57,8 +56,8 @@ describe("CustomFixerFactory", () => {
                 };
                 var customFixer = buildFixer("artist name", "album name", rules);
 
-                chai.expect(customFixer.validation).to.have.length(1);
-                chai.expect(customFixer.validation).to.contain("skipUniqueTrackNameCheck");
+                expect(customFixer.validation).to.have.length(1);
+                expect(customFixer.validation).to.contain("skipUniqueTrackNameCheck");
             });
 
             it("skipTrackNumberCheck", () => {
@@ -71,8 +70,8 @@ describe("CustomFixerFactory", () => {
                 };
                 var customFixer = buildFixer("artist name", "album name", rules);
 
-                chai.expect(customFixer.validation).to.have.length(1);
-                chai.expect(customFixer.validation).to.contain("skipTrackNumberCheck");
+                expect(customFixer.validation).to.have.length(1);
+                expect(customFixer.validation).to.contain("skipTrackNumberCheck");
             });
 
             it("supports multiple flags", () => {
@@ -85,9 +84,9 @@ describe("CustomFixerFactory", () => {
                 };
                 var customFixer = buildFixer("artist name", "album name", rules);
 
-                chai.expect(customFixer.validation).to.have.length(2);
-                chai.expect(customFixer.validation).to.contain("skipUniqueTrackNameCheck");
-                chai.expect(customFixer.validation).to.contain("skipTrackNumberCheck");
+                expect(customFixer.validation).to.have.length(2);
+                expect(customFixer.validation).to.contain("skipUniqueTrackNameCheck");
+                expect(customFixer.validation).to.contain("skipTrackNumberCheck");
             });
         });
 
@@ -100,7 +99,7 @@ describe("CustomFixerFactory", () => {
                 }
             };
 
-            chai.expect(() => {
+            expect(() => {
                 buildFixer("artist name", "album name", rules);
             }).to.throw(Error, /invalidValue: Invalid validation option/);
         });
@@ -114,7 +113,7 @@ describe("CustomFixerFactory", () => {
                 }
             };
 
-            chai.expect(() => {
+            expect(() => {
                 buildFixer("artist name", "album name", rules);
             }).to.throw(Error, /invalidOption: Invalid custom rule/);
         });
@@ -137,8 +136,8 @@ describe("CustomFixerFactory", () => {
 
             fixTracks(theAlbum, rules);
 
-            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
-            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
+            expect(theAlbum.tracks[0].title).to.equal("track title");
+            expect(theAlbum.tracks[0].trackNumber).to.equal(1);
         });
 
         it("returns fix track name function if specified", () => {
@@ -158,7 +157,7 @@ describe("CustomFixerFactory", () => {
 
             fixTracks(theAlbum, rules);
 
-            chai.expect(theAlbum.tracks[0].title).to.equal("fixed track title");
+            expect(theAlbum.tracks[0].title).to.equal("fixed track title");
         });
         it("returns function applying regular expression if specified", () => {
             var rules = {
@@ -174,7 +173,7 @@ describe("CustomFixerFactory", () => {
 
             fixTracks(theAlbum, rules);
 
-            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
+            expect(theAlbum.tracks[0].title).to.equal("track title");
         });
 
         it("composes fixer functions", () => {
@@ -192,8 +191,8 @@ describe("CustomFixerFactory", () => {
 
             fixTracks(theAlbum, rules);
 
-            chai.expect(theAlbum.tracks[0].title).to.equal("track title");
-            chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
+            expect(theAlbum.tracks[0].title).to.equal("track title");
+            expect(theAlbum.tracks[0].trackNumber).to.equal(1);
         });
 
         describe("with firstTrackNumber option", () => {
@@ -211,7 +210,7 @@ describe("CustomFixerFactory", () => {
 
                 fixTracks(theAlbum, rules);
 
-                chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
+                expect(theAlbum.tracks[0].trackNumber).to.equal(1);
             });
             it ("throws if the adjusted track number is less than one", () => {
                 var rules = {
@@ -225,7 +224,7 @@ describe("CustomFixerFactory", () => {
                 var theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 1};
                 theAlbum.push(theTrack);
 
-                chai.expect(() => {
+                expect(() => {
                     fixTracks(theAlbum, rules);
                 }).to.throw(Error, /fixing track number gave negative result/);
             });
@@ -243,7 +242,7 @@ describe("CustomFixerFactory", () => {
                 theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 4};
                 theAlbum.push(theTrack);
 
-                chai.expect(() => {
+                expect(() => {
                     fixTracks(theAlbum, rules);
                 }).to.throw(Error, /missing track/);
             });
@@ -261,7 +260,7 @@ describe("CustomFixerFactory", () => {
                 theTrack = { path: "", artist: "artist name", album: "the album name", title: "", trackNumber: 2};
                 theAlbum.push(theTrack);
 
-                chai.expect(() => {
+                expect(() => {
                     fixTracks(theAlbum, rules);
                 }).to.throw(Error, /duplicate track number/);
             });
@@ -281,8 +280,8 @@ describe("CustomFixerFactory", () => {
 
                 fixTracks(theAlbum, rules);
 
-                chai.expect(theAlbum.tracks[0].trackNumber).to.equal(1);
-                chai.expect(theAlbum.tracks[1].trackNumber).to.equal(2);
+                expect(theAlbum.tracks[0].trackNumber).to.equal(1);
+                expect(theAlbum.tracks[1].trackNumber).to.equal(2);
             });
         });
     });

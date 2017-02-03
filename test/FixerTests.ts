@@ -1,12 +1,11 @@
-/// <reference path = "../typings/auto.d.ts" />
-
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import { Fixer } from "../src/Fixer";
 import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
 import { Track } from "../src/Track";
 import { sonata } from "../src/AlbumFormat";
 import { CustomFixer } from "../src/CustomFixer";
-import * as chai from "chai";
 import * as npmlog from "npmlog";
 
 var fixer: Fixer;
@@ -57,17 +56,17 @@ describe("Fixer", () => {
         it("replaces underscore with space in track names", () => {
             album.push(trackWithName("track_one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            expect(album.tracks[0].title).to.equal("track one.mp3");
         });
         it("replaces repeated space with one space in track names", () => {
             album.push(trackWithName("track     one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            expect(album.tracks[0].title).to.equal("track one.mp3");
         });
         it("replaces repeated space/underscores with one space in track names", () => {
             album.push(trackWithName("track _ one.mp3"));
             fixer.fix(album);
-            chai.expect(album.tracks[0].title).to.equal("track one.mp3");
+            expect(album.tracks[0].title).to.equal("track one.mp3");
         });
 
         it("assigns track numbers based on the disk number", () => {
@@ -77,25 +76,25 @@ describe("Fixer", () => {
 
             fixer.fix(album);
 
-            chai.expect(album.tracks[0].trackNumber).to.equal(1);
-            chai.expect(album.tracks[1].trackNumber).to.equal(2);
-            chai.expect(album.tracks[2].trackNumber).to.equal(3);
+            expect(album.tracks[0].trackNumber).to.equal(1);
+            expect(album.tracks[1].trackNumber).to.equal(2);
+            expect(album.tracks[2].trackNumber).to.equal(3);
         });
 
         it("first track number of next disk is computed from last track number on current disk", () => {
             album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "second track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, trackNumber: 1, title: "track from disk three.mp3", disk: 3, path: "cccc" });
             fixer.fix(album);
-            chai.expect(album.tracks[0].trackNumber).to.equal(2);
-            chai.expect(album.tracks[1].trackNumber).to.equal(3);
+            expect(album.tracks[0].trackNumber).to.equal(2);
+            expect(album.tracks[1].trackNumber).to.equal(3);
         });
 
         it("index of tracks on next disk is offset by the number of tracks on the first disk", () => {
             album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk two.mp3", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk three.mp3", disk: 3, path: "cccc" });
             fixer.fix(album);
-            chai.expect(album.tracks[0].trackNumber).to.equal(2);
-            chai.expect(album.tracks[1].trackNumber).to.equal(4);
+            expect(album.tracks[0].trackNumber).to.equal(2);
+            expect(album.tracks[1].trackNumber).to.equal(4);
         });
 
         it("index tracks spanning three disks", () => {
@@ -103,17 +102,17 @@ describe("Fixer", () => {
             album.push({ artist: artist, album: albumTitle, trackNumber: 2, title: "track from disk three.mp3", disk: 3, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, trackNumber: 3, title: "track from disk four.mp3", disk: 4, path: "cccc" });
             fixer.fix(album);
-            chai.expect(album.tracks[0].trackNumber).to.equal(3);
-            chai.expect(album.tracks[1].trackNumber).to.equal(5);
-            chai.expect(album.tracks[2].trackNumber).to.equal(8);
+            expect(album.tracks[0].trackNumber).to.equal(3);
+            expect(album.tracks[1].trackNumber).to.equal(5);
+            expect(album.tracks[2].trackNumber).to.equal(8);
         });
 
         it("can fix numbers when the tracks are larger than 9", () => {
             album.push({ artist: artist, album: albumTitle, trackNumber: 12, title: "track from disk two.mp2", disk: 2, path: "cccc" });
             album.push({ artist: artist, album: albumTitle, trackNumber:  1, title: "track from disk three.mp2", disk: 3, path: "cccc" });
             fixer.fix(album);
-            chai.expect(album.tracks[0].trackNumber).to.equal(12);
-            chai.expect(album.tracks[1].trackNumber).to.equal(13);
+            expect(album.tracks[0].trackNumber).to.equal(12);
+            expect(album.tracks[1].trackNumber).to.equal(13);
         });
         // TODO throw if some but not all tracks in a work has a disk id
     });
@@ -122,25 +121,25 @@ describe("Fixer", () => {
         it("makes no changes to artist names with no spaces", () => {
             album.artist = "a_b_c";
             fixer.fix(album);
-            chai.expect(album.artist).to.equal("a_b_c");
+            expect(album.artist).to.equal("a_b_c");
         });
 
         it("drops the 'the' and replaces space with _ in names starting with 'the'", () => {
             album.artist = "The Tragically Hip";
             fixer.fix(album);
-            chai.expect(album.artist).to.equal("Tragically_Hip");
+            expect(album.artist).to.equal("Tragically_Hip");
         });
 
         it("swaps first and last name and replaces spaces with _ in names consisting first and last name", () => {
             album.artist = "Jimi Hendrix";
             fixer.fix(album);
-            chai.expect(album.artist).to.equal("Hendrix_Jimi");
+            expect(album.artist).to.equal("Hendrix_Jimi");
         });
 
         it("makes no changes to artist names that don't fit these patterns", () => {
             album.artist = "One Two Three";
             fixer.fix(album);
-            chai.expect(album.artist).to.equal("One Two Three");
+            expect(album.artist).to.equal("One Two Three");
         });
 
         describe("with custom fixer", () => {
@@ -162,7 +161,7 @@ describe("Fixer", () => {
 
                 album.title = "original album name";
                 new Fixer(mockCustomFixerFactory, npmlog).fix(album);
-                chai.expect(album.title).to.equal("fixed album name");
+                expect(album.title).to.equal("fixed album name");
             });
 
             it("can set the track name", () => {
@@ -185,7 +184,7 @@ describe("Fixer", () => {
 
                 album.tracks[0].title = "Original track.mp3";
                 new Fixer(mockCustomFixerFactory, npmlog).fix(album);
-                chai.expect(album.tracks[0].title).to.equal("Fixed track.mp3");
+                expect(album.tracks[0].title).to.equal("Fixed track.mp3");
             });
         });
     });

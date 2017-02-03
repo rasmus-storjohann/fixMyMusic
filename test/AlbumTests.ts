@@ -1,6 +1,5 @@
-/// <reference path = "../typings/auto.d.ts" />
-
-import * as chai from "chai";
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import { Album } from "../src/Album";
 import { Track } from "../src/Track";
 
@@ -8,11 +7,11 @@ describe("Album", () => {
     describe("Constructor", () => {
         it("Sets artist", () => {
             var album = new Album("artist", "");
-            chai.expect(album.artist).to.equal("artist");
+            expect(album.artist).to.equal("artist");
         });
         it("Sets album title", () => {
             var album = new Album("", "title");
-            chai.expect(album.title).to.equal("title");
+            expect(album.title).to.equal("title");
         });
     });
     describe("adding elements", () => {
@@ -26,7 +25,7 @@ describe("Album", () => {
                     title: "track"
                 };
             album.push(track);
-            chai.expect(album.tracks[0].title).to.equal("track");
+            expect(album.tracks[0].title).to.equal("track");
         });
         it("throws when adding track with wrong artist", () => {
             var album = new Album("artist", "title");
@@ -38,7 +37,7 @@ describe("Album", () => {
                     title: "track"
                 };
 
-            chai.expect(() => {
+            expect(() => {
                 album.push(trackWithBadArtist);
             }).to.throw(Error, /Music track cannot be added to this album/);
         });
@@ -52,7 +51,7 @@ describe("Album", () => {
                     title: "track"
                 };
 
-            chai.expect(() => {
+            expect(() => {
                 album.push(trackWithBadTitle);
             }).to.throw(Error, /Music track cannot be added to this album/);
         });
@@ -78,9 +77,9 @@ describe("Album", () => {
 
             album.sortTracks();
 
-            chai.expect(album.tracks).to.have.lengthOf(2);
-            chai.expect(album.tracks[0].trackNumber).to.equal(1);
-            chai.expect(album.tracks[1].trackNumber).to.equal(2);
+            expect(album.tracks).to.have.lengthOf(2);
+            expect(album.tracks[0].trackNumber).to.equal(1);
+            expect(album.tracks[1].trackNumber).to.equal(2);
         });
 
         it("sorts the tracks by disk id", () => {
@@ -105,8 +104,8 @@ describe("Album", () => {
 
             album.sortTracks();
 
-            chai.expect(album.tracks[0].disk).to.equal(1);
-            chai.expect(album.tracks[1].disk).to.equal(2);
+            expect(album.tracks[0].disk).to.equal(1);
+            expect(album.tracks[1].disk).to.equal(2);
         });
 
         it("sorts by disk id then by track number", () => {
@@ -139,9 +138,9 @@ describe("Album", () => {
 
             album.sortTracks();
 
-            chai.expect(album.tracks[0].trackNumber).to.equal(2);
-            chai.expect(album.tracks[1].trackNumber).to.equal(3);
-            chai.expect(album.tracks[2].trackNumber).to.equal(1);
+            expect(album.tracks[0].trackNumber).to.equal(2);
+            expect(album.tracks[1].trackNumber).to.equal(3);
+            expect(album.tracks[2].trackNumber).to.equal(1);
         });
     });
 });

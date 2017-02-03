@@ -1,12 +1,11 @@
-/// <reference path = "../typings/auto.d.ts" />
-
+import { expect } from "chai";
+import { beforeEach, describe, it } from "mocha";
 import { Validator } from "../src/Validator";
 import { Track } from "../src/Track";
 import { Album } from "../src/Album";
 import { AlbumTrack } from "../src/AlbumTrack";
 import { CustomFixer } from "../src/CustomFixer";
 import * as npmlog from "npmlog";
-import * as chai from "chai";
 
 var _theValidator : Validator;
 beforeEach(() =>
@@ -71,7 +70,7 @@ describe("Validator", () => {
         it("throws on missing track number", () => {
             musicTrack[0].trackNumber = undefined;
 
-            chai.expect(() => {
+            expect(() => {
                 _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order, expected 1 but got <undefined>/);
         });
@@ -87,7 +86,7 @@ describe("Validator", () => {
             musicTrack[0].trackNumber = 2;
             musicTrack[1].trackNumber = 3;
 
-            chai.expect(() => {
+            expect(() => {
                 _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
@@ -96,7 +95,7 @@ describe("Validator", () => {
             musicTrack[0].trackNumber = 1;
             musicTrack[1].trackNumber = 1;
 
-            chai.expect(() => {
+            expect(() => {
                 _theValidator.validate(createAlbum());
             }).to.throw(Error, /Track number out of order/);
         });
@@ -105,7 +104,7 @@ describe("Validator", () => {
             musicTrack[0].title = "12345678901 bla.mp3";
             musicTrack[1].title = "12345678901 foo.mp3";
 
-            chai.expect(() => {
+            expect(() => {
                 _theValidator.validate(createAlbum());
             }).to.throw(Error, /bbbb: Album contains redundant track names/);
         });
@@ -122,7 +121,7 @@ describe("Validator", () => {
         musicTrack[0].artist = "aaaa bbbb";
         musicTrack[1].artist = "aaaa bbbb";
 
-        chai.expect(() => {
+        expect(() => {
             _theValidator.validate(createAlbum());
         }).to.throw(Error, /Artist contains a space/);
     });

@@ -1,5 +1,3 @@
-/// <reference path = "../typings/auto.d.ts" />
-
 export interface Format
 {
     form: string,
