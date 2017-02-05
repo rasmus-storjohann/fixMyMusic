@@ -22,6 +22,18 @@ export var rules = {
         firstTrackNumber: 6,
         fixTrackName: /(?:Act II, Scene \d )?(.*)/
     },
+    "DivertimentoK136" : {
+        firstTrackNumber: 5,
+        fixTrackName: /Divertimento in D major K136 - (.*)/
+    },
+    "DivertimentoK137" : {
+        firstTrackNumber: 8,
+        fixTrackName: /Divertimento in B flat major K137 - (.*)/
+    },
+    "DivertimentoK138" : {
+        firstTrackNumber: 11,
+        fixTrackName: /Divertimento in F major K138 - (.*)/
+    },
     "DonGiovanni1" : {
         fixTrackName: /(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act I, Scene [IVX]+\. )?(?:No\. \d+ )?(.*)/
     },
@@ -44,6 +56,9 @@ export var rules = {
     "Figaro4" : {
         firstTrackNumber: 15
     },
+    "Kyrie K341 [Gardiner]" : {
+        firstTrackNumber: 15
+    },
     "Magic Flute 1" : {
         fixTrackName: /Die Zauberflöte, K. 620 (?:Act I, Scene [IVX]+\. )?(?:No.\ \d+ )?(.*)/
     },
@@ -51,6 +66,13 @@ export var rules = {
        firstTrackNumber: 25,
        fixTrackName: /Die Zauberflöte, K. 620 (?:Act II, Scene [IVX \-]+\. )?(?:No.\ \d+ )?(.*)/
    },
+   "Litaniae de venerabili altaris sacramento [Marriner]" : {
+        firstTrackNumber: 6,
+        fixTrackName: /Litaniae de venerabili altaris sacramento, K\. 243: [IVX]+\. (.*)/
+    },
+    "Litaniae lauretanae [Marriner]" : {
+        fixTrackName: /Litaniae lauretanae, K. 195: [IVX]+\. (.*)/
+    },
    // DUPE, need artist
    "PianConc 17" : {
         fixTrackName: /PiaNo.17 KV 453 - (?:1er|2e|3e) mvt - (.*)/,
@@ -64,10 +86,19 @@ export var rules = {
         firstTrackNumber: 3,
         fixTrackName: /Piano Concerto No. 15 in B-flat major, KV 450 [IV]+\. (.*)/
     },
+    "PianoConcerto17[Skoda]" : {
+        fixAlbumTitle: concerto({num: 17, for: "Piano", major: "G", K: 453, by: "Skoda" }),
+        fixTrackName: /Piano concerto 17 G-major K453 - (.*)/
+    },
     "PianoConcerto19" : {
         fixAlbumTitle: concerto({num: 19, for: "Piano", major: "F", K: 459 }),
         fixTrackName: /Concerto No. 19 in F major for Piano, K. 459 [IV]+\. (.*)/
     },
+    "PianoConcerto19[Skoda]" : {
+      fixAlbumTitle: concerto({num: 19, for: "Piano", major: "F", K: 459, by: "Skoda" }),
+       firstTrackNumber: 4,
+       fixTrackName: /Piano concerto 19 F-major K459 - (.*)/
+     },
     "PianoConcerto20" : {
         fixAlbumTitle: concerto({num: 20, for: "Piano", minor: "D", K: 466 }),
         firstTrackNumber: 4,
@@ -107,6 +138,19 @@ export var rules = {
         fixAlbumTitle: concerto({num: 9, for: "Piano", major: "Eb", K:271, subTitle: "Jeunehomme" }),
         fixTrackName: /Piano Concerto No. 9 in E-flat major, KV 271 Jeunehomme [IV]+\. (.*)/
     },
+    "Quartet16" : {
+        firstTrackNumber: 5,
+        fixTrackName: /String Quartet no. 16 in E-flat major, K. 428: [IV]+\. (.*)/
+    },
+    "Quartet18" : {
+       fixTrackName: /String Quartet no\. 18 in A major, K\. 464: [IV]+\. (.*)/
+    },
+    "QuartetK465" : {
+        fixTrackName: /Quartet in C major K465 Dissonance - (.*)/
+    },
+     "Requiem in D minor [Gardiner]" : {
+        fixTrackName: /Requiem in D minor, K. 626 \(Süßmayr completion\): [IVa-f]+\. (.*)/
+    },
     "RondoK382" : {
         firstTrackNumber: 7,
         fixTrackName: /Rondo for Piano & Orchestra in D major, K. 382 Rondo. [a-c]\. (.*)/
@@ -129,6 +173,10 @@ export var rules = {
         firstTrackNumber: 7,
         fixTrackName: /Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\. (.*)/
     },
+    "Spaurmesse [Marriner]" : {
+       firstTrackNumber: 13,
+       fixTrackName: /Mass no. 11, K. 258 "Spaurmesse": [IV]+\. (.*)/
+     },
     "SonataK46d" : {
         //fixAlbumTitle: sonata({ K: 46, major: "C" }),
         fixTrackName: /Sonata in C major, KV 46d [IV]+\. (.*)/
@@ -335,6 +383,13 @@ export var rules = {
         fixAlbumTitle: symphony({ num : 41, subTitle:"Jupiter", K: 551, major : "C", by: "Tate" }),
         firstTrackNumber: 5,
         fixTrackName: /Symphony No.41 - [IV]+\. (.*)/
+    },
+    "Vesperae solennes de Confessore [Marriner]" : {
+        fixTrackName: /Vesperae solennes de Confessore, K\. 339: [IV]+\. (.*)/
+    },
+    "Vesperae solennes de Dominica [Marriner]" : {
+        firstTrackNumber: 7,
+        fixTrackName: /Vesperae solennes de Dominica, K\. 321: [IV]+\. (.*)/
     },
     "ViolinConcerto1" : {
         fixAlbumTitle: concerto({num:1, for:"Violin", major:"Bb", K:207 }),

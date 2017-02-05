@@ -331,6 +331,18 @@ export var rules = {
             fixTrackName: /Camarón - (.*)/
         }
     },
+    "Carl Nielsen" : {
+      "Symph 1" : {
+          fixTrackName: /\d - (.*)/
+      },
+      "Symph 4" : {
+          firstTrackNumber: 6,
+          fixTrackName: /\d - (.*)/
+      },
+      "Two Orch Pieces" : {
+          validation : ["skipTrackNumberCheck"]
+      }
+    },
     "Corelli" : {
         "Conc 1 D" : {
             fixAlbumTitle: concerto({num: 1, major:"D", op:[6,1]}),
@@ -484,6 +496,9 @@ export var rules = {
         "SuiteBergamasque" : {
             firstTrackNumber: 15,
             fixTrackName: /Suite Bergamasque, L 75: [IV]+\. (.*)/
+        },
+        "ThreePieces" : {
+            validation : ["skipUniqueTrackNameCheck"]
         }
     },
     "Donizetti" : {
@@ -602,9 +617,10 @@ export var rules = {
             firstTrackNumber: 7,
             fixTrackName: /Psalms - (.*)/
         },
-        "TwoOtherPieces" : {
-           firstTrackNumber: 4
-       },
+        "TwoPieces" : {
+          firstTrackNumber: 5,
+          fixTrackName: /Two Pieces, op\. 77: [IV]+\. (.*)/
+        },
         "ViolinSonata" : {
             firstTrackNumber: 4,
             fixTrackName: /ViolinSonata G major Op 13 - (.*)/
@@ -976,6 +992,11 @@ export var rules = {
             fixTrackName: /(Toccata) \(1932\)/
         }
     },
+    "Kodaly" : {
+      "Hary Janos Suite" : {
+          firstTrackNumber: 16
+      }
+  },
     "Korngold" : {
         "ViolinConc[Ehnes]" : {
             fixAlbumTitle: concerto({ for: "Violin", op:[35], major: "D" }),
@@ -1013,11 +1034,25 @@ export var rules = {
             fixTrackName: /Lisa LeBlanc - (.*)/
         }
     },
-    "Liszt (as on disk!)" : {
-        "PianoConcerto2[Brendel]" : {
-            firstTrackNumber: 6,
-            fixTrackName: /List - Piano concerto No 2 in A major - (.*)/
-        }
+    "Liszt" : {
+        "Five pieces [Brendel]" : {
+          validation : ["skipTrackNumberCheck"]
+        },
+        "PianoConcerto1 [Richter]" : {
+          fixTrackName: /Piano Concerto no. 1 in E-flat major: [IV]+\. (.*)/
+      },
+      "PianoConcerto2 [Richter]" : {
+          firstTrackNumber: 5,
+          fixTrackName: /Piano Concerto no\. 2 in A major: [IV]+\. (.*)/
+      },
+      "PianoConcerto2[Andsnes]" : {
+          firstTrackNumber: 4,
+          fixTrackName: /Piano Concerto No. 2 in A minor: [IV]+\. (.*)/
+      },
+      "Sonata in b [Richter]" : {
+         firstTrackNumber: 9,
+         fixTrackName: /Piano Sonata in B minor: [IV]+\. (.*)/
+     }
     },
     // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     "Mahler" : {
@@ -1160,6 +1195,13 @@ export var rules = {
         },
     },
     "Mendelssohn" : {
+        "Symph4" : {
+            fixTrackName: /Symphonie Nr\. 4 A-Dur op\. 90 "Italienische": [IV]+\. (.*)/
+        },
+        "Symph5" : {
+           firstTrackNumber: 5,
+           fixTrackName: /Symphonie Nr\. 5 d-Moll op\. 107 "Reformation": [IV]+\. (.*)/
+       },
         "ViolinConcert[Menuhin]" : {
             fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)/
         }
@@ -1193,6 +1235,153 @@ export var rules = {
         },
         "Pictures (orchestral)" : {
             fixTrackName: /Pictures at an exhibition - Orchestral version by Ravel \d+\. (.*)/
+        },
+        "NightOnBaldMountain" : {
+          firstTrackNumber: 9
+      }
+    },
+    // OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    "Orff" : {
+        "Carmina Burana" : {
+            fixTrackName: /Carmina Burana (.*)/,
+            validation : ["skipUniqueTrackNameCheck"]
         }
+    },
+    // PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+    "Poulenc" : {
+        "The Story of Babar" : {
+            firstTrackNumber: 10,
+            fixTrackName: /The Story of Babar [IVX]+\. ?(.*)/
+        }
+    },
+    "Prokofiev" : {
+      "Alexander Nevsky [Complete]" : {
+          fixTrackName: /Alexander Nevsky (.*)/
+      },
+      "Alexander Nevsky Suite" : {
+          fixTrackName: /Alexander Nevsky, Op. 78 [IV]+\. (.*)/
+      },
+      "Andante Cantabile" : {
+        firstTrackNumber: 12
+      },
+      "Lieutenant Kijé" : {
+         firstTrackNumber: 12,
+         fixTrackName: /Lieutenant Kijé, Op. 60 [IV]+\. (.*)/
+     },
+     "Lieutenant Kijé [2]" : {
+          firstTrackNumber: 5
+      },
+      "Love of Three Oranges" : {
+         firstTrackNumber: 10
+     },
+     "Peter and the Wolf" : {
+          fixTrackName: /Peter and the Wolf, Op. 67 [IVX]+\. (.*)/
+      },
+      "Scythian Suite Op20" : {
+         firstTrackNumber: 8,
+         fixTrackName: /Scythian Suite, Op. 20 [IV]+\. (.*)/
+     },
+     "Sinfonia Concertante" : {
+        fixTrackName: /Sinfonia Concertante, Op.125 (.*)/
+    },
+    "Rococco Variations" : {
+       firstTrackNumber: 4,
+       fixTrackName: /Varições Rococó, Op\.33 (.*)/
+   }
+ },
+ "Puccini" : {
+      "Madama Butterfly 1" : {
+          fixTrackName: /Madama Butterfly Act I\. (.*)/
+      },
+      "Madama Butterfly 2" : {
+       fixTrackName: /Madama Butterfly Act II, Part [IV]+\. (.*)/
+     },
+     "Tosca 1" : {
+       fixTrackName: /Atto 1 - (.*)/
+     },
+     "Tosca 2" : {
+       firstTrackNumber: 15,
+       fixTrackName: /(?:Atto 2 -|Tosca, Atto II) (.*)/
+     },
+     "Tosca 3" : {
+         firstTrackNumber: 8,
+         fixTrackName: /Tosca, Atto III (.*)/
+     },
+     "Turandot 1" : {
+       fixTrackName: /Turandot Act I. (.*)/
+   },
+   "Turandot 2" : {
+       firstTrackNumber: 8,
+       fixTrackName: /(?:Turandot Act II, Scene I+\.|Act 2 - Scene 2 - )(.*)/
+   },
+   "Turandot 3" : {
+        firstTrackNumber: 5,
+        fixTrackName: /Act 3 - Scene \d - (.*)/
     }
+  },
+  "Rachmaninoff" : {
+    "PianoConcerto2[Janis]" : {
+        firstTrackNumber: 4,
+        fixTrackName: /Piano Concerto No. 2 in C minor, Op. 18 [IV]+\. (.*)/
+    },
+    "PianoConcerto2" : {
+       fixTrackName: /Piano Concerto No. 2 in C minor Op. 18 [IV]+\. (.*)/
+   },
+   "PianoConcerto3[Janis]" : {
+        fixTrackName: /Piano Concerto No. 3 in D minor, Op. 30 [IV]+\. (.*)/
+    },
+    "TwoPreludes[Janis]" : {
+       firstTrackNumber: 7,
+       validation : ["skipUniqueTrackNameCheck"]
+   }
+ },
+ "Ravel" : {
+    "Alborada del gracioso" : {
+        firstTrackNumber: 6
+    },
+    "Bolero" : {
+        firstTrackNumber: 8
+    },
+    "Daphnis et Chloe" : {
+       firstTrackNumber: 3,
+       fixTrackName: /Daphnis [Ee]t Chloe (.*)/
+   },
+    "MotherGooseSuite" : {
+       firstTrackNumber: 2
+   },
+   "La Valse" : {
+      firstTrackNumber: 2
+    },
+    "PianoConcerto D major left hand" : {
+       firstTrackNumber: 7,
+       fixTrackName: /Ravel - Concerto for the left hand in D major - (.*)/
+   },
+   "PianoConcerto G major" : {
+        firstTrackNumber: 4,
+        fixTrackName: /Ravel - Concerto for Piano and Orchestra in G major - [IV]+\. (.*)/
+    },
+    "PianoTrio" : {
+       firstTrackNumber: 8,
+       fixTrackName: /Pianotrio in a - \d (.*)/
+   },
+    "Rhapsodie espagnole" : {
+        fixTrackName: /Rhapsodie espagnole \d\. (.*)/,
+        firstTrackNumber: 2
+    },
+    "StringQuart" : {
+        fixTrackName: /Strijkkwartet in F - \d (.*)/
+    },
+    "Tombeau de Couperin" : {
+        firstTrackNumber: 7,
+        fixTrackName: /Le Tombeau de Couperin - \d.(.*)/
+    },
+    "Valses nobles et sentimentales" : {
+       firstTrackNumber: 11,
+       fixTrackName: /Valses \(8\) nobles et sentimentales \d. (.*)/
+   },
+   "ViolinSonata" : {
+       firstTrackNumber: 5,
+       fixTrackName: /Vioolsonate in G - \d (.*)/
+   }
+  }
 };
