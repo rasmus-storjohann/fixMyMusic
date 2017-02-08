@@ -27,6 +27,7 @@ export var rules = {
             fixTrackName: /Music for the Theatre: (.*)/
         },
         "Symph3" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Symphony No. 3: [IV]+\. (.*)/
         },
         "Symphonette" : {
@@ -77,10 +78,12 @@ export var rules = {
             firstTrackNumber: 10,
             fixTrackName: /(.*), op. 39 no. 12/
         },
+        // TODO dupe
         "Sonatine" : {
             firstTrackNumber: 5,
             fixTrackName: /Sonatine, op. 61: [IV]+. (.*)/
         },
+        // TODO fixAlbumTitle
         "Grande sonate op33 \"Les quatre âges\"" : {
             fixTrackName: /Grande sonate, op\. 33 \"Les quatre âges\": [IV]+\. (.*)/
         }
@@ -114,6 +117,7 @@ export var rules = {
             fixTrackName: /Schoenberg Phantasy Op47 - (.*)/
         },
         "Piano Concerto" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Concerto for Piano and Orchestra, Op. 42 (.*)/
         },
         // TODO fix duplication
@@ -132,6 +136,7 @@ export var rules = {
             fixTrackName: /Six Little Piano Pieces, Op. 19 (.*)/
         },
         "Suite for Piano Op25" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 15,
             fixTrackName: /Suite for Piano, Op. 25 (.*)/
         },
@@ -147,12 +152,14 @@ export var rules = {
     // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
     "Barber" : {
         "ViolinConc[Ehnes]" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 4,
             fixTrackName: /Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*)/
         }
     },
     "Bartok" : {
         "Concerto for Orchestra" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Concerto for orchestra - (.*)/
         },
         "Music for Strings, Percussion and Celesta" : {
@@ -183,6 +190,7 @@ export var rules = {
             fixTrackName: /Lulu Akt III, Szene I+\. (.*)/
         },
         "ViolinConcerto" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Violinkonzert [IV]+\. (.*)/
         },
         "Three pieces for orchestra" : {
@@ -211,6 +219,7 @@ export var rules = {
         }
     },
     "Bizet" : {
+      // TODO fixAlbumTitle?
         "CarmenSuite" : {
             fixTrackName: /Carmen Suite No. \d+: (.*)/
         }
@@ -227,6 +236,11 @@ export var rules = {
             firstTrackNumber: 20,
             fixTrackName: /(.*)/
         },
+        "PianoConcerto2[Richter]" : {
+            fixAlbumTitle: concerto({num:2, for:"Piano", major:"Bb", op:83, by: "Richter" }),
+             fixTrackName: /Piano Concerto No. 2 in B-flat major, Op. 83 [IV]+\. (.*)/,
+             validation : ["skipUniqueTrackNameCheck"]
+         },
         "Sieben Lieder" : {
             firstTrackNumber: 8,
             fixTrackName: /Sieben Lieder-[IV]+\. (.*)/
@@ -292,6 +306,7 @@ export var rules = {
             fixTrackName: /The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \d+ (.*)/
         },
         "Violin Concerto" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Violin Concerto Op\.15 \-I+\- (.*)/
         },
         "Young Person's Guide to the Orchestra" : {
@@ -305,19 +320,23 @@ export var rules = {
             fixTrackName: /Scottish Fantasy (.*)/
         },
         "Violin Conc 1" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Concerto No.1 (.*)/
         },
         "ViolinConcert[Menuhin]" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 4,
             fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)/
         }
     },
     "Bruckner" : {
         "Mass in C Minor" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 9,
             fixTrackName: /Mass in C Minor - (.*)/
         },
         "Mass in E Minor" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Mass No 2 in E minor - (.*)/
         },
         "Two songs" : {
@@ -333,9 +352,11 @@ export var rules = {
     },
     "Carl Nielsen" : {
       "Symph 1" : {
+        // TODO fixAlbumTitle
           fixTrackName: /\d - (.*)/
       },
       "Symph 4" : {
+        // TODO fixAlbumTitle
           firstTrackNumber: 6,
           fixTrackName: /\d - (.*)/
       },
@@ -388,6 +409,7 @@ export var rules = {
 
     "Charles-François Gounod" : {
         "Messe Solennelle de Sainte Cécile - St. Cecilia Mass - Cäcilienmesse" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Messe Solennelle de Sainte Cécile: (?:[IVX]+\. )?(.*)/
         }
     },
@@ -397,6 +419,7 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         },
         "CelloSonata" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 7,
             fixTrackName: /Cello Sonata in G minor, op. 65: [IV]+\. (.*) \(cello: Mstislav Rostropovich, piano: Martha Argerich\)/
         },
@@ -414,20 +437,25 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         },
         "PianoConc1" : {
+          // TODO fixAlbumTitle
            fixTrackName: /Concerto for Piano and Orchestra no. 1 in E minor, op. 11: [IV]+\. (.*)/
        },
        "PianoConcerto1[Rubinstein]" : {
+         // TODO fixAlbumTitle
             fixTrackName: /Concerto for Piano and Orchestra No. 1 in E minor, Op. 11: [IV]+\. (.*)/
         },
        "PianoConc2" : {
+         // TODO fixAlbumTitle
            firstTrackNumber: 4,
            fixTrackName: /Concerto for Piano and Orchestra no. 2 in F minor, op. 21: [IV]+\. (.*)/
        },
         "PianoConcerto2[Rubinstein]" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 4,
             fixTrackName: /Concerto for Piano and Orchestra No. 2 in F minor, Op. 21: [IV]+\. (.*)/
         },
        "PianoTrio" : {
+         // TODO fixAlbumTitle
            fixTrackName: /Piano Trio in G minor, op. 8: [IV]+\. (.*) \(Beaux Arts Trio\)/
        },
        "Polonaises" : {
@@ -483,6 +511,7 @@ export var rules = {
             firstTrackNumber: 7
         },
         "PetiteSuiteL65" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 11,
             fixTrackName: /Petite suite, L 65: [IV]+\. (.*)/
         },
@@ -511,6 +540,7 @@ export var rules = {
     },
     "Dvorak" : {
         "Symph7" : {
+          // TODO fixAlbumTitle
             fixAlbumTitle: symphony({num: 7}),
             fixTrackName: /Dvorak- Sym#7- [IV]+\.(.*)/
         },
@@ -575,6 +605,7 @@ export var rules = {
     },
     "Grieg" : {
         "CelloSonata" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Cello Sonata in A minor, op. 36: [IV]+\. (.*)/
         },
         "FourPieces" : {
@@ -600,9 +631,11 @@ export var rules = {
             fixTrackName: /Peer Gynt Suite no. 2, op. 55: [IV]+\. (.*)/
         },
         "PianoConcerto[Richter]" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Piano concerto a minor op 16 - Richter - (.*)/
         },
         "PianoConcerto[Andsnes]" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Piano Concerto: [IV]+\. (.*)/
         },
         "Sanger[vonOtter]" : {
@@ -622,6 +655,7 @@ export var rules = {
           fixTrackName: /Two Pieces, op\. 77: [IV]+\. (.*)/
         },
         "ViolinSonata" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 4,
             fixTrackName: /ViolinSonata G major Op 13 - (.*)/
         }
@@ -923,10 +957,12 @@ export var rules = {
             fixTrackName: /Ives Hymns \d+ (.*)/
         },
         "Symphony1" : {
+          // TODO fixAlbumTitle
             fixAlbumTitle: symphony({ num: 1 }),
             fixTrackName: /Ives Symphony No.1 \d+ (.*)/
         },
         "Symphony4" : {
+          // TODO fixAlbumTitle
             fixAlbumTitle: symphony({ num: 4 }),
             firstTrackNumber: 10,
             fixTrackName: /Ives Symphony No.4 \d+ (.*)/
@@ -1029,6 +1065,12 @@ export var rules = {
         }
     },
     // LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+    "Lassus" : {
+      "Missa Bell' Amfitrit" : {
+          firstTrackNumber: 8,
+          fixTrackName: /(?:Lassus Missa Bell' Amfitrit' altera - )?(.*)/
+      }
+  },
     "Lisa LeBlanc" : {
         "Lisa LeBlanc" : {
             fixTrackName: /Lisa LeBlanc - (.*)/
@@ -1039,17 +1081,21 @@ export var rules = {
           validation : ["skipTrackNumberCheck"]
         },
         "PianoConcerto1 [Richter]" : {
+          // TODO fixAlbumTitle
           fixTrackName: /Piano Concerto no. 1 in E-flat major: [IV]+\. (.*)/
       },
       "PianoConcerto2 [Richter]" : {
+        // TODO fixAlbumTitle
           firstTrackNumber: 5,
           fixTrackName: /Piano Concerto no\. 2 in A major: [IV]+\. (.*)/
       },
       "PianoConcerto2[Andsnes]" : {
+        // TODO fixAlbumTitle
           firstTrackNumber: 4,
           fixTrackName: /Piano Concerto No. 2 in A minor: [IV]+\. (.*)/
       },
       "Sonata in b [Richter]" : {
+        // TODO fixAlbumTitle
          firstTrackNumber: 9,
          fixTrackName: /Piano Sonata in B minor: [IV]+\. (.*)/
      }
@@ -1169,9 +1215,11 @@ export var rules = {
     },
     "Malcolm Arnold" : {
         "Symph1":{
+          // TODO fixAlbumTitle
             fixTrackName: /(.*) - Symphony No\.1 Op\.22/
         },
         "PianoConcerto 3 hands" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 4,
             fixTrackName: /(.*) - Concerto for 2 Pianos \(3 Hands\) Op\.104/
         },
@@ -1186,6 +1234,7 @@ export var rules = {
     },
     "Medtner" : {
         "SonateOp11" : {
+          // TODO fixAlbumTitle
             firstTrackNumber: 7,
             fixTrackName: /(?:Sonaten-Triade op\. 11 - )?Nr\. \d (.*)/
         },
@@ -1196,13 +1245,16 @@ export var rules = {
     },
     "Mendelssohn" : {
         "Symph4" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Symphonie Nr\. 4 A-Dur op\. 90 "Italienische": [IV]+\. (.*)/
         },
         "Symph5" : {
+          // TODO fixAlbumTitle
            firstTrackNumber: 5,
            fixTrackName: /Symphonie Nr\. 5 d-Moll op\. 107 "Reformation": [IV]+\. (.*)/
        },
         "ViolinConcert[Menuhin]" : {
+          // TODO fixAlbumTitle
             fixTrackName: /Yehudi Menuhin - [IV]+\. (.*)/
         }
     },
@@ -1289,6 +1341,14 @@ export var rules = {
        fixTrackName: /Varições Rococó, Op\.33 (.*)/
    }
  },
+ "Palestrina" : {
+    "Motet Hodie Christus natus est" : {
+        firstTrackNumber: 6
+    },
+    "Stabat Mater" : {
+       firstTrackNumber: 7
+   }
+},
  "Puccini" : {
       "Madama Butterfly 1" : {
           fixTrackName: /Madama Butterfly Act I\. (.*)/
@@ -1321,13 +1381,16 @@ export var rules = {
   },
   "Rachmaninoff" : {
     "PianoConcerto2[Janis]" : {
+      // TODO fixAlbumTitle
         firstTrackNumber: 4,
         fixTrackName: /Piano Concerto No. 2 in C minor, Op. 18 [IV]+\. (.*)/
     },
     "PianoConcerto2" : {
+      // TODO fixAlbumTitle
        fixTrackName: /Piano Concerto No. 2 in C minor Op. 18 [IV]+\. (.*)/
    },
    "PianoConcerto3[Janis]" : {
+     // TODO fixAlbumTitle
         fixTrackName: /Piano Concerto No. 3 in D minor, Op. 30 [IV]+\. (.*)/
     },
     "TwoPreludes[Janis]" : {
@@ -1353,14 +1416,17 @@ export var rules = {
       firstTrackNumber: 2
     },
     "PianoConcerto D major left hand" : {
+      // TODO fixAlbumTitle
        firstTrackNumber: 7,
        fixTrackName: /Ravel - Concerto for the left hand in D major - (.*)/
    },
    "PianoConcerto G major" : {
+     // TODO fixAlbumTitle
         firstTrackNumber: 4,
         fixTrackName: /Ravel - Concerto for Piano and Orchestra in G major - [IV]+\. (.*)/
     },
     "PianoTrio" : {
+      // TODO fixAlbumTitle
        firstTrackNumber: 8,
        fixTrackName: /Pianotrio in a - \d (.*)/
    },
@@ -1369,6 +1435,7 @@ export var rules = {
         firstTrackNumber: 2
     },
     "StringQuart" : {
+      // TODO fixAlbumTitle
         fixTrackName: /Strijkkwartet in F - \d (.*)/
     },
     "Tombeau de Couperin" : {
@@ -1380,8 +1447,75 @@ export var rules = {
        fixTrackName: /Valses \(8\) nobles et sentimentales \d. (.*)/
    },
    "ViolinSonata" : {
+     // TODO fixAlbumTitle
        firstTrackNumber: 5,
        fixTrackName: /Vioolsonate in G - \d (.*)/
    }
-  }
+ },
+ "Richard Strauss" : {
+     "Burleske for Piano and Orchestra" : {
+         firstTrackNumber: 4,
+         fixTrackName: /Richart Strauss - (.*)/
+     },
+     "FourLastSongs" : {
+        fixTrackName: /Vier letzte Lieder [IV]+\. (.*)/
+    },
+    "Lieder" : {
+       firstTrackNumber: 5
+     },
+     "Rosenkavalier1" : {
+        fixTrackName: /Der Rosenkavalier, Op. 59 Aufzug I. (.*)/
+    },
+    "Salome" : {
+       fixTrackName: /Salome (?:Erste|Zweite|Dritte|Vierte) Szene. (.*)/
+     }
+   },
+   "Richter" : {
+     "The Essential Richter ~ The Mystic" : {
+        fixAlbumTitle: "Essential Richter: The Mystic"
+     },
+     "The Essential Richter ~ The Philosopher" : {
+       fixAlbumTitle: "Essential Richter: The Philosopher",
+        validation : ["skipUniqueTrackNameCheck"]
+     },
+     "The Essential Richter ~ The Poet - Sviatoslav Richter" : {
+       fixAlbumTitle: "Essential Richter: The Poet"
+     },
+     "The Essential Richter ~ The Virtuoso" : {
+       fixAlbumTitle: "Essential Richter: The Virtuoso"
+     },
+      "The Sofia Recital 1958" : {
+          fixAlbumTitle: "Essential Richter: The Sofia Recital 1958",
+           validation : ["skipUniqueTrackNameCheck"]
+       }
+    },
+    "Robert Johnson" : {
+        "The Complete Recordings" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        }
+    },
+    "Rodrigo" : {
+        "Concerto in D op.99" : {
+            fixAlbumTitle: concerto({for:"Guitar", major:"D", op:99 }),
+            firstTrackNumber: 7,
+            fixTrackName: /Concerto in D op. 99 - \d - (.*)/
+        },
+        "Concierto de Aranjuez" : {
+          fixAlbumTitle: concerto({for:"Guitar", subTitle:"de Aranjuez" }),
+           fixTrackName: /Concierto de Aranjuez - \d. (.*)/
+       },
+       "HarpConcerto" : {
+            fixAlbumTitle: concerto({for:"Harp", subTitle:"Serenata" }),
+            firstTrackNumber: 4,
+            fixTrackName: /Concierto Serenata para Arpa y Orquesta - \d - (.*)/
+        },
+        "Tres Pieces Espanolas" : {
+             firstTrackNumber: 12
+         }
+    },
+    "Rossini" : {
+        "IlBarbiere2" : {
+            firstTrackNumber: 6
+        }
+    }
 };

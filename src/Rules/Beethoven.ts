@@ -505,6 +505,11 @@ export var rules = {
         firstTrackNumber: 8,
         fixTrackName: /Sonate No.23 [Ff]-[Mm]oll [Oo]p. ?57 'Appassionata' - \d\. (.*)/
     },
+    "Sonata23[Richter]Appassionata" : {
+        fixAlbumTitle: sonata({ num : 23, subTitle: "Appassionata", op:57, minor : "F", by: "Richter" }),
+        firstTrackNumber: 5,
+        fixTrackName: /Piano Sonata No. 23 in F minor, Op. 57 Appassionata [IV]+\. (.*)/
+    },
     "Sonata24[Demidenko]" : {
         fixAlbumTitle: sonata({ num : 24, subTitle: "à Thérèse", op:78, minor : "F#", by: "Demidenko" }),
         fixTrackName: /Sonata24 - (.*)/
