@@ -908,6 +908,7 @@ export var rules = {
             firstTrackNumber: 5,
             fixTrackName: /[IV]+\. (.*)/
         },
+        // TODO add symph 44, sonatas 50, 51, 52, quartet 28
         "Symph64 A 'Tempora mutantur'" : {
             fixAlbumTitle: symphony({ num : 64, major: "A", subTitle:"Tempora mutantur" }),
             firstTrackNumber: 9,
@@ -1316,6 +1317,10 @@ export var rules = {
       "Andante Cantabile" : {
         firstTrackNumber: 12
       },
+      "CelloConcertoOp125[YoYoMa]" : {
+        // TODO fix work name
+         fixTrackName: /Prokofiev - Cello concerto Op 125 - (.*)/
+     },
       "Lieutenant Kijé" : {
          firstTrackNumber: 12,
          fixTrackName: /Lieutenant Kijé, Op. 60 [IV]+\. (.*)/
@@ -1393,6 +1398,13 @@ export var rules = {
      // TODO fixAlbumTitle
         fixTrackName: /Piano Concerto No. 3 in D minor, Op. 30 [IV]+\. (.*)/
     },
+    "Symph2" : {
+      // TODO fixAlbumTitle
+        fixTrackName: /Symphony No. 2 in E minor, Op. 27: [IV]+\. (.*)/
+    },
+    "TheRockOp7" : {
+       firstTrackNumber: 5
+   },
     "TwoPreludes[Janis]" : {
        firstTrackNumber: 7,
        validation : ["skipUniqueTrackNameCheck"]
