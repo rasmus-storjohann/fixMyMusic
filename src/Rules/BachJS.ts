@@ -235,7 +235,7 @@ export var rules = {
                 if (m[2] === "minor") {
                     key = key.toLowerCase();
                 }
-                return "BWV" + opusNumber + " in " + key + ": " + trackName + ".mp3";
+                return "BWV" + opusNumber + " in " + key + ": " + trackName;
             }
             throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
         },
@@ -300,7 +300,7 @@ export var rules = {
             if (m[4] === "minor") {
                 key = key.toLowerCase();
             }
-            return m[1] + " " + m[2] + " " + key + " BWV" + m[5] + ".mp3";
+            return m[1] + " " + m[2] + " " + key + " BWV" + m[5];
         },
         validation : ["skipUniqueTrackNameCheck"]
     },
@@ -502,10 +502,10 @@ export var rules = {
   "WellTemp1 [Gould]" : {
       fixTrackNameFunc: function(name: string, logger) : string {
           if (name === "Prelude in E-flat minor and Fugue in D-sharp minor, BWV 853: I. Praeludium") {
-              return "Prelude in e-flat.mp3";
+              return "Prelude in e-flat";
           }
           if (name === "Prelude in E-flat minor and Fugue in D-sharp minor, BWV 853: II. Fuga") {
-              return "Fuge in d-sharp.mp3"
+              return "Fuge in d-sharp"
           }
           var m = /Prelude and Fugue no\. \d+ in ([a-zA-Z\-]+) (major|minor), BWV \d+: [IVX]+\. (Praeludium|Fuga)/.exec(name);
           if (m) {
@@ -520,7 +520,7 @@ export var rules = {
               if (type === "Praeludium") {
                   type = "Prelude";
               }
-              return type + " in " + key + ".mp3";
+              return type + " in " + key;
           }
           throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
       },
@@ -556,7 +556,7 @@ export var rules = {
           } else {
               throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
           }
-          return type + " in " + key + ".mp3";
+          return type + " in " + key;
       },
       validation : ["skipUniqueTrackNameCheck"]
   },
@@ -578,7 +578,7 @@ export var rules = {
           } else {
               throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
           }
-            return type + " in " + key + ".mp3";
+            return type + " in " + key;
         },
         validation : ["skipUniqueTrackNameCheck"]
     }

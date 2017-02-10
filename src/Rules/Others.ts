@@ -69,7 +69,7 @@ export var rules = {
     },
     "Alkan": {
         "Sonatine, Op. 61": {
-            fixTrackName: /^\d+ Sonatine, Op. 61 (\d+)\. (.*).mp3$/
+            fixTrackName: /^\d+ Sonatine, Op. 61 (\d+)\. (.*)/
         },
         "Barcarolle" : {
             firstTrackNumber: 9
@@ -200,7 +200,7 @@ export var rules = {
         "Wozzeck1" : {
             fixTrackNameFunc: function(name: string, logger) : string {
                 if (name === "Wozzeck - Act One - Scene 1 - Langsam, Wozzeck, langsam!") {
-                    return "Langsam, Wozzeck, langsam!.mp3";
+                    return "Langsam, Wozzeck, langsam!";
                 }
                 var m = /Scene \d- (.*)/.exec(name);
                 if (m) {

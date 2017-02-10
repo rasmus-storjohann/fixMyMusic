@@ -37,7 +37,7 @@ export var rules = {
         firstTrackNumber: 3,
         fixTrackNameFunc: function(name: string, logger) : string
         {
-            return name === "- Track 3.mp3" ? "Theme.mp3" : "Variation.mp3"
+            return name === "- Track 3" ? "Theme" : "Variation"
         },
     },
     // TODO remove?
