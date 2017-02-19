@@ -11,7 +11,7 @@ export class RulesFactory
     {
         var allTheRules = Others.rules;
 
-        allTheRules["Bach JS"] = BachJs.rules;
+        allTheRules["JS Bach"] = BachJs.rules;
         allTheRules["Beethoven"] = Beethoven.rules;
         allTheRules["Mozart"] = Mozart.rules;
 

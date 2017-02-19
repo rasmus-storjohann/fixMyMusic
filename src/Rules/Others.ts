@@ -97,6 +97,12 @@ export var rules = {
         "Erwartung[Boulez]" : {
             fixTrackName: /Erwartung, Scene \d+ (.*)/
         },
+        "ChamberSymphony" : {
+           fixTrackName: /Chamber Symphony no. 2, op. 38: [IV]+\. (.*)/
+       },
+       "Cinematographic" : {
+           firstTrackNumber: 3
+       },
         "Five Piano Pieces Op23" : {
             firstTrackNumber: 4,
             fixTrackName: /Five Piano Pieces, Op. 23 (.*)/
@@ -147,7 +153,14 @@ export var rules = {
         "Two Piano Pieces Op33" : {
             firstTrackNumber: 20,
             fixTrackName: /Two Piano Pieces, Op. 33- A & B (.*)/
-        }
+        },
+        "VariationsForOrch" : {
+            fixTrackName: /Schoenberg - Variations for orchestra Op 31 - (.*)/
+        },
+        "Verklärte Nacht" : {
+             firstTrackNumber: 4,
+             fixTrackName: /Verklärte Nacht, op. 4 \(arr. for string orchestra\): (.*)/
+         }
     },
     // BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
     "Barber" : {
@@ -165,6 +178,10 @@ export var rules = {
         "Music for Strings, Percussion and Celesta" : {
             firstTrackNumber: 6,
             fixTrackName: /Music for Strings, Percussion and Celesta - (.*)/
+        },
+        "Sonata" : {
+            firstTrackNumber: 13,
+            fixTrackName: /Bartok - Sonata for two pianos and percussion - (.*)/
         }
     },
     "Beatles" : {
@@ -946,6 +963,14 @@ export var rules = {
             fixTrackName: /Symphony in E flat, Hob. I 99, [IV]+\. (.*)/
         }
     },
+    // HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+    "Hindemith" : {
+        "ViolinConcerto" : {
+          // TODO fixAlbumTitle
+            firstTrackNumber: 16,
+            fixTrackName: /Hindemith - Concerto for violin and orchestra - (.*)/
+        }
+    },
     // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     "In_the_country" : {
         "Losing stones, collecting bones" : {
@@ -1408,6 +1433,9 @@ export var rules = {
     "TwoPreludes[Janis]" : {
        firstTrackNumber: 7,
        validation : ["skipUniqueTrackNameCheck"]
+   },
+   "Vespers (The Saint Petersburg Cappella, choirmaster: Vladislav Chernushenko)" : {
+       fixTrackName: /Vespers, Op. 37: \d+\. (.*)/
    }
  },
  "Ravel" : {
@@ -1442,6 +1470,9 @@ export var rules = {
        firstTrackNumber: 8,
        fixTrackName: /Pianotrio in a - \d (.*)/
    },
+   "PianoPieces[Slåttebrekk]" : {
+         firstTrackNumber: 9
+     },
     "Rhapsodie espagnole" : {
         fixTrackName: /Rhapsodie espagnole \d\. (.*)/,
         firstTrackNumber: 2
@@ -1457,6 +1488,9 @@ export var rules = {
     "Valses nobles et sentimentales" : {
        firstTrackNumber: 11,
        fixTrackName: /Valses \(8\) nobles et sentimentales \d. (.*)/
+   },
+   "Valses nobles et sentimentale[Slåttebrekk]" : {
+       fixTrackName: /Valses nobles et sentimentales - (.*)/
    },
    "ViolinSonata" : {
      // TODO fixAlbumTitle
@@ -1506,15 +1540,41 @@ export var rules = {
             validation : ["skipUniqueTrackNameCheck"]
         }
     },
+    "Robert Schumann" : {
+        "Fantasie[Andsnes]" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Fantasie C-dur, Op. 17 [IV]+\. (.*)/
+        },
+        "Fantasy[Brendel]" : {
+            firstTrackNumber: 9,
+            fixTrackName: /Schumann - Fantasy in C major Op 17 (.*)/
+        },
+        "Kreislerianna[Brendel]" : {
+            fixTrackName: /Schumann - Kreislerianna Op 16 (.*)/
+        },
+        "Sonata1[Andsnes]" : {
+          // TODO fixAlbumTitle
+           fixTrackName: /Klaviersonate Nr. 1 Fis-moll, Op. 11 [IV]+\. (.*)/
+       }
+    },
     "Rodrigo" : {
         "Concerto in D op.99" : {
             fixAlbumTitle: concerto({for:"Guitar", major:"D", op:99 }),
             firstTrackNumber: 7,
             fixTrackName: /Concerto in D op. 99 - \d - (.*)/
         },
+        // TODO dupe?
         "Concierto de Aranjuez" : {
           fixAlbumTitle: concerto({for:"Guitar", subTitle:"de Aranjuez" }),
            fixTrackName: /Concierto de Aranjuez - \d. (.*)/
+       },
+       "Concierto de Aranjuez[2]" : {
+            fixTrackName: /Rodrigo - Concierto de Aranjuez - (.*)/
+        },
+        // TODO dupe?
+        "Concierto Serenata" : {
+           firstTrackNumber: 4,
+           fixTrackName: /Rodrigo - Concierto Serenata for Harp and Orchestra - (.*)/
        },
        "HarpConcerto" : {
             fixAlbumTitle: concerto({for:"Harp", subTitle:"Serenata" }),
@@ -1525,9 +1585,211 @@ export var rules = {
              firstTrackNumber: 12
          }
     },
+    "Roomful_of_Teeth" : {
+        "Roomful of Teeth" : {
+            validation : ["skipUniqueTrackNameCheck"]
+        }
+    },
     "Rossini" : {
         "IlBarbiere2" : {
             firstTrackNumber: 6
         }
+    },
+    // SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+    "Scarlatti" : {
+        "Sonatas Pogorelich" : {
+          // TODO fixAlbumTitle
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "Sonatas Zacharias" : {
+          // TODO fixAlbumTitle
+             validation : ["skipUniqueTrackNameCheck"]
+         }
+    },
+    "Schnittke" : {
+        "PianoQuintet" : {
+          // TODO fixAlbumTitle
+            firstTrackNumber: 6,
+            fixTrackName: /Schnittke - Piano quintet - (.*)/
+        }
+    },
+    "Schubert" : {
+        "Impromptu D.899" : {
+            firstTrackNumber: 5,
+            fixTrackName: /Impromptu D.899 - \d\. (.*)/
+        },
+        "Impromptu D.935" : {
+            firstTrackNumber: 9,
+            fixTrackName: /Impromptu D.935 - \d\. (.*)/
+        },
+        "Notturno" : {
+           firstTrackNumber: 5
+       },
+       "Piano Trio B Flat D 898" : {
+         // TODO fixAlbumTitle
+            fixTrackName: /Piano Trio B Flat D 898 - (.*)/
+        },
+        "PianoSonata D784[Lewis]" : {
+          // TODO fixAlbumTitle
+           fixTrackName: /Piano Sonata D784 : [IV]+\. (.*)/
+       },
+       "PianoSonata D958[Lewis]" : {
+         // TODO fixAlbumTitle
+            firstTrackNumber: 4,
+            fixTrackName: /Piano Sonata D958 : [IV]+\. (.*)/
+        },
+        "PianoSonata D959[Lewis]" : {
+          // TODO fixAlbumTitle
+            fixTrackName: /Piano Sonata D959 : [IV]+\. (.*)/
+        },
+        "PianoSonata D960[Lewis]" : {
+          // TODO fixAlbumTitle
+            firstTrackNumber: 5,
+            fixTrackName: /Piano Sonata D960 : [IV]+\. (.*)/
+        },
+        "SonataCminor" : {
+          // TODO fixAlbumTitle
+           fixTrackName: /D.958 - Piano Sonata in C minor [IV]+\. (.*)/
+       },
+       "Symp1" : {
+         // TODO fixAlbumTitle
+           fixTrackName: /Symphony No.1 in D, D.82 - (.*)/
+       },
+       "Symp2" : {
+         // TODO fixAlbumTitle
+            fixTrackName: /Symphony No.2 in B flat - (.*)/
+        },
+        "Symph3" : {
+          // TODO fixAlbumTitle
+             firstTrackNumber: 5,
+             fixTrackName: /Symphony No.3 in D, D.200 - (.*)/
+         },
+        "Symp3[Beecham]" : {
+            fixTrackName: /Symphony No. 3 in D, D. 200 [IV]+\. (.*)/
+            // TODO fixAlbumTitle
+        },
+        "Symp4" : {
+            fixTrackName: /Schubert, Franz - Symphony No.4 c-moll D417 'Tragische' - \d+\. (.*)/
+            // TODO fixAlbumTitle
+        },
+        "Symp5[Beecham]" : {
+          // TODO fixAlbumTitle
+           firstTrackNumber: 5,
+           fixTrackName: /Symphony No. 5 in B flat, D. 485 [IV]+\. (.*)/
+       },
+       "Symp5" : {
+         // TODO fixAlbumTitle
+           firstTrackNumber: 5,
+           fixTrackName: /Schubert, Franz - Symphony No.5 b-dur D485 - \d+\. (.*)/
+       },
+       "Symp6[Beecham]" : {
+         // TODO fixAlbumTitle
+           firstTrackNumber: 9,
+           fixTrackName: /Symphony No. 6 in C, D. 589 [IV]+\. (.*)/
+       },
+       "Symp6" : {
+         // TODO fixAlbumTitle
+           firstTrackNumber: 5,
+           fixTrackName: /Symphony No.6 in C - (.*)/
+       },
+       "Symp7" : {
+         // TODO fixAlbumTitle
+           fixTrackName: /Symphony No.7 in E minor major, D729 - \d+\. (.*)/
+       },
+       "Symp8" : {
+         // TODO fixAlbumTitle
+            fixTrackName: /Symphony No.8 in B minor, D. 759 - (.*)/
+        },
+        "Symp9" : {
+          // TODO fixAlbumTitle
+            fixTrackName: /Symphony No.9 in C Major, D. 994 'The Great' - (.*)/
+        },
+       "Symp10" : {
+         // TODO fixAlbumTitle
+            firstTrackNumber: 5,
+            fixTrackName: /Symphony No.10 in D major, D936a - \d+\. - [IV]+\.? (.*)/
+        },
+        "Wanderer Fantasie" : {
+             fixTrackName: /»Wanderer-Fantaisie« C-Dur D.760 - [IV]+\. (.*)/
+         },
+         "Winterreise[Fischer-Dieskau]" : {
+            fixTrackName: /Winterreise, D 911, Op. 89 [IVX]+\. (.*)/
+        }
+    },
+    "Shchedrin" : {
+        "PianoConcerto2[Hamelin]" : {
+          // TODO fixAlbumTitle
+            firstTrackNumber: 8,
+            fixTrackName: /Piano Concerto no. 2: [IV]+\. (.*)/
+        }
+    },
+    "Sheila Jordan" : {
+        "Little Song" : {
+            fixTrackName: /Sheila Jordan - (.*)/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "With the Steve Kuhn Trio" : {
+            fixTrackName: /Sheila Jordan - (.*)/,
+            validation : ["skipUniqueTrackNameCheck"]
+        }
+    },
+    "Shostakovich" : {
+        "24 Preludes, op. 34" : {
+            firstTrackNumber: 4,
+            fixTrackName: /24 Preludes, op. 34: No. \d+ in (.*)/,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "CelloConc[Rostropovich 1988]" : {
+          // TODO fixAlbumTitle
+           firstTrackNumber: 5,
+           fixTrackName: /Concerto for Cello in E-flat, Op. 107 - (.*)/
+       },
+       "CelloConc1[Rostropovic 1966]" : {
+         // TODO fixAlbumTitle
+            fixTrackName: /CelloConc1 - (.*)/
+        },
+        "CelloConc2[Rostropovic 1966]" : {
+          // TODO fixAlbumTitle
+            firstTrackNumber: 5,
+            fixTrackName: /CelloConc2 - (.*)/
+        },
+        "Lady Macbeth2" : {
+           firstTrackNumber: 11
+       },
+       "Lady Macbeth3" : {
+           firstTrackNumber: 4,
+           validation : ["skipUniqueTrackNameCheck"]
+       },
+       "Lady Macbeth4" : {
+            firstTrackNumber: 8,
+            validation : ["skipUniqueTrackNameCheck"]
+        },
+        "PianoConc1[Hamelin]" : {
+          // TODO fixAlbumTitle
+           fixTrackName: /Piano Concerto no. 1 in C minor, op. 35: [IV]+\. (.*)/
+       },
+       "PianoConc1[Previn]" : {
+         // TODO fixAlbumTitle
+            fixTrackName: /Piano Concerto No.1, Op. 35 - (.*)/
+        },
+        "PianoConc2[Hamelin]" : {
+          // TODO fixAlbumTitle
+           firstTrackNumber: 5,
+           fixTrackName: /Piano Concerto no. 2 in F major, op. 102: [IV]+\. (.*)/
+       },
+       "PianoConc2[Previn]" : {
+         // TODO fixAlbumTitle
+            firstTrackNumber: 3,
+            fixTrackName: /Piano Concerto No.2, Op. 102 - [IV]+ (.*)/
+        },
+        "PianoQuintet" : {
+          // TODO fixAlbumTitle
+            fixTrackName: /Shostakovich - Piano quintet Op 57 - (.*)/
+        },
+        "PianoSonata2" : {
+          // TODO fixAlbumTitle
+           firstTrackNumber: 28,
+           fixTrackName: /Piano Sonata no. 2 in B minor, op. 61: [IV]+\. (.*)/
+       }
     }
 };
