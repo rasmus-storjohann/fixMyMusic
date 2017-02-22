@@ -121,7 +121,7 @@ export class CustomFixerFactory
                     var match = specification.fixTrackName.exec(track.title);
                     if (!match)
                     {
-                        throw new Error("'" + track.path + "': Track name '" + track.title + "' does not match fixer for fixTrackName: " + specification.fixTrackName);
+                        throw new Error("'" + track.path + "': Track name \n'" + track.title + "' does not match fixer for fixTrackName: \n" + specification.fixTrackName);
                     }
                     var newTitle = match[1];
                     logger.silly("SpecialFixTrackName", track.title  + ": Extracting track name '" + newTitle + "'");

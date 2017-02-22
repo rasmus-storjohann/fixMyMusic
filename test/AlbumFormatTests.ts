@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { beforeEach, describe, it } from "mocha";
-import { cantata, concerto, concerto_grosso, quartet, symphony, sonata, suite, trio } from "../src/AlbumFormat";
+import { cantata, concerto, concerto_grosso, quartet, symphony, sonata, suite, trio, quintet } from "../src/AlbumFormat";
 
 describe("Album format specification", () => {
 
@@ -27,6 +27,11 @@ describe("Album format specification", () => {
     it("can create trio", () => {
         var result = trio();
         expect(result.form).to.equal("Trio");
+    });
+
+    it("can create quintet", () => {
+        var result = quintet();
+        expect(result.form).to.equal("Quintet");
     });
 
     it("can set number", () => {

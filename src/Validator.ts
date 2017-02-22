@@ -46,7 +46,7 @@ export class Validator
                 var suggestedSpecialHandler = "\"" + album.artist + "\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
                                               "        firstTrackNumber: " + trackNumber + ",\n" +
-                                              "        fixTrackName: /" + track.title + "(.*)\\.mp3/\n" +
+                                              "        fixTrackName: /" + track.title + "(.*)/\n" +
                                               "    }\n" +
                                               "}";
                 throw new Error(track.title + ": Track number out of order, expected " + index + " but got " + trackNumber +
@@ -76,7 +76,7 @@ export class Validator
             if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title)) {
                 var suggestedSpecialHandler = "\"" + album.artist + "\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
-                                              "        fixTrackName: /" + track.title + "(.*)\\.mp3/,\n" +
+                                              "        fixTrackName: /" + track.title + "(.*)/,\n" +
                                               "        validation : [\"skipUniqueTrackNameCheck\"]\n" +
                                               "    }\n" +
                                               "}";
