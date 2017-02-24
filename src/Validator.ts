@@ -42,7 +42,7 @@ export class Validator
 
             if (track.trackNumber != index)
             {
-                var trackNumber = track.trackNumber || "<undefined>"
+                var trackNumber = track.trackNumber || "<undefined>";
                 var suggestedSpecialHandler = "\"" + album.artist + "\" : {\n" +
                                               "    \"" + album.title + "\" : {\n" +
                                               "        firstTrackNumber: " + trackNumber + ",\n" +
