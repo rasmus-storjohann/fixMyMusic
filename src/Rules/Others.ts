@@ -1790,40 +1790,66 @@ export var rules = {
        },
        "Preludes-Fugues" : {
             fixTrackNameFunc: function(name: string, logger) : string {
-                var number;
-                var key;
-                var shartOrFlat;
-                var minorOrMajor;
-                var preludeOrFugue;
 
-                var m1 = /Prelude and Fugue No\.(\d+) in ([A-Za-z]+)( flat| sharp)?( major| minor)? - (Prelude|Fugue)/.exec(name);
-                var m2 = /(Prelude|Fugue) in ([A-Z])( sharp| flat)?( major| minor), Op\. 87 No\. (\d+)/.exec(name);
-                if (m1)
+                var parseFirstFormat = function(name: string)
                 {
-                    number = m1[1];
-                    key = m1[2];
-                    shartOrFlat = m1[3];
-                    minorOrMajor = m1[4];
-                    preludeOrFugue = m1[5];
-                }
-                else if (m2)
+                    var match = /Prelude and Fugue No\.(\d+) in ([A-Za-z]+)( flat| sharp)?( major| minor)? - (Prelude|Fugue)/.exec(name);
+                    if (!match)
+                    {
+                      return undefined;
+                    }
+                    return {
+                      number: match[1],
+                      key: match[2],
+                      sharpOrFlat: match[3],
+                      minorOrMajor: match[4],
+                      preludeOrFugue: match[5]
+                    }
+                };
+
+                var parseSecondFormat = function(name: string)
                 {
-                    preludeOrFugue = m2[1];
-                    key = m2[2];
-                    shartOrFlat = m2[3];
-                    minorOrMajor = m2[4];
-                    number = m2[5];
+                  var match = /(Prelude|Fugue) in ([A-Z])( sharp| flat)?( major| minor), Op\. 87 No\. (\d+)/.exec(name);
+                  if (!match)
+                  {
+                    return undefined;
+                  }
+                  return {
+                    preludeOrFugue: match[1],
+                    key: match[2],
+                    sharpOrFlat: match[3],
+                    minorOrMajor: match[4],
+                    number: match[5]
+                  }
                 }
-                else
+
+                var formatKey = function(key: string, sharpOrFlat: string, minorOrMajor: string)
+                {
+                  if (sharpOrFlat === " sharp")
+                  {
+                      key += "#";
+                  }
+                  if (sharpOrFlat === " flat")
+                  {
+                      key += "b";
+                  }
+                  if (minorOrMajor === " minor")
+                  {
+                      return key.toLowerCase();
+                  }
+                  return key;
+                }
+
+                var parsed = parseFirstFormat(name) || parseSecondFormat(name);
+
+                if (!parsed)
                 {
                     throw new Error("Could not parse name in Shostakovich preludes and fugues");
                 }
 
-                if (shartOrFlat === " sharp")   key += "#";
-                if (shartOrFlat === " flat")    key += "b";
-                if (minorOrMajor === " minor")  key = key.toLowerCase();
+                var formattedKey = formatKey(parsed.key, parsed.sharpOrFlat, parsed.minorOrMajor);
 
-                return preludeOrFugue + " " + number + " in " + key;
+                return parsed.preludeOrFugue + " " + parsed.number + " in " + formattedKey;
             }
         },
         "Quartet2" : {
