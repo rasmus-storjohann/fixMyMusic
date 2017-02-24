@@ -19,7 +19,7 @@ beforeEach(() => {
         {
             var fixAlbumTitle = "";
             var validation = [];
-            var fixTrack = function(album: Album, logger: npmlog.NpmLog) {}
+            var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
             return {
                 fixAlbumTitle: fixAlbumTitle,
                 validation: validation,

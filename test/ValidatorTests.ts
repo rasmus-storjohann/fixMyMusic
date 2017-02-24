@@ -17,7 +17,7 @@ beforeEach(() =>
         {
             var fixAlbumTitle = "";
             var validation = [];
-            var fixTrack = function(album: Album, logger: npmlog.NpmLog) {}
+            var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
             return {
                 fixAlbumTitle: fixAlbumTitle,
                 validation: validation,
@@ -133,7 +133,7 @@ describe("Validator", () => {
                 {
                     var fixAlbumTitle = "";
                     var validation = ["skipTrackNumberCheck"];
-                    var fixTrack = function(album: Album, logger: npmlog.NpmLog) {}
+                    var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                     return {
                         fixAlbumTitle: fixAlbumTitle,
                         validation: validation,
@@ -152,7 +152,7 @@ describe("Validator", () => {
                 {
                     var fixAlbumTitle = "fixed album name";
                     var validation = ["skipUniqueTrackNameCheck"];
-                    var fixTrack = function(album: Album, logger: npmlog.NpmLog) {}
+                    var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                     return {
                         fixAlbumTitle: fixAlbumTitle,
                         validation: validation,

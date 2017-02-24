@@ -116,7 +116,7 @@ function buildFormat(form: string, formatOptions?: any) : Format {
     result.toString = function()
     {
         return toString(this);
-    }
+    };
     return result;
 }
 
