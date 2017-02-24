@@ -1821,7 +1821,7 @@ export var rules = {
                     minorOrMajor: match[4],
                     number: match[5]
                   }
-                }
+                };
 
                 var formatKey = function(key: string, sharpOrFlat: string, minorOrMajor: string)
                 {
@@ -1838,7 +1838,7 @@ export var rules = {
                       return key.toLowerCase();
                   }
                   return key;
-                }
+                };
 
                 var parsed = parseFirstFormat(name) || parseSecondFormat(name);
 
