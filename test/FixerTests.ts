@@ -150,7 +150,7 @@ describe("Fixer", () => {
                     {
                         var fixAlbumTitle = "fixed album name";
                         var validation = [];
-                        var fixTrack = function(album: Album, logger: npmlog.NpmLog) {}
+                        var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                         return {
                             fixAlbumTitle: fixAlbumTitle,
                             validation: validation,
@@ -173,7 +173,7 @@ describe("Fixer", () => {
                         var fixTrack = function(album: Album, logger: npmlog.NpmLog)
                         {
                             album.tracks[0].title = "Fixed track.mp3";
-                        }
+                        };
                         return {
                             fixAlbumTitle: fixAlbumTitle,
                             validation: validation,
