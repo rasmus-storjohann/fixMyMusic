@@ -1,4 +1,4 @@
-import { Format } from "./AlbumFormat";
+import {Format} from "./AlbumFormat";
 
 import * as BachJs from "./Rules/BachJS";
 import * as Beethoven from "./Rules/Beethoven";
@@ -7,14 +7,14 @@ import * as Others from "./Rules/Others";
 
 export class RulesFactory
 {
-    public create()
-    {
-        var allTheRules = Others.rules;
+        public create()
+        {
+                var allTheRules = Others.rules;
 
-        allTheRules["JS Bach"] = BachJs.rules;
-        allTheRules["Beethoven"] = Beethoven.rules;
-        allTheRules["Mozart"] = Mozart.rules;
+                allTheRules["JS Bach"] = BachJs.rules;
+                allTheRules["Beethoven"] = Beethoven.rules;
+                allTheRules["Mozart"] = Mozart.rules;
 
-        return allTheRules;
-    };
+                return allTheRules;
+        };
 };

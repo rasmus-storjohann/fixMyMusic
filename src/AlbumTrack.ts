@@ -1,7 +1,3 @@
-export interface AlbumTrack
-{
-    path: string,
-    title: string,
-    trackNumber: number,
-    disk?: number
+export interface AlbumTrack {
+        path: string, title: string, trackNumber: number, disk?: number
 }
