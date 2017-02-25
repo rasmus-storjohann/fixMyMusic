@@ -1,9 +1,0 @@
-clang - format - i - style = {
-  BasedOnStyle : WebKit,
-  AllowShortFunctionsOnASingleLine : All,
-  AllowShortCaseLabelsOnASingleLine : true,
-  AllowShortIfStatementsOnASingleLine : true,
-  IndentWidth : 8,
-  AlignAfterOpenBracket : Align,
-  BreakBeforeBraces : Allman
-} *
