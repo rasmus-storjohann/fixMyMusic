@@ -1,1 +1,4 @@
-tsc; npm test; (cd .. && ./bin/dist/src/index.js --dry-run --out out music/[ABCDEFGHIJKLMNOPQRST]*)
+clang-format -style=file -i */*ts
+tsc
+npm test
+(cd .. && ./bin/dist/src/index.js --dry-run --out out music/[ABCDEFGHIJKLMNOPQRST]*)
