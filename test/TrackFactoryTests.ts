@@ -129,18 +129,13 @@ describe("TrackFactory", () => {
                 });
         });
 
-        describe("with track missing numeric prefix", () => {
-                var _track: Track;
-                beforeEach(() => {
-                        var pathWithoutNumericPrefix =
-                            "root/artist/album/track.mp3";
-                        _track = _theTrackFactory.createTrack(
-                            pathWithoutNumericPrefix);
-                });
-
-                it("still gets the track name from path",
-                   () => { expect(_track.title).equals("track.mp3"); });
-        });
+        it("throws on track missing numeric prefix",
+           () => {
+                   var pathWithoutNumericPrefix = "root/artist/album/track.mp3";
+                   expect(() => {
+                           _theTrackFactory.createTrack(pathWithoutNumericPrefix);
+                   }).to.throw(Error, /Could not parse file names/);
+           });
 
         describe("error handling", () => {
                 it("throws on path that is missing required elements", () => {

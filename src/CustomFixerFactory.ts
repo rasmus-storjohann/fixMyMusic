@@ -113,7 +113,8 @@ export class CustomFixerFactory
                         return function(album: Album, logger: npmlog.NpmLog) {}
                 }
 
-                var fixers = [];
+                var fixers: ((album: Album, logger: npmlog.NpmLog) => void)[];
+                fixers = [];
 
                 if (specification.fixTrackNameFunc &&
                     specification.fixTrackName)

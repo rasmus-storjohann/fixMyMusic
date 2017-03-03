@@ -27,8 +27,8 @@ export class TrackFactory
                 var album = elements[elementCount - 2];
                 var title = elements[elementCount - 1];
                 var trackNumber: number;
-                var disk: number;
-                var match: RegExpExecArray;
+                var disk: number | undefined = undefined;
+                var match: RegExpExecArray | null;
 
                 if (match = /disk(\d+)/.exec(elements[elementCount - 2]))
                 {
@@ -55,6 +55,10 @@ export class TrackFactory
                         disk = parseInt(match[1]);
                         trackNumber = parseInt(match[2]);
                         title = match[3];
+                }
+                else
+                {
+                        throw new Error("Could not parse file names");
                 }
 
                 return {

@@ -52,7 +52,7 @@ export class CommandExecutor
 
         private tag(command: Command)
         {
-                if (!command || command.tags.artist === "" ||
+                if (!command || !command.tags || command.tags.artist === "" ||
                     command.tags.album === "" || command.tags.track === "")
                 {
                         throw new Error(

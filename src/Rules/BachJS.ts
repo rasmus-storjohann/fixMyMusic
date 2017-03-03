@@ -274,11 +274,12 @@ export var rules = {
                 return "Aria";
             }
             var match = /J.S. Bach Goldberg-Variationen, BWV 988 - Variatio (\d+)¡E\d+¡E\d+/.exec(name);
-            if (match)
+            if (!match)
             {
-                var variationNumber = parseInt(match[1]);
-                return "Variations " + variationNumber + "-" + (variationNumber + 2);
+                    throw new Error("Error parsing name in Bach - Goldberg - Strings");
             }
+            var variationNumber = parseInt(match[1]);
+            return "Variations " + variationNumber + "-" + (variationNumber + 2);
         }
     },
     "GoldbergCanadianBrass" : {

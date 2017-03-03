@@ -46,7 +46,7 @@ export class RuleFactory
                 var from = JSON.parse(json);
                 return this.buildFormat(from);
         }
-        public buildFormat(from) : AlbumFormat
+        public buildFormat(from): AlbumFormat
         {
                 var to: AlbumFormat = {form : from.form + ""};
 
