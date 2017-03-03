@@ -84,7 +84,8 @@ describe("Album name fixer", () => {
                 var dto = {form : "concerto", opus : [ 1, 2, 4 ]};
                 var json = JSON.stringify(dto);
 
-                expect(() => {new AlbumFixerFactory().parseAlbumNameFixer(json)})
+                expect(
+                    () => {new AlbumFixerFactory().parseAlbumNameFixer(json)})
                     .to.throw(Error,
                               /invalid opus array, should have two elements/);
         });
@@ -108,7 +109,8 @@ describe("Album name fixer", () => {
                 var dto = {form : "concerto", major : "A", minor : "A"};
                 var json = JSON.stringify(dto);
 
-                expect(() => {new AlbumFixerFactory().parseAlbumNameFixer(json)})
+                expect(
+                    () => {new AlbumFixerFactory().parseAlbumNameFixer(json)})
                     .to.throw(Error, /major and minor keys given/);
         });
 });

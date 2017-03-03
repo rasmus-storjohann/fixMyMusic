@@ -11,11 +11,17 @@ import * as Others from "./Rules/Others";
 import * as Schubert from "./Rules/Schubert";
 import * as Shostakovich from "./Rules/Shostakovich";
 
+import * as fs from "fs";
+
 export class RulesFactory
 {
         public create()
         {
                 var allTheRules = Others.rules;
+
+                var json = JSON.stringify(allTheRules);
+                fs.writeFileSync(
+                    "/home/rasmus/Music/bin/src/fixers/Others.json", json);
 
                 allTheRules["JS Bach"] = BachJs.rules;
                 allTheRules["Beethoven"] = Beethoven.rules;

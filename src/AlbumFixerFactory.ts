@@ -25,7 +25,8 @@ export class AlbumFixerFactory
 
                 if (from.fixAlbumTitle)
                 {
-                        to.fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
+                        to.fixAlbumTitle =
+                            this.buildAlbumNameFixer(from.fixAlbumTitle);
                 }
                 return to;
         }
