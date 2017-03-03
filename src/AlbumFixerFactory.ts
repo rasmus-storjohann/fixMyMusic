@@ -1,31 +1,31 @@
-export interface Rule {
+export interface AlbumFixer {
         firstTrackNumber?: number, fixTrackName?: string,
-            fixAlbumTitle?: AlbumFormat
+            fixAlbumTitle?: AlbumNameFixer
 }
 
-export interface AlbumFormat {
+export interface AlbumNameFixer {
         form: string, instrument?: string, num?: number, opus?: number,
             opus_number?: number, subTitle?: string, performer?: string,
             mode?: string, key?: string
 }
 
-export class RuleFactory
+export class AlbumFixerFactory
 {
-        public parseAlbumRule(json: string): Rule
+        public parseAlbumFixer(json: string): AlbumFixer
         {
                 var parsed = JSON.parse(json);
-                return this.buildAlbumRule(parsed);
+                return this.buildAlbumFixer(parsed);
         }
-        public buildAlbumRule(from): Rule
+        public buildAlbumFixer(from): AlbumFixer
         {
-                var to: Rule = {};
+                var to: AlbumFixer = {};
 
                 this.parseOptionalNumber(from, to, "firstTrackNumber");
                 this.parseOptionalString(from, to, "fixTrackName");
 
                 if (from.fixAlbumTitle)
                 {
-                        to.fixAlbumTitle = this.buildFormat(from.fixAlbumTitle);
+                        to.fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
                 }
                 return to;
         }
@@ -42,14 +42,14 @@ export class RuleFactory
 
                 to[field] = from[field] + 0;
         }
-        public parseFormat(json: string): AlbumFormat
+        public parseAlbumNameFixer(json: string): AlbumNameFixer
         {
                 var from = JSON.parse(json);
-                return this.buildFormat(from);
+                return this.buildAlbumNameFixer(from);
         }
-        public buildFormat(from): AlbumFormat
+        public buildAlbumNameFixer(from): AlbumNameFixer
         {
-                var to: AlbumFormat = {form : from.form + ""};
+                var to: AlbumNameFixer = {form : from.form + ""};
 
                 this.parseOptionalString(from, to, "for", "instrument");
                 this.parseOptionalString(from, to, "subTitle");

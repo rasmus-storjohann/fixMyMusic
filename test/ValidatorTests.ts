@@ -67,7 +67,7 @@ describe("Validator", () => {
            () => { _theValidator.validate(createAlbum()); });
 
         describe("on tracks", () => {
-                it("accepts tracks out of order", () => {
+                        it("accepts tracks out of order", () => {
                         musicTrack[0].trackNumber = 2;
                         musicTrack[1].trackNumber = 1;
 
