@@ -1,1 +1,2231 @@
-{"EroicaVariations-Gilels":{"firstTrackNumber":9,"fixTrackName":"15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*)"},"CelloSonata1":{"fixAlbumTitle":{"form":"Sonata","num":1,"instrument":"Cello","key":"F","mode":"major","opus":5,"opus_number":1,"opus_prefix":"Op."},"fixTrackName":"Sonata for Cello and Piano No. 1 in F major, Op. 5 No. 1: [IV]+\\. (.*)"},"CelloSonata2":{"firstTrackNumber":3,"fixAlbumTitle":{"form":"Sonata","num":2,"instrument":"Cello","key":"G","mode":"minor","opus":5,"opus_number":2,"opus_prefix":"Op."},"fixTrackName":"Sonata for Cello and Piano No. 2 in G minor, Op. 5 No. 2: [IV]+\\. (.*)"},"CelloSonata3":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","num":3,"instrument":"Cello","key":"A","mode":"major","opus":69,"opus_prefix":"Op."},"fixTrackName":"Sonata for Cello and Piano No. 3 in A major, Op. 69: [IV]+\\. (.*)"},"CelloSonata4":{"fixAlbumTitle":{"form":"Sonata","num":4,"instrument":"Cello","opus":102,"opus_number":1,"opus_prefix":"Op."},"fixTrackName":"Cello Sonata 4 Op 102 No 1 - \\d - (.*)"},"CelloSonata5":{"firstTrackNumber":3,"fixAlbumTitle":{"form":"Sonata","num":5,"instrument":"Cello","opus":102,"opus_number":2,"opus_prefix":"Op."},"fixTrackName":"Cello Sonata 5 Op 102 No 2 - \\d - (.*)"},"Chorphantasie":{"firstTrackNumber":4,"fixTrackName":".*(Adagio|Finale|Allegro)"},"Diabelli[Demidenko]":{"firstTrackNumber":3},"GroßeFuge[Lindsay]":{"firstTrackNumber":6},"GrosseFuge":{"firstTrackNumber":7},"GrosseFuge [Tokyo]":{"firstTrackNumber":6,"fixTrackName":"(Große Fuge) in B-flat major for String Quartet op. 133: Overtura. Allegro - Meno mosso e moderato - Allegro - Fuga. \\[Allegro\\] - Meno mosso e moderato - Allegro molto e con brio - Allegro"},"Leonore Overture no. 2":{"firstTrackNumber":5},"Mass in C Major":{"fixTrackName":"Mass in C Major (?:Op. 86 )?- (.*)"},"PianoConc1":{"fixAlbumTitle":{"form":"Conc","num":1,"instrument":"Piano","key":"C","mode":"major","opus":15,"opus_prefix":"Op."},"fixTrackName":"Klavierkonzert Nr. 1 C-dur, Op. 15 [IV]+\\. (.*)"},"PianoConc2":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Conc","num":2,"instrument":"Piano","key":"B","mode":"major","opus":19,"opus_prefix":"Op."},"fixTrackName":"Klavierkonzert Nr. 2 B-dur, Op. 19 [IV]+\\. (.*)"},"PianoConc3":{"fixAlbumTitle":{"form":"Conc","num":3,"instrument":"Piano","key":"C","mode":"minor","opus":37,"opus_prefix":"Op."}},"PianoConc4":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Conc","num":4,"instrument":"Piano","key":"G","mode":"major","opus":58,"opus_prefix":"Op."},"fixTrackName":"\\d+\\. (.*)"},"PianoConc5":{"fixAlbumTitle":{"form":"Conc","num":5,"instrument":"Piano","key":"Eb","mode":"major","opus":73,"opus_prefix":"Op."}},"PianoConc5[Gould]":{"fixAlbumTitle":{"form":"Conc","num":5,"instrument":"Piano","key":"Eb","mode":"major","opus":73,"opus_prefix":"Op.","performer":"Gould"},"fixTrackName":"Beethoven Piano Concerto 5 - \\d+ - (.*)"},"PianoTrio7[Richter] Op97 Archduke":{"fixTrackName":"Piano Trio No\\.7 in B flat, Op\\. 97 Archduke - \\d+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Quartet1 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":1,"key":"F","mode":"major","opus":18,"opus_number":1,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 1 in F major, op. 18-1: [IV]+\\. (.*)"},"Quartet2 [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":2,"key":"G","mode":"major","opus":18,"opus_number":2,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 2 in G major, op. 18-2: [IV]+\\. (.*)"},"Quartet3 Op18No3 [Kodaly]":{"fixAlbumTitle":{"form":"Quartet","num":3,"key":"D","mode":"major","opus":18,"opus_number":3,"opus_prefix":"Op.","performer":"Kodaly"},"fixTrackName":"Beethoven String Quartet in D Major, Op.18, No.3 - [IV]+\\. (.*)"},"Quartet3 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":3,"key":"D","mode":"major","opus":18,"opus_number":3,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 3 in D major, op. 18-3: [IV]+\\. (.*)"},"Quartet4 Op18No4 [Kodaly]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":4,"key":"C","mode":"minor","opus":18,"opus_number":4,"opus_prefix":"Op.","performer":"Kodaly"},"fixTrackName":"Beethoven String Quartet in C Minor, Op.18, No.4 - [IV]+\\. (.*)"},"Quartet4 [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":4,"key":"C","mode":"minor","opus":18,"opus_number":4,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 4 in C minor, op. 18-4: [IV]+\\. (.*)"},"Quartet5 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":5,"key":"A","mode":"major","opus":18,"opus_number":5,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 5 in A major, op. 18-5: [IV]+\\. (.*)"},"StringQuartet5 Op18No5":{"fixAlbumTitle":{"form":"Quartet","num":5,"key":"A","mode":"major","opus":18,"opus_number":5,"opus_prefix":"Op."},"fixTrackName":"String quartet in A major, op 18, No.5; (.*)"},"Quartet6 [Tokyo]":{"firstTrackNumber":9,"fixAlbumTitle":{"form":"Quartet","num":6,"key":"Bb","mode":"major","opus":18,"opus_number":6,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 6 in B-flat major, op. 18-6: [IV]+\\. (.*)"},"Quartet7 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":7,"key":"F","mode":"major","opus":59,"opus_number":1,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 7 in F major, op. 59-1 “Rasumovsky”: [IV]+\\. (.*)"},"Quartet8 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":8,"key":"E","mode":"minor","opus":59,"opus_number":2,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 8 in E minor, op. 59-2 “Rasumovsky”: [IV]+\\. (.*)"},"Quartet9 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":9,"key":"C","mode":"major","opus":59,"opus_number":3,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 9 in C major, op. 59-3 “Rasumovsky”: [IV]+\\. (.*)"},"Quartet10 [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":10,"key":"Eb","mode":"major","opus":74,"opus_prefix":"Op.","subTitle":"Harp","performer":"Tokyo"},"fixTrackName":"String Quartet no. 10 in E-flat major, op. 74 \\“Harp\\”: [IV]+\\. (.*)"},"Quartet11 [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":11,"key":"F","mode":"minor","opus":95,"opus_prefix":"Op.","subTitle":"Serioso","performer":"Tokyo"},"fixTrackName":"String Quartet no. 11 in F minor, op. 95 \\“Serioso\\”: [IV]+\\. (.*)"},"Quartet12 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":12,"key":"Eb","mode":"major","opus":127,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 12 in E-flat major, op\\. 127: [IV]+\\. (.*)"},"Quartet12[Lindsay]":{"fixAlbumTitle":{"form":"Quartet","num":12,"key":"Eb","mode":"major","opus":127,"opus_prefix":"Op.","performer":"Lindsay"},"fixTrackName":"Quartet 12 Op 127 - \\d+ - (.*)"},"Quartet13[Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":13,"key":"Bb","mode":"major","opus":130,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"},"Quartet13[Lindsay]":{"fixAlbumTitle":{"form":"Quartet","num":13,"key":"Bb","mode":"major","opus":130,"opus_prefix":"Op.","performer":"Lindsay"},"fixTrackName":"Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"},"Quartet13-GrosseFuge[Lindsay]":{"fixAlbumTitle":{"form":"Quartet","num":13,"key":"Bb","mode":"major","opus":130,"opus_prefix":"Op.","subTitle":"Große Fuge","performer":"Lindsay"},"fixTrackName":"Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"},"Quartet13-GrosseFuge[Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":13,"key":"Bb","mode":"major","opus":130,"opus_prefix":"Op.","subTitle":"Große Fuge","performer":"Tokyo"},"fixTrackName":"String Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"},"StringQuartetOp130[Amadeus]":{"fixAlbumTitle":{"form":"Quartet","num":13,"key":"Bb","mode":"major","opus":130,"opus_prefix":"Op.","performer":"Amadeus"},"fixTrackName":"String quartet Op 130 - \\d+ - (.*)"},"Quartet14[Lindsay]":{"fixAlbumTitle":{"form":"Quartet","num":14,"key":"C#","mode":"minor","opus":131,"opus_prefix":"Op.","performer":"Lindsay"},"fixTrackName":"Quartet for 2 Violins, Viola, and Cello no. 14 in C-sharp minor, op. 131: [IV]+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Quartet14 [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Quartet","num":14,"key":"C#","mode":"minor","opus":131,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 14 in C-sharp minor, op. 131: [IV]+\\. (.*)"},"Quartet15[Lindsay]":{"fixAlbumTitle":{"form":"Quartet","num":15,"key":"A","mode":"minor","opus":132,"opus_prefix":"Op.","performer":"Lindsay"},"fixTrackName":"Quartet for 2 Violins, Viola, and Cello no. 15 in A minor, op. 132: [IV]+\\. (.*)"},"Quartet15 [Tokyo]":{"fixAlbumTitle":{"form":"Quartet","num":15,"key":"A","mode":"minor","opus":132,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 15 in A minor, op. 132: [IV]+\\. (.*)"},"Quartet16[Lindsay]":{"firstTrackNumber":6,"fixAlbumTitle":{"form":"Quartet","num":16,"key":"F","mode":"major","opus":135,"opus_prefix":"Op.","performer":"Lindsay"},"fixTrackName":"Quartet for 2 Violins, Viola, and Cello no. 16 in F major, op. 135: [IV]+\\. (.*)"},"Quartet16 [Tokyo]":{"firstTrackNumber":6,"fixAlbumTitle":{"form":"Quartet","num":16,"key":"F","mode":"major","opus":135,"opus_prefix":"Op.","performer":"Tokyo"},"fixTrackName":"String Quartet no. 16 in F major, op. 135: [IV]+\\. (.*)"},"StringQuartetOp135[Amadeus]":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Quartet","num":16,"key":"F","mode":"major","opus":135,"opus_prefix":"Op.","performer":"Amadeus"},"fixTrackName":"String quartet Op 135 - \\d+ - (.*)"},"Quintet Op16[Richter]":{"firstTrackNumber":5,"fixAlbumTitle":"Quintet [Richter] in Eb Op.16","fixTrackName":"Quintet in E flat, Op. 16 - \\d+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Quintet [Tokyo]":{"firstTrackNumber":5,"fixAlbumTitle":"Quintet [Tokyo] in Eb Op.16","fixTrackName":"String Quartet in C major, op. 29: [IV]+\\. (.*)"},"Sonata1[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":1,"opus":2,"opus_number":1,"opus_prefix":"Op.","key":"f","mode":"minor","performer":"Goode"},"fixTrackName":"Goode - Piano Sonata No.1 F minor [IV]+\\. (.*)"},"Sonata1[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":1,"opus":2,"opus_number":1,"opus_prefix":"Op.","key":"f","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 1 in F minor, Op. 2, No. 1 - [IV]+\\. (.*)"},"Sonata2[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":2,"opus":2,"opus_number":2,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Goode"},"firstTrackNumber":5,"fixTrackName":"Goode - Piano Sonata No.2 A major [IV]+\\. (.*)"},"Sonata2[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":2,"opus":2,"opus_number":2,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Gould"},"firstTrackNumber":5,"fixTrackName":"Sonata No. 2 in A major, Op. 2, No. 2 - [IV]+\\. (.*)"},"Sonata2-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":2,"opus":2,"opus_number":2,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Gilels"},"fixTrackName":"Sonate No.2 A-dur op.2 No.2 - \\d\\. (.*)"},"Sonata3[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":3,"opus":2,"opus_number":3,"opus_prefix":"Op.","key":"C","mode":"major","performer":"Goode"},"firstTrackNumber":9,"fixTrackName":"Goode - Piano Sonata No.3 in C major [IV]+\\. (.*)"},"Sonata3[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":3,"opus":2,"opus_number":3,"opus_prefix":"Op.","key":"C","mode":"major","performer":"Gould"},"firstTrackNumber":9,"fixTrackName":"Sonata No. 3 in C major, Op. 2, No. 3 - [IV]+\\. (.*)"},"Sonata3-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":3,"opus":2,"opus_number":3,"opus_prefix":"Op.","key":"C","mode":"major","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonate No.3 C-Dur, op. 2 No.3 - \\d\\. (.*)"},"Sonata4[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":4,"opus":7,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Goode"}},"Sonata4-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":4,"opus":7,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gilels"},"fixTrackName":"Sonate No.4 Es-dur op.7 - \\d\\. (.*)"},"Sonata5[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":5,"opus":10,"opus_number":1,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Goode"},"fixTrackName":"No.5 in C minor, op.10, no.1- (.*)"},"Sonata5[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":5,"opus":10,"opus_number":1,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 5 in C minor, Op. 10, No. 1 - [IV]+\\. (.*)"},"Sonata5-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":5,"opus":10,"opus_number":1,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Gilels"},"fixTrackName":"Piano Sonata No. 5 in C minor, Op. 10 No. 1 \\d\\. (.*)"},"Sonata6[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":6,"opus":10,"opus_number":2,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Goode"},"firstTrackNumber":4,"fixTrackName":"No.6 in F major, op.10, no.2- (.*)"},"Sonata6[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":6,"opus":10,"opus_number":2,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Gould"},"firstTrackNumber":4,"fixTrackName":"Sonata No. 6 in F major, Op. 10, No. 2 - [IV]+\\. (.*)"},"Sonata6-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":6,"opus":10,"opus_number":2,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Gilels"},"firstTrackNumber":4,"fixTrackName":"Piano Sonata No. 6 in F major, Op. 10 No. 2 \\d\\. (.*)"},"Sonata7[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":7,"opus":10,"opus_number":3,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Goode"},"firstTrackNumber":7,"fixTrackName":"No.7 in D major, op.10, no.3- (.*)"},"Sonata7[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":7,"opus":10,"opus_number":3,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Gould"},"firstTrackNumber":7,"fixTrackName":"Sonata No. 7 in D major, Op. 10, No. 3 - [IV]+\\. (.*)"},"Sonata7-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":7,"opus":10,"opus_number":3,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Gilels"},"firstTrackNumber":7,"fixTrackName":"Piano Sonata No. 7 in D major, Op. 10 No. 3 \\d\\. (.*)"},"Sonata8[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":8,"opus":13,"opus_prefix":"Op.","subTitle":"Pathetique","key":"C","mode":"minor","performer":"Goode"},"firstTrackNumber":8},"Sonata8[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":8,"opus":13,"opus_prefix":"Op.","subTitle":"Pathetique","key":"C","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No.8 IN C Minor, Op.13 'Pathetique'- [IV]+\\. (.*)"},"Sonata8-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":8,"opus":13,"opus_prefix":"Op.","subTitle":"Pathetique","key":"C","mode":"minor","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonate No.8 C-Moll Op. 13 'Pathétique' - \\d\\. (.*)"},"Sonata9[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":9,"opus":14,"opus_number":1,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Goode"},"firstTrackNumber":5},"Sonata9[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":9,"opus":14,"opus_number":1,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Gould"},"firstTrackNumber":4,"fixTrackName":"Sonata No.9 In E Major, Op.14, No. 1- [IV]+\\. (.*)"},"Sonata9 arranged for strings [Tokyo]":{"fixAlbumTitle":{"form":"Sonata","num":9,"opus":14,"opus_number":1,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Tokyo Quartet"},"firstTrackNumber":9,"fixTrackName":"String Quartet in F major after Piano Sonata, op. 14-1: [IV]+\\. (.*)"},"Sonata10[Gould]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":10,"opus":14,"opus_number":2,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No\\.10 In G Major, Op\\.14, No.2\\- I+\\. (.*)"},"Sonata10[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":10,"opus":14,"opus_number":2,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Goode"},"fixTrackName":"No.10 in G major, op.14, no.\\d- (.*)"},"Sonata10-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":10,"opus":14,"opus_number":2,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gilels"},"firstTrackNumber":8,"fixTrackName":"Sonate No.10 G-dur op.14 No.2 - \\d. (.*)"},"Sonata11[Goode]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":11,"opus":22,"opus_prefix":"Op.","key":"b","mode":"minor","performer":"Goode"},"fixTrackName":"No.11 in B-moll major, op.22- (.*)"},"Sonata11-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":11,"opus":22,"opus_prefix":"Op.","key":"b","mode":"minor","performer":"Gilels"},"fixTrackName":"Sonate No.11 B[ -]dur op.22 \\d. (.*)"},"Sonata12[Goode]":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Sonata","num":12,"opus":26,"opus_prefix":"Op.","key":"a","mode":"minor","performer":"Goode"},"fixTrackName":"No.12 in A-moll major, op.26- (.*)"},"Sonata12[Gould]":{"firstTrackNumber":11,"fixAlbumTitle":{"form":"Sonata","num":12,"opus":26,"opus_prefix":"Op.","key":"Ab","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 12 in A flat major, Op. 26 - [IV]+\\. (.*)"},"Sonata12-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":12,"opus":26,"opus_prefix":"Op.","key":"Ab","mode":"major","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonate No.12 As[ -]dur op. ?26[ -]*\\d\\. (.*)"},"Sonata13[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":13,"opus":27,"opus_number":1,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Goode"},"fixTrackName":"No.13 in E-moll major, op.27, no.1- (.*)"},"Sonata13[Gould]":{"firstTrackNumber":10,"fixAlbumTitle":{"form":"Sonata","num":13,"opus":27,"opus_number":1,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No.13 In E-Flat Major, Op.27, No.1- [IV]+\\. (.*)"},"Sonata13-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":13,"opus":27,"opus_number":1,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gilels"},"fixTrackName":"Sonate No.13 Es-dur op. 27 No.1 \\(Sonata quasi una fantasia\\) - \\d\\. (.*)"},"Sonata14[Goode]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","num":14,"opus":27,"opus_number":2,"opus_prefix":"Op.","subTitle":"Moonlight","key":"C#","mode":"minor","performer":"Goode"},"fixTrackName":"No.14 in C flat minor, op.27, no.2- (.*)"},"Sonata14[Gould]":{"firstTrackNumber":14,"fixAlbumTitle":{"form":"Sonata","num":14,"opus":27,"opus_number":2,"opus_prefix":"Op.","subTitle":"Moonlight","key":"C#","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No.14 In C-Sharp Minor, Op.27, No.2 'Moonlight'- [IV]+\\. (.*)"},"Sonata14-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":14,"opus":27,"opus_number":2,"opus_prefix":"Op.","subTitle":"Moonlight","key":"C#","mode":"minor","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonate No.14 cis-moll op. 27 No.2 'Mondschein' \\(Sonata quasi una fantasia\\) - \\d\\. (.*)"},"Sonata15[Goode]":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Sonata","num":15,"opus":28,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Goode"},"fixTrackName":"No.15 in D major, op.28- (.*)"},"Sonata15[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":15,"opus":28,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 15 in D major, [IV]+\\. (.*)"},"Sonata15-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":15,"opus":28,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Gilels"},"firstTrackNumber":8,"fixTrackName":"Sonate No.15 D-dur op.28 'Pastorale' - \\d\\. (.*)"},"Sonata16[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":16,"opus":31,"opus_number":1,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Goode"},"fixTrackName":"Sonata No.16 in G major,Op.31,No.1 - [IV]+\\. (.*)"},"Sonata16[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":16,"opus":31,"opus_number":1,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 16 in G major, op. 31,1 - [IV]+\\. (.*)"},"Sonata16-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":16,"opus":31,"opus_number":1,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gilels"},"fixTrackName":"Sonate No.16 G-dur op.31 No.1 - \\d\\. (.*)"},"Sonata17[Goode]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":17,"opus":31,"opus_number":2,"opus_prefix":"Op.","subTitle":"Tempest","key":"D","mode":"minor","performer":"Goode"},"fixTrackName":"Sonata No.17 in D minor,Op.31,No.2 \\(Tempest\\) - [IV]+\\. (.*)"},"Sonata17[Gould]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":17,"opus":31,"opus_number":2,"opus_prefix":"Op.","subTitle":"Tempest","key":"D","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 17 in D minor, op. 31,2 - [IV]+\\. (.*)"},"Sonata17-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":17,"opus":31,"opus_number":2,"opus_prefix":"Op.","subTitle":"Tempest","key":"D","mode":"minor","performer":"Gilels"},"firstTrackNumber":4,"fixTrackName":"Sonate No.17 d-moll op.31 No.2 'Der Sturm' - \\d\\. (.*)"},"Sonata18[Goode]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":18,"opus":31,"opus_number":3,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Goode"},"fixTrackName":"Sonata No.18 in E-flat major,Op.31,No.3 - [IV]+\\. (.*)"},"Sonata18[Gould]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":18,"opus":31,"opus_number":3,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 18 in E-flat major, op. 31,3 - [IV]+\\. (.*)"},"Sonata18-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":18,"opus":31,"opus_number":3,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gilels"},"firstTrackNumber":7,"fixTrackName":"Sonate No\\.18 Es-[Dd]ur,? op\\. ?31 No.3 - \\d\\. (.*)"},"Sonata18[Richter]":{"fixAlbumTitle":{"form":"Sonata","num":18,"opus":31,"opus_number":3,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Richter"},"fixTrackName":"\\d+\\. (.*)"},"Sonata19[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":19,"opus":49,"opus_number":1,"opus_prefix":"Op.","key":"G","mode":"minor","performer":"Goode"}},"Sonata19-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":19,"opus":49,"opus_number":1,"opus_prefix":"Op.","key":"G","mode":"minor","performer":"Gilels"},"fixTrackName":"Sonate No.19 g-moll op.49 No.1 - \\d\\. (.*)"},"Sonata20[Goode]":{"firstTrackNumber":3,"fixAlbumTitle":{"form":"Sonata","num":20,"opus":49,"opus_number":2,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Goode"},"fixTrackName":"I+\\. (.*)"},"Sonata21[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":21,"opus":53,"opus_prefix":"Op.","key":"C","mode":"major","subTitle":"Waldstein","performer":"Goode"},"fixTrackName":"Sonata No. 21 in C Major \\(Waldstein\\), Op. 53- (.*)"},"Sonata21-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":21,"opus":53,"opus_prefix":"Op.","key":"C","mode":"major","subTitle":"Waldstein","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonate No.21 C-[Dd]ur op. ?53 '?Waldstein'? - \\d\\. (.*)"},"Sonata22[Goode]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":22,"opus":54,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Goode"},"fixTrackName":"Sonata No. 22 in F Major, Op. 54- (.*)"},"Sonata23[Goode]":{"firstTrackNumber":6,"fixAlbumTitle":{"form":"Sonata","num":23,"subTitle":"Appassionata","opus":57,"opus_prefix":"Op.","key":"F","mode":"minor","performer":"Goode"},"fixTrackName":"Sonata No. 23 in F Minor \\(Appassionata\\), Op. 57- (.*)"},"Sonata23[Gould]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","num":23,"subTitle":"Appassionata","opus":57,"opus_prefix":"Op.","key":"F","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 23 in F minor, [IV]+\\. (.*)"},"Sonata23-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":23,"subTitle":"Appassionata","opus":57,"opus_prefix":"Op.","key":"F","mode":"minor","performer":"Gilels"},"firstTrackNumber":8,"fixTrackName":"Sonate No.23 [Ff]-[Mm]oll [Oo]p. ?57 'Appassionata' - \\d\\. (.*)"},"Sonata23[Richter]Appassionata":{"fixAlbumTitle":{"form":"Sonata","num":23,"subTitle":"Appassionata","opus":57,"opus_prefix":"Op.","key":"F","mode":"minor","performer":"Richter"},"firstTrackNumber":5,"fixTrackName":"Piano Sonata No. 23 in F minor, Op. 57 Appassionata [IV]+\\. (.*)"},"Sonata24[Demidenko]":{"fixAlbumTitle":{"form":"Sonata","num":24,"subTitle":"à Thérèse","opus":78,"opus_prefix":"Op.","key":"F#","mode":"minor","performer":"Demidenko"},"fixTrackName":"Sonata24 - (.*)"},"Sonata24[Goode]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","num":24,"subTitle":"à Thérèse","opus":78,"opus_prefix":"Op.","key":"F#","mode":"minor","performer":"Goode"},"fixTrackName":"I+. (.*)"},"Sonata24[Gould] \"À Thérèse\"":{"fixAlbumTitle":{"form":"Sonata","num":24,"subTitle":"à Thérèse","opus":78,"opus_prefix":"Op.","key":"F#","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 24 in F-sharp major, Op. 78 \\\"À Thérèse\\\": I+\\. (.*)"},"Sonata25[Goode]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":25,"opus":79,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Goode"},"fixTrackName":"[IV]+\\. (.*)"},"Sonata25-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":25,"opus":79,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gilels"},"firstTrackNumber":11,"fixTrackName":"Sonate No.25 G-dur op. 79 - \\d\\. (.*)"},"Sonata26[Goode]":{"firstTrackNumber":10,"fixAlbumTitle":{"form":"Sonata","num":26,"opus":81,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Goode"},"fixTrackName":"[IV]+\\. (.*)"},"Sonata26-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":26,"opus":81,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Gilels"},"fixTrackName":"Sonate No.26 Es-dur op. ?81a 'Les Adieux' - \\d\\. (.*)"},"Sonata27[Goode]":{"firstTrackNumber":13,"fixAlbumTitle":{"form":"Sonata","num":27,"opus":90,"opus_prefix":"Op.","key":"E","mode":"minor","performer":"Goode"},"fixTrackName":"No.27 in E minor, op.90- (.*)"},"Sonata27-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":27,"opus":90,"opus_prefix":"Op.","key":"E","mode":"minor","performer":"Gilels"},"firstTrackNumber":4,"fixTrackName":"Sonate No.27 e-moll op. ?90 - \\d\\. (.*)"},"Sonata28[Richter]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":28,"opus":101,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Richter"},"fixTrackName":"Sonata No.28 in A, Op. 101 - \\d+\\. (.*)"},"Sonata28-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":28,"opus":101,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Gilels"},"fixTrackName":"Sonata No.28 in A major, Op.101 - \\d\\. (.*)"},"Sonata28[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":28,"opus":101,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Goode"}},"Sonata29[Goode]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":29,"subTitle":"Hammerklavier","opus":106,"opus_prefix":"Op.","key":"Bb","mode":"major","performer":"Goode"},"fixTrackName":"[IV]+\\. (.*)"},"Sonata29[Gould] \"Hammerklavier\"":{"firstTrackNumber":3,"fixAlbumTitle":{"form":"Sonata","num":29,"subTitle":"Hammerklavier","opus":106,"opus_prefix":"Op.","key":"Bb","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 29 in B-flat major, Op. 106 \"Hammerklavier\": [IV]+\\. (.*)"},"Sonata29-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":29,"subTitle":"Hammerklavier","opus":106,"opus_prefix":"Op.","key":"Bb","mode":"major","performer":"Gilels"},"firstTrackNumber":5,"fixTrackName":"Sonata No.29 in B dur, Op.106 Hammerklavier - \\d\\. (.*)"},"Sonata30[Goode]":{"fixAlbumTitle":{"form":"Sonata","num":30,"opus":109,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Goode"},"fixTrackName":"Sonata No.30 in E major, Op.109 - [IV]+\\. (.*)"},"Sonata30[Gould]":{"fixAlbumTitle":{"form":"Sonata","num":30,"opus":109,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 30 In E Major, Op. 109- [IV]+\\. (.*)"},"Sonata30-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":30,"opus":109,"opus_prefix":"Op.","key":"E","mode":"major","performer":"Gilels"},"firstTrackNumber":6,"fixTrackName":"Sonate No.30 E-dur op.109 - \\d\\. (.*)"},"Sonata31[Goode]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":31,"opus":110,"opus_prefix":"Op.","key":"Ab","mode":"major","performer":"Goode"},"fixTrackName":"Sonata No.31 in A flat major, Op.110 - [IV]+\\. (.*)"},"Sonata31[Gould]":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","num":31,"opus":110,"opus_prefix":"Op.","key":"Ab","mode":"major","performer":"Gould"},"fixTrackName":"Sonata No. 31 In A-Flat Major, Op. 110- [IV]+\\. (.*)"},"Sonata31-Gilels":{"fixAlbumTitle":{"form":"Sonata","num":31,"opus":110,"opus_prefix":"Op.","key":"Ab","mode":"major","performer":"Giles"},"firstTrackNumber":15,"fixTrackName":"Sonate No.31 As-dur op.110 - \\d\\. (.*)"},"Sonata32[Goode]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":32,"opus":111,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Goode"},"fixTrackName":"Sonata No.32 in C minor, Op.111 - [IV]+\\. (.*)"},"Sonata32[Gould]":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","num":32,"opus":111,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Gould"},"fixTrackName":"Sonata No. 32 In C Minor, Op. 111- [IV]+\\. (.*)"},"SonataWoo47-1-Gilels":{"firstTrackNumber":9,"fixTrackName":"Sonate Es-dur WoO 47 No.1 - \\d\\. (.*)"},"SonataWoo47-2-Gilels":{"firstTrackNumber":12,"fixTrackName":"Sonate f-moll WoO 47 No.2 - \\d\\. (.*)"},"Symph1[Karajan]":{"fixAlbumTitle":{"form":"Symph","num":1,"opus":21,"opus_prefix":"Op.","key":"C","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 1 C-dur op. 21: \\d+\\. (.*)"},"Symph1[Norrington]":{"fixAlbumTitle":{"form":"Symph","num":1,"opus":21,"opus_prefix":"Op.","key":"C","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No. 1 in C major, Op. 21 [IV]+\\. (.*)"},"Symph2[Karajan]":{"fixAlbumTitle":{"form":"Symph","num":2,"opus":36,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 2 D-dur op. 36: \\d+\\. (.*)"},"Symph2[Norrington]":{"fixAlbumTitle":{"form":"Symph","num":2,"opus":36,"opus_prefix":"Op.","key":"D","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No. 2 in D major, Op. 36 [IV]+\\. (.*)"},"Symph3[Haitink]":{"fixAlbumTitle":{"form":"Symph","num":3,"subTitle":"Eroica","opus":55,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Haitink"},"fixTrackName":"Symphony no. 3 in E‐flat major, op. 55 \\“Eroica\\”: [IV]+\\. (.*)"},"Symph3[Karajan]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":3,"subTitle":"Eroica","opus":55,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 3 in Es-dur op. 55 \\»Eroica\\«: \\d+\\. (.*)"},"Symph3[Norrington]":{"firstTrackNumber":2,"fixAlbumTitle":{"form":"Symph","num":3,"subTitle":"Eroica","opus":55,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No.3 In E Flat Major, Op.55 (.*)"},"Symph4[Karajan]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":4,"opus":60,"opus_prefix":"Op.","key":"Bb","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 4 B-dur op. 60: \\d+\\. (.*)"},"Symph4[Norrington]":{"fixAlbumTitle":{"form":"Symph","num":4,"opus":60,"opus_prefix":"Op.","key":"Bb","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No. 4 in B-flat major, Op. 60 [IV]+\\. (.*)"},"Symph5[Furtwangler]":{"fixAlbumTitle":{"form":"Symph","num":5,"opus":67,"opus_prefix":"Op.","key":"c","mode":"minor","performer":"Furtwangler"},"fixTrackName":"Beethoven Symph 5 - \\d+ - (.*)"},"Symph5[Karajan]":{"fixAlbumTitle":{"form":"Symph","num":5,"opus":67,"opus_prefix":"Op.","key":"c","mode":"minor","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 5 c-moll op. 67: \\d+\\. (.*)"},"Symph5[Kleiber]":{"fixAlbumTitle":{"form":"Symph","num":5,"opus":67,"opus_prefix":"Op.","key":"c","mode":"minor","performer":"Kleiber"},"fixTrackName":"Symphonie No. 5 C-moll, Op. 67 [IV]+\\. (.*)"},"Symph5[Norrington]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":5,"opus":67,"opus_prefix":"Op.","key":"c","mode":"minor","performer":"Norrington"},"fixTrackName":"Symphony No. 5 in C minor, Op. 67 [IV]+\\. (.*)"},"Symph6[Gould]":{"fixAlbumTitle":{"form":"Symph","num":6,"opus":68,"opus_prefix":"Op.","key":"F","mode":"major","subTitle":"Pastoral","performer":"Gould"},"fixTrackName":"Symphony No.6 Op.68 Pastoral [IV]+\\. (.*)"},"Symph6[Karajan]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":6,"opus":68,"opus_prefix":"Op.","key":"F","mode":"major","subTitle":"Pastoral","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 6 F-dur op. 68 \\»Pastorale\\«: \\d\\. (.*)"},"Symph6[Norrington]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":6,"opus":68,"opus_prefix":"Op.","key":"F","mode":"major","subTitle":"Pastoral","performer":"Norrington"},"fixTrackName":"Symphony No. 6 in F major, Op. 68 Pastoral [IV]+\\. (.*)"},"Symph7[Karajan]":{"fixAlbumTitle":{"form":"Symph","num":7,"opus":92,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 7 A-dur op. 92: \\d+\\. (.*)"},"Symph7[Kleiber]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":7,"opus":92,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Kleiber"},"fixTrackName":"Symphonie No. 7 A-dur, Op. 92 [IV]+\\. (.*)"},"Symph7[Norrington]":{"firstTrackNumber":3,"fixAlbumTitle":{"form":"Symph","num":7,"opus":92,"opus_prefix":"Op.","key":"A","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No.7 in A [Mm]ajor, op.92 - [IV]+\\. (.*)"},"Symph8[Karajan]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":8,"opus":93,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Karajan"},"fixTrackName":"Symphonie Nr. 8 F-dur op. 93: \\d+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Symph8[Norrington]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":8,"opus":93,"opus_prefix":"Op.","key":"F","mode":"major","performer":"Norrington"},"fixTrackName":"Symphony No. 8 in F major, Op. 93 [IV]+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Symph9[Furtwangler]":{"fixAlbumTitle":{"form":"Symph","num":9,"opus":125,"opus_prefix":"Op.","key":"D","mode":"minor","performer":"Furtwangler"},"fixTrackName":"Symphony No. 9 in D minor, Op. 125 [IV]+\\. (.*)"},"Symph9[Karajan]":{"fixAlbumTitle":{"form":"Symph","num":9,"opus":125,"opus_prefix":"Op.","key":"D","mode":"minor","performer":"Karajan"},"fixTrackName":"Symphonie No. 9 d-Moll, Op. 125 [IV]+\\. (.*)"},"ViolinSon 9 Kreutzer":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":9,"opus":47,"opus_prefix":"Op.","key":"A","mode":"major","subTitle":"Kreutzer"},"fixTrackName":"Violinsonate No.9 A-dur op. 47 'Kreutzer' - (.*)"},"ViolinSon 10":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":10,"opus":96,"opus_prefix":"Op.","key":"G","mode":"major"},"fixTrackName":"^(\\d+) Violinsonate No.10 G-dur op. 96 - (.*)"},"Three sets of variations for cello and piano":{"firstTrackNumber":6,"validation":["skipUniqueTrackNameCheck"]},"TwoRondos[Richter]":{"firstTrackNumber":5,"validation":["skipUniqueTrackNameCheck"]},"ViolinConcerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","key":"D","mode":"major","opus":61,"opus_prefix":"Op."},"fixTrackName":"Konzert für Violine und Orchester in D-dur, op. 61 [IV]+\\. (.*)"},"ViolinSonata1 Op12No1":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":1,"opus":12,"opus_number":1,"opus_prefix":"Op.","key":"D","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in D major, Op. 12 No. 1 [IV]+\\. (.*)"},"ViolinSonata10 Op96[Francescatti, Casadesus]":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":10,"opus":96,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Francescatti, Casadesus"},"fixTrackName":"Violinsonate No.10 G-dur op. 96 - (.*)"},"ViolinSonata10 Op96":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":10,"opus":96,"opus_prefix":"Op.","key":"G","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in G major, Op. 96 [IV]+\\. (.*)"},"ViolinSonata10[Gould-Menuhin]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":10,"opus":96,"opus_prefix":"Op.","key":"G","mode":"major","performer":"Gould, Menuhin"},"fixTrackName":"Beethoven ViolinSonata Op96 - (.*)"},"ViolinSonata2 Op12No2":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":2,"opus":12,"opus_number":2,"opus_prefix":"Op.","key":"A","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in A major, Op. 12 No. 2 [IV]+\\. (.*)"},"ViolinSonata3 Op12No3":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":3,"opus":12,"opus_number":3,"opus_prefix":"Op.","key":"Eb","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in E-flat major, Op. 12 No. 3 [IV]+\\. (.*)"},"ViolinSonata4 Op23":{"firstTrackNumber":10,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":4,"opus":23,"opus_prefix":"Op.","key":"A","mode":"minor"},"fixTrackName":"Sonata for Violin and Piano in A minor, Op. 23 [IV]+\\. (.*)"},"ViolinSonata5 Op24 \"Frühling\"":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":5,"opus":24,"opus_prefix":"Op.","key":"F","mode":"major","subTitle":"Frühling"},"fixTrackName":"Sonata for Violin and Piano in F major, Op. 24 \\“Frühling\\” [IV]+\\. (.*)"},"ViolinSonata5 Op24[Francescatti, Casadesus]":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":5,"opus":24,"opus_prefix":"Op.","key":"F","mode":"major","subTitle":"Frühling","performer":"Francescatti, Casadesus"},"fixTrackName":"Violinsonate No.5 F-dur op. 24 \\'Frühling\\' - (.*)"},"ViolinSonata6 Op30No1":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":6,"opus":30,"opus_number":1,"opus_prefix":"Op.","key":"A","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in A major, Op. 30 No. 1 [IV]+\\. (.*)"},"ViolinSonata7 Op30No2":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":7,"opus":30,"opus_number":2,"opus_prefix":"Op.","key":"C","mode":"minor"},"fixTrackName":"Sonata for Violin and Piano in C minor, Op. 30 No. 2 [IV]+\\. (.*)"},"ViolinSonata8 Op30No3":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":8,"opus":30,"opus_number":3,"opus_prefix":"Op.","key":"G","mode":"major"},"fixTrackName":"Sonata for Violin and Piano in G major, Op. 30 No. 3 [IV]+\\. (.*)"},"ViolinSonata9 Op47 \"Kreutzer\"[Francescatti, Casadesus]":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":9,"opus":47,"opus_prefix":"Op.","key":"A","mode":"major","subTitle":"Kreutzer","performer":"Francescatti, Casadesus"},"fixTrackName":"Violinsonate No.9 A-dur op. 47 \\'Kreutzer\\' - (.*)"},"ViolinSonata9 Op47 \"Kreutzer\"":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":9,"opus":47,"opus_prefix":"Op.","key":"A","mode":"major","subTitle":"Kreutzer"},"fixTrackName":"Sonata for Violin and Piano in A major, Op. 47 \\“Kreutzer\\” [IV]+\\. (.*)"}}
+{
+  "EroicaVariations-Gilels": {
+    "firstTrackNumber": 9,
+    "fixTrackName": "15 Variationen mit Fuge Es-dur op.35 'Eroica' - (.*)"
+  },
+  "CelloSonata1": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 1,
+      "instrument": "Cello",
+      "key": "F",
+      "mode": "major",
+      "opus": 5,
+      "opus_number": 1,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Sonata for Cello and Piano No. 1 in F major, Op. 5 No. 1: [IV]+\\. (.*)"
+  },
+  "CelloSonata2": {
+    "firstTrackNumber": 3,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "instrument": "Cello",
+      "key": "G",
+      "mode": "minor",
+      "opus": 5,
+      "opus_number": 2,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Sonata for Cello and Piano No. 2 in G minor, Op. 5 No. 2: [IV]+\\. (.*)"
+  },
+  "CelloSonata3": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "instrument": "Cello",
+      "key": "A",
+      "mode": "major",
+      "opus": 69,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Sonata for Cello and Piano No. 3 in A major, Op. 69: [IV]+\\. (.*)"
+  },
+  "CelloSonata4": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 4,
+      "instrument": "Cello",
+      "opus": 102,
+      "opus_number": 1,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Cello Sonata 4 Op 102 No 1 - \\d - (.*)"
+  },
+  "CelloSonata5": {
+    "firstTrackNumber": 3,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 5,
+      "instrument": "Cello",
+      "opus": 102,
+      "opus_number": 2,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Cello Sonata 5 Op 102 No 2 - \\d - (.*)"
+  },
+  "Chorphantasie": {
+    "firstTrackNumber": 4,
+    "fixTrackName": ".*(Adagio|Finale|Allegro)"
+  },
+  "Diabelli[Demidenko]": {
+    "firstTrackNumber": 3
+  },
+  "GroßeFuge[Lindsay]": {
+    "firstTrackNumber": 6
+  },
+  "GrosseFuge": {
+    "firstTrackNumber": 7
+  },
+  "GrosseFuge [Tokyo]": {
+    "firstTrackNumber": 6,
+    "fixTrackName": "(Große Fuge) in B-flat major for String Quartet op. 133: Overtura. Allegro - Meno mosso e moderato - Allegro - Fuga. \\[Allegro\\] - Meno mosso e moderato - Allegro molto e con brio - Allegro"
+  },
+  "Leonore Overture no. 2": {
+    "firstTrackNumber": 5
+  },
+  "Mass in C Major": {
+    "fixTrackName": "Mass in C Major (?:Op. 86 )?- (.*)"
+  },
+  "PianoConc1": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 1,
+      "instrument": "Piano",
+      "key": "C",
+      "mode": "major",
+      "opus": 15,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Klavierkonzert Nr. 1 C-dur, Op. 15 [IV]+\\. (.*)"
+  },
+  "PianoConc2": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 2,
+      "instrument": "Piano",
+      "key": "B",
+      "mode": "major",
+      "opus": 19,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Klavierkonzert Nr. 2 B-dur, Op. 19 [IV]+\\. (.*)"
+  },
+  "PianoConc3": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 3,
+      "instrument": "Piano",
+      "key": "C",
+      "mode": "minor",
+      "opus": 37,
+      "opus_prefix": "Op."
+    }
+  },
+  "PianoConc4": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 4,
+      "instrument": "Piano",
+      "key": "G",
+      "mode": "major",
+      "opus": 58,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "\\d+\\. (.*)"
+  },
+  "PianoConc5": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 5,
+      "instrument": "Piano",
+      "key": "Eb",
+      "mode": "major",
+      "opus": 73,
+      "opus_prefix": "Op."
+    }
+  },
+  "PianoConc5[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 5,
+      "instrument": "Piano",
+      "key": "Eb",
+      "mode": "major",
+      "opus": 73,
+      "opus_prefix": "Op.",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Beethoven Piano Concerto 5 - \\d+ - (.*)"
+  },
+  "PianoTrio7[Richter] Op97 Archduke": {
+    "fixTrackName": "Piano Trio No\\.7 in B flat, Op\\. 97 Archduke - \\d+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Quartet1 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 1,
+      "key": "F",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 1 in F major, op. 18-1: [IV]+\\. (.*)"
+  },
+  "Quartet2 [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 2,
+      "key": "G",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 2 in G major, op. 18-2: [IV]+\\. (.*)"
+  },
+  "Quartet3 Op18No3 [Kodaly]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 3,
+      "key": "D",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "performer": "Kodaly"
+    },
+    "fixTrackName": "Beethoven String Quartet in D Major, Op.18, No.3 - [IV]+\\. (.*)"
+  },
+  "Quartet3 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 3,
+      "key": "D",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 3 in D major, op. 18-3: [IV]+\\. (.*)"
+  },
+  "Quartet4 Op18No4 [Kodaly]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 4,
+      "key": "C",
+      "mode": "minor",
+      "opus": 18,
+      "opus_number": 4,
+      "opus_prefix": "Op.",
+      "performer": "Kodaly"
+    },
+    "fixTrackName": "Beethoven String Quartet in C Minor, Op.18, No.4 - [IV]+\\. (.*)"
+  },
+  "Quartet4 [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 4,
+      "key": "C",
+      "mode": "minor",
+      "opus": 18,
+      "opus_number": 4,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 4 in C minor, op. 18-4: [IV]+\\. (.*)"
+  },
+  "Quartet5 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 5,
+      "key": "A",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 5,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 5 in A major, op. 18-5: [IV]+\\. (.*)"
+  },
+  "StringQuartet5 Op18No5": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 5,
+      "key": "A",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 5,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "String quartet in A major, op 18, No.5; (.*)"
+  },
+  "Quartet6 [Tokyo]": {
+    "firstTrackNumber": 9,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 6,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 18,
+      "opus_number": 6,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 6 in B-flat major, op. 18-6: [IV]+\\. (.*)"
+  },
+  "Quartet7 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 7,
+      "key": "F",
+      "mode": "major",
+      "opus": 59,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 7 in F major, op. 59-1 “Rasumovsky”: [IV]+\\. (.*)"
+  },
+  "Quartet8 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 8,
+      "key": "E",
+      "mode": "minor",
+      "opus": 59,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 8 in E minor, op. 59-2 “Rasumovsky”: [IV]+\\. (.*)"
+  },
+  "Quartet9 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 9,
+      "key": "C",
+      "mode": "major",
+      "opus": 59,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 9 in C major, op. 59-3 “Rasumovsky”: [IV]+\\. (.*)"
+  },
+  "Quartet10 [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 10,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 74,
+      "opus_prefix": "Op.",
+      "subTitle": "Harp",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 10 in E-flat major, op. 74 \\“Harp\\”: [IV]+\\. (.*)"
+  },
+  "Quartet11 [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 11,
+      "key": "F",
+      "mode": "minor",
+      "opus": 95,
+      "opus_prefix": "Op.",
+      "subTitle": "Serioso",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 11 in F minor, op. 95 \\“Serioso\\”: [IV]+\\. (.*)"
+  },
+  "Quartet12 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 12,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 127,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 12 in E-flat major, op\\. 127: [IV]+\\. (.*)"
+  },
+  "Quartet12[Lindsay]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 12,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 127,
+      "opus_prefix": "Op.",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet 12 Op 127 - \\d+ - (.*)"
+  },
+  "Quartet13[Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 13,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 130,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"
+  },
+  "Quartet13[Lindsay]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 13,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 130,
+      "opus_prefix": "Op.",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"
+  },
+  "Quartet13-GrosseFuge[Lindsay]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 13,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 130,
+      "opus_prefix": "Op.",
+      "subTitle": "Große Fuge",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"
+  },
+  "Quartet13-GrosseFuge[Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 13,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 130,
+      "opus_prefix": "Op.",
+      "subTitle": "Große Fuge",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 13 in B-flat major, op. 130: [IV]+\\. (.*)"
+  },
+  "StringQuartetOp130[Amadeus]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 13,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 130,
+      "opus_prefix": "Op.",
+      "performer": "Amadeus"
+    },
+    "fixTrackName": "String quartet Op 130 - \\d+ - (.*)"
+  },
+  "Quartet14[Lindsay]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 14,
+      "key": "C#",
+      "mode": "minor",
+      "opus": 131,
+      "opus_prefix": "Op.",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet for 2 Violins, Viola, and Cello no. 14 in C-sharp minor, op. 131: [IV]+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Quartet14 [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 14,
+      "key": "C#",
+      "mode": "minor",
+      "opus": 131,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 14 in C-sharp minor, op. 131: [IV]+\\. (.*)"
+  },
+  "Quartet15[Lindsay]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 15,
+      "key": "A",
+      "mode": "minor",
+      "opus": 132,
+      "opus_prefix": "Op.",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet for 2 Violins, Viola, and Cello no. 15 in A minor, op. 132: [IV]+\\. (.*)"
+  },
+  "Quartet15 [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 15,
+      "key": "A",
+      "mode": "minor",
+      "opus": 132,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 15 in A minor, op. 132: [IV]+\\. (.*)"
+  },
+  "Quartet16[Lindsay]": {
+    "firstTrackNumber": 6,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 16,
+      "key": "F",
+      "mode": "major",
+      "opus": 135,
+      "opus_prefix": "Op.",
+      "performer": "Lindsay"
+    },
+    "fixTrackName": "Quartet for 2 Violins, Viola, and Cello no. 16 in F major, op. 135: [IV]+\\. (.*)"
+  },
+  "Quartet16 [Tokyo]": {
+    "firstTrackNumber": 6,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 16,
+      "key": "F",
+      "mode": "major",
+      "opus": 135,
+      "opus_prefix": "Op.",
+      "performer": "Tokyo"
+    },
+    "fixTrackName": "String Quartet no. 16 in F major, op. 135: [IV]+\\. (.*)"
+  },
+  "StringQuartetOp135[Amadeus]": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 16,
+      "key": "F",
+      "mode": "major",
+      "opus": 135,
+      "opus_prefix": "Op.",
+      "performer": "Amadeus"
+    },
+    "fixTrackName": "String quartet Op 135 - \\d+ - (.*)"
+  },
+  "Quintet Op16[Richter]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": "Quintet [Richter] in Eb Op.16",
+    "fixTrackName": "Quintet in E flat, Op. 16 - \\d+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Quintet [Tokyo]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": "Quintet [Tokyo] in Eb Op.16",
+    "fixTrackName": "String Quartet in C major, op. 29: [IV]+\\. (.*)"
+  },
+  "Sonata1[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 1,
+      "opus": 2,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "f",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Goode - Piano Sonata No.1 F minor [IV]+\\. (.*)"
+  },
+  "Sonata1[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 1,
+      "opus": 2,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "f",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 1 in F minor, Op. 2, No. 1 - [IV]+\\. (.*)"
+  },
+  "Sonata2[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "opus": 2,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Goode - Piano Sonata No.2 A major [IV]+\\. (.*)"
+  },
+  "Sonata2[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "opus": 2,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonata No. 2 in A major, Op. 2, No. 2 - [IV]+\\. (.*)"
+  },
+  "Sonata2-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "opus": 2,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.2 A-dur op.2 No.2 - \\d\\. (.*)"
+  },
+  "Sonata3[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "opus": 2,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Goode - Piano Sonata No.3 in C major [IV]+\\. (.*)"
+  },
+  "Sonata3[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "opus": 2,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Sonata No. 3 in C major, Op. 2, No. 3 - [IV]+\\. (.*)"
+  },
+  "Sonata3-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "opus": 2,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonate No.3 C-Dur, op. 2 No.3 - \\d\\. (.*)"
+  },
+  "Sonata4[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 4,
+      "opus": 7,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Goode"
+    }
+  },
+  "Sonata4-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 4,
+      "opus": 7,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.4 Es-dur op.7 - \\d\\. (.*)"
+  },
+  "Sonata5[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 5,
+      "opus": 10,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.5 in C minor, op.10, no.1- (.*)"
+  },
+  "Sonata5[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 5,
+      "opus": 10,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 5 in C minor, Op. 10, No. 1 - [IV]+\\. (.*)"
+  },
+  "Sonata5-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 5,
+      "opus": 10,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Piano Sonata No. 5 in C minor, Op. 10 No. 1 \\d\\. (.*)"
+  },
+  "Sonata6[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 6,
+      "opus": 10,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "No.6 in F major, op.10, no.2- (.*)"
+  },
+  "Sonata6[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 6,
+      "opus": 10,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata No. 6 in F major, Op. 10, No. 2 - [IV]+\\. (.*)"
+  },
+  "Sonata6-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 6,
+      "opus": 10,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Piano Sonata No. 6 in F major, Op. 10 No. 2 \\d\\. (.*)"
+  },
+  "Sonata7[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 7,
+      "opus": 10,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "No.7 in D major, op.10, no.3- (.*)"
+  },
+  "Sonata7[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 7,
+      "opus": 10,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sonata No. 7 in D major, Op. 10, No. 3 - [IV]+\\. (.*)"
+  },
+  "Sonata7-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 7,
+      "opus": 10,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Piano Sonata No. 7 in D major, Op. 10 No. 3 \\d\\. (.*)"
+  },
+  "Sonata8[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 8,
+      "opus": 13,
+      "opus_prefix": "Op.",
+      "subTitle": "Pathetique",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 8
+  },
+  "Sonata8[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 8,
+      "opus": 13,
+      "opus_prefix": "Op.",
+      "subTitle": "Pathetique",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No.8 IN C Minor, Op.13 'Pathetique'- [IV]+\\. (.*)"
+  },
+  "Sonata8-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 8,
+      "opus": 13,
+      "opus_prefix": "Op.",
+      "subTitle": "Pathetique",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonate No.8 C-Moll Op. 13 'Pathétique' - \\d\\. (.*)"
+  },
+  "Sonata9[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 9,
+      "opus": 14,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "firstTrackNumber": 5
+  },
+  "Sonata9[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 9,
+      "opus": 14,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata No.9 In E Major, Op.14, No. 1- [IV]+\\. (.*)"
+  },
+  "Sonata9 arranged for strings [Tokyo]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 9,
+      "opus": 14,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Tokyo Quartet"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "String Quartet in F major after Piano Sonata, op. 14-1: [IV]+\\. (.*)"
+  },
+  "Sonata10[Gould]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 10,
+      "opus": 14,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No\\.10 In G Major, Op\\.14, No.2\\- I+\\. (.*)"
+  },
+  "Sonata10[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 10,
+      "opus": 14,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.10 in G major, op.14, no.\\d- (.*)"
+  },
+  "Sonata10-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 10,
+      "opus": 14,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sonate No.10 G-dur op.14 No.2 - \\d. (.*)"
+  },
+  "Sonata11[Goode]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 11,
+      "opus": 22,
+      "opus_prefix": "Op.",
+      "key": "b",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.11 in B-moll major, op.22- (.*)"
+  },
+  "Sonata11-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 11,
+      "opus": 22,
+      "opus_prefix": "Op.",
+      "key": "b",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.11 B[ -]dur op.22 \\d. (.*)"
+  },
+  "Sonata12[Goode]": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 12,
+      "opus": 26,
+      "opus_prefix": "Op.",
+      "key": "a",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.12 in A-moll major, op.26- (.*)"
+  },
+  "Sonata12[Gould]": {
+    "firstTrackNumber": 11,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 12,
+      "opus": 26,
+      "opus_prefix": "Op.",
+      "key": "Ab",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 12 in A flat major, Op. 26 - [IV]+\\. (.*)"
+  },
+  "Sonata12-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 12,
+      "opus": 26,
+      "opus_prefix": "Op.",
+      "key": "Ab",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonate No.12 As[ -]dur op. ?26[ -]*\\d\\. (.*)"
+  },
+  "Sonata13[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 13,
+      "opus": 27,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.13 in E-moll major, op.27, no.1- (.*)"
+  },
+  "Sonata13[Gould]": {
+    "firstTrackNumber": 10,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 13,
+      "opus": 27,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No.13 In E-Flat Major, Op.27, No.1- [IV]+\\. (.*)"
+  },
+  "Sonata13-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 13,
+      "opus": 27,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.13 Es-dur op. 27 No.1 \\(Sonata quasi una fantasia\\) - \\d\\. (.*)"
+  },
+  "Sonata14[Goode]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 14,
+      "opus": 27,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Moonlight",
+      "key": "C#",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.14 in C flat minor, op.27, no.2- (.*)"
+  },
+  "Sonata14[Gould]": {
+    "firstTrackNumber": 14,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 14,
+      "opus": 27,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Moonlight",
+      "key": "C#",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No.14 In C-Sharp Minor, Op.27, No.2 'Moonlight'- [IV]+\\. (.*)"
+  },
+  "Sonata14-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 14,
+      "opus": 27,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Moonlight",
+      "key": "C#",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonate No.14 cis-moll op. 27 No.2 'Mondschein' \\(Sonata quasi una fantasia\\) - \\d\\. (.*)"
+  },
+  "Sonata15[Goode]": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 15,
+      "opus": 28,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.15 in D major, op.28- (.*)"
+  },
+  "Sonata15[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 15,
+      "opus": 28,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 15 in D major, [IV]+\\. (.*)"
+  },
+  "Sonata15-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 15,
+      "opus": 28,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sonate No.15 D-dur op.28 'Pastorale' - \\d\\. (.*)"
+  },
+  "Sonata16[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 16,
+      "opus": 31,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.16 in G major,Op.31,No.1 - [IV]+\\. (.*)"
+  },
+  "Sonata16[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 16,
+      "opus": 31,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 16 in G major, op. 31,1 - [IV]+\\. (.*)"
+  },
+  "Sonata16-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 16,
+      "opus": 31,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.16 G-dur op.31 No.1 - \\d\\. (.*)"
+  },
+  "Sonata17[Goode]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 17,
+      "opus": 31,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Tempest",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.17 in D minor,Op.31,No.2 \\(Tempest\\) - [IV]+\\. (.*)"
+  },
+  "Sonata17[Gould]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 17,
+      "opus": 31,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Tempest",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 17 in D minor, op. 31,2 - [IV]+\\. (.*)"
+  },
+  "Sonata17-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 17,
+      "opus": 31,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Tempest",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonate No.17 d-moll op.31 No.2 'Der Sturm' - \\d\\. (.*)"
+  },
+  "Sonata18[Goode]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 18,
+      "opus": 31,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.18 in E-flat major,Op.31,No.3 - [IV]+\\. (.*)"
+  },
+  "Sonata18[Gould]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 18,
+      "opus": 31,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 18 in E-flat major, op. 31,3 - [IV]+\\. (.*)"
+  },
+  "Sonata18-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 18,
+      "opus": 31,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sonate No\\.18 Es-[Dd]ur,? op\\. ?31 No.3 - \\d\\. (.*)"
+  },
+  "Sonata18[Richter]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 18,
+      "opus": 31,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Richter"
+    },
+    "fixTrackName": "\\d+\\. (.*)"
+  },
+  "Sonata19[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 19,
+      "opus": 49,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Goode"
+    }
+  },
+  "Sonata19-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 19,
+      "opus": 49,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.19 g-moll op.49 No.1 - \\d\\. (.*)"
+  },
+  "Sonata20[Goode]": {
+    "firstTrackNumber": 3,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 20,
+      "opus": 49,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "I+\\. (.*)"
+  },
+  "Sonata21[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 21,
+      "opus": 53,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "subTitle": "Waldstein",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No. 21 in C Major \\(Waldstein\\), Op. 53- (.*)"
+  },
+  "Sonata21-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 21,
+      "opus": 53,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "subTitle": "Waldstein",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonate No.21 C-[Dd]ur op. ?53 '?Waldstein'? - \\d\\. (.*)"
+  },
+  "Sonata22[Goode]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 22,
+      "opus": 54,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No. 22 in F Major, Op. 54- (.*)"
+  },
+  "Sonata23[Goode]": {
+    "firstTrackNumber": 6,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 23,
+      "subTitle": "Appassionata",
+      "opus": 57,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No. 23 in F Minor \\(Appassionata\\), Op. 57- (.*)"
+  },
+  "Sonata23[Gould]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 23,
+      "subTitle": "Appassionata",
+      "opus": 57,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 23 in F minor, [IV]+\\. (.*)"
+  },
+  "Sonata23-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 23,
+      "subTitle": "Appassionata",
+      "opus": 57,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sonate No.23 [Ff]-[Mm]oll [Oo]p. ?57 'Appassionata' - \\d\\. (.*)"
+  },
+  "Sonata23[Richter]Appassionata": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 23,
+      "subTitle": "Appassionata",
+      "opus": 57,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "minor",
+      "performer": "Richter"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Piano Sonata No. 23 in F minor, Op. 57 Appassionata [IV]+\\. (.*)"
+  },
+  "Sonata24[Demidenko]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 24,
+      "subTitle": "à Thérèse",
+      "opus": 78,
+      "opus_prefix": "Op.",
+      "key": "F#",
+      "mode": "minor",
+      "performer": "Demidenko"
+    },
+    "fixTrackName": "Sonata24 - (.*)"
+  },
+  "Sonata24[Goode]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 24,
+      "subTitle": "à Thérèse",
+      "opus": 78,
+      "opus_prefix": "Op.",
+      "key": "F#",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "I+. (.*)"
+  },
+  "Sonata24[Gould] \"À Thérèse\"": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 24,
+      "subTitle": "à Thérèse",
+      "opus": 78,
+      "opus_prefix": "Op.",
+      "key": "F#",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 24 in F-sharp major, Op. 78 \\\"À Thérèse\\\": I+\\. (.*)"
+  },
+  "Sonata25[Goode]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 25,
+      "opus": 79,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Sonata25-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 25,
+      "opus": 79,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 11,
+    "fixTrackName": "Sonate No.25 G-dur op. 79 - \\d\\. (.*)"
+  },
+  "Sonata26[Goode]": {
+    "firstTrackNumber": 10,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 26,
+      "opus": 81,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Sonata26-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 26,
+      "opus": 81,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonate No.26 Es-dur op. ?81a 'Les Adieux' - \\d\\. (.*)"
+  },
+  "Sonata27[Goode]": {
+    "firstTrackNumber": 13,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 27,
+      "opus": 90,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "No.27 in E minor, op.90- (.*)"
+  },
+  "Sonata27-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 27,
+      "opus": 90,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "minor",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonate No.27 e-moll op. ?90 - \\d\\. (.*)"
+  },
+  "Sonata28[Richter]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 28,
+      "opus": 101,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Richter"
+    },
+    "fixTrackName": "Sonata No.28 in A, Op. 101 - \\d+\\. (.*)"
+  },
+  "Sonata28-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 28,
+      "opus": 101,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "fixTrackName": "Sonata No.28 in A major, Op.101 - \\d\\. (.*)"
+  },
+  "Sonata28[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 28,
+      "opus": 101,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Goode"
+    }
+  },
+  "Sonata29[Goode]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 29,
+      "subTitle": "Hammerklavier",
+      "opus": 106,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Sonata29[Gould] \"Hammerklavier\"": {
+    "firstTrackNumber": 3,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 29,
+      "subTitle": "Hammerklavier",
+      "opus": 106,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 29 in B-flat major, Op. 106 \"Hammerklavier\": [IV]+\\. (.*)"
+  },
+  "Sonata29-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 29,
+      "subTitle": "Hammerklavier",
+      "opus": 106,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonata No.29 in B dur, Op.106 Hammerklavier - \\d\\. (.*)"
+  },
+  "Sonata30[Goode]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 30,
+      "opus": 109,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.30 in E major, Op.109 - [IV]+\\. (.*)"
+  },
+  "Sonata30[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 30,
+      "opus": 109,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 30 In E Major, Op. 109- [IV]+\\. (.*)"
+  },
+  "Sonata30-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 30,
+      "opus": 109,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "major",
+      "performer": "Gilels"
+    },
+    "firstTrackNumber": 6,
+    "fixTrackName": "Sonate No.30 E-dur op.109 - \\d\\. (.*)"
+  },
+  "Sonata31[Goode]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 31,
+      "opus": 110,
+      "opus_prefix": "Op.",
+      "key": "Ab",
+      "mode": "major",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.31 in A flat major, Op.110 - [IV]+\\. (.*)"
+  },
+  "Sonata31[Gould]": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 31,
+      "opus": 110,
+      "opus_prefix": "Op.",
+      "key": "Ab",
+      "mode": "major",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 31 In A-Flat Major, Op. 110- [IV]+\\. (.*)"
+  },
+  "Sonata31-Gilels": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 31,
+      "opus": 110,
+      "opus_prefix": "Op.",
+      "key": "Ab",
+      "mode": "major",
+      "performer": "Giles"
+    },
+    "firstTrackNumber": 15,
+    "fixTrackName": "Sonate No.31 As-dur op.110 - \\d\\. (.*)"
+  },
+  "Sonata32[Goode]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 32,
+      "opus": 111,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Goode"
+    },
+    "fixTrackName": "Sonata No.32 in C minor, Op.111 - [IV]+\\. (.*)"
+  },
+  "Sonata32[Gould]": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 32,
+      "opus": 111,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Sonata No. 32 In C Minor, Op. 111- [IV]+\\. (.*)"
+  },
+  "SonataWoo47-1-Gilels": {
+    "firstTrackNumber": 9,
+    "fixTrackName": "Sonate Es-dur WoO 47 No.1 - \\d\\. (.*)"
+  },
+  "SonataWoo47-2-Gilels": {
+    "firstTrackNumber": 12,
+    "fixTrackName": "Sonate f-moll WoO 47 No.2 - \\d\\. (.*)"
+  },
+  "Symph1[Karajan]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 1,
+      "opus": 21,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 1 C-dur op. 21: \\d+\\. (.*)"
+  },
+  "Symph1[Norrington]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 1,
+      "opus": 21,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 1 in C major, Op. 21 [IV]+\\. (.*)"
+  },
+  "Symph2[Karajan]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 2,
+      "opus": 36,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 2 D-dur op. 36: \\d+\\. (.*)"
+  },
+  "Symph2[Norrington]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 2,
+      "opus": 36,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 2 in D major, Op. 36 [IV]+\\. (.*)"
+  },
+  "Symph3[Haitink]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 3,
+      "subTitle": "Eroica",
+      "opus": 55,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Haitink"
+    },
+    "fixTrackName": "Symphony no. 3 in E‐flat major, op. 55 \\“Eroica\\”: [IV]+\\. (.*)"
+  },
+  "Symph3[Karajan]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 3,
+      "subTitle": "Eroica",
+      "opus": 55,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 3 in Es-dur op. 55 \\»Eroica\\«: \\d+\\. (.*)"
+  },
+  "Symph3[Norrington]": {
+    "firstTrackNumber": 2,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 3,
+      "subTitle": "Eroica",
+      "opus": 55,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No.3 In E Flat Major, Op.55 (.*)"
+  },
+  "Symph4[Karajan]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 4,
+      "opus": 60,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 4 B-dur op. 60: \\d+\\. (.*)"
+  },
+  "Symph4[Norrington]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 4,
+      "opus": 60,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 4 in B-flat major, Op. 60 [IV]+\\. (.*)"
+  },
+  "Symph5[Furtwangler]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 5,
+      "opus": 67,
+      "opus_prefix": "Op.",
+      "key": "c",
+      "mode": "minor",
+      "performer": "Furtwangler"
+    },
+    "fixTrackName": "Beethoven Symph 5 - \\d+ - (.*)"
+  },
+  "Symph5[Karajan]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 5,
+      "opus": 67,
+      "opus_prefix": "Op.",
+      "key": "c",
+      "mode": "minor",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 5 c-moll op. 67: \\d+\\. (.*)"
+  },
+  "Symph5[Kleiber]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 5,
+      "opus": 67,
+      "opus_prefix": "Op.",
+      "key": "c",
+      "mode": "minor",
+      "performer": "Kleiber"
+    },
+    "fixTrackName": "Symphonie No. 5 C-moll, Op. 67 [IV]+\\. (.*)"
+  },
+  "Symph5[Norrington]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 5,
+      "opus": 67,
+      "opus_prefix": "Op.",
+      "key": "c",
+      "mode": "minor",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 5 in C minor, Op. 67 [IV]+\\. (.*)"
+  },
+  "Symph6[Gould]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 6,
+      "opus": 68,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "subTitle": "Pastoral",
+      "performer": "Gould"
+    },
+    "fixTrackName": "Symphony No.6 Op.68 Pastoral [IV]+\\. (.*)"
+  },
+  "Symph6[Karajan]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 6,
+      "opus": 68,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "subTitle": "Pastoral",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 6 F-dur op. 68 \\»Pastorale\\«: \\d\\. (.*)"
+  },
+  "Symph6[Norrington]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 6,
+      "opus": 68,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "subTitle": "Pastoral",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 6 in F major, Op. 68 Pastoral [IV]+\\. (.*)"
+  },
+  "Symph7[Karajan]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 7,
+      "opus": 92,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 7 A-dur op. 92: \\d+\\. (.*)"
+  },
+  "Symph7[Kleiber]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 7,
+      "opus": 92,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Kleiber"
+    },
+    "fixTrackName": "Symphonie No. 7 A-dur, Op. 92 [IV]+\\. (.*)"
+  },
+  "Symph7[Norrington]": {
+    "firstTrackNumber": 3,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 7,
+      "opus": 92,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No.7 in A [Mm]ajor, op.92 - [IV]+\\. (.*)"
+  },
+  "Symph8[Karajan]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 8,
+      "opus": 93,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie Nr. 8 F-dur op. 93: \\d+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Symph8[Norrington]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 8,
+      "opus": 93,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Norrington"
+    },
+    "fixTrackName": "Symphony No. 8 in F major, Op. 93 [IV]+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Symph9[Furtwangler]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 9,
+      "opus": 125,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Furtwangler"
+    },
+    "fixTrackName": "Symphony No. 9 in D minor, Op. 125 [IV]+\\. (.*)"
+  },
+  "Symph9[Karajan]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 9,
+      "opus": 125,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Karajan"
+    },
+    "fixTrackName": "Symphonie No. 9 d-Moll, Op. 125 [IV]+\\. (.*)"
+  },
+  "ViolinSon 9 Kreutzer": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 9,
+      "opus": 47,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "subTitle": "Kreutzer"
+    },
+    "fixTrackName": "Violinsonate No.9 A-dur op. 47 'Kreutzer' - (.*)"
+  },
+  "ViolinSon 10": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 10,
+      "opus": 96,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major"
+    },
+    "fixTrackName": "^(\\d+) Violinsonate No.10 G-dur op. 96 - (.*)"
+  },
+  "Three sets of variations for cello and piano": {
+    "firstTrackNumber": 6,
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "TwoRondos[Richter]": {
+    "firstTrackNumber": 5,
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "ViolinConcerto": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Violin",
+      "key": "D",
+      "mode": "major",
+      "opus": 61,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Konzert für Violine und Orchester in D-dur, op. 61 [IV]+\\. (.*)"
+  },
+  "ViolinSonata1 Op12No1": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 1,
+      "opus": 12,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in D major, Op. 12 No. 1 [IV]+\\. (.*)"
+  },
+  "ViolinSonata10 Op96[Francescatti, Casadesus]": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 10,
+      "opus": 96,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Francescatti, Casadesus"
+    },
+    "fixTrackName": "Violinsonate No.10 G-dur op. 96 - (.*)"
+  },
+  "ViolinSonata10 Op96": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 10,
+      "opus": 96,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in G major, Op. 96 [IV]+\\. (.*)"
+  },
+  "ViolinSonata10[Gould-Menuhin]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 10,
+      "opus": 96,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Gould, Menuhin"
+    },
+    "fixTrackName": "Beethoven ViolinSonata Op96 - (.*)"
+  },
+  "ViolinSonata2 Op12No2": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 2,
+      "opus": 12,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in A major, Op. 12 No. 2 [IV]+\\. (.*)"
+  },
+  "ViolinSonata3 Op12No3": {
+    "firstTrackNumber": 7,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 3,
+      "opus": 12,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in E-flat major, Op. 12 No. 3 [IV]+\\. (.*)"
+  },
+  "ViolinSonata4 Op23": {
+    "firstTrackNumber": 10,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 4,
+      "opus": 23,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "minor"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in A minor, Op. 23 [IV]+\\. (.*)"
+  },
+  "ViolinSonata5 Op24 \"Frühling\"": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 5,
+      "opus": 24,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "subTitle": "Frühling"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in F major, Op. 24 \\“Frühling\\” [IV]+\\. (.*)"
+  },
+  "ViolinSonata5 Op24[Francescatti, Casadesus]": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 5,
+      "opus": 24,
+      "opus_prefix": "Op.",
+      "key": "F",
+      "mode": "major",
+      "subTitle": "Frühling",
+      "performer": "Francescatti, Casadesus"
+    },
+    "fixTrackName": "Violinsonate No.5 F-dur op. 24 \\'Frühling\\' - (.*)"
+  },
+  "ViolinSonata6 Op30No1": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 6,
+      "opus": 30,
+      "opus_number": 1,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in A major, Op. 30 No. 1 [IV]+\\. (.*)"
+  },
+  "ViolinSonata7 Op30No2": {
+    "firstTrackNumber": 8,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 7,
+      "opus": 30,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in C minor, Op. 30 No. 2 [IV]+\\. (.*)"
+  },
+  "ViolinSonata8 Op30No3": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 8,
+      "opus": 30,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in G major, Op. 30 No. 3 [IV]+\\. (.*)"
+  },
+  "ViolinSonata9 Op47 \"Kreutzer\"[Francescatti, Casadesus]": {
+    "firstTrackNumber": 5,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 9,
+      "opus": 47,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "subTitle": "Kreutzer",
+      "performer": "Francescatti, Casadesus"
+    },
+    "fixTrackName": "Violinsonate No.9 A-dur op. 47 \\'Kreutzer\\' - (.*)"
+  },
+  "ViolinSonata9 Op47 \"Kreutzer\"": {
+    "firstTrackNumber": 4,
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Violin",
+      "num": 9,
+      "opus": 47,
+      "opus_prefix": "Op.",
+      "key": "A",
+      "mode": "major",
+      "subTitle": "Kreutzer"
+    },
+    "fixTrackName": "Sonata for Violin and Piano in A major, Op. 47 \\“Kreutzer\\” [IV]+\\. (.*)"
+  }
+}

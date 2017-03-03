@@ -1,1 +1,402 @@
-{"CelloConc 1 C":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","num":1,"key":"C","mode":"major"},"fixTrackName":"Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\\. (.*)"},"CelloConc 2 D":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","num":2,"key":"D","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\\. (.*)"},"PianoConc 11":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":11,"key":"D","mode":"major"},"firstTrackNumber":7,"fixTrackName":"Piano Concerto No. 11 in D major, Hob XVIII 11 [IV]+\\. (.*)"},"PianoConc 3":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":3,"key":"F","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Piano Concerto No. 3 in F major, Hob XVIII 3 [IV]+\\. (.*)"},"PianoConc 4":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":4,"key":"G","mode":"major"},"fixTrackName":"Piano Concerto No. 4 in G major, Hob XVIII 4 [IV]+\\. (.*)"},"PianoTrio42 E flat":{"fixAlbumTitle":{"form":"Trio","instrument":"Piano","num":42,"key":"Eb","mode":"major"},"firstTrackNumber":10,"fixTrackName":"Piano Trio in E-Flat Major, Hob. XV 30 No.42 \\(1795\\) - [IV]+\\. (.*)"},"PianoTrio43 C":{"fixAlbumTitle":{"form":"Trio","instrument":"Piano","num":43,"key":"C","mode":"major"},"fixTrackName":"Piano Trio in C Major, Hob. XV 27 No.43 \\(1797\\) - [IV]+\\. (.*)"},"PianoTrio44 E":{"fixAlbumTitle":{"form":"Trio","instrument":"Piano","num":44,"key":"E","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Piano Trio in E Major, Hob. XV 28 No.44 \\(1797\\) - [IV]+\\. (.*)"},"PianoTrio45 E flat":{"fixAlbumTitle":{"form":"Trio","instrument":"Piano","num":45,"key":"Eb","mode":"major"},"firstTrackNumber":7,"fixTrackName":"Piano Trio in E-Flat Major, Hob. XV 29 No.45 \\(1797\\) - [IV]+\\. (.*)"},"Quartet23 f Op20 No5":{"fixAlbumTitle":{"form":"Quartet","num":23,"key":"f","mode":"minor","opus":20,"opus_number":5,"opus_prefix":"Op."},"firstTrackNumber":5,"fixTrackName":"Quartet No.23 in F Minor, Op. 20, No.5-(.*)"},"Quartet24 A Op20 No6":{"fixAlbumTitle":{"form":"Quartet","num":24,"key":"A","mode":"major","opus":20,"opus_number":6,"opus_prefix":"Op."},"firstTrackNumber":9,"fixTrackName":"Quartet No.24 in A Major, Op. 20, No.6-(.*)"},"Quartet25 C Op20 No2":{"fixAlbumTitle":{"form":"Quartet","num":25,"key":"C","mode":"major","opus":20,"opus_number":2,"opus_prefix":"Op."},"firstTrackNumber":5},"Quartet26 g Op20 No3":{"fixAlbumTitle":{"form":"Quartet","num":26,"key":"g","mode":"minor","opus":20,"opus_number":3,"opus_prefix":"Op."},"firstTrackNumber":9},"Quartet27 D Op20 No4":{"fixAlbumTitle":{"form":"Quartet","num":27,"key":"D","mode":"major","opus":20,"opus_number":4,"opus_prefix":"Op."},"fixTrackName":"Quartet No.27 in D Major, Op. 20, No.4-(.*)"},"Quartet29 G Op33 No5 'How do you do_'":{"fixAlbumTitle":{"form":"Quartet","num":29,"key":"G","mode":"major","opus":33,"opus_number":5,"opus_prefix":"Op.","subTitle":"How do you do"},"fixTrackName":"String Quartet in G major, Op. 33 No. 5 - (.*)"},"Quartet30 E flat Op33 No2 'Joke'":{"fixAlbumTitle":{"form":"Quartet","num":30,"key":"Eb","mode":"major","opus":33,"opus_number":2,"opus_prefix":"Op.","subTitle":"Joke"},"firstTrackNumber":9,"fixTrackName":"String Quartet in E-flat major, Op. 33 No. 2 - (.*)"},"Quartet32 C Op33 No3 'Bird'":{"fixAlbumTitle":{"form":"Quartet","num":32,"key":"C","mode":"major","opus":33,"opus_number":3,"opus_prefix":"Op.","subTitle":"Bird"},"firstTrackNumber":5,"fixTrackName":"String Quartet in C major, Op. 33 No. 3 - (.*)"},"Quartet54 B flat Op71 No1":{"fixAlbumTitle":{"form":"Quartet","num":55,"key":"Bb","mode":"major","opus":71,"opus_number":1,"opus_prefix":"Op."},"fixTrackName":"Op. 71-1 - (.*)"},"Quartet55 D Op71 No2":{"fixAlbumTitle":{"form":"Quartet","num":55,"key":"D","mode":"major","opus":71,"opus_number":2,"opus_prefix":"Op."},"firstTrackNumber":5,"fixTrackName":"Op. 71-2 - (.*)"},"Quartet56 E flat Op71 No3":{"fixAlbumTitle":{"form":"Quartet","num":56,"key":"Eb","mode":"major","opus":71,"opus_number":3,"opus_prefix":"Op."},"firstTrackNumber":9,"fixTrackName":"Op. 71-3 - (.*)"},"Sonata 48 in C major, H.XVI_48":{"fixAlbumTitle":{"form":"Sonata","num":48,"key":"C","mode":"major"},"firstTrackNumber":3,"fixTrackName":"[IV]+\\. (.*)"},"Sonata49 E flat":{"fixAlbumTitle":{"form":"Sonata","num":49,"key":"Eb","mode":"major"},"firstTrackNumber":5,"fixTrackName":"(?:Sonata in E-flat major, H.XVI 49 - )?[IV]+\\. (.*)"},"Symph100 G 'Military'":{"fixAlbumTitle":{"form":"Symph","num":100,"key":"G","mode":"major","subTitle":"Military"},"firstTrackNumber":9,"fixTrackName":"Symphony in G, Hob. I 100 Military , [IV]+\\. (.*)"},"Symph101 D 'Clock'":{"fixAlbumTitle":{"form":"Symph","num":101,"key":"D","mode":"major","subTitle":"Clock"},"firstTrackNumber":9,"fixTrackName":"Symphony in D, Hob. I 101 Clock , [IV]+\\. (.*)"},"Symph102 B flat":{"fixAlbumTitle":{"form":"Symph","num":102,"key":"Bb","mode":"major"},"firstTrackNumber":5,"fixTrackName":"Symphony No. 102 in B flat major, Hob I 102 [IV]+\\. (.*)"},"Symph103 E-flat":{"fixAlbumTitle":{"form":"Symph","num":103,"key":"Eb","mode":"major","subTitle":"Drumroll"},"firstTrackNumber":9,"fixTrackName":"Symphony No. 103 in E flat major, Drumroll , Hob I 103 [IV]+\\. (.*)"},"Symph104 D":{"fixAlbumTitle":{"form":"Symph","num":104,"key":"D","mode":"major"},"firstTrackNumber":9,"fixTrackName":"Symphony No. 104 in D major, London , Hob I 104 [IV]+\\. (.*)"},"Symph22 E flat 'Philosopher'":{"fixAlbumTitle":{"form":"Symph","num":22,"key":"Eb","mode":"major","subTitle":"Philosopher"},"firstTrackNumber":5,"fixTrackName":"[IV]+\\. (.*)"},"Symph64 A 'Tempora mutantur'":{"fixAlbumTitle":{"form":"Symph","num":64,"key":"A","mode":"major","subTitle":"Tempora mutantur"},"firstTrackNumber":9,"fixTrackName":"[IV]+\\. (.*)"},"Symph93 D":{"fixAlbumTitle":{"form":"Symph","num":93,"key":"D","mode":"major"},"fixTrackName":"Symphony in D, Hob. I 93, [IV]+\\. (.*)"},"Symph94 G 'Surprise'":{"fixAlbumTitle":{"form":"Symph","num":94,"key":"G","mode":"major","subTitle":"Surprise"},"fixTrackName":"Symphony in G, Hob. I 94 Surprise , [IV]+\\. (.*)"},"Symph95 c":{"fixAlbumTitle":{"form":"Symph","num":95,"key":"c","mode":"minor"},"fixTrackName":"Symphony No. 95 in C minor, Hob I 95 [IV]+\\. (.*)"},"Symph96 D 'Miracle'":{"fixAlbumTitle":{"form":"Symph","num":96,"key":"D","mode":"major","subTitle":"Miracle"},"fixTrackName":"Symphony No. 96 in D major, Miracle , Hob I 96 [IV]+\\. (.*)"},"Symph97 C":{"fixAlbumTitle":{"form":"Symph","num":97,"key":"C","mode":"major"},"firstTrackNumber":5,"fixTrackName":"Symphony in C, Hob. I 97, [IV]+\\. (.*)"},"Symph98 B flat":{"fixAlbumTitle":{"form":"Symph","num":98,"key":"Bb","mode":"major"},"firstTrackNumber":5,"fixTrackName":"Symphony No. 98 in B flat major, Hob I 98 [IV]+\\. (.*)"},"Symph99 E-flat":{"fixAlbumTitle":{"form":"Symph","num":99,"key":"Eb","mode":"major"},"firstTrackNumber":5,"fixTrackName":"Symphony in E flat, Hob. I 99, [IV]+\\. (.*)"}}
+{
+  "CelloConc 1 C": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Cello",
+      "num": 1,
+      "key": "C",
+      "mode": "major"
+    },
+    "fixTrackName": "Cello Concerto No. 1 in C major, Hob VIIb 1 [IV]+\\. (.*)"
+  },
+  "CelloConc 2 D": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Cello",
+      "num": 2,
+      "key": "D",
+      "mode": "major"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Cello Concerto No. 2 in D major, Hob VIIb 2 [IV]+\\. (.*)"
+  },
+  "PianoConc 11": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 11,
+      "key": "D",
+      "mode": "major"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Piano Concerto No. 11 in D major, Hob XVIII 11 [IV]+\\. (.*)"
+  },
+  "PianoConc 3": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 3,
+      "key": "F",
+      "mode": "major"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Piano Concerto No. 3 in F major, Hob XVIII 3 [IV]+\\. (.*)"
+  },
+  "PianoConc 4": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 4,
+      "key": "G",
+      "mode": "major"
+    },
+    "fixTrackName": "Piano Concerto No. 4 in G major, Hob XVIII 4 [IV]+\\. (.*)"
+  },
+  "PianoTrio42 E flat": {
+    "fixAlbumTitle": {
+      "form": "Trio",
+      "instrument": "Piano",
+      "num": 42,
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "Piano Trio in E-Flat Major, Hob. XV 30 No.42 \\(1795\\) - [IV]+\\. (.*)"
+  },
+  "PianoTrio43 C": {
+    "fixAlbumTitle": {
+      "form": "Trio",
+      "instrument": "Piano",
+      "num": 43,
+      "key": "C",
+      "mode": "major"
+    },
+    "fixTrackName": "Piano Trio in C Major, Hob. XV 27 No.43 \\(1797\\) - [IV]+\\. (.*)"
+  },
+  "PianoTrio44 E": {
+    "fixAlbumTitle": {
+      "form": "Trio",
+      "instrument": "Piano",
+      "num": 44,
+      "key": "E",
+      "mode": "major"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Piano Trio in E Major, Hob. XV 28 No.44 \\(1797\\) - [IV]+\\. (.*)"
+  },
+  "PianoTrio45 E flat": {
+    "fixAlbumTitle": {
+      "form": "Trio",
+      "instrument": "Piano",
+      "num": 45,
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Piano Trio in E-Flat Major, Hob. XV 29 No.45 \\(1797\\) - [IV]+\\. (.*)"
+  },
+  "Quartet23 f Op20 No5": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 23,
+      "key": "f",
+      "mode": "minor",
+      "opus": 20,
+      "opus_number": 5,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Quartet No.23 in F Minor, Op. 20, No.5-(.*)"
+  },
+  "Quartet24 A Op20 No6": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 24,
+      "key": "A",
+      "mode": "major",
+      "opus": 20,
+      "opus_number": 6,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Quartet No.24 in A Major, Op. 20, No.6-(.*)"
+  },
+  "Quartet25 C Op20 No2": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 25,
+      "key": "C",
+      "mode": "major",
+      "opus": 20,
+      "opus_number": 2,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 5
+  },
+  "Quartet26 g Op20 No3": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 26,
+      "key": "g",
+      "mode": "minor",
+      "opus": 20,
+      "opus_number": 3,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 9
+  },
+  "Quartet27 D Op20 No4": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 27,
+      "key": "D",
+      "mode": "major",
+      "opus": 20,
+      "opus_number": 4,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Quartet No.27 in D Major, Op. 20, No.4-(.*)"
+  },
+  "Quartet29 G Op33 No5 'How do you do_'": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 29,
+      "key": "G",
+      "mode": "major",
+      "opus": 33,
+      "opus_number": 5,
+      "opus_prefix": "Op.",
+      "subTitle": "How do you do"
+    },
+    "fixTrackName": "String Quartet in G major, Op. 33 No. 5 - (.*)"
+  },
+  "Quartet30 E flat Op33 No2 'Joke'": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 30,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 33,
+      "opus_number": 2,
+      "opus_prefix": "Op.",
+      "subTitle": "Joke"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "String Quartet in E-flat major, Op. 33 No. 2 - (.*)"
+  },
+  "Quartet32 C Op33 No3 'Bird'": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 32,
+      "key": "C",
+      "mode": "major",
+      "opus": 33,
+      "opus_number": 3,
+      "opus_prefix": "Op.",
+      "subTitle": "Bird"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "String Quartet in C major, Op. 33 No. 3 - (.*)"
+  },
+  "Quartet54 B flat Op71 No1": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 55,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 71,
+      "opus_number": 1,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Op. 71-1 - (.*)"
+  },
+  "Quartet55 D Op71 No2": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 55,
+      "key": "D",
+      "mode": "major",
+      "opus": 71,
+      "opus_number": 2,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Op. 71-2 - (.*)"
+  },
+  "Quartet56 E flat Op71 No3": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 56,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 71,
+      "opus_number": 3,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Op. 71-3 - (.*)"
+  },
+  "Sonata 48 in C major, H.XVI_48": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 48,
+      "key": "C",
+      "mode": "major"
+    },
+    "firstTrackNumber": 3,
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Sonata49 E flat": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 49,
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "(?:Sonata in E-flat major, H.XVI 49 - )?[IV]+\\. (.*)"
+  },
+  "Symph100 G 'Military'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 100,
+      "key": "G",
+      "mode": "major",
+      "subTitle": "Military"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Symphony in G, Hob. I 100 Military , [IV]+\\. (.*)"
+  },
+  "Symph101 D 'Clock'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 101,
+      "key": "D",
+      "mode": "major",
+      "subTitle": "Clock"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Symphony in D, Hob. I 101 Clock , [IV]+\\. (.*)"
+  },
+  "Symph102 B flat": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 102,
+      "key": "Bb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony No. 102 in B flat major, Hob I 102 [IV]+\\. (.*)"
+  },
+  "Symph103 E-flat": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 103,
+      "key": "Eb",
+      "mode": "major",
+      "subTitle": "Drumroll"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Symphony No. 103 in E flat major, Drumroll , Hob I 103 [IV]+\\. (.*)"
+  },
+  "Symph104 D": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 104,
+      "key": "D",
+      "mode": "major"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Symphony No. 104 in D major, London , Hob I 104 [IV]+\\. (.*)"
+  },
+  "Symph22 E flat 'Philosopher'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 22,
+      "key": "Eb",
+      "mode": "major",
+      "subTitle": "Philosopher"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Symph64 A 'Tempora mutantur'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 64,
+      "key": "A",
+      "mode": "major",
+      "subTitle": "Tempora mutantur"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "[IV]+\\. (.*)"
+  },
+  "Symph93 D": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 93,
+      "key": "D",
+      "mode": "major"
+    },
+    "fixTrackName": "Symphony in D, Hob. I 93, [IV]+\\. (.*)"
+  },
+  "Symph94 G 'Surprise'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 94,
+      "key": "G",
+      "mode": "major",
+      "subTitle": "Surprise"
+    },
+    "fixTrackName": "Symphony in G, Hob. I 94 Surprise , [IV]+\\. (.*)"
+  },
+  "Symph95 c": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 95,
+      "key": "c",
+      "mode": "minor"
+    },
+    "fixTrackName": "Symphony No. 95 in C minor, Hob I 95 [IV]+\\. (.*)"
+  },
+  "Symph96 D 'Miracle'": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 96,
+      "key": "D",
+      "mode": "major",
+      "subTitle": "Miracle"
+    },
+    "fixTrackName": "Symphony No. 96 in D major, Miracle , Hob I 96 [IV]+\\. (.*)"
+  },
+  "Symph97 C": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 97,
+      "key": "C",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony in C, Hob. I 97, [IV]+\\. (.*)"
+  },
+  "Symph98 B flat": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 98,
+      "key": "Bb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony No. 98 in B flat major, Hob I 98 [IV]+\\. (.*)"
+  },
+  "Symph99 E-flat": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 99,
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony in E flat, Hob. I 99, [IV]+\\. (.*)"
+  }
+}

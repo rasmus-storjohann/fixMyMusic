@@ -1,1 +1,376 @@
-{"24 Preludes, op. 34":{"firstTrackNumber":4,"fixTrackName":"24 Preludes, op. 34: No. \\d+ in (.*)","validation":["skipUniqueTrackNameCheck"]},"CelloConc[Rostropovich 1988]":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","num":1,"key":"Eb","mode":"major","opus":107,"opus_prefix":"Op.","performer":"Rostropovich 1988"},"firstTrackNumber":5,"fixTrackName":"Concerto for Cello in E-flat, Op. 107 - (.*)"},"CelloConc1[Rostropovic 1966]":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","num":1,"key":"Eb","mode":"major","opus":107,"opus_prefix":"Op.","performer":"Rostropovich 1966"},"fixTrackName":"CelloConc1 - (.*)"},"CelloConc2[Rostropovic 1966]":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","num":2,"opus":126,"opus_prefix":"Op.","performer":"Rostropovich 1966"},"firstTrackNumber":5,"fixTrackName":"CelloConc2 - (.*)"},"Lady Macbeth2":{"firstTrackNumber":11},"Lady Macbeth3":{"firstTrackNumber":4,"validation":["skipUniqueTrackNameCheck"]},"Lady Macbeth4":{"firstTrackNumber":8,"validation":["skipUniqueTrackNameCheck"]},"PianoConc1[Hamelin]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":1,"key":"C","mode":"minor","opus":35,"opus_prefix":"Op.","performer":"Hamelin"},"fixTrackName":"Piano Concerto no. 1 in C minor, op. 35: [IV]+\\. (.*)"},"PianoConc1[Previn]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":1,"key":"C","mode":"minor","opus":35,"opus_prefix":"Op.","performer":"Previn"},"fixTrackName":"Piano Concerto No.1, Op. 35 - (.*)"},"PianoConc2[Hamelin]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":2,"key":"F","mode":"major","opus":102,"opus_prefix":"Op.","performer":"Hamelin"},"firstTrackNumber":5,"fixTrackName":"Piano Concerto no. 2 in F major, op. 102: [IV]+\\. (.*)"},"PianoConc2[Previn]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","num":2,"key":"F","mode":"major","opus":102,"opus_prefix":"Op.","performer":"Previn"},"firstTrackNumber":3,"fixTrackName":"Piano Concerto No.2, Op. 102 - [IV]+ (.*)"},"PianoQuintet":{"fixAlbumTitle":{"form":"Quintet","instrument":"Piano","key":"G","mode":"minor","opus":57,"opus_prefix":"Op."},"fixTrackName":"Shostakovich - Piano quintet Op 57 - (.*)"},"PianoSonata2":{"fixAlbumTitle":{"form":"Sonata","num":2,"key":"B","mode":"minor","opus":61,"opus_prefix":"Op."},"firstTrackNumber":28,"fixTrackName":"Piano Sonata no. 2 in B minor, op. 61: [IV]+\\. (.*)"},"Preludes-Fugues":{},"Quartet2":{"fixAlbumTitle":{"form":"Quartet","num":2,"key":"A","mode":"major","opus":68,"opus_prefix":"Op."},"fixTrackName":"String [Qq]uartet No.2 in A [Mm]ajor, [Oo]p\\. ?68 (.*)"},"Quartet5":{"fixAlbumTitle":{"form":"Quartet","num":5,"key":"Bb","mode":"major","opus":92,"opus_prefix":"Op."},"firstTrackNumber":5,"fixTrackName":"String quartet No.5 in B flat major, op.92 (.*)"},"Quartet6":{"fixAlbumTitle":{"form":"Quartet","num":6,"key":"G","mode":"major","opus":101,"opus_prefix":"Op."},"fixTrackName":"String quartet No.6 in G major, op.101 (.*)"},"Quartet7":{"fixAlbumTitle":{"form":"Quartet","num":7,"key":"F#","mode":"minor","opus":108,"opus_prefix":"Op."},"firstTrackNumber":8,"fixTrackName":"String [Qq]uartet No.7 in F sharp minor, [Oo]p\\. ?108 (.*)"},"Quartet8":{"fixAlbumTitle":{"form":"Quartet","num":8,"key":"C","mode":"minor","opus":110,"opus_prefix":"Op."},"firstTrackNumber":10,"fixTrackName":"String Quartet No.8, in C minor, Op. 110 (.*)"},"Quartet9":{"fixAlbumTitle":{"form":"Quartet","num":9,"key":"Eb","mode":"minor","opus":117,"opus_prefix":"Op."},"firstTrackNumber":5,"fixTrackName":"String Quartet No.9 in E Flat Major, Op. 117 (.*)"},"Symph3[Jansons]":{"fixAlbumTitle":{"form":"Symph","num":3,"opus":20,"opus_prefix":"Op.","key":"Eb","mode":"major","subTitle":"The First of May","performer":"Jansons"},"fixTrackName":"Symphony No. 3 in E-flat major, Op. 20 \"The First of May\": [IVX]+\\. (.*)"},"Symph3[Mravinsky]":{"fixAlbumTitle":{"form":"Symph","num":3,"opus":20,"opus_prefix":"Op.","key":"Eb","mode":"major","subTitle":"The First of May","performer":"Mravinsky"},"fixTrackName":"Symphony No. 3 in E-flat major, Op. 20 The First of May [IVX]+\\. (.*)"},"Symphony5-Mra":{"fixAlbumTitle":{"form":"Symph","num":5,"opus":47,"opus_prefix":"Op.","key":"D","mode":"minor","performer":"Mravinsky"}},"Symph6[Jansons]":{"fixAlbumTitle":{"form":"Symph","num":6,"opus":54,"opus_prefix":"Op.","key":"B","mode":"minor","performer":"Jansons"},"fixTrackName":"Symphony no. 6 in B minor, op. 54: [IV]+. (.*)"},"Symph6[Mra]":{"fixAlbumTitle":{"form":"Symph","num":6,"opus":54,"opus_prefix":"Op.","key":"B","mode":"minor","performer":"Mravinsky"}},"Symphony8-Mra":{"fixAlbumTitle":{"form":"Symph","num":8,"opus":65,"opus_prefix":"Op.","key":"C","mode":"minor","performer":"Mravinsky"},"fixTrackName":"Symphonie No.8 en ut mineur, Op.65 - [IV]+\\. (.*)"},"Symph9[Jansons]":{"fixAlbumTitle":{"form":"Symph","num":9,"opus":70,"opus_prefix":"Op.","key":"Eb","mode":"major","performer":"Jansons"},"firstTrackNumber":4,"fixTrackName":"Symphony no. 9 in E-flat major, op. 70: [IV]+\\. (.*)"},"Symphony9":{"fixAlbumTitle":{"form":"Symph","num":9,"opus":70,"opus_prefix":"Op.","key":"Eb","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Symphony no.9 in E flat, op.70 (.*)"},"Symphony10-Mra":{"fixAlbumTitle":{"form":"Symph","num":10,"opus":93,"opus_prefix":"Op.","key":"E","mode":"minor","performer":"Mravinsky"},"firstTrackNumber":5,"fixTrackName":"Symphony No.10,? in E [Mm]inor,? Op. 93\\.? - (.*)"},"Symph12[Mra]":{"fixAlbumTitle":{"form":"Symph","num":12,"opus":112,"opus_prefix":"Op.","key":"D","mode":"minor","subTitle":"The Year of 1917","performer":"Mravinsky"},"firstTrackNumber":4,"fixTrackName":"symph No.12 - (.*)"},"Symph13-Jans":{"fixAlbumTitle":{"form":"Symph","num":13,"opus":113,"opus_prefix":"Op.","key":"Bb","mode":"minor","subTitle":"Babi Yar","performer":"Jansons"},"fixTrackName":"Symphony No. 13 in B-flat minor, Op. 113 Babi Yar [IVX]+\\. (.*)"},"Symph14[Jansons]":{"fixAlbumTitle":{"form":"Symph","num":14,"opus":135,"opus_prefix":"Op.","performer":"Jansons"},"firstTrackNumber":8,"fixTrackName":"Symphony No. 14, Op. 135: [IVX]+\\. (.*)"},"Symph14[Mravinsky]":{"fixAlbumTitle":{"form":"Symph","num":14,"opus":135,"opus_prefix":"Op.","performer":"Mravinsky"},"firstTrackNumber":8,"fixTrackName":"Symphony No. 14, Op. 135 [IVX]+\\. (.*)"},"Three Fantastic Dances":{"fixTrackName":"Three Fantastic Dances, op. 5: [IV]+\\. (.*)","validation":["skipUniqueTrackNameCheck"]}}
+{
+  "24 Preludes, op. 34": {
+    "firstTrackNumber": 4,
+    "fixTrackName": "24 Preludes, op. 34: No. \\d+ in (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "CelloConc[Rostropovich 1988]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Cello",
+      "num": 1,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 107,
+      "opus_prefix": "Op.",
+      "performer": "Rostropovich 1988"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Concerto for Cello in E-flat, Op. 107 - (.*)"
+  },
+  "CelloConc1[Rostropovic 1966]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Cello",
+      "num": 1,
+      "key": "Eb",
+      "mode": "major",
+      "opus": 107,
+      "opus_prefix": "Op.",
+      "performer": "Rostropovich 1966"
+    },
+    "fixTrackName": "CelloConc1 - (.*)"
+  },
+  "CelloConc2[Rostropovic 1966]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Cello",
+      "num": 2,
+      "opus": 126,
+      "opus_prefix": "Op.",
+      "performer": "Rostropovich 1966"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "CelloConc2 - (.*)"
+  },
+  "Lady Macbeth2": {
+    "firstTrackNumber": 11
+  },
+  "Lady Macbeth3": {
+    "firstTrackNumber": 4,
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Lady Macbeth4": {
+    "firstTrackNumber": 8,
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "PianoConc1[Hamelin]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 1,
+      "key": "C",
+      "mode": "minor",
+      "opus": 35,
+      "opus_prefix": "Op.",
+      "performer": "Hamelin"
+    },
+    "fixTrackName": "Piano Concerto no. 1 in C minor, op. 35: [IV]+\\. (.*)"
+  },
+  "PianoConc1[Previn]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 1,
+      "key": "C",
+      "mode": "minor",
+      "opus": 35,
+      "opus_prefix": "Op.",
+      "performer": "Previn"
+    },
+    "fixTrackName": "Piano Concerto No.1, Op. 35 - (.*)"
+  },
+  "PianoConc2[Hamelin]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 2,
+      "key": "F",
+      "mode": "major",
+      "opus": 102,
+      "opus_prefix": "Op.",
+      "performer": "Hamelin"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Piano Concerto no. 2 in F major, op. 102: [IV]+\\. (.*)"
+  },
+  "PianoConc2[Previn]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "instrument": "Piano",
+      "num": 2,
+      "key": "F",
+      "mode": "major",
+      "opus": 102,
+      "opus_prefix": "Op.",
+      "performer": "Previn"
+    },
+    "firstTrackNumber": 3,
+    "fixTrackName": "Piano Concerto No.2, Op. 102 - [IV]+ (.*)"
+  },
+  "PianoQuintet": {
+    "fixAlbumTitle": {
+      "form": "Quintet",
+      "instrument": "Piano",
+      "key": "G",
+      "mode": "minor",
+      "opus": 57,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Shostakovich - Piano quintet Op 57 - (.*)"
+  },
+  "PianoSonata2": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "key": "B",
+      "mode": "minor",
+      "opus": 61,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 28,
+    "fixTrackName": "Piano Sonata no. 2 in B minor, op. 61: [IV]+\\. (.*)"
+  },
+  "Preludes-Fugues": {},
+  "Quartet2": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 2,
+      "key": "A",
+      "mode": "major",
+      "opus": 68,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "String [Qq]uartet No.2 in A [Mm]ajor, [Oo]p\\. ?68 (.*)"
+  },
+  "Quartet5": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 5,
+      "key": "Bb",
+      "mode": "major",
+      "opus": 92,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "String quartet No.5 in B flat major, op.92 (.*)"
+  },
+  "Quartet6": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 6,
+      "key": "G",
+      "mode": "major",
+      "opus": 101,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "String quartet No.6 in G major, op.101 (.*)"
+  },
+  "Quartet7": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 7,
+      "key": "F#",
+      "mode": "minor",
+      "opus": 108,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "String [Qq]uartet No.7 in F sharp minor, [Oo]p\\. ?108 (.*)"
+  },
+  "Quartet8": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 8,
+      "key": "C",
+      "mode": "minor",
+      "opus": 110,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "String Quartet No.8, in C minor, Op. 110 (.*)"
+  },
+  "Quartet9": {
+    "fixAlbumTitle": {
+      "form": "Quartet",
+      "num": 9,
+      "key": "Eb",
+      "mode": "minor",
+      "opus": 117,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "String Quartet No.9 in E Flat Major, Op. 117 (.*)"
+  },
+  "Symph3[Jansons]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 3,
+      "opus": 20,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "subTitle": "The First of May",
+      "performer": "Jansons"
+    },
+    "fixTrackName": "Symphony No. 3 in E-flat major, Op. 20 \"The First of May\": [IVX]+\\. (.*)"
+  },
+  "Symph3[Mravinsky]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 3,
+      "opus": 20,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "subTitle": "The First of May",
+      "performer": "Mravinsky"
+    },
+    "fixTrackName": "Symphony No. 3 in E-flat major, Op. 20 The First of May [IVX]+\\. (.*)"
+  },
+  "Symphony5-Mra": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 5,
+      "opus": 47,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "minor",
+      "performer": "Mravinsky"
+    }
+  },
+  "Symph6[Jansons]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 6,
+      "opus": 54,
+      "opus_prefix": "Op.",
+      "key": "B",
+      "mode": "minor",
+      "performer": "Jansons"
+    },
+    "fixTrackName": "Symphony no. 6 in B minor, op. 54: [IV]+. (.*)"
+  },
+  "Symph6[Mra]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 6,
+      "opus": 54,
+      "opus_prefix": "Op.",
+      "key": "B",
+      "mode": "minor",
+      "performer": "Mravinsky"
+    }
+  },
+  "Symphony8-Mra": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 8,
+      "opus": 65,
+      "opus_prefix": "Op.",
+      "key": "C",
+      "mode": "minor",
+      "performer": "Mravinsky"
+    },
+    "fixTrackName": "Symphonie No.8 en ut mineur, Op.65 - [IV]+\\. (.*)"
+  },
+  "Symph9[Jansons]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 9,
+      "opus": 70,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Jansons"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Symphony no. 9 in E-flat major, op. 70: [IV]+\\. (.*)"
+  },
+  "Symphony9": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 9,
+      "opus": 70,
+      "opus_prefix": "Op.",
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Symphony no.9 in E flat, op.70 (.*)"
+  },
+  "Symphony10-Mra": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 10,
+      "opus": 93,
+      "opus_prefix": "Op.",
+      "key": "E",
+      "mode": "minor",
+      "performer": "Mravinsky"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony No.10,? in E [Mm]inor,? Op. 93\\.? - (.*)"
+  },
+  "Symph12[Mra]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 12,
+      "opus": 112,
+      "opus_prefix": "Op.",
+      "key": "D",
+      "mode": "minor",
+      "subTitle": "The Year of 1917",
+      "performer": "Mravinsky"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "symph No.12 - (.*)"
+  },
+  "Symph13-Jans": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 13,
+      "opus": 113,
+      "opus_prefix": "Op.",
+      "key": "Bb",
+      "mode": "minor",
+      "subTitle": "Babi Yar",
+      "performer": "Jansons"
+    },
+    "fixTrackName": "Symphony No. 13 in B-flat minor, Op. 113 Babi Yar [IVX]+\\. (.*)"
+  },
+  "Symph14[Jansons]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 14,
+      "opus": 135,
+      "opus_prefix": "Op.",
+      "performer": "Jansons"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Symphony No. 14, Op. 135: [IVX]+\\. (.*)"
+  },
+  "Symph14[Mravinsky]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 14,
+      "opus": 135,
+      "opus_prefix": "Op.",
+      "performer": "Mravinsky"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Symphony No. 14, Op. 135 [IVX]+\\. (.*)"
+  },
+  "Three Fantastic Dances": {
+    "fixTrackName": "Three Fantastic Dances, op. 5: [IV]+\\. (.*)",
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  }
+}

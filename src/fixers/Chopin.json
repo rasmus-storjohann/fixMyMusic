@@ -1,0 +1,161 @@
+{
+  "Ballades & Etudes": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "CelloSonata": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "instrument": "Cello",
+      "opus": 65,
+      "opus_prefix": "Op.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Rostropovich"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Cello Sonata in G minor, op. 65: [IV]+\\. (.*) \\(cello: Mstislav Rostropovich, piano: Martha Argerich\\)"
+  },
+  "Mazurkas": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Misc": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Nocturnes[Pires]": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Nocturnes[Rubinstein]": {
+    "firstTrackNumber": 8,
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "PianoConc1": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 1,
+      "instrument": "Piano",
+      "key": "E",
+      "mode": "minor",
+      "opus": 11,
+      "opus_prefix": "Op."
+    },
+    "fixTrackName": "Concerto for Piano and Orchestra no. 1 in E minor, op. 11: [IV]+\\. (.*)"
+  },
+  "PianoConcerto1[Rubinstein]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 1,
+      "instrument": "Piano",
+      "key": "E",
+      "mode": "minor",
+      "opus": 11,
+      "opus_prefix": "Op.",
+      "performer": "Rubinstein"
+    },
+    "fixTrackName": "Concerto for Piano and Orchestra No. 1 in E minor, Op. 11: [IV]+\\. (.*)"
+  },
+  "PianoConc2": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 2,
+      "instrument": "Piano",
+      "key": "F",
+      "mode": "minor",
+      "opus": 21,
+      "opus_prefix": "Op."
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Concerto for Piano and Orchestra no. 2 in F minor, op. 21: [IV]+\\. (.*)"
+  },
+  "PianoConcerto2[Rubinstein]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 2,
+      "instrument": "Piano",
+      "key": "F",
+      "mode": "minor",
+      "opus": 21,
+      "opus_prefix": "Op.",
+      "performer": "Rubinstein"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Concerto for Piano and Orchestra No. 2 in F minor, Op. 21: [IV]+\\. (.*)"
+  },
+  "PianoTrio": {
+    "fixAlbumTitle": {
+      "form": "Trio",
+      "instrument": "Piano",
+      "key": "G",
+      "mode": "minor",
+      "opus": 8,
+      "opus_prefix": "Op.",
+      "performer": "Beaux Arts"
+    },
+    "fixTrackName": "Piano Trio in G minor, op. 8: [IV]+\\. (.*) \\(Beaux Arts Trio\\)"
+  },
+  "Polonaises": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Preludes, Impromptus & Scherzoz": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "Sonata1": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 1,
+      "key": "C",
+      "mode": "minor",
+      "opus": 4,
+      "opus_prefix": "Op.",
+      "performer": "Zilberstein"
+    },
+    "fixTrackName": "Piano Sonata no. 1 in C minor, op. 4: [IV]+\\. (.*) \\(feat. piano: Lilya Zilberstein\\)"
+  },
+  "Sonata2": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "key": "Bb",
+      "mode": "minor",
+      "opus": 35,
+      "opus_prefix": "Op.",
+      "performer": "Pollini"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\\. (.*) \\(feat. piano: Maurizio Pollini\\)"
+  },
+  "Sonata3": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "key": "B",
+      "mode": "minor",
+      "opus": 58,
+      "opus_prefix": "Op.",
+      "performer": "Pollini"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Piano Sonata no. 3 in B minor, op. 58: [IV]+\\. (.*) \\(feat. piano: Maurizio Pollini\\)"
+  },
+  "Waltzes[Ashkenazy]": {
+    "validation": [
+      "skipUniqueTrackNameCheck"
+    ]
+  },
+  "WaltzOp65[Rubinstein]": {
+    "firstTrackNumber": 7
+  }
+}

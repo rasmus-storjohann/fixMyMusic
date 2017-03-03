@@ -1,1 +1,1571 @@
-{"Aaron Copland":{"AppalachianSpring":{"fixTrackName":"Appalachian Spring \\(Ballet for Martha\\): (.*)"},"ClarinetConcerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Clarinet"},"fixTrackName":"Concerto for Clarinet and String Orchestra, [IV]+\\. (.*)"},"DancePanels":{"firstTrackNumber":10,"fixTrackName":"Dance Panels, [IV]+\\. (.*)"},"FallRiverLegend":{"firstTrackNumber":12,"fixTrackName":"Fall River Legend: (.*)"},"FourPieces":{"fixAlbumTitle":"Four Pieces","validation":["skipTrackNumberCheck"]},"MusicForTheTheatre":{"firstTrackNumber":4,"fixTrackName":"Music for the Theatre: (.*)"},"Symph3":{"fixAlbumTitle":{"form":"Symph","num":3},"fixTrackName":"Symphony No. 3: [IV]+\\. (.*)"},"Symphonette":{"firstTrackNumber":18,"fixTrackName":"Latin-American Symphonette: [IV]+\\. (.*)"},"TenderLand":{"firstTrackNumber":9,"fixTrackName":"The Tender Land Suite: (.*)"}},"Adams_John":{"Nixon1":{"fixTrackName":"Act I Scene \\d (.*)"},"Nixon2":{"fixTrackName":"Act II Scene \\d (.*)"},"Nixon3":{"fixTrackName":"Act III Scene \\d (.*)"}},"Albeniz":{"Cantos de España":{"fixTrackName":"Cantos de España: \\d+\\. (.*)"},"Six Pieces":{"firstTrackNumber":6},"Cordoba":{"firstTrackNumber":6},"Six pieces":{"firstTrackNumber":6},"Suite Espanola":{"firstTrackNumber":2}},"Alkan":{"Sonatine, Op. 61":{"fixTrackName":"^\\d+ Sonatine, Op. 61 (\\d+)\\. (.*)"},"Barcarolle":{"firstTrackNumber":9},"Le festin d'Esope":{"firstTrackNumber":10,"fixTrackName":"(.*), op. 39 no. 12"},"Sonatine":{"firstTrackNumber":5,"fixTrackName":"Sonatine, op. 61: [IV]+. (.*)"},"Grande sonate op33 \"Les quatre âges\"":{"fixAlbumTitle":{"form":"Sonata","opus":33,"opus_prefix":"Op.","subTitle":"Les quatre âges"},"fixTrackName":"Grande sonate, op\\. 33 \\\"Les quatre âges\\\": [IV]+\\. (.*)"}},"Arild Andersen":{"Sagn":{"fixTrackName":"Sagn, (.*)"}},"Arnold Schönberg":{"Erwartung[Boulez]":{"fixTrackName":"Erwartung, Scene \\d+ (.*)"},"ChamberSymphony":{"fixTrackName":"Chamber Symphony no. 2, op. 38: [IV]+\\. (.*)"},"Cinematographic":{"firstTrackNumber":3},"Five Piano Pieces Op23":{"firstTrackNumber":4,"fixTrackName":"Five Piano Pieces, Op. 23 (.*)"},"Five pieces for orchestra":{"fixTrackName":"Schoenberg - 5 pieces for orchestra Op 16 - (.*)"},"Lied der Waldtaube[Boulez]":{"firstTrackNumber":30,"fixTrackName":"(.*) \\(Chamber Orchestra version\\) .*"},"Ode to Napoleon Buonaparte":{"firstTrackNumber":7,"fixTrackName":"(Ode to Napoleon Buonaparte), Op. 41"},"Phantasy[Gould-Menuhin] Op47":{"firstTrackNumber":9,"fixTrackName":"Schoenberg Phantasy Op47 - (.*)"},"Piano Concerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","opus":42,"opus_prefix":"Op."},"fixTrackName":"Concerto for Piano and Orchestra, Op. 42 (.*)"},"PianoConc Op42":{"fixTrackName":"Concerto for Piano and Orchestra, Op. 42 (.*)"},"Three Piano Pieces Op11":{"fixTrackName":"Three Piano Pieces, Op. 11 (.*)"},"Pierrot Lunaire[Boulez]":{"firstTrackNumber":9,"fixTrackName":"Pierrot Lunaire, Part I+ (.*) \\(.*\\)"},"Six Little Piano Pieces Op19":{"firstTrackNumber":9,"fixTrackName":"Six Little Piano Pieces, Op. 19 (.*)"},"Suite for Piano Op25":{"firstTrackNumber":15,"fixTrackName":"Suite for Piano, Op. 25 (.*)"},"Three Pieces for Orchestra":{"firstTrackNumber":7,"fixTrackName":"Three Pieces for Orchestra, \\d. (.*)"},"Two Piano Pieces Op33":{"firstTrackNumber":20,"fixTrackName":"Two Piano Pieces, Op. 33- A & B (.*)"},"VariationsForOrch":{"fixTrackName":"Schoenberg - Variations for orchestra Op 31 - (.*)"},"Verklärte Nacht":{"firstTrackNumber":4,"fixTrackName":"Verklärte Nacht, op. 4 \\(arr. for string orchestra\\): (.*)"}},"Barber":{"ViolinConc[Ehnes]":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","opus":14,"opus_prefix":"Op.","performer":"Ehnes"},"firstTrackNumber":4,"fixTrackName":"Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*)"}},"Bartok":{"Concerto for Orchestra":{"fixAlbumTitle":{"form":"Conc","instrument":"Orchestra"},"fixTrackName":"Concerto for orchestra - (.*)"},"Music for Strings, Percussion and Celesta":{"firstTrackNumber":6,"fixTrackName":"Music for Strings, Percussion and Celesta - (.*)"},"Sonata":{"firstTrackNumber":13,"fixTrackName":"Bartok - Sonata for two pianos and percussion - (.*)"}},"Beatles":{"Sgt. Pepper":{"validation":["skipUniqueTrackNameCheck"]}},"Bellini":{"I Puritani3 [Callas]":{"firstTrackNumber":11,"fixTrackName":"Act 3 - (.*)"}},"Berg":{"Lulu Suite":{"firstTrackNumber":10,"fixTrackName":"Lulu Suite, \\d+\\. (.*)"},"Lulu2":{"fixTrackName":"Lulu Akt II, Szene I+\\. (.*)"},"Lulu3":{"fixTrackName":"Lulu Akt III, Szene I+\\. (.*)"},"ViolinConcerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","performer":"Mutter"},"fixTrackName":"Violinkonzert [IV]+\\. (.*)"},"Three pieces for orchestra":{"firstTrackNumber":7,"fixTrackName":"Alban Berg - 3 pieces for orchestra - (.*)"},"Wozzeck1":{},"Wozzeck2":{"firstTrackNumber":8}},"Billy Joel":{"Piano Man: The Very Best of Billy Joel":{"fixTrackName":"Billy Joel - (.*)"}},"Bizet":{"CarmenSuite":{"fixTrackName":"Carmen Suite No. \\d+: (.*)"}},"Brahms":{"Drei Gesänge":{"fixTrackName":"Drei Gesänge-I+\\. (.*)"},"Fünf Gesänge":{"firstTrackNumber":15,"fixTrackName":"Fünf Gesänge-[IV]+\\. (.*)"},"In stiller Nacht":{"firstTrackNumber":20,"fixTrackName":"(.*)"},"PianoConcerto2[Richter]":{"fixAlbumTitle":{"form":"Conc","num":2,"instrument":"Piano","key":"Bb","mode":"major","opus":83,"opus_prefix":"Op.","performer":"Richter"},"fixTrackName":"Piano Concerto No. 2 in B-flat major, Op. 83 [IV]+\\. (.*)","validation":["skipUniqueTrackNameCheck"]},"Sieben Lieder":{"firstTrackNumber":8,"fixTrackName":"Sieben Lieder-[IV]+\\. (.*)"},"Symph 1 c Op.68":{"fixAlbumTitle":{"form":"Symph","num":1,"key":"C","mode":"minor","opus":68,"opus_prefix":"Op.","performer":"Karajan"},"fixTrackName":"Symphony No. 1 in C minor, Op. 68 [IV]+\\. (.*)"},"Symph 2 D Op.73":{"fixAlbumTitle":{"form":"Symph","num":2,"key":"D","mode":"major","opus":73,"opus_prefix":"Op.","performer":"Karajan"},"fixTrackName":"Symphony No. 2 in D major, Op. 73 [IV]+\\. (.*)"},"Symph 3 F Op.90":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":3,"key":"F","mode":"major","opus":90,"opus_prefix":"Op.","performer":"Karajan"},"fixTrackName":"Symphony No. 3 in F major, Op. 90 [IV]+\\. (.*)"},"Symph 4 e Op.98":{"firstTrackNumber":5,"fixAlbumTitle":{"form":"Symph","num":4,"key":"e","mode":"minor","opus":98,"opus_prefix":"Op.","performer":"Karajan"},"fixTrackName":"Symphony No. 4 in E minor, Op. 98 [IV]+\\. (.*)"},"Vier Gesänge":{"firstTrackNumber":4,"fixTrackName":"Vier Gesänge-[IV]+\\. (.*)"},"ViolConc D Op.77":{"fixAlbumTitle":{"form":"Conc","instrument":"Violinn","key":"D","mode":"major","opus":77,"opus_prefix":"Op."},"fixTrackName":"Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\\. (.*)"},"ViolSon 1 G Op.78":{"firstTrackNumber":4,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":1,"key":"G","mode":"major","opus":78,"opus_prefix":"Op."},"fixTrackName":"Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\\. (.*)"},"ViolSon 2 A Op.100":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":2,"key":"a","mode":"major","opus":100,"opus_prefix":"Op."},"fixTrackName":"Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\\. (.*)"},"ViolSon 3 d Op.108":{"firstTrackNumber":7,"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","num":3,"key":"d","mode":"minor","opus":108,"opus_prefix":"Op."},"fixTrackName":"Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\\. (.*)"}},"Britten":{"The Turn of the Screw 1":{},"The Turn of the Screw 2":{"fixTrackName":"The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \\d+ (.*)"},"Violin Concerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","opus":15,"opus_prefix":"Op."},"fixTrackName":"Violin Concerto Op\\.15 \\-I+\\- (.*)"},"Young Person's Guide to the Orchestra":{"firstTrackNumber":23,"fixTrackName":"Young Person's Guide to the Orchestra, Op. 34 [IVX]+\\. (.*)"}},"Bruch":{"Scottish Fantasy":{"firstTrackNumber":4,"fixTrackName":"Scottish Fantasy (.*)"},"Violin Conc 1":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","num":1},"fixTrackName":"Concerto No.1 (.*)"},"ViolinConcert[Menuhin]":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","num":1,"performer":"Menuhin"},"firstTrackNumber":4,"fixTrackName":"Yehudi Menuhin - [IV]+\\. (.*)"}},"Bruckner":{"Mass in C Minor":{"firstTrackNumber":9,"fixTrackName":"Mass in C Minor - (.*)"},"Mass in E Minor":{"fixTrackName":"Mass No 2 in E minor - (.*)"},"Two songs":{"firstTrackNumber":7,"fixTrackName":"(.*)"}},"Camarón":{"Te Lo Dice Camarón":{"fixTrackName":"Camarón - (.*)"}},"Carl Nielsen":{"Symph 1":{"fixAlbumTitle":{"form":"Symph","num":1},"fixTrackName":"\\d - (.*)"},"Symph 4":{"fixAlbumTitle":{"form":"Symph","num":4},"firstTrackNumber":6,"fixTrackName":"\\d - (.*)"},"Two Orch Pieces":{"validation":["skipTrackNumberCheck"]}},"Corelli":{"Conc 1 D":{"fixAlbumTitle":{"form":"Conc","num":1,"key":"D","mode":"major","opus":6,"opus_number":1,"opus_prefix":"Op."},"fixTrackName":"Concerto No.1 in D major [IV]+\\.(.*)"},"Conc 2 F":{"firstTrackNumber":8,"fixAlbumTitle":{"form":"Conc","num":2,"key":"F","mode":"major","opus":6,"opus_number":2,"opus_prefix":"Op."},"fixTrackName":"Concerto No.2 in F -[IV]+- (.*)"},"Conc 3 c":{"firstTrackNumber":12,"fixAlbumTitle":{"form":"Conc","num":3,"key":"C","mode":"minor","opus":6,"opus_number":3,"opus_prefix":"Op."},"fixTrackName":"Concerto No.3 in C minor -[IV]+- (.*)"},"Conc 4 D":{"firstTrackNumber":17,"fixAlbumTitle":{"form":"Conc","num":4,"key":"D","mode":"major","opus":6,"opus_number":4,"opus_prefix":"Op."},"fixTrackName":"Concerto No.4 in D -[IV]+- (.*)"},"Conc 5 B flat":{"firstTrackNumber":21,"fixAlbumTitle":{"form":"Conc","num":5,"key":"Bb","mode":"major","opus":6,"opus_number":5,"opus_prefix":"Op."},"fixTrackName":"Concerto #5 in B Flat [IV]+\\. (.*)"},"Conc 6 F":{"firstTrackNumber":25,"fixAlbumTitle":{"form":"Conc","num":6,"key":"F","mode":"major","opus":6,"opus_number":6,"opus_prefix":"Op."},"fixTrackName":"Concerto No.6 in F -[IV]+- (.*)"}},"Couperin":{"Two organ pieces":{"firstTrackNumber":6}},"CPE Bach":{"Sonata Wq78":{"firstTrackNumber":14,"fixTrackName":"CPE Bach - Sonata Wq78 - (.*)"}},"Charles-François Gounod":{"Messe Solennelle de Sainte Cécile - St. Cecilia Mass - Cäcilienmesse":{"fixTrackName":"Messe Solennelle de Sainte Cécile: (?:[IVX]+\\. )?(.*)"}},"Debussy":{"ChildrensCorner":{"firstTrackNumber":7,"fixTrackName":"Children's Corner, suite for piano \\(or orchestra\\), L\\. 113: (.*)"},"EnBlancEtNoire":{"firstTrackNumber":8,"fixTrackName":"En blanc et noir, L 134: I+\\. (.*)"},"epigraphes antiques":{"firstTrackNumber":16,"fixTrackName":"6 épigraphes antiques, L 131: [IV]+\\. (.*)"},"Etudes":{"firstTrackNumber":19,"fixTrackName":"Études \\(6\\) for piano, Book 2, L. 136-7-12: (.*)"},"Images":{"firstTrackNumber":4,"fixTrackName":"Images \\(3\\), for piano, Set I+, L\\. \\d+: (.*)"},"MidiDunFaune":{"firstTrackNumber":7},"PetiteSuiteL65":{"firstTrackNumber":11,"fixTrackName":"Petite suite, L 65: [IV]+\\. (.*)"},"PianoPieces":{"validation":["skipTrackNumberCheck"]},"Preludes":{"firstTrackNumber":11,"fixTrackName":"Préludes \\(12\\) for piano, Book [I]+, L. \\d+: (.*)"},"SuiteBergamasque":{"firstTrackNumber":15,"fixTrackName":"Suite Bergamasque, L 75: [IV]+\\. (.*)"},"ThreePieces":{"validation":["skipUniqueTrackNameCheck"]}},"Donizetti":{"Lucia1":{"fixTrackName":"Lucia di Lammermoor (.*)"},"Lucia2":{"fixTrackName":"Lucia di Lammermoor (.*)"}},"Dvorak":{"Symph7":{"fixAlbumTitle":{"form":"Symph","num":7},"fixTrackName":"Dvorak- Sym#7- [IV]+\\.(.*)"},"Symph8":{"fixAlbumTitle":{"form":"Symph","num":8,"key":"C","mode":"major","opus":88,"opus_prefix":"Op."},"fixTrackName":"Symphony 8 in C major Op 88 - (.*)"},"Symph9":{"fixAlbumTitle":{"form":"Symph","num":9,"key":"E","mode":"minor","opus":95,"opus_prefix":"Op.","subTitle":"New World"},"firstTrackNumber":5,"fixTrackName":"Symphony 9 in E minor Op 95 New World - (.*)"}},"Elgar":{"Cello":{"fixAlbumTitle":{"form":"Conc","instrument":"Cello","opus":85,"opus_prefix":"Op.","key":"E","mode":"minor"},"fixTrackName":"Cello Concerto in E minor, Op. 85 [IV]+\\. (.*)"}},"Erik Satie":{"3 Gymnopédies etc [Pascal Rogé]":{"validation":["skipUniqueTrackNameCheck"]}},"E.S.T.":{"Tuesday Wonderland":{"validation":["skipUniqueTrackNameCheck"]}},"Furtwangler":{"Adagio":{"firstTrackNumber":5,"fixTrackName":"Furtwangler - (Adagio solemne)"}},"Gershwin":{"An American in Paris[Previn]":{"firstTrackNumber":2},"PianoConc":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"F","mode":"major"},"fixTrackName":"Gershwin - Concerto for Piano and Orchestra in F - [IV]+\\. (.*)"},"PianoConc[Previn]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"F","mode":"major","performer":"Previn"},"firstTrackNumber":3,"fixTrackName":"Piano Concerto in F: [IV]+\\. (.*)"}},"Glen Gould":{"Byrd-Gibbons-Sweelinck":{"validation":["skipUniqueTrackNameCheck"]}},"Granados":{"Pieces":{"firstTrackNumber":7}},"Grieg":{"CelloSonata":{"fixAlbumTitle":{"form":"Sonata","instrument":"Cello","opus":36,"opus_prefix":"Op.","key":"A","mode":"minor"},"fixTrackName":"Cello Sonata in A minor, op. 36: [IV]+\\. (.*)"},"FourPieces":{"firstTrackNumber":7,"fixTrackName":"Four Pieces, op. 78: [IV]+\\. (.*)"},"From Holberg's Time":{"firstTrackNumber":9,"fixTrackName":"From Holberg's Time, op. 40: [IV]+\\. (.*)"},"Haugtussa[vonOtter]":{"fixTrackName":"»Haugtussa« Op. 67: [IV]+\\. (.*)"},"LyricPieces[Andsnes]":{"firstTrackNumber":8,"fixTrackName":"Lyrical Pieces op. 65: [IV]+\\. (.*)"},"PeerGynt1":{"fixTrackName":"Peer Gynt Suite no. 1, op. 46: [IV]+\\. (.*)"},"PeerGynt2":{"firstTrackNumber":5,"fixTrackName":"Peer Gynt Suite no. 2, op. 55: [IV]+\\. (.*)"},"PianoConcerto[Richter]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"A","mode":"minor","opus":16,"opus_prefix":"Op.","performer":"Richter"},"fixTrackName":"Piano concerto a minor op 16 - Richter - (.*)"},"PianoConcerto[Andsnes]":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"A","mode":"minor","opus":16,"opus_prefix":"Op.","performer":"Andsnes"},"fixTrackName":"Piano Concerto: [IV]+\\. (.*)"},"Sanger[vonOtter]":{"firstTrackNumber":15,"validation":["skipUniqueTrackNameCheck"]},"SeksSange[vonOtter]":{"firstTrackNumber":9,"fixTrackName":"Seks Sange Op. 48: [IV]+\\. (.*)"},"Three psalms":{"firstTrackNumber":7,"fixTrackName":"Psalms - (.*)"},"TwoPieces":{"firstTrackNumber":5,"fixTrackName":"Two Pieces, op\\. 77: [IV]+\\. (.*)"},"ViolinSonata":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","key":"G","mode":"major","opus":13,"opus_prefix":"Op."},"firstTrackNumber":4,"fixTrackName":"ViolinSonata G major Op 13 - (.*)"}},"Grigny":{"Two organ pieces":{"firstTrackNumber":4,"fixTrackName":"Grigny - (.*)"}},"Hindemith":{"ViolinConcerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin"},"firstTrackNumber":16,"fixTrackName":"Hindemith - Concerto for violin and orchestra - (.*)"}},"In_the_country":{"Losing stones, collecting bones":{"fixTrackName":"In the country - (.*)"}},"Ives":{"Hymns":{"firstTrackNumber":5,"fixTrackName":"Ives Hymns \\d+ (.*)"},"Symphony1":{"fixAlbumTitle":{"form":"Symph","num":1},"fixTrackName":"Ives Symphony No.1 \\d+ (.*)"},"Symphony4":{"fixAlbumTitle":{"form":"Symph","num":4},"firstTrackNumber":10,"fixTrackName":"Ives Symphony No.4 \\d+ (.*)"}},"Jackie_Treehorn":{"We are Jackie Treehorn":{"fixTrackName":"Jackie Treehorn - (.*)"}},"Janáček":{"Jenůfa1":{"fixTrackName":"Jenůfa Jednání I\\. (.*)"},"Jenůfa2":{"firstTrackNumber":9,"fixTrackName":"Jenůfa Jednání II\\. (.*)"},"Jenůfa3":{"firstTrackNumber":5,"fixTrackName":"Jenůfa Jednání III\\. (.*)"},"Jenůfa Extras":{"firstTrackNumber":14}},"James MacMillan":{"Seven Last Words from the Cross":{"fixTrackName":"Seven Last Words from the Cross \\(1993\\) \\d. (.*)"},"Cantos Sagrados":{"firstTrackNumber":8,"fixTrackName":"Cantos Sagrados \\(1989\\) \\d. (.*)"}},"Jan Garbarek":{"Officium":{"validation":["skipUniqueTrackNameCheck"]}},"Joan Cererols":{"Missa de Batalla":{"firstTrackNumber":11,"fixTrackName":"Missa de batalla - (.*)"},"Missa pro Defunctis":{"fixTrackName":"Missa [Pp]ro [Dd]efunctis - (.*)"}},"Khachaturian":{"Piano Concerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"Db","mode":"major"},"fixTrackName":"Khachaturian Piano Concerto in Db - [I]+ (.*)"},"Sonatina":{"firstTrackNumber":4,"fixTrackName":"(?:Khachaturian Sonatina - )?I+\\.? (.*)"},"Toccata":{"firstTrackNumber":7,"fixTrackName":"(Toccata) \\(1932\\)"}},"Kodaly":{"Hary Janos Suite":{"firstTrackNumber":16}},"Korngold":{"ViolinConc[Ehnes]":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","opus":35,"opus_prefix":"Op.","key":"D","mode":"major"},"fixTrackName":"Korngold - Violin Concerto in D, [Oo]p\\. ?35 - I+ - (.*)"}},"Kronos_Quartet":{"Black Angels":{"validation":["skipUniqueTrackNameCheck"]}},"Karkwa":{"Les Chemins de verre":{"fixTrackName":"Karkwa - (.*)"}},"Kayhan Kalhor":{"Ali Akbar Moradi":{"fixTrackName":"Kayhan Kalhor - (.*)"}},"Knut Reiersrud":{"Himmelskip":{"fixTrackName":"Knut Reiersrud - (.*)"}},"Kristorn":{"69":{"fixTrackName":"Kriston - 69-\\d+ (.*)"}},"Lassus":{"Missa Bell' Amfitrit":{"firstTrackNumber":8,"fixTrackName":"(?:Lassus Missa Bell' Amfitrit' altera - )?(.*)"}},"Lisa LeBlanc":{"Lisa LeBlanc":{"fixTrackName":"Lisa LeBlanc - (.*)"}},"Liszt":{"Five pieces [Brendel]":{"validation":["skipTrackNumberCheck"]},"PianoConcerto1 [Richter]":{"fixAlbumTitle":{"form":"Conc","num":1,"key":"Eb","mode":"major","performer":"Richter"},"fixTrackName":"Piano Concerto no. 1 in E-flat major: [IV]+\\. (.*)"},"PianoConcerto2 [Richter]":{"fixAlbumTitle":{"form":"Conc","num":2,"key":"A","mode":"major","performer":"Richter"},"firstTrackNumber":5,"fixTrackName":"Piano Concerto no\\. 2 in A major: [IV]+\\. (.*)"},"PianoConcerto2[Andsnes]":{"fixAlbumTitle":{"form":"Conc","num":2,"key":"A","mode":"major","performer":"Andsnes"},"firstTrackNumber":4,"fixTrackName":"Piano Concerto No. 2 in A minor: [IV]+\\. (.*)"},"Sonata in b [Richter]":{"fixAlbumTitle":{"form":"Sonata","instrument":"Piano","key":"B","mode":"minor","performer":"Richter"},"firstTrackNumber":9,"fixTrackName":"Piano Sonata in B minor: [IV]+\\. (.*)"}},"Malcolm Arnold":{"Symph1":{"fixAlbumTitle":{"form":"Symph","num":1,"opus":27,"opus_prefix":"Op."},"fixTrackName":"(.*) - Symphony No\\.1 Op\\.22"},"PianoConcerto 3 hands":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","opus":104,"opus_prefix":"Op.","subTitle":"2 pianos 3 hands"},"firstTrackNumber":4,"fixTrackName":"(.*) - Concerto for 2 Pianos \\(3 Hands\\) Op\\.104"},"Five orch pieces":{"firstTrackNumber":7}},"Madredeus":{"O Espírito da Paz":{"validation":["skipUniqueTrackNameCheck"]}},"Medtner":{"SonateOp11":{"fixAlbumTitle":{"form":"Sonata","instrument":"Piano","opus":11,"opus_prefix":"Op."},"firstTrackNumber":7,"fixTrackName":"(?:Sonaten-Triade op\\. 11 - )?Nr\\. \\d (.*)"},"Zwei Märchen":{"firstTrackNumber":5,"fixTrackName":"Zwei Märchen op. 8 - I+\\. (.*)"}},"Mendelssohn":{"Symph4":{"fixAlbumTitle":{"form":"Symph","num":4,"opus":90,"opus_prefix":"Op.","key":"A","mode":"major","subTitle":"Italian"},"fixTrackName":"Symphonie Nr\\. 4 A-Dur op\\. 90 \"Italienische\": [IV]+\\. (.*)"},"Symph5":{"fixAlbumTitle":{"form":"Symph","num":5,"opus":107,"opus_prefix":"Op.","key":"D","mode":"minor","subTitle":"Reformation"},"firstTrackNumber":5,"fixTrackName":"Symphonie Nr\\. 5 d-Moll op\\. 107 \"Reformation\": [IV]+\\. (.*)"},"ViolinConcert[Menuhin]":{"fixAlbumTitle":{"form":"Conc","instrument":"Violin","opus":64,"opus_prefix":"Op.","key":"E","mode":"minor"},"fixTrackName":"Yehudi Menuhin - [IV]+\\. (.*)"}},"Maurice Jarre":{"Lawrence of Arabia Soundtrack":{"fixTrackName":"Maurice Jarre - (.*)"}},"Miles Davis":{"Ascenseur pour l'Échafaud":{"validation":["skipUniqueTrackNameCheck"]},"Dingo":{"validation":["skipUniqueTrackNameCheck"]},"Live at Montreux":{"validation":["skipUniqueTrackNameCheck"]},"Music From Siesta":{"validation":["skipUniqueTrackNameCheck"]},"We Want Miles":{"validation":["skipUniqueTrackNameCheck"]}},"Moussorgsky":{"Pictures (original)":{"firstTrackNumber":16,"fixTrackName":"Pictures at an exhibition - Original version \\d+\\. (.*)"},"Pictures (orchestral)":{"fixTrackName":"Pictures at an exhibition - Orchestral version by Ravel \\d+\\. (.*)"},"NightOnBaldMountain":{"firstTrackNumber":9}},"Orff":{"Carmina Burana":{"fixTrackName":"Carmina Burana (.*)","validation":["skipUniqueTrackNameCheck"]}},"Poulenc":{"The Story of Babar":{"firstTrackNumber":10,"fixTrackName":"The Story of Babar [IVX]+\\. ?(.*)"}},"Prokofiev":{"Alexander Nevsky [Complete]":{"fixTrackName":"Alexander Nevsky (.*)"},"Alexander Nevsky Suite":{"fixTrackName":"Alexander Nevsky, Op. 78 [IV]+\\. (.*)"},"Andante Cantabile":{"firstTrackNumber":12},"CelloConcertoOp125[YoYoMa]":{"fixTrackName":"Prokofiev - Cello concerto Op 125 - (.*)"},"Lieutenant Kijé":{"firstTrackNumber":12,"fixTrackName":"Lieutenant Kijé, Op. 60 [IV]+\\. (.*)"},"Lieutenant Kijé [2]":{"firstTrackNumber":5},"Love of Three Oranges":{"firstTrackNumber":10},"Peter and the Wolf":{"fixTrackName":"Peter and the Wolf, Op. 67 [IVX]+\\. (.*)"},"Scythian Suite Op20":{"firstTrackNumber":8,"fixTrackName":"Scythian Suite, Op. 20 [IV]+\\. (.*)"},"Sinfonia Concertante":{"fixTrackName":"Sinfonia Concertante, Op.125 (.*)"},"Rococco Variations":{"firstTrackNumber":4,"fixTrackName":"Varições Rococó, Op\\.33 (.*)"}},"Palestrina":{"Motet Hodie Christus natus est":{"firstTrackNumber":6},"Stabat Mater":{"firstTrackNumber":7}},"Puccini":{"Madama Butterfly 1":{"fixTrackName":"Madama Butterfly Act I\\. (.*)"},"Madama Butterfly 2":{"fixTrackName":"Madama Butterfly Act II, Part [IV]+\\. (.*)"},"Tosca 1":{"fixTrackName":"Atto 1 - (.*)"},"Tosca 2":{"firstTrackNumber":15,"fixTrackName":"(?:Atto 2 -|Tosca, Atto II) (.*)"},"Tosca 3":{"firstTrackNumber":8,"fixTrackName":"Tosca, Atto III (.*)"},"Turandot 1":{"fixTrackName":"Turandot Act I. (.*)"},"Turandot 2":{"firstTrackNumber":8,"fixTrackName":"(?:Turandot Act II, Scene I+\\.|Act 2 - Scene 2 - )(.*)"},"Turandot 3":{"firstTrackNumber":5,"fixTrackName":"Act 3 - Scene \\d - (.*)"}},"Rachmaninoff":{"PianoConcerto2[Janis]":{"fixAlbumTitle":{"form":"Conc","num":2,"instrument":"Piano","key":"C","mode":"minor","opus":18,"opus_prefix":"Op.","performer":"Janis"},"firstTrackNumber":4,"fixTrackName":"Piano Concerto No. 2 in C minor, Op. 18 [IV]+\\. (.*)"},"PianoConcerto2":{"fixAlbumTitle":{"form":"Conc","num":2,"instrument":"Piano","key":"C","mode":"minor","opus":18,"opus_prefix":"Op."},"fixTrackName":"Piano Concerto No. 2 in C minor Op. 18 [IV]+\\. (.*)"},"PianoConcerto3[Janis]":{"fixAlbumTitle":{"form":"Conc","num":3,"instrument":"Piano","key":"D","mode":"minor","opus":30,"opus_prefix":"Op.","performer":"Janis"},"fixTrackName":"Piano Concerto No. 3 in D minor, Op. 30 [IV]+\\. (.*)"},"Symph2":{"fixAlbumTitle":{"form":"Symph","num":2,"key":"E","mode":"minor","opus":27,"opus_prefix":"Op."},"fixTrackName":"Symphony No. 2 in E minor, Op. 27: [IV]+\\. (.*)"},"TheRockOp7":{"firstTrackNumber":5},"TwoPreludes[Janis]":{"firstTrackNumber":7,"validation":["skipUniqueTrackNameCheck"]},"Vespers (The Saint Petersburg Cappella, choirmaster: Vladislav Chernushenko)":{"fixTrackName":"Vespers, Op. 37: \\d+\\. (.*)"}},"Ravel":{"Alborada del gracioso":{"firstTrackNumber":6},"Bolero":{"firstTrackNumber":8},"Daphnis et Chloe":{"firstTrackNumber":3,"fixTrackName":"Daphnis [Ee]t Chloe (.*)"},"MotherGooseSuite":{"firstTrackNumber":2},"La Valse":{"firstTrackNumber":2},"PianoConcerto D major left hand":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"D","mode":"major","subTitle":"left hand"},"firstTrackNumber":7,"fixTrackName":"Ravel - Concerto for the left hand in D major - (.*)"},"PianoConcerto G major":{"fixAlbumTitle":{"form":"Conc","instrument":"Piano","key":"G","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Ravel - Concerto for Piano and Orchestra in G major - [IV]+\\. (.*)"},"PianoTrio":{"fixAlbumTitle":{"form":"Trio","instrument":"Piano","key":"A","mode":"minor"},"firstTrackNumber":8,"fixTrackName":"Pianotrio in a - \\d (.*)"},"PianoPieces[Slåttebrekk]":{"firstTrackNumber":9},"Rhapsodie espagnole":{"fixTrackName":"Rhapsodie espagnole \\d\\. (.*)","firstTrackNumber":2},"StringQuart":{"fixAlbumTitle":{"form":"Quartet","key":"F","mode":"major"},"fixTrackName":"Strijkkwartet in F - \\d (.*)"},"Tombeau de Couperin":{"firstTrackNumber":7,"fixTrackName":"Le Tombeau de Couperin - \\d.(.*)"},"Valses nobles et sentimentales":{"firstTrackNumber":11,"fixTrackName":"Valses \\(8\\) nobles et sentimentales \\d. (.*)"},"Valses nobles et sentimentale[Slåttebrekk]":{"fixTrackName":"Valses nobles et sentimentales - (.*)"},"ViolinSonata":{"fixAlbumTitle":{"form":"Sonata","instrument":"Violin","key":"G","mode":"minor"},"firstTrackNumber":5,"fixTrackName":"Vioolsonate in G - \\d (.*)"}},"Richard Strauss":{"Burleske for Piano and Orchestra":{"firstTrackNumber":4,"fixTrackName":"Richart Strauss - (.*)"},"FourLastSongs":{"fixTrackName":"Vier letzte Lieder [IV]+\\. (.*)"},"Lieder":{"firstTrackNumber":5},"Rosenkavalier1":{"fixTrackName":"Der Rosenkavalier, Op. 59 Aufzug I. (.*)"},"Salome":{"fixTrackName":"Salome (?:Erste|Zweite|Dritte|Vierte) Szene. (.*)"}},"Richter":{"The Essential Richter ~ The Mystic":{"fixAlbumTitle":"Essential Richter: The Mystic"},"The Essential Richter ~ The Philosopher":{"fixAlbumTitle":"Essential Richter: The Philosopher","validation":["skipUniqueTrackNameCheck"]},"The Essential Richter ~ The Poet - Sviatoslav Richter":{"fixAlbumTitle":"Essential Richter: The Poet"},"The Essential Richter ~ The Virtuoso":{"fixAlbumTitle":"Essential Richter: The Virtuoso"},"The Sofia Recital 1958":{"fixAlbumTitle":"Essential Richter: The Sofia Recital 1958","validation":["skipUniqueTrackNameCheck"]}},"Robert Johnson":{"The Complete Recordings":{"validation":["skipUniqueTrackNameCheck"]}},"Robert Schumann":{"Fantasie[Andsnes]":{"firstTrackNumber":5,"fixTrackName":"Fantasie C-dur, Op. 17 [IV]+\\. (.*)"},"Fantasy[Brendel]":{"firstTrackNumber":9,"fixTrackName":"Schumann - Fantasy in C major Op 17 (.*)"},"Kreislerianna[Brendel]":{"fixTrackName":"Schumann - Kreislerianna Op 16 (.*)"},"Sonata1[Andsnes]":{"fixAlbumTitle":{"form":"Sonata","num":1,"key":"F#","mode":"minor","opus":11,"opus_prefix":"Op.","performer":"Andsnes"},"fixTrackName":"Klaviersonate Nr. 1 Fis-moll, Op. 11 [IV]+\\. (.*)"}},"Rodrigo":{"Concerto in D op.99":{"fixAlbumTitle":{"form":"Conc","instrument":"Guitar","key":"D","mode":"major","opus":99,"opus_prefix":"Op."},"firstTrackNumber":7,"fixTrackName":"Concerto in D op. 99 - \\d - (.*)"},"Concierto de Aranjuez":{"fixAlbumTitle":{"form":"Conc","instrument":"Guitar","subTitle":"de Aranjuez"},"fixTrackName":"Concierto de Aranjuez - \\d. (.*)"},"Concierto de Aranjuez[2]":{"fixTrackName":"Rodrigo - Concierto de Aranjuez - (.*)"},"Concierto Serenata":{"firstTrackNumber":4,"fixTrackName":"Rodrigo - Concierto Serenata for Harp and Orchestra - (.*)"},"HarpConcerto":{"fixAlbumTitle":{"form":"Conc","instrument":"Harp","subTitle":"Serenata"},"firstTrackNumber":4,"fixTrackName":"Concierto Serenata para Arpa y Orquesta - \\d - (.*)"},"Tres Pieces Espanolas":{"firstTrackNumber":12}},"Roomful_of_Teeth":{"Roomful of Teeth":{"validation":["skipUniqueTrackNameCheck"]}},"Rossini":{"IlBarbiere2":{"firstTrackNumber":6}},"Scarlatti":{"Sonatas Pogorelich":{"fixAlbumTitle":"Sonatas [Pogorelich]","validation":["skipUniqueTrackNameCheck"]},"Sonatas Zacharias":{"fixAlbumTitle":"Sonatas [Zacharias]","validation":["skipUniqueTrackNameCheck"]}},"Schnittke":{"PianoQuintet":{"fixAlbumTitle":{"form":"Quintet","instrument":"Piano"},"firstTrackNumber":6,"fixTrackName":"Schnittke - Piano quintet - (.*)"}},"Shchedrin":{"PianoConcerto2[Hamelin]":{"firstTrackNumber":8,"fixTrackName":"Piano Concerto no. 2: [IV]+\\. (.*)"}},"Sheila Jordan":{"Little Song":{"fixTrackName":"Sheila Jordan - (.*)","validation":["skipUniqueTrackNameCheck"]},"With the Steve Kuhn Trio":{"fixTrackName":"Sheila Jordan - (.*)","validation":["skipUniqueTrackNameCheck"]}}}
+{
+  "Aaron Copland": {
+    "AppalachianSpring": {
+      "fixTrackName": "Appalachian Spring \\(Ballet for Martha\\): (.*)"
+    },
+    "ClarinetConcerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Clarinet"
+      },
+      "fixTrackName": "Concerto for Clarinet and String Orchestra, [IV]+\\. (.*)"
+    },
+    "DancePanels": {
+      "firstTrackNumber": 10,
+      "fixTrackName": "Dance Panels, [IV]+\\. (.*)"
+    },
+    "FallRiverLegend": {
+      "firstTrackNumber": 12,
+      "fixTrackName": "Fall River Legend: (.*)"
+    },
+    "FourPieces": {
+      "fixAlbumTitle": "Four Pieces",
+      "validation": [
+        "skipTrackNumberCheck"
+      ]
+    },
+    "MusicForTheTheatre": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Music for the Theatre: (.*)"
+    },
+    "Symph3": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 3
+      },
+      "fixTrackName": "Symphony No. 3: [IV]+\\. (.*)"
+    },
+    "Symphonette": {
+      "firstTrackNumber": 18,
+      "fixTrackName": "Latin-American Symphonette: [IV]+\\. (.*)"
+    },
+    "TenderLand": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "The Tender Land Suite: (.*)"
+    }
+  },
+  "Adams_John": {
+    "Nixon1": {
+      "fixTrackName": "Act I Scene \\d (.*)"
+    },
+    "Nixon2": {
+      "fixTrackName": "Act II Scene \\d (.*)"
+    },
+    "Nixon3": {
+      "fixTrackName": "Act III Scene \\d (.*)"
+    }
+  },
+  "Albeniz": {
+    "Cantos de España": {
+      "fixTrackName": "Cantos de España: \\d+\\. (.*)"
+    },
+    "Six Pieces": {
+      "firstTrackNumber": 6
+    },
+    "Cordoba": {
+      "firstTrackNumber": 6
+    },
+    "Six pieces": {
+      "firstTrackNumber": 6
+    },
+    "Suite Espanola": {
+      "firstTrackNumber": 2
+    }
+  },
+  "Alkan": {
+    "Sonatine, Op. 61": {
+      "fixTrackName": "^\\d+ Sonatine, Op. 61 (\\d+)\\. (.*)"
+    },
+    "Barcarolle": {
+      "firstTrackNumber": 9
+    },
+    "Le festin d'Esope": {
+      "firstTrackNumber": 10,
+      "fixTrackName": "(.*), op. 39 no. 12"
+    },
+    "Sonatine": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Sonatine, op. 61: [IV]+. (.*)"
+    },
+    "Grande sonate op33 \"Les quatre âges\"": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "opus": 33,
+        "opus_prefix": "Op.",
+        "subTitle": "Les quatre âges"
+      },
+      "fixTrackName": "Grande sonate, op\\. 33 \\\"Les quatre âges\\\": [IV]+\\. (.*)"
+    }
+  },
+  "Arild Andersen": {
+    "Sagn": {
+      "fixTrackName": "Sagn, (.*)"
+    }
+  },
+  "Arnold Schönberg": {
+    "Erwartung[Boulez]": {
+      "fixTrackName": "Erwartung, Scene \\d+ (.*)"
+    },
+    "ChamberSymphony": {
+      "fixTrackName": "Chamber Symphony no. 2, op. 38: [IV]+\\. (.*)"
+    },
+    "Cinematographic": {
+      "firstTrackNumber": 3
+    },
+    "Five Piano Pieces Op23": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Five Piano Pieces, Op. 23 (.*)"
+    },
+    "Five pieces for orchestra": {
+      "fixTrackName": "Schoenberg - 5 pieces for orchestra Op 16 - (.*)"
+    },
+    "Lied der Waldtaube[Boulez]": {
+      "firstTrackNumber": 30,
+      "fixTrackName": "(.*) \\(Chamber Orchestra version\\) .*"
+    },
+    "Ode to Napoleon Buonaparte": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "(Ode to Napoleon Buonaparte), Op. 41"
+    },
+    "Phantasy[Gould-Menuhin] Op47": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Schoenberg Phantasy Op47 - (.*)"
+    },
+    "Piano Concerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "opus": 42,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto for Piano and Orchestra, Op. 42 (.*)"
+    },
+    "PianoConc Op42": {
+      "fixTrackName": "Concerto for Piano and Orchestra, Op. 42 (.*)"
+    },
+    "Three Piano Pieces Op11": {
+      "fixTrackName": "Three Piano Pieces, Op. 11 (.*)"
+    },
+    "Pierrot Lunaire[Boulez]": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Pierrot Lunaire, Part I+ (.*) \\(.*\\)"
+    },
+    "Six Little Piano Pieces Op19": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Six Little Piano Pieces, Op. 19 (.*)"
+    },
+    "Suite for Piano Op25": {
+      "firstTrackNumber": 15,
+      "fixTrackName": "Suite for Piano, Op. 25 (.*)"
+    },
+    "Three Pieces for Orchestra": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Three Pieces for Orchestra, \\d. (.*)"
+    },
+    "Two Piano Pieces Op33": {
+      "firstTrackNumber": 20,
+      "fixTrackName": "Two Piano Pieces, Op. 33- A & B (.*)"
+    },
+    "VariationsForOrch": {
+      "fixTrackName": "Schoenberg - Variations for orchestra Op 31 - (.*)"
+    },
+    "Verklärte Nacht": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Verklärte Nacht, op. 4 \\(arr. for string orchestra\\): (.*)"
+    }
+  },
+  "Barber": {
+    "ViolinConc[Ehnes]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "opus": 14,
+        "opus_prefix": "Op.",
+        "performer": "Ehnes"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Barber - Concerto for Violin and Orchestra, Op. 14 - [IV]+ - (.*)"
+    }
+  },
+  "Bartok": {
+    "Concerto for Orchestra": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Orchestra"
+      },
+      "fixTrackName": "Concerto for orchestra - (.*)"
+    },
+    "Music for Strings, Percussion and Celesta": {
+      "firstTrackNumber": 6,
+      "fixTrackName": "Music for Strings, Percussion and Celesta - (.*)"
+    },
+    "Sonata": {
+      "firstTrackNumber": 13,
+      "fixTrackName": "Bartok - Sonata for two pianos and percussion - (.*)"
+    }
+  },
+  "Beatles": {
+    "Sgt. Pepper": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Bellini": {
+    "I Puritani3 [Callas]": {
+      "firstTrackNumber": 11,
+      "fixTrackName": "Act 3 - (.*)"
+    }
+  },
+  "Berg": {
+    "Lulu Suite": {
+      "firstTrackNumber": 10,
+      "fixTrackName": "Lulu Suite, \\d+\\. (.*)"
+    },
+    "Lulu2": {
+      "fixTrackName": "Lulu Akt II, Szene I+\\. (.*)"
+    },
+    "Lulu3": {
+      "fixTrackName": "Lulu Akt III, Szene I+\\. (.*)"
+    },
+    "ViolinConcerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "performer": "Mutter"
+      },
+      "fixTrackName": "Violinkonzert [IV]+\\. (.*)"
+    },
+    "Three pieces for orchestra": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Alban Berg - 3 pieces for orchestra - (.*)"
+    },
+    "Wozzeck1": {},
+    "Wozzeck2": {
+      "firstTrackNumber": 8
+    }
+  },
+  "Billy Joel": {
+    "Piano Man: The Very Best of Billy Joel": {
+      "fixTrackName": "Billy Joel - (.*)"
+    }
+  },
+  "Bizet": {
+    "CarmenSuite": {
+      "fixTrackName": "Carmen Suite No. \\d+: (.*)"
+    }
+  },
+  "Brahms": {
+    "Drei Gesänge": {
+      "fixTrackName": "Drei Gesänge-I+\\. (.*)"
+    },
+    "Fünf Gesänge": {
+      "firstTrackNumber": 15,
+      "fixTrackName": "Fünf Gesänge-[IV]+\\. (.*)"
+    },
+    "In stiller Nacht": {
+      "firstTrackNumber": 20,
+      "fixTrackName": "(.*)"
+    },
+    "PianoConcerto2[Richter]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "instrument": "Piano",
+        "key": "Bb",
+        "mode": "major",
+        "opus": 83,
+        "opus_prefix": "Op.",
+        "performer": "Richter"
+      },
+      "fixTrackName": "Piano Concerto No. 2 in B-flat major, Op. 83 [IV]+\\. (.*)",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Sieben Lieder": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Sieben Lieder-[IV]+\\. (.*)"
+    },
+    "Symph 1 c Op.68": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 1,
+        "key": "C",
+        "mode": "minor",
+        "opus": 68,
+        "opus_prefix": "Op.",
+        "performer": "Karajan"
+      },
+      "fixTrackName": "Symphony No. 1 in C minor, Op. 68 [IV]+\\. (.*)"
+    },
+    "Symph 2 D Op.73": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 2,
+        "key": "D",
+        "mode": "major",
+        "opus": 73,
+        "opus_prefix": "Op.",
+        "performer": "Karajan"
+      },
+      "fixTrackName": "Symphony No. 2 in D major, Op. 73 [IV]+\\. (.*)"
+    },
+    "Symph 3 F Op.90": {
+      "firstTrackNumber": 5,
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 3,
+        "key": "F",
+        "mode": "major",
+        "opus": 90,
+        "opus_prefix": "Op.",
+        "performer": "Karajan"
+      },
+      "fixTrackName": "Symphony No. 3 in F major, Op. 90 [IV]+\\. (.*)"
+    },
+    "Symph 4 e Op.98": {
+      "firstTrackNumber": 5,
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 4,
+        "key": "e",
+        "mode": "minor",
+        "opus": 98,
+        "opus_prefix": "Op.",
+        "performer": "Karajan"
+      },
+      "fixTrackName": "Symphony No. 4 in E minor, Op. 98 [IV]+\\. (.*)"
+    },
+    "Vier Gesänge": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Vier Gesänge-[IV]+\\. (.*)"
+    },
+    "ViolConc D Op.77": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violinn",
+        "key": "D",
+        "mode": "major",
+        "opus": 77,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Konzert für Violine und Orchester D-Dur, Op. 77 [IV]+\\. (.*)"
+    },
+    "ViolSon 1 G Op.78": {
+      "firstTrackNumber": 4,
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Violin",
+        "num": 1,
+        "key": "G",
+        "mode": "major",
+        "opus": 78,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Sonata for Violin and Piano No. 1 in G major, Op. 78 [IV]+\\. (.*)"
+    },
+    "ViolSon 2 A Op.100": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Violin",
+        "num": 2,
+        "key": "a",
+        "mode": "major",
+        "opus": 100,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Sonata for Violin and Piano No. 2 in A major, Op. 100 [IV]+\\. (.*)"
+    },
+    "ViolSon 3 d Op.108": {
+      "firstTrackNumber": 7,
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Violin",
+        "num": 3,
+        "key": "d",
+        "mode": "minor",
+        "opus": 108,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Sonata for Violin and Piano No. 3 in D minor, Op. 108 [IV]+\\. (.*)"
+    }
+  },
+  "Britten": {
+    "The Turn of the Screw 1": {},
+    "The Turn of the Screw 2": {
+      "fixTrackName": "The Turn of the Screw Act II, Variation [IVX]+ - Act II, Scene \\d+ (.*)"
+    },
+    "Violin Concerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "opus": 15,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Violin Concerto Op\\.15 \\-I+\\- (.*)"
+    },
+    "Young Person's Guide to the Orchestra": {
+      "firstTrackNumber": 23,
+      "fixTrackName": "Young Person's Guide to the Orchestra, Op. 34 [IVX]+\\. (.*)"
+    }
+  },
+  "Bruch": {
+    "Scottish Fantasy": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Scottish Fantasy (.*)"
+    },
+    "Violin Conc 1": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "num": 1
+      },
+      "fixTrackName": "Concerto No.1 (.*)"
+    },
+    "ViolinConcert[Menuhin]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "num": 1,
+        "performer": "Menuhin"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Yehudi Menuhin - [IV]+\\. (.*)"
+    }
+  },
+  "Bruckner": {
+    "Mass in C Minor": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Mass in C Minor - (.*)"
+    },
+    "Mass in E Minor": {
+      "fixTrackName": "Mass No 2 in E minor - (.*)"
+    },
+    "Two songs": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "(.*)"
+    }
+  },
+  "Camarón": {
+    "Te Lo Dice Camarón": {
+      "fixTrackName": "Camarón - (.*)"
+    }
+  },
+  "Carl Nielsen": {
+    "Symph 1": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 1
+      },
+      "fixTrackName": "\\d - (.*)"
+    },
+    "Symph 4": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 4
+      },
+      "firstTrackNumber": 6,
+      "fixTrackName": "\\d - (.*)"
+    },
+    "Two Orch Pieces": {
+      "validation": [
+        "skipTrackNumberCheck"
+      ]
+    }
+  },
+  "Corelli": {
+    "Conc 1 D": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 1,
+        "key": "D",
+        "mode": "major",
+        "opus": 6,
+        "opus_number": 1,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto No.1 in D major [IV]+\\.(.*)"
+    },
+    "Conc 2 F": {
+      "firstTrackNumber": 8,
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "key": "F",
+        "mode": "major",
+        "opus": 6,
+        "opus_number": 2,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto No.2 in F -[IV]+- (.*)"
+    },
+    "Conc 3 c": {
+      "firstTrackNumber": 12,
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 3,
+        "key": "C",
+        "mode": "minor",
+        "opus": 6,
+        "opus_number": 3,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto No.3 in C minor -[IV]+- (.*)"
+    },
+    "Conc 4 D": {
+      "firstTrackNumber": 17,
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 4,
+        "key": "D",
+        "mode": "major",
+        "opus": 6,
+        "opus_number": 4,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto No.4 in D -[IV]+- (.*)"
+    },
+    "Conc 5 B flat": {
+      "firstTrackNumber": 21,
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 5,
+        "key": "Bb",
+        "mode": "major",
+        "opus": 6,
+        "opus_number": 5,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto #5 in B Flat [IV]+\\. (.*)"
+    },
+    "Conc 6 F": {
+      "firstTrackNumber": 25,
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 6,
+        "key": "F",
+        "mode": "major",
+        "opus": 6,
+        "opus_number": 6,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Concerto No.6 in F -[IV]+- (.*)"
+    }
+  },
+  "Couperin": {
+    "Two organ pieces": {
+      "firstTrackNumber": 6
+    }
+  },
+  "CPE Bach": {
+    "Sonata Wq78": {
+      "firstTrackNumber": 14,
+      "fixTrackName": "CPE Bach - Sonata Wq78 - (.*)"
+    }
+  },
+  "Charles-François Gounod": {
+    "Messe Solennelle de Sainte Cécile - St. Cecilia Mass - Cäcilienmesse": {
+      "fixTrackName": "Messe Solennelle de Sainte Cécile: (?:[IVX]+\\. )?(.*)"
+    }
+  },
+  "Debussy": {
+    "ChildrensCorner": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Children's Corner, suite for piano \\(or orchestra\\), L\\. 113: (.*)"
+    },
+    "EnBlancEtNoire": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "En blanc et noir, L 134: I+\\. (.*)"
+    },
+    "epigraphes antiques": {
+      "firstTrackNumber": 16,
+      "fixTrackName": "6 épigraphes antiques, L 131: [IV]+\\. (.*)"
+    },
+    "Etudes": {
+      "firstTrackNumber": 19,
+      "fixTrackName": "Études \\(6\\) for piano, Book 2, L. 136-7-12: (.*)"
+    },
+    "Images": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Images \\(3\\), for piano, Set I+, L\\. \\d+: (.*)"
+    },
+    "MidiDunFaune": {
+      "firstTrackNumber": 7
+    },
+    "PetiteSuiteL65": {
+      "firstTrackNumber": 11,
+      "fixTrackName": "Petite suite, L 65: [IV]+\\. (.*)"
+    },
+    "PianoPieces": {
+      "validation": [
+        "skipTrackNumberCheck"
+      ]
+    },
+    "Preludes": {
+      "firstTrackNumber": 11,
+      "fixTrackName": "Préludes \\(12\\) for piano, Book [I]+, L. \\d+: (.*)"
+    },
+    "SuiteBergamasque": {
+      "firstTrackNumber": 15,
+      "fixTrackName": "Suite Bergamasque, L 75: [IV]+\\. (.*)"
+    },
+    "ThreePieces": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Donizetti": {
+    "Lucia1": {
+      "fixTrackName": "Lucia di Lammermoor (.*)"
+    },
+    "Lucia2": {
+      "fixTrackName": "Lucia di Lammermoor (.*)"
+    }
+  },
+  "Dvorak": {
+    "Symph7": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 7
+      },
+      "fixTrackName": "Dvorak- Sym#7- [IV]+\\.(.*)"
+    },
+    "Symph8": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 8,
+        "key": "C",
+        "mode": "major",
+        "opus": 88,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Symphony 8 in C major Op 88 - (.*)"
+    },
+    "Symph9": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 9,
+        "key": "E",
+        "mode": "minor",
+        "opus": 95,
+        "opus_prefix": "Op.",
+        "subTitle": "New World"
+      },
+      "firstTrackNumber": 5,
+      "fixTrackName": "Symphony 9 in E minor Op 95 New World - (.*)"
+    }
+  },
+  "Elgar": {
+    "Cello": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Cello",
+        "opus": 85,
+        "opus_prefix": "Op.",
+        "key": "E",
+        "mode": "minor"
+      },
+      "fixTrackName": "Cello Concerto in E minor, Op. 85 [IV]+\\. (.*)"
+    }
+  },
+  "Erik Satie": {
+    "3 Gymnopédies etc [Pascal Rogé]": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "E.S.T.": {
+    "Tuesday Wonderland": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Furtwangler": {
+    "Adagio": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Furtwangler - (Adagio solemne)"
+    }
+  },
+  "Gershwin": {
+    "An American in Paris[Previn]": {
+      "firstTrackNumber": 2
+    },
+    "PianoConc": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "F",
+        "mode": "major"
+      },
+      "fixTrackName": "Gershwin - Concerto for Piano and Orchestra in F - [IV]+\\. (.*)"
+    },
+    "PianoConc[Previn]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "F",
+        "mode": "major",
+        "performer": "Previn"
+      },
+      "firstTrackNumber": 3,
+      "fixTrackName": "Piano Concerto in F: [IV]+\\. (.*)"
+    }
+  },
+  "Glen Gould": {
+    "Byrd-Gibbons-Sweelinck": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Granados": {
+    "Pieces": {
+      "firstTrackNumber": 7
+    }
+  },
+  "Grieg": {
+    "CelloSonata": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Cello",
+        "opus": 36,
+        "opus_prefix": "Op.",
+        "key": "A",
+        "mode": "minor"
+      },
+      "fixTrackName": "Cello Sonata in A minor, op. 36: [IV]+\\. (.*)"
+    },
+    "FourPieces": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Four Pieces, op. 78: [IV]+\\. (.*)"
+    },
+    "From Holberg's Time": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "From Holberg's Time, op. 40: [IV]+\\. (.*)"
+    },
+    "Haugtussa[vonOtter]": {
+      "fixTrackName": "»Haugtussa« Op. 67: [IV]+\\. (.*)"
+    },
+    "LyricPieces[Andsnes]": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Lyrical Pieces op. 65: [IV]+\\. (.*)"
+    },
+    "PeerGynt1": {
+      "fixTrackName": "Peer Gynt Suite no. 1, op. 46: [IV]+\\. (.*)"
+    },
+    "PeerGynt2": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Peer Gynt Suite no. 2, op. 55: [IV]+\\. (.*)"
+    },
+    "PianoConcerto[Richter]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "A",
+        "mode": "minor",
+        "opus": 16,
+        "opus_prefix": "Op.",
+        "performer": "Richter"
+      },
+      "fixTrackName": "Piano concerto a minor op 16 - Richter - (.*)"
+    },
+    "PianoConcerto[Andsnes]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "A",
+        "mode": "minor",
+        "opus": 16,
+        "opus_prefix": "Op.",
+        "performer": "Andsnes"
+      },
+      "fixTrackName": "Piano Concerto: [IV]+\\. (.*)"
+    },
+    "Sanger[vonOtter]": {
+      "firstTrackNumber": 15,
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "SeksSange[vonOtter]": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Seks Sange Op. 48: [IV]+\\. (.*)"
+    },
+    "Three psalms": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Psalms - (.*)"
+    },
+    "TwoPieces": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Two Pieces, op\\. 77: [IV]+\\. (.*)"
+    },
+    "ViolinSonata": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Violin",
+        "key": "G",
+        "mode": "major",
+        "opus": 13,
+        "opus_prefix": "Op."
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "ViolinSonata G major Op 13 - (.*)"
+    }
+  },
+  "Grigny": {
+    "Two organ pieces": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Grigny - (.*)"
+    }
+  },
+  "Hindemith": {
+    "ViolinConcerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin"
+      },
+      "firstTrackNumber": 16,
+      "fixTrackName": "Hindemith - Concerto for violin and orchestra - (.*)"
+    }
+  },
+  "In_the_country": {
+    "Losing stones, collecting bones": {
+      "fixTrackName": "In the country - (.*)"
+    }
+  },
+  "Ives": {
+    "Hymns": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Ives Hymns \\d+ (.*)"
+    },
+    "Symphony1": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 1
+      },
+      "fixTrackName": "Ives Symphony No.1 \\d+ (.*)"
+    },
+    "Symphony4": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 4
+      },
+      "firstTrackNumber": 10,
+      "fixTrackName": "Ives Symphony No.4 \\d+ (.*)"
+    }
+  },
+  "Jackie_Treehorn": {
+    "We are Jackie Treehorn": {
+      "fixTrackName": "Jackie Treehorn - (.*)"
+    }
+  },
+  "Janáček": {
+    "Jenůfa1": {
+      "fixTrackName": "Jenůfa Jednání I\\. (.*)"
+    },
+    "Jenůfa2": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Jenůfa Jednání II\\. (.*)"
+    },
+    "Jenůfa3": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Jenůfa Jednání III\\. (.*)"
+    },
+    "Jenůfa Extras": {
+      "firstTrackNumber": 14
+    }
+  },
+  "James MacMillan": {
+    "Seven Last Words from the Cross": {
+      "fixTrackName": "Seven Last Words from the Cross \\(1993\\) \\d. (.*)"
+    },
+    "Cantos Sagrados": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Cantos Sagrados \\(1989\\) \\d. (.*)"
+    }
+  },
+  "Jan Garbarek": {
+    "Officium": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Joan Cererols": {
+    "Missa de Batalla": {
+      "firstTrackNumber": 11,
+      "fixTrackName": "Missa de batalla - (.*)"
+    },
+    "Missa pro Defunctis": {
+      "fixTrackName": "Missa [Pp]ro [Dd]efunctis - (.*)"
+    }
+  },
+  "Khachaturian": {
+    "Piano Concerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "Db",
+        "mode": "major"
+      },
+      "fixTrackName": "Khachaturian Piano Concerto in Db - [I]+ (.*)"
+    },
+    "Sonatina": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "(?:Khachaturian Sonatina - )?I+\\.? (.*)"
+    },
+    "Toccata": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "(Toccata) \\(1932\\)"
+    }
+  },
+  "Kodaly": {
+    "Hary Janos Suite": {
+      "firstTrackNumber": 16
+    }
+  },
+  "Korngold": {
+    "ViolinConc[Ehnes]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "opus": 35,
+        "opus_prefix": "Op.",
+        "key": "D",
+        "mode": "major"
+      },
+      "fixTrackName": "Korngold - Violin Concerto in D, [Oo]p\\. ?35 - I+ - (.*)"
+    }
+  },
+  "Kronos_Quartet": {
+    "Black Angels": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Karkwa": {
+    "Les Chemins de verre": {
+      "fixTrackName": "Karkwa - (.*)"
+    }
+  },
+  "Kayhan Kalhor": {
+    "Ali Akbar Moradi": {
+      "fixTrackName": "Kayhan Kalhor - (.*)"
+    }
+  },
+  "Knut Reiersrud": {
+    "Himmelskip": {
+      "fixTrackName": "Knut Reiersrud - (.*)"
+    }
+  },
+  "Kristorn": {
+    "69": {
+      "fixTrackName": "Kriston - 69-\\d+ (.*)"
+    }
+  },
+  "Lassus": {
+    "Missa Bell' Amfitrit": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "(?:Lassus Missa Bell' Amfitrit' altera - )?(.*)"
+    }
+  },
+  "Lisa LeBlanc": {
+    "Lisa LeBlanc": {
+      "fixTrackName": "Lisa LeBlanc - (.*)"
+    }
+  },
+  "Liszt": {
+    "Five pieces [Brendel]": {
+      "validation": [
+        "skipTrackNumberCheck"
+      ]
+    },
+    "PianoConcerto1 [Richter]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 1,
+        "key": "Eb",
+        "mode": "major",
+        "performer": "Richter"
+      },
+      "fixTrackName": "Piano Concerto no. 1 in E-flat major: [IV]+\\. (.*)"
+    },
+    "PianoConcerto2 [Richter]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "key": "A",
+        "mode": "major",
+        "performer": "Richter"
+      },
+      "firstTrackNumber": 5,
+      "fixTrackName": "Piano Concerto no\\. 2 in A major: [IV]+\\. (.*)"
+    },
+    "PianoConcerto2[Andsnes]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "key": "A",
+        "mode": "major",
+        "performer": "Andsnes"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Piano Concerto No. 2 in A minor: [IV]+\\. (.*)"
+    },
+    "Sonata in b [Richter]": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Piano",
+        "key": "B",
+        "mode": "minor",
+        "performer": "Richter"
+      },
+      "firstTrackNumber": 9,
+      "fixTrackName": "Piano Sonata in B minor: [IV]+\\. (.*)"
+    }
+  },
+  "Malcolm Arnold": {
+    "Symph1": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 1,
+        "opus": 27,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "(.*) - Symphony No\\.1 Op\\.22"
+    },
+    "PianoConcerto 3 hands": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "opus": 104,
+        "opus_prefix": "Op.",
+        "subTitle": "2 pianos 3 hands"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "(.*) - Concerto for 2 Pianos \\(3 Hands\\) Op\\.104"
+    },
+    "Five orch pieces": {
+      "firstTrackNumber": 7
+    }
+  },
+  "Madredeus": {
+    "O Espírito da Paz": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Medtner": {
+    "SonateOp11": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Piano",
+        "opus": 11,
+        "opus_prefix": "Op."
+      },
+      "firstTrackNumber": 7,
+      "fixTrackName": "(?:Sonaten-Triade op\\. 11 - )?Nr\\. \\d (.*)"
+    },
+    "Zwei Märchen": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Zwei Märchen op. 8 - I+\\. (.*)"
+    }
+  },
+  "Mendelssohn": {
+    "Symph4": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 4,
+        "opus": 90,
+        "opus_prefix": "Op.",
+        "key": "A",
+        "mode": "major",
+        "subTitle": "Italian"
+      },
+      "fixTrackName": "Symphonie Nr\\. 4 A-Dur op\\. 90 \"Italienische\": [IV]+\\. (.*)"
+    },
+    "Symph5": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 5,
+        "opus": 107,
+        "opus_prefix": "Op.",
+        "key": "D",
+        "mode": "minor",
+        "subTitle": "Reformation"
+      },
+      "firstTrackNumber": 5,
+      "fixTrackName": "Symphonie Nr\\. 5 d-Moll op\\. 107 \"Reformation\": [IV]+\\. (.*)"
+    },
+    "ViolinConcert[Menuhin]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Violin",
+        "opus": 64,
+        "opus_prefix": "Op.",
+        "key": "E",
+        "mode": "minor"
+      },
+      "fixTrackName": "Yehudi Menuhin - [IV]+\\. (.*)"
+    }
+  },
+  "Maurice Jarre": {
+    "Lawrence of Arabia Soundtrack": {
+      "fixTrackName": "Maurice Jarre - (.*)"
+    }
+  },
+  "Miles Davis": {
+    "Ascenseur pour l'Échafaud": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Dingo": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Live at Montreux": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Music From Siesta": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "We Want Miles": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Moussorgsky": {
+    "Pictures (original)": {
+      "firstTrackNumber": 16,
+      "fixTrackName": "Pictures at an exhibition - Original version \\d+\\. (.*)"
+    },
+    "Pictures (orchestral)": {
+      "fixTrackName": "Pictures at an exhibition - Orchestral version by Ravel \\d+\\. (.*)"
+    },
+    "NightOnBaldMountain": {
+      "firstTrackNumber": 9
+    }
+  },
+  "Orff": {
+    "Carmina Burana": {
+      "fixTrackName": "Carmina Burana (.*)",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Poulenc": {
+    "The Story of Babar": {
+      "firstTrackNumber": 10,
+      "fixTrackName": "The Story of Babar [IVX]+\\. ?(.*)"
+    }
+  },
+  "Prokofiev": {
+    "Alexander Nevsky [Complete]": {
+      "fixTrackName": "Alexander Nevsky (.*)"
+    },
+    "Alexander Nevsky Suite": {
+      "fixTrackName": "Alexander Nevsky, Op. 78 [IV]+\\. (.*)"
+    },
+    "Andante Cantabile": {
+      "firstTrackNumber": 12
+    },
+    "CelloConcertoOp125[YoYoMa]": {
+      "fixTrackName": "Prokofiev - Cello concerto Op 125 - (.*)"
+    },
+    "Lieutenant Kijé": {
+      "firstTrackNumber": 12,
+      "fixTrackName": "Lieutenant Kijé, Op. 60 [IV]+\\. (.*)"
+    },
+    "Lieutenant Kijé [2]": {
+      "firstTrackNumber": 5
+    },
+    "Love of Three Oranges": {
+      "firstTrackNumber": 10
+    },
+    "Peter and the Wolf": {
+      "fixTrackName": "Peter and the Wolf, Op. 67 [IVX]+\\. (.*)"
+    },
+    "Scythian Suite Op20": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Scythian Suite, Op. 20 [IV]+\\. (.*)"
+    },
+    "Sinfonia Concertante": {
+      "fixTrackName": "Sinfonia Concertante, Op.125 (.*)"
+    },
+    "Rococco Variations": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Varições Rococó, Op\\.33 (.*)"
+    }
+  },
+  "Palestrina": {
+    "Motet Hodie Christus natus est": {
+      "firstTrackNumber": 6
+    },
+    "Stabat Mater": {
+      "firstTrackNumber": 7
+    }
+  },
+  "Puccini": {
+    "Madama Butterfly 1": {
+      "fixTrackName": "Madama Butterfly Act I\\. (.*)"
+    },
+    "Madama Butterfly 2": {
+      "fixTrackName": "Madama Butterfly Act II, Part [IV]+\\. (.*)"
+    },
+    "Tosca 1": {
+      "fixTrackName": "Atto 1 - (.*)"
+    },
+    "Tosca 2": {
+      "firstTrackNumber": 15,
+      "fixTrackName": "(?:Atto 2 -|Tosca, Atto II) (.*)"
+    },
+    "Tosca 3": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Tosca, Atto III (.*)"
+    },
+    "Turandot 1": {
+      "fixTrackName": "Turandot Act I. (.*)"
+    },
+    "Turandot 2": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "(?:Turandot Act II, Scene I+\\.|Act 2 - Scene 2 - )(.*)"
+    },
+    "Turandot 3": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Act 3 - Scene \\d - (.*)"
+    }
+  },
+  "Rachmaninoff": {
+    "PianoConcerto2[Janis]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "instrument": "Piano",
+        "key": "C",
+        "mode": "minor",
+        "opus": 18,
+        "opus_prefix": "Op.",
+        "performer": "Janis"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Piano Concerto No. 2 in C minor, Op. 18 [IV]+\\. (.*)"
+    },
+    "PianoConcerto2": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 2,
+        "instrument": "Piano",
+        "key": "C",
+        "mode": "minor",
+        "opus": 18,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Piano Concerto No. 2 in C minor Op. 18 [IV]+\\. (.*)"
+    },
+    "PianoConcerto3[Janis]": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "num": 3,
+        "instrument": "Piano",
+        "key": "D",
+        "mode": "minor",
+        "opus": 30,
+        "opus_prefix": "Op.",
+        "performer": "Janis"
+      },
+      "fixTrackName": "Piano Concerto No. 3 in D minor, Op. 30 [IV]+\\. (.*)"
+    },
+    "Symph2": {
+      "fixAlbumTitle": {
+        "form": "Symph",
+        "num": 2,
+        "key": "E",
+        "mode": "minor",
+        "opus": 27,
+        "opus_prefix": "Op."
+      },
+      "fixTrackName": "Symphony No. 2 in E minor, Op. 27: [IV]+\\. (.*)"
+    },
+    "TheRockOp7": {
+      "firstTrackNumber": 5
+    },
+    "TwoPreludes[Janis]": {
+      "firstTrackNumber": 7,
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Vespers (The Saint Petersburg Cappella, choirmaster: Vladislav Chernushenko)": {
+      "fixTrackName": "Vespers, Op. 37: \\d+\\. (.*)"
+    }
+  },
+  "Ravel": {
+    "Alborada del gracioso": {
+      "firstTrackNumber": 6
+    },
+    "Bolero": {
+      "firstTrackNumber": 8
+    },
+    "Daphnis et Chloe": {
+      "firstTrackNumber": 3,
+      "fixTrackName": "Daphnis [Ee]t Chloe (.*)"
+    },
+    "MotherGooseSuite": {
+      "firstTrackNumber": 2
+    },
+    "La Valse": {
+      "firstTrackNumber": 2
+    },
+    "PianoConcerto D major left hand": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "D",
+        "mode": "major",
+        "subTitle": "left hand"
+      },
+      "firstTrackNumber": 7,
+      "fixTrackName": "Ravel - Concerto for the left hand in D major - (.*)"
+    },
+    "PianoConcerto G major": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Piano",
+        "key": "G",
+        "mode": "major"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Ravel - Concerto for Piano and Orchestra in G major - [IV]+\\. (.*)"
+    },
+    "PianoTrio": {
+      "fixAlbumTitle": {
+        "form": "Trio",
+        "instrument": "Piano",
+        "key": "A",
+        "mode": "minor"
+      },
+      "firstTrackNumber": 8,
+      "fixTrackName": "Pianotrio in a - \\d (.*)"
+    },
+    "PianoPieces[Slåttebrekk]": {
+      "firstTrackNumber": 9
+    },
+    "Rhapsodie espagnole": {
+      "fixTrackName": "Rhapsodie espagnole \\d\\. (.*)",
+      "firstTrackNumber": 2
+    },
+    "StringQuart": {
+      "fixAlbumTitle": {
+        "form": "Quartet",
+        "key": "F",
+        "mode": "major"
+      },
+      "fixTrackName": "Strijkkwartet in F - \\d (.*)"
+    },
+    "Tombeau de Couperin": {
+      "firstTrackNumber": 7,
+      "fixTrackName": "Le Tombeau de Couperin - \\d.(.*)"
+    },
+    "Valses nobles et sentimentales": {
+      "firstTrackNumber": 11,
+      "fixTrackName": "Valses \\(8\\) nobles et sentimentales \\d. (.*)"
+    },
+    "Valses nobles et sentimentale[Slåttebrekk]": {
+      "fixTrackName": "Valses nobles et sentimentales - (.*)"
+    },
+    "ViolinSonata": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "instrument": "Violin",
+        "key": "G",
+        "mode": "minor"
+      },
+      "firstTrackNumber": 5,
+      "fixTrackName": "Vioolsonate in G - \\d (.*)"
+    }
+  },
+  "Richard Strauss": {
+    "Burleske for Piano and Orchestra": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Richart Strauss - (.*)"
+    },
+    "FourLastSongs": {
+      "fixTrackName": "Vier letzte Lieder [IV]+\\. (.*)"
+    },
+    "Lieder": {
+      "firstTrackNumber": 5
+    },
+    "Rosenkavalier1": {
+      "fixTrackName": "Der Rosenkavalier, Op. 59 Aufzug I. (.*)"
+    },
+    "Salome": {
+      "fixTrackName": "Salome (?:Erste|Zweite|Dritte|Vierte) Szene. (.*)"
+    }
+  },
+  "Richter": {
+    "The Essential Richter ~ The Mystic": {
+      "fixAlbumTitle": "Essential Richter: The Mystic"
+    },
+    "The Essential Richter ~ The Philosopher": {
+      "fixAlbumTitle": "Essential Richter: The Philosopher",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "The Essential Richter ~ The Poet - Sviatoslav Richter": {
+      "fixAlbumTitle": "Essential Richter: The Poet"
+    },
+    "The Essential Richter ~ The Virtuoso": {
+      "fixAlbumTitle": "Essential Richter: The Virtuoso"
+    },
+    "The Sofia Recital 1958": {
+      "fixAlbumTitle": "Essential Richter: The Sofia Recital 1958",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Robert Johnson": {
+    "The Complete Recordings": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Robert Schumann": {
+    "Fantasie[Andsnes]": {
+      "firstTrackNumber": 5,
+      "fixTrackName": "Fantasie C-dur, Op. 17 [IV]+\\. (.*)"
+    },
+    "Fantasy[Brendel]": {
+      "firstTrackNumber": 9,
+      "fixTrackName": "Schumann - Fantasy in C major Op 17 (.*)"
+    },
+    "Kreislerianna[Brendel]": {
+      "fixTrackName": "Schumann - Kreislerianna Op 16 (.*)"
+    },
+    "Sonata1[Andsnes]": {
+      "fixAlbumTitle": {
+        "form": "Sonata",
+        "num": 1,
+        "key": "F#",
+        "mode": "minor",
+        "opus": 11,
+        "opus_prefix": "Op.",
+        "performer": "Andsnes"
+      },
+      "fixTrackName": "Klaviersonate Nr. 1 Fis-moll, Op. 11 [IV]+\\. (.*)"
+    }
+  },
+  "Rodrigo": {
+    "Concerto in D op.99": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Guitar",
+        "key": "D",
+        "mode": "major",
+        "opus": 99,
+        "opus_prefix": "Op."
+      },
+      "firstTrackNumber": 7,
+      "fixTrackName": "Concerto in D op. 99 - \\d - (.*)"
+    },
+    "Concierto de Aranjuez": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Guitar",
+        "subTitle": "de Aranjuez"
+      },
+      "fixTrackName": "Concierto de Aranjuez - \\d. (.*)"
+    },
+    "Concierto de Aranjuez[2]": {
+      "fixTrackName": "Rodrigo - Concierto de Aranjuez - (.*)"
+    },
+    "Concierto Serenata": {
+      "firstTrackNumber": 4,
+      "fixTrackName": "Rodrigo - Concierto Serenata for Harp and Orchestra - (.*)"
+    },
+    "HarpConcerto": {
+      "fixAlbumTitle": {
+        "form": "Conc",
+        "instrument": "Harp",
+        "subTitle": "Serenata"
+      },
+      "firstTrackNumber": 4,
+      "fixTrackName": "Concierto Serenata para Arpa y Orquesta - \\d - (.*)"
+    },
+    "Tres Pieces Espanolas": {
+      "firstTrackNumber": 12
+    }
+  },
+  "Roomful_of_Teeth": {
+    "Roomful of Teeth": {
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Rossini": {
+    "IlBarbiere2": {
+      "firstTrackNumber": 6
+    }
+  },
+  "Scarlatti": {
+    "Sonatas Pogorelich": {
+      "fixAlbumTitle": "Sonatas [Pogorelich]",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "Sonatas Zacharias": {
+      "fixAlbumTitle": "Sonatas [Zacharias]",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  },
+  "Schnittke": {
+    "PianoQuintet": {
+      "fixAlbumTitle": {
+        "form": "Quintet",
+        "instrument": "Piano"
+      },
+      "firstTrackNumber": 6,
+      "fixTrackName": "Schnittke - Piano quintet - (.*)"
+    }
+  },
+  "Shchedrin": {
+    "PianoConcerto2[Hamelin]": {
+      "firstTrackNumber": 8,
+      "fixTrackName": "Piano Concerto no. 2: [IV]+\\. (.*)"
+    }
+  },
+  "Sheila Jordan": {
+    "Little Song": {
+      "fixTrackName": "Sheila Jordan - (.*)",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    },
+    "With the Steve Kuhn Trio": {
+      "fixTrackName": "Sheila Jordan - (.*)",
+      "validation": [
+        "skipUniqueTrackNameCheck"
+      ]
+    }
+  }
+}

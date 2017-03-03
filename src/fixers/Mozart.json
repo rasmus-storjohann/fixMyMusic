@@ -1,1 +1,861 @@
-{"AdagioK261":{"firstTrackNumber":10},"ClarinetConcerto":{"fixTrackName":"(?:Clarinet Concerto in A Major, K. 622 - )?[IV]+\\. (.*)"},"ClarinetQuintet":{"firstTrackNumber":4,"fixTrackName":"(?:Clarinet Quintet in A major, K.581 - )?[IV]+\\. (.*)"},"CoronationMass":{"firstTrackNumber":6,"fixTrackName":"Coronation Mass (?:in C major, KV 317 )?- (.*)"},"Così Fan Tutte [Böhm]1":{"fixTrackName":"[\\d\\) ]*(.*)"},"Così Fan Tutte [Böhm]2":{"firstTrackNumber":6,"fixTrackName":"(?:Act II, Scene \\d )?(.*)"},"DivertimentoK136":{"firstTrackNumber":5,"fixTrackName":"Divertimento in D major K136 - (.*)"},"DivertimentoK137":{"firstTrackNumber":8,"fixTrackName":"Divertimento in B flat major K137 - (.*)"},"DivertimentoK138":{"firstTrackNumber":11,"fixTrackName":"Divertimento in F major K138 - (.*)"},"DonGiovanni1":{"fixTrackName":"(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act I, Scene [IVX]+\\. )?(?:No\\. \\d+ )?(.*)"},"DonGiovanni2":{"firstTrackNumber":12,"fixTrackName":"(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act II, Scene [IVXd]+\\. )?(?:Anhang\\. )?(?:No\\. [\\db]+ )?(.*)"},"Eine kleine Nachtmusik K525 [Bohm]":{"fixTrackName":"Eine kleine Nachtmusik K525 - (.*)"},"FantasieK475":{"firstTrackNumber":7},"Figaro2":{"firstTrackNumber":19},"Figaro3":{"firstTrackNumber":3},"Figaro4":{"firstTrackNumber":15},"Kyrie K341 [Gardiner]":{"firstTrackNumber":15},"Magic Flute 1":{"fixTrackName":"Die Zauberflöte, K. 620 (?:Act I, Scene [IVX]+\\. )?(?:No.\\ \\d+ )?(.*)"},"Magic Flute 2":{"firstTrackNumber":25,"fixTrackName":"Die Zauberflöte, K. 620 (?:Act II, Scene [IVX \\-]+\\. )?(?:No.\\ \\d+ )?(.*)"},"Litaniae de venerabili altaris sacramento [Marriner]":{"firstTrackNumber":6,"fixTrackName":"Litaniae de venerabili altaris sacramento, K\\. 243: [IVX]+\\. (.*)"},"Litaniae lauretanae [Marriner]":{"fixTrackName":"Litaniae lauretanae, K. 195: [IVX]+\\. (.*)"},"PianConc 17":{"fixTrackName":"PiaNo.17 KV 453 - (?:1er|2e|3e) mvt - (.*)"},"PianConc 9":{"fixTrackName":"Piano Concerto in E flat KV 271 (.*)"},"PianoConcerto15":{"fixAlbumTitle":{"form":"Conc","num":15,"instrument":"Piano","key":"Bb","mode":"major","opus":450,"opus_prefix":"K."},"firstTrackNumber":3,"fixTrackName":"Piano Concerto No. 15 in B-flat major, KV 450 [IV]+\\. (.*)"},"PianoConcerto17[Skoda]":{"fixAlbumTitle":{"form":"Conc","num":17,"instrument":"Piano","key":"G","mode":"major","opus":453,"opus_prefix":"K.","performer":"Skoda"},"fixTrackName":"Piano concerto 17 G-major K453 - (.*)"},"PianoConcerto19":{"fixAlbumTitle":{"form":"Conc","num":19,"instrument":"Piano","key":"F","mode":"major","opus":459,"opus_prefix":"K."},"fixTrackName":"Concerto No. 19 in F major for Piano, K. 459 [IV]+\\. (.*)"},"PianoConcerto19[Skoda]":{"fixAlbumTitle":{"form":"Conc","num":19,"instrument":"Piano","key":"F","mode":"major","opus":459,"opus_prefix":"K.","performer":"Skoda"},"firstTrackNumber":4,"fixTrackName":"Piano concerto 19 F-major K459 - (.*)"},"PianoConcerto20":{"fixAlbumTitle":{"form":"Conc","num":20,"instrument":"Piano","key":"D","mode":"minor","opus":466,"opus_prefix":"K."},"firstTrackNumber":4,"fixTrackName":"Concerto for Piano No. 20 in D minor, K. 466 [IV]+\\. (.*)"},"PianoConcerto21":{"fixAlbumTitle":{"form":"Conc","num":21,"instrument":"Piano","key":"C","mode":"major","opus":467,"opus_prefix":"K.","subTitle":"Elvira Madigan"},"firstTrackNumber":3,"fixTrackName":"Concerto for Piano No. 21 in C major, K. 467 Elvira Madigan [IV]+\\. (.*)"},"PianoConcerto22":{"fixAlbumTitle":{"form":"Conc","num":22,"instrument":"Piano","key":"Eb","mode":"major","opus":482,"opus_prefix":"K."},"firstTrackNumber":7,"fixTrackName":"Piano Concerto No. 22 in E-flat major, KV 482 [IV]+\\. (.*)"},"PianoConcerto23":{"fixAlbumTitle":{"form":"Conc","num":23,"instrument":"Piano","key":"A","mode":"minor","opus":488,"opus_prefix":"K."},"firstTrackNumber":10,"fixTrackName":"Concerto for Piano No. 23 in A major, K. 488 [IV]+\\. (.*)"},"PianoConcerto24":{"fixAlbumTitle":{"form":"Conc","num":24,"instrument":"Piano","key":"C","mode":"minor","opus":491,"opus_prefix":"K."},"firstTrackNumber":6,"fixTrackName":"Concerto for Piano No. 24 in C minor, K. 491 [IV]+\\. (.*)"},"PianoConcerto25":{"fixAlbumTitle":{"form":"Conc","num":25,"instrument":"Piano","key":"C","mode":"major","opus":503,"opus_prefix":"K."},"firstTrackNumber":4,"fixTrackName":"Piano Concerto No. 25 in C major, KV 503 [IV]+\\. (.*)"},"PianoConcerto27":{"fixAlbumTitle":{"form":"Conc","num":27,"instrument":"Piano","key":"Bb","mode":"major","opus":595,"opus_prefix":"K."},"firstTrackNumber":6,"fixTrackName":"Piano Concerto No. 27 in B-flat major, KV 595 [IV]+\\. (.*)"},"PianoConcerto9":{"fixAlbumTitle":{"form":"Conc","num":9,"instrument":"Piano","key":"Eb","mode":"major","opus":271,"opus_prefix":"K.","subTitle":"Jeunehomme"},"fixTrackName":"Piano Concerto No. 9 in E-flat major, KV 271 Jeunehomme [IV]+\\. (.*)"},"Quartet16":{"firstTrackNumber":5,"fixTrackName":"String Quartet no. 16 in E-flat major, K. 428: [IV]+\\. (.*)"},"Quartet18":{"fixTrackName":"String Quartet no\\. 18 in A major, K\\. 464: [IV]+\\. (.*)"},"QuartetK465":{"fixTrackName":"Quartet in C major K465 Dissonance - (.*)"},"Requiem in D minor [Gardiner]":{"fixTrackName":"Requiem in D minor, K. 626 \\(Süßmayr completion\\): [IVa-f]+\\. (.*)"},"RondoK382":{"firstTrackNumber":7,"fixTrackName":"Rondo for Piano & Orchestra in D major, K. 382 Rondo. [a-c]\\. (.*)"},"RondoK386":{"firstTrackNumber":9},"RondoK373":{"firstTrackNumber":11},"Serenata Notturna KV239 [Bohm]":{"firstTrackNumber":5,"fixTrackName":"Serenata Notturna KV239 - (.*)"},"Sinfornia Concertante K364 [Bohm]":{"firstTrackNumber":8,"fixTrackName":"Sinfornia Concertante K364 - (.*)"},"Sinfonia Concertante K364 [who]":{"firstTrackNumber":7,"fixTrackName":"Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"},"Spaurmesse [Marriner]":{"firstTrackNumber":13,"fixTrackName":"Mass no. 11, K. 258 \"Spaurmesse\": [IV]+\\. (.*)"},"SonataK46d":{"fixTrackName":"Sonata in C major, KV 46d [IV]+\\. (.*)"},"SonataK46e":{"firstTrackNumber":3,"fixTrackName":"Sonata in F major, KV 46e [IV]+\\. (.*)"},"Sonata1":{"fixAlbumTitle":{"form":"Sonata","num":1,"opus":279,"opus_prefix":"K.","key":"C","mode":"major"},"firstTrackNumber":5,"fixTrackName":"Sonata for Piano No. 1 in C major, K. 189d-279 [IV]+\\. (.*)"},"Sonata2":{"fixAlbumTitle":{"form":"Sonata","num":2,"opus":280,"opus_prefix":"K.","key":"F","mode":"major"},"firstTrackNumber":8,"fixTrackName":"Sonata for Piano No. 2 in F major, K. 189e-280 [IV]+\\. (.*)"},"Sonata3":{"fixAlbumTitle":{"form":"Sonata","num":3,"opus":281,"opus_prefix":"K.","key":"Bb","mode":"major"},"firstTrackNumber":11,"fixTrackName":"Sonata for Piano No. 3 in B-flat major, K. 189f-281 [IV]+\\. (.*)"},"Sonata4":{"fixAlbumTitle":{"form":"Sonata","num":4,"opus":282,"opus_prefix":"K.","key":"Eb","mode":"major"},"firstTrackNumber":14,"fixTrackName":"Sonata for Piano No. 4 in E-flat major, K. 189g-282 [IV]+\\. (.*)"},"Sonata5":{"fixAlbumTitle":{"form":"Sonata","num":5,"opus":283,"opus_prefix":"K.","key":"G","mode":"major"},"fixTrackName":"Sonata for Piano No. 5 in G major, K. 189h-283 [IV]+\\. (.*)"},"Sonata6":{"fixAlbumTitle":{"form":"Sonata","num":6,"opus":284,"opus_prefix":"K.","key":"D","mode":"major","subTitle":"Dürnitz"},"firstTrackNumber":4,"fixTrackName":"Sonata for Piano No. 6 in D major, K. 205b-284 Dürnitz [IV]+\\. (.*)"},"Sonata7":{"fixAlbumTitle":{"form":"Sonata","num":7,"opus":309,"opus_prefix":"K.","key":"C","mode":"minor"},"firstTrackNumber":7,"fixTrackName":"Sonata for Piano No. 7 in C major, K. 284b-309 [IV]+\\. (.*)"},"Sonata8":{"fixAlbumTitle":{"form":"Sonata","num":8,"opus":310,"opus_prefix":"K.","key":"A","mode":"minor"},"fixTrackName":"Sonata for Piano No. 8 in A minor, K. 300d-310 [IV]+\\. (.*)"},"Sonata9":{"fixAlbumTitle":{"form":"Sonata","num":9,"opus":311,"opus_prefix":"K.","key":"D","mode":"major"},"firstTrackNumber":10,"fixTrackName":"Sonata for Piano No. 9 in D major, K. 284c-311 [IV]+\\. (.*)"},"Sonata10":{"fixAlbumTitle":{"form":"Sonata","num":10,"opus":330,"opus_prefix":"K.","key":"C","mode":"major"},"firstTrackNumber":4,"fixTrackName":"Sonata for Piano No. 10 in C major, K. 300h-330 [IV]+\\. (.*)"},"Sonata11":{"fixAlbumTitle":{"form":"Sonata","num":11,"opus":331,"opus_prefix":"K.","key":"A","mode":"major","subTitle":"Alla Turca"},"firstTrackNumber":7,"fixTrackName":"Sonata for Piano No. 11 in A major, K. 300i-331 Alla Turca [IV]+\\. (.*)"},"Sonata12":{"fixAlbumTitle":{"form":"Sonata","num":12,"opus":332,"opus_prefix":"K.","key":"F","mode":"major"},"fixTrackName":"Sonata for Piano No. 12 in F major, K. 300k-332 [IV]+\\. (.*)"},"Sonata13":{"fixAlbumTitle":{"form":"Sonata","num":13,"opus":333,"opus_prefix":"K.","key":"C","mode":"minor"},"firstTrackNumber":4,"fixTrackName":"Sonata for Piano No. 13 in B-flat major, K. 315c-333 [IV]+\\. (.*)"},"Sonata14":{"fixAlbumTitle":{"form":"Sonata","num":14,"opus":457,"opus_prefix":"K.","key":"C","mode":"minor"},"firstTrackNumber":8,"fixTrackName":"Sonata for Piano No. 14 in C minor, K. 457 [IV]+\\. (.*)"},"Sonata15":{"fixAlbumTitle":{"form":"Sonata","num":15,"opus":494,"opus_prefix":"K.","key":"F","mode":"major"},"fixTrackName":"Sonata for Piano No. 15 in F major, K. 494\\+533 [IV]+\\. (.*)"},"Sonata16":{"fixAlbumTitle":{"form":"Sonata","num":16,"opus":545,"opus_prefix":"K.","key":"C","mode":"major","subTitle":"Semplice"},"firstTrackNumber":4,"fixTrackName":"Sonata for Piano No. 16 in C major, K. 545 Sonata semplice [IV]+\\. (.*)"},"Sonata17":{"fixAlbumTitle":{"form":"Sonata","num":17,"opus":570,"opus_prefix":"K.","key":"Bb","mode":"major"},"firstTrackNumber":7,"fixTrackName":"Sonata for Piano No. 17 in B-flat major, K. 570 [IV]+\\. (.*)"},"Sonata18":{"fixAlbumTitle":{"form":"Sonata","num":18,"opus":576,"opus_prefix":"K.","key":"D","mode":"major","subTitle":"Trumpet"},"firstTrackNumber":10,"fixTrackName":"Sonata for Piano No. 18 in D major, K. 576 Trumpet , Hunt [IV]+\\. (.*)"},"SonataForTwoPianos":{"fixTrackName":"Sonata for Two Pianos in D major, K.448 [IV]+\\. (.*)"},"Sinfonia Concertante":{"fixAlbumTitle":"SinfConc Violin, Viola & Orch K320","firstTrackNumber":7,"fixTrackName":"Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"},"Symphony16[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":16,"opus":128,"opus_prefix":"K.","key":"C","mode":"major","performer":"Pinnock"},"fixTrackName":"Sinfonie No.16 in C-Dur K. 128, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony17[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":17,"opus":129,"opus_prefix":"K.","key":"G","mode":"major","performer":"Pinnock"},"firstTrackNumber":4,"fixTrackName":"Sinfonie No.17 in G-Dur K. 129, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony18[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":18,"opus":130,"opus_prefix":"K.","key":"F","mode":"major","performer":"Pinnock"},"firstTrackNumber":7,"fixTrackName":"Sinfonie No.18 in F-Dur K. 130, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony19[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":19,"opus":132,"opus_prefix":"K.","key":"Eb","mode":"major","performer":"Pinnock"},"firstTrackNumber":11,"fixTrackName":"Sinfonie No.19 in E flat-Dur K. 132, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony20[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":20,"opus":133,"opus_prefix":"K.","key":"D","mode":"major","performer":"Pinnock"},"fixTrackName":"Sinfonie No.20 D-Dur K.133, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony21[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":21,"opus":134,"opus_prefix":"K.","key":"A","mode":"major","performer":"Pinnock"},"firstTrackNumber":5,"fixTrackName":"Sinfonie No.21 A-Dur K.134, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony22[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":22,"opus":162,"opus_prefix":"K.","key":"C","mode":"major","performer":"Pinnock"},"fixTrackName":"Sinfonie No.22 C-Dur K.162, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony23[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":23,"opus":181,"opus_prefix":"K.","key":"D","mode":"major","performer":"Pinnock"},"firstTrackNumber":4,"fixTrackName":"Sinfonie No.23 D-Dur K.181, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony24[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":24,"opus":182,"opus_prefix":"K.","key":"B","mode":"major","performer":"Pinnock"},"firstTrackNumber":7,"fixTrackName":"Sinfonie No.24 B-Dur K.182, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony25[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":25,"opus":183,"opus_prefix":"K.","key":"G","mode":"minor","performer":"Pinnock"},"firstTrackNumber":10,"fixTrackName":"Sinfonie No.25 g-moll K.183, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony26[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":26,"opus":184,"opus_prefix":"K.","key":"Eb","mode":"major","performer":"Pinnock"},"firstTrackNumber":9,"fixTrackName":"Sinfonie No.26 Es-Dur K.184, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony27[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":27,"opus":199,"opus_prefix":"K.","key":"G","mode":"major","performer":"Pinnock"},"firstTrackNumber":12,"fixTrackName":"Sinfonie No.27 G-Dur K.199, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony28[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":28,"opus":200,"opus_prefix":"K.","key":"C","mode":"major","performer":"Pinnock"},"firstTrackNumber":5,"fixTrackName":"Sinfonie No.28 C-Dur K.200, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony29[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":29,"opus":201,"opus_prefix":"K.","key":"A","mode":"major","performer":"Pinnock"},"fixTrackName":"Sinfonie No.29 A-Dur K.201, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symphony30[Pinnock]":{"fixAlbumTitle":{"form":"Symph","num":30,"opus":202,"opus_prefix":"K.","key":"D","mode":"major","performer":"Pinnock"},"firstTrackNumber":14,"fixTrackName":"Sinfonie No.30 D-Dur K.202, \\d\\. (.*)- The English Concert, Trevor Pinnock"},"Symph35[Davis]":{"fixAlbumTitle":{"form":"Symph","num":35,"opus":385,"opus_prefix":"K.","subTitle":"Haffner","key":"D","mode":"major","performer":"Davis"},"fixTrackName":"Symphony No. 35 in D major, K. 385 Haffner [IV]+\\. (.*)"},"Symph38[Davis]":{"fixAlbumTitle":{"form":"Symph","num":38,"opus":504,"opus_prefix":"K.","subTitle":"Prague","key":"D","mode":"major","performer":"Davis"},"firstTrackNumber":5,"fixTrackName":"Symphony No. 38 in D major, K. 504 Prague [IV]+\\. (.*)"},"Symph39[Davis]":{"fixAlbumTitle":{"form":"Symph","num":39,"opus":543,"opus_prefix":"K.","key":"Eb","mode":"major","performer":"Davis"},"firstTrackNumber":8,"fixTrackName":"Symphony No. 39 in E-flat major, K. 543 [IV]+\\. (.*)"},"Symph40[Davis]":{"fixAlbumTitle":{"form":"Symph","num":40,"opus":550,"opus_prefix":"K.","key":"G","mode":"minor","performer":"Davis"},"firstTrackNumber":3,"fixTrackName":"Symphony No. 40 in G minor, K. 550 [IV]+\\. (.*)"},"Symphony40[Tate]":{"fixAlbumTitle":{"form":"Symph","num":40,"opus":550,"opus_prefix":"K.","key":"G","mode":"minor","performer":"Tate"},"fixTrackName":"Symphony No.40 - [IV]+\\. (.*)"},"Symph41[Davis]":{"fixAlbumTitle":{"form":"Symph","num":41,"subTitle":"Jupiter","opus":551,"opus_prefix":"K.","key":"C","mode":"major","performer":"Davis"},"firstTrackNumber":7,"fixTrackName":"Symphony No. 41 in C major, K. 551 Jupiter [IV]+\\. (.*)"},"Symphony41[Tate]":{"fixAlbumTitle":{"form":"Symph","num":41,"subTitle":"Jupiter","opus":551,"opus_prefix":"K.","key":"C","mode":"major","performer":"Tate"},"firstTrackNumber":5,"fixTrackName":"Symphony No.41 - [IV]+\\. (.*)"},"Vesperae solennes de Confessore [Marriner]":{"fixTrackName":"Vesperae solennes de Confessore, K\\. 339: [IV]+\\. (.*)"},"Vesperae solennes de Dominica [Marriner]":{"firstTrackNumber":7,"fixTrackName":"Vesperae solennes de Dominica, K\\. 321: [IV]+\\. (.*)"},"ViolinConcerto1":{"fixAlbumTitle":{"form":"Conc","num":1,"instrument":"Violin","key":"Bb","mode":"major","opus":207,"opus_prefix":"K."},"fixTrackName":"Concerto for Violin No. 1 in B-flat major, K. 207 [IV]+\\. (.*)"},"ViolinConcerto2":{"fixAlbumTitle":{"form":"Conc","num":2,"instrument":"Violin","key":"D","mode":"major","opus":211,"opus_prefix":"K."},"fixTrackName":"Concerto for Violin No. 2 in D major, K. 211 [IV]+\\. (.*)"},"ViolinConcerto3":{"fixAlbumTitle":{"form":"Conc","num":3,"instrument":"Violin","key":"G","mode":"major","opus":216,"opus_prefix":"K."},"firstTrackNumber":4,"fixTrackName":"Concerto No. 3 in G major for Violin, K. 216 Strassburg [IV]+\\. (.*)"},"ViolinConcerto4":{"fixAlbumTitle":{"form":"Conc","num":4,"instrument":"Violin","key":"D","mode":"major","opus":218,"opus_prefix":"K."},"firstTrackNumber":7,"fixTrackName":"Concerto No. 4 in D major for Violin, K. 218 [IV]+\\. (.*)"},"ViolinConcerto5":{"fixAlbumTitle":{"form":"Conc","num":5,"instrument":"Violin","key":"A","mode":"major","opus":219,"opus_prefix":"K."},"firstTrackNumber":4,"fixTrackName":"Concerto No. 5 in A major for Violin, K. 219 Turkish [IV]+\\. (.*)"}}
+{
+  "AdagioK261": {
+    "firstTrackNumber": 10
+  },
+  "ClarinetConcerto": {
+    "fixTrackName": "(?:Clarinet Concerto in A Major, K. 622 - )?[IV]+\\. (.*)"
+  },
+  "ClarinetQuintet": {
+    "firstTrackNumber": 4,
+    "fixTrackName": "(?:Clarinet Quintet in A major, K.581 - )?[IV]+\\. (.*)"
+  },
+  "CoronationMass": {
+    "firstTrackNumber": 6,
+    "fixTrackName": "Coronation Mass (?:in C major, KV 317 )?- (.*)"
+  },
+  "Così Fan Tutte [Böhm]1": {
+    "fixTrackName": "[\\d\\) ]*(.*)"
+  },
+  "Così Fan Tutte [Böhm]2": {
+    "firstTrackNumber": 6,
+    "fixTrackName": "(?:Act II, Scene \\d )?(.*)"
+  },
+  "DivertimentoK136": {
+    "firstTrackNumber": 5,
+    "fixTrackName": "Divertimento in D major K136 - (.*)"
+  },
+  "DivertimentoK137": {
+    "firstTrackNumber": 8,
+    "fixTrackName": "Divertimento in B flat major K137 - (.*)"
+  },
+  "DivertimentoK138": {
+    "firstTrackNumber": 11,
+    "fixTrackName": "Divertimento in F major K138 - (.*)"
+  },
+  "DonGiovanni1": {
+    "fixTrackName": "(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act I, Scene [IVX]+\\. )?(?:No\\. \\d+ )?(.*)"
+  },
+  "DonGiovanni2": {
+    "firstTrackNumber": 12,
+    "fixTrackName": "(?:Il dissoluto punito, ossia il Don Giovanni, K. 527 )?(?:Act II, Scene [IVXd]+\\. )?(?:Anhang\\. )?(?:No\\. [\\db]+ )?(.*)"
+  },
+  "Eine kleine Nachtmusik K525 [Bohm]": {
+    "fixTrackName": "Eine kleine Nachtmusik K525 - (.*)"
+  },
+  "FantasieK475": {
+    "firstTrackNumber": 7
+  },
+  "Figaro2": {
+    "firstTrackNumber": 19
+  },
+  "Figaro3": {
+    "firstTrackNumber": 3
+  },
+  "Figaro4": {
+    "firstTrackNumber": 15
+  },
+  "Kyrie K341 [Gardiner]": {
+    "firstTrackNumber": 15
+  },
+  "Magic Flute 1": {
+    "fixTrackName": "Die Zauberflöte, K. 620 (?:Act I, Scene [IVX]+\\. )?(?:No.\\ \\d+ )?(.*)"
+  },
+  "Magic Flute 2": {
+    "firstTrackNumber": 25,
+    "fixTrackName": "Die Zauberflöte, K. 620 (?:Act II, Scene [IVX \\-]+\\. )?(?:No.\\ \\d+ )?(.*)"
+  },
+  "Litaniae de venerabili altaris sacramento [Marriner]": {
+    "firstTrackNumber": 6,
+    "fixTrackName": "Litaniae de venerabili altaris sacramento, K\\. 243: [IVX]+\\. (.*)"
+  },
+  "Litaniae lauretanae [Marriner]": {
+    "fixTrackName": "Litaniae lauretanae, K. 195: [IVX]+\\. (.*)"
+  },
+  "PianConc 17": {
+    "fixTrackName": "PiaNo.17 KV 453 - (?:1er|2e|3e) mvt - (.*)"
+  },
+  "PianConc 9": {
+    "fixTrackName": "Piano Concerto in E flat KV 271 (.*)"
+  },
+  "PianoConcerto15": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 15,
+      "instrument": "Piano",
+      "key": "Bb",
+      "mode": "major",
+      "opus": 450,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 3,
+    "fixTrackName": "Piano Concerto No. 15 in B-flat major, KV 450 [IV]+\\. (.*)"
+  },
+  "PianoConcerto17[Skoda]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 17,
+      "instrument": "Piano",
+      "key": "G",
+      "mode": "major",
+      "opus": 453,
+      "opus_prefix": "K.",
+      "performer": "Skoda"
+    },
+    "fixTrackName": "Piano concerto 17 G-major K453 - (.*)"
+  },
+  "PianoConcerto19": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 19,
+      "instrument": "Piano",
+      "key": "F",
+      "mode": "major",
+      "opus": 459,
+      "opus_prefix": "K."
+    },
+    "fixTrackName": "Concerto No. 19 in F major for Piano, K. 459 [IV]+\\. (.*)"
+  },
+  "PianoConcerto19[Skoda]": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 19,
+      "instrument": "Piano",
+      "key": "F",
+      "mode": "major",
+      "opus": 459,
+      "opus_prefix": "K.",
+      "performer": "Skoda"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Piano concerto 19 F-major K459 - (.*)"
+  },
+  "PianoConcerto20": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 20,
+      "instrument": "Piano",
+      "key": "D",
+      "mode": "minor",
+      "opus": 466,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Concerto for Piano No. 20 in D minor, K. 466 [IV]+\\. (.*)"
+  },
+  "PianoConcerto21": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 21,
+      "instrument": "Piano",
+      "key": "C",
+      "mode": "major",
+      "opus": 467,
+      "opus_prefix": "K.",
+      "subTitle": "Elvira Madigan"
+    },
+    "firstTrackNumber": 3,
+    "fixTrackName": "Concerto for Piano No. 21 in C major, K. 467 Elvira Madigan [IV]+\\. (.*)"
+  },
+  "PianoConcerto22": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 22,
+      "instrument": "Piano",
+      "key": "Eb",
+      "mode": "major",
+      "opus": 482,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Piano Concerto No. 22 in E-flat major, KV 482 [IV]+\\. (.*)"
+  },
+  "PianoConcerto23": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 23,
+      "instrument": "Piano",
+      "key": "A",
+      "mode": "minor",
+      "opus": 488,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "Concerto for Piano No. 23 in A major, K. 488 [IV]+\\. (.*)"
+  },
+  "PianoConcerto24": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 24,
+      "instrument": "Piano",
+      "key": "C",
+      "mode": "minor",
+      "opus": 491,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 6,
+    "fixTrackName": "Concerto for Piano No. 24 in C minor, K. 491 [IV]+\\. (.*)"
+  },
+  "PianoConcerto25": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 25,
+      "instrument": "Piano",
+      "key": "C",
+      "mode": "major",
+      "opus": 503,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Piano Concerto No. 25 in C major, KV 503 [IV]+\\. (.*)"
+  },
+  "PianoConcerto27": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 27,
+      "instrument": "Piano",
+      "key": "Bb",
+      "mode": "major",
+      "opus": 595,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 6,
+    "fixTrackName": "Piano Concerto No. 27 in B-flat major, KV 595 [IV]+\\. (.*)"
+  },
+  "PianoConcerto9": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 9,
+      "instrument": "Piano",
+      "key": "Eb",
+      "mode": "major",
+      "opus": 271,
+      "opus_prefix": "K.",
+      "subTitle": "Jeunehomme"
+    },
+    "fixTrackName": "Piano Concerto No. 9 in E-flat major, KV 271 Jeunehomme [IV]+\\. (.*)"
+  },
+  "Quartet16": {
+    "firstTrackNumber": 5,
+    "fixTrackName": "String Quartet no. 16 in E-flat major, K. 428: [IV]+\\. (.*)"
+  },
+  "Quartet18": {
+    "fixTrackName": "String Quartet no\\. 18 in A major, K\\. 464: [IV]+\\. (.*)"
+  },
+  "QuartetK465": {
+    "fixTrackName": "Quartet in C major K465 Dissonance - (.*)"
+  },
+  "Requiem in D minor [Gardiner]": {
+    "fixTrackName": "Requiem in D minor, K. 626 \\(Süßmayr completion\\): [IVa-f]+\\. (.*)"
+  },
+  "RondoK382": {
+    "firstTrackNumber": 7,
+    "fixTrackName": "Rondo for Piano & Orchestra in D major, K. 382 Rondo. [a-c]\\. (.*)"
+  },
+  "RondoK386": {
+    "firstTrackNumber": 9
+  },
+  "RondoK373": {
+    "firstTrackNumber": 11
+  },
+  "Serenata Notturna KV239 [Bohm]": {
+    "firstTrackNumber": 5,
+    "fixTrackName": "Serenata Notturna KV239 - (.*)"
+  },
+  "Sinfornia Concertante K364 [Bohm]": {
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sinfornia Concertante K364 - (.*)"
+  },
+  "Sinfonia Concertante K364 [who]": {
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"
+  },
+  "Spaurmesse [Marriner]": {
+    "firstTrackNumber": 13,
+    "fixTrackName": "Mass no. 11, K. 258 \"Spaurmesse\": [IV]+\\. (.*)"
+  },
+  "SonataK46d": {
+    "fixTrackName": "Sonata in C major, KV 46d [IV]+\\. (.*)"
+  },
+  "SonataK46e": {
+    "firstTrackNumber": 3,
+    "fixTrackName": "Sonata in F major, KV 46e [IV]+\\. (.*)"
+  },
+  "Sonata1": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 1,
+      "opus": 279,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sonata for Piano No. 1 in C major, K. 189d-279 [IV]+\\. (.*)"
+  },
+  "Sonata2": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 2,
+      "opus": 280,
+      "opus_prefix": "K.",
+      "key": "F",
+      "mode": "major"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sonata for Piano No. 2 in F major, K. 189e-280 [IV]+\\. (.*)"
+  },
+  "Sonata3": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 3,
+      "opus": 281,
+      "opus_prefix": "K.",
+      "key": "Bb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 11,
+    "fixTrackName": "Sonata for Piano No. 3 in B-flat major, K. 189f-281 [IV]+\\. (.*)"
+  },
+  "Sonata4": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 4,
+      "opus": 282,
+      "opus_prefix": "K.",
+      "key": "Eb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 14,
+    "fixTrackName": "Sonata for Piano No. 4 in E-flat major, K. 189g-282 [IV]+\\. (.*)"
+  },
+  "Sonata5": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 5,
+      "opus": 283,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Piano No. 5 in G major, K. 189h-283 [IV]+\\. (.*)"
+  },
+  "Sonata6": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 6,
+      "opus": 284,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major",
+      "subTitle": "Dürnitz"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata for Piano No. 6 in D major, K. 205b-284 Dürnitz [IV]+\\. (.*)"
+  },
+  "Sonata7": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 7,
+      "opus": 309,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "minor"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sonata for Piano No. 7 in C major, K. 284b-309 [IV]+\\. (.*)"
+  },
+  "Sonata8": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 8,
+      "opus": 310,
+      "opus_prefix": "K.",
+      "key": "A",
+      "mode": "minor"
+    },
+    "fixTrackName": "Sonata for Piano No. 8 in A minor, K. 300d-310 [IV]+\\. (.*)"
+  },
+  "Sonata9": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 9,
+      "opus": 311,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major"
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "Sonata for Piano No. 9 in D major, K. 284c-311 [IV]+\\. (.*)"
+  },
+  "Sonata10": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 10,
+      "opus": 330,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata for Piano No. 10 in C major, K. 300h-330 [IV]+\\. (.*)"
+  },
+  "Sonata11": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 11,
+      "opus": 331,
+      "opus_prefix": "K.",
+      "key": "A",
+      "mode": "major",
+      "subTitle": "Alla Turca"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sonata for Piano No. 11 in A major, K. 300i-331 Alla Turca [IV]+\\. (.*)"
+  },
+  "Sonata12": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 12,
+      "opus": 332,
+      "opus_prefix": "K.",
+      "key": "F",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Piano No. 12 in F major, K. 300k-332 [IV]+\\. (.*)"
+  },
+  "Sonata13": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 13,
+      "opus": 333,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "minor"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata for Piano No. 13 in B-flat major, K. 315c-333 [IV]+\\. (.*)"
+  },
+  "Sonata14": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 14,
+      "opus": 457,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "minor"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Sonata for Piano No. 14 in C minor, K. 457 [IV]+\\. (.*)"
+  },
+  "Sonata15": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 15,
+      "opus": 494,
+      "opus_prefix": "K.",
+      "key": "F",
+      "mode": "major"
+    },
+    "fixTrackName": "Sonata for Piano No. 15 in F major, K. 494\\+533 [IV]+\\. (.*)"
+  },
+  "Sonata16": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 16,
+      "opus": 545,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "subTitle": "Semplice"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sonata for Piano No. 16 in C major, K. 545 Sonata semplice [IV]+\\. (.*)"
+  },
+  "Sonata17": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 17,
+      "opus": 570,
+      "opus_prefix": "K.",
+      "key": "Bb",
+      "mode": "major"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sonata for Piano No. 17 in B-flat major, K. 570 [IV]+\\. (.*)"
+  },
+  "Sonata18": {
+    "fixAlbumTitle": {
+      "form": "Sonata",
+      "num": 18,
+      "opus": 576,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major",
+      "subTitle": "Trumpet"
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "Sonata for Piano No. 18 in D major, K. 576 Trumpet , Hunt [IV]+\\. (.*)"
+  },
+  "SonataForTwoPianos": {
+    "fixTrackName": "Sonata for Two Pianos in D major, K.448 [IV]+\\. (.*)"
+  },
+  "Sinfonia Concertante": {
+    "fixAlbumTitle": "SinfConc Violin, Viola & Orch K320",
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"
+  },
+  "Symphony16[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 16,
+      "opus": 128,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "fixTrackName": "Sinfonie No.16 in C-Dur K. 128, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony17[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 17,
+      "opus": 129,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sinfonie No.17 in G-Dur K. 129, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony18[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 18,
+      "opus": 130,
+      "opus_prefix": "K.",
+      "key": "F",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sinfonie No.18 in F-Dur K. 130, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony19[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 19,
+      "opus": 132,
+      "opus_prefix": "K.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 11,
+    "fixTrackName": "Sinfonie No.19 in E flat-Dur K. 132, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony20[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 20,
+      "opus": 133,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "fixTrackName": "Sinfonie No.20 D-Dur K.133, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony21[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 21,
+      "opus": 134,
+      "opus_prefix": "K.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sinfonie No.21 A-Dur K.134, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony22[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 22,
+      "opus": 162,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "fixTrackName": "Sinfonie No.22 C-Dur K.162, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony23[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 23,
+      "opus": 181,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Sinfonie No.23 D-Dur K.181, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony24[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 24,
+      "opus": 182,
+      "opus_prefix": "K.",
+      "key": "B",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Sinfonie No.24 B-Dur K.182, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony25[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 25,
+      "opus": 183,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 10,
+    "fixTrackName": "Sinfonie No.25 g-moll K.183, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony26[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 26,
+      "opus": 184,
+      "opus_prefix": "K.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 9,
+    "fixTrackName": "Sinfonie No.26 Es-Dur K.184, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony27[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 27,
+      "opus": 199,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 12,
+    "fixTrackName": "Sinfonie No.27 G-Dur K.199, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony28[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 28,
+      "opus": 200,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Sinfonie No.28 C-Dur K.200, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony29[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 29,
+      "opus": 201,
+      "opus_prefix": "K.",
+      "key": "A",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "fixTrackName": "Sinfonie No.29 A-Dur K.201, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symphony30[Pinnock]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 30,
+      "opus": 202,
+      "opus_prefix": "K.",
+      "key": "D",
+      "mode": "major",
+      "performer": "Pinnock"
+    },
+    "firstTrackNumber": 14,
+    "fixTrackName": "Sinfonie No.30 D-Dur K.202, \\d\\. (.*)- The English Concert, Trevor Pinnock"
+  },
+  "Symph35[Davis]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 35,
+      "opus": 385,
+      "opus_prefix": "K.",
+      "subTitle": "Haffner",
+      "key": "D",
+      "mode": "major",
+      "performer": "Davis"
+    },
+    "fixTrackName": "Symphony No. 35 in D major, K. 385 Haffner [IV]+\\. (.*)"
+  },
+  "Symph38[Davis]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 38,
+      "opus": 504,
+      "opus_prefix": "K.",
+      "subTitle": "Prague",
+      "key": "D",
+      "mode": "major",
+      "performer": "Davis"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony No. 38 in D major, K. 504 Prague [IV]+\\. (.*)"
+  },
+  "Symph39[Davis]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 39,
+      "opus": 543,
+      "opus_prefix": "K.",
+      "key": "Eb",
+      "mode": "major",
+      "performer": "Davis"
+    },
+    "firstTrackNumber": 8,
+    "fixTrackName": "Symphony No. 39 in E-flat major, K. 543 [IV]+\\. (.*)"
+  },
+  "Symph40[Davis]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 40,
+      "opus": 550,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Davis"
+    },
+    "firstTrackNumber": 3,
+    "fixTrackName": "Symphony No. 40 in G minor, K. 550 [IV]+\\. (.*)"
+  },
+  "Symphony40[Tate]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 40,
+      "opus": 550,
+      "opus_prefix": "K.",
+      "key": "G",
+      "mode": "minor",
+      "performer": "Tate"
+    },
+    "fixTrackName": "Symphony No.40 - [IV]+\\. (.*)"
+  },
+  "Symph41[Davis]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 41,
+      "subTitle": "Jupiter",
+      "opus": 551,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Davis"
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Symphony No. 41 in C major, K. 551 Jupiter [IV]+\\. (.*)"
+  },
+  "Symphony41[Tate]": {
+    "fixAlbumTitle": {
+      "form": "Symph",
+      "num": 41,
+      "subTitle": "Jupiter",
+      "opus": 551,
+      "opus_prefix": "K.",
+      "key": "C",
+      "mode": "major",
+      "performer": "Tate"
+    },
+    "firstTrackNumber": 5,
+    "fixTrackName": "Symphony No.41 - [IV]+\\. (.*)"
+  },
+  "Vesperae solennes de Confessore [Marriner]": {
+    "fixTrackName": "Vesperae solennes de Confessore, K\\. 339: [IV]+\\. (.*)"
+  },
+  "Vesperae solennes de Dominica [Marriner]": {
+    "firstTrackNumber": 7,
+    "fixTrackName": "Vesperae solennes de Dominica, K\\. 321: [IV]+\\. (.*)"
+  },
+  "ViolinConcerto1": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 1,
+      "instrument": "Violin",
+      "key": "Bb",
+      "mode": "major",
+      "opus": 207,
+      "opus_prefix": "K."
+    },
+    "fixTrackName": "Concerto for Violin No. 1 in B-flat major, K. 207 [IV]+\\. (.*)"
+  },
+  "ViolinConcerto2": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 2,
+      "instrument": "Violin",
+      "key": "D",
+      "mode": "major",
+      "opus": 211,
+      "opus_prefix": "K."
+    },
+    "fixTrackName": "Concerto for Violin No. 2 in D major, K. 211 [IV]+\\. (.*)"
+  },
+  "ViolinConcerto3": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 3,
+      "instrument": "Violin",
+      "key": "G",
+      "mode": "major",
+      "opus": 216,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Concerto No. 3 in G major for Violin, K. 216 Strassburg [IV]+\\. (.*)"
+  },
+  "ViolinConcerto4": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 4,
+      "instrument": "Violin",
+      "key": "D",
+      "mode": "major",
+      "opus": 218,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 7,
+    "fixTrackName": "Concerto No. 4 in D major for Violin, K. 218 [IV]+\\. (.*)"
+  },
+  "ViolinConcerto5": {
+    "fixAlbumTitle": {
+      "form": "Conc",
+      "num": 5,
+      "instrument": "Violin",
+      "key": "A",
+      "mode": "major",
+      "opus": 219,
+      "opus_prefix": "K."
+    },
+    "firstTrackNumber": 4,
+    "fixTrackName": "Concerto No. 5 in A major for Violin, K. 219 Turkish [IV]+\\. (.*)"
+  }
+}
