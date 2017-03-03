@@ -48,7 +48,7 @@ export class RulesFactory
 
                 allTheRules["Frédéric Chopin"] = Copin.rules;
                 this.dumpJson(Copin.rules,
-                              "/home/rasmus/Music/bin/src/fixers/Copin.json");
+                              "/home/rasmus/Music/bin/src/fixers/Chopin.json");
 
                 allTheRules["Schubert"] = Schubert.rules;
                 this.dumpJson(
@@ -65,29 +65,15 @@ export class RulesFactory
         private dumpJson(data, path)
         {
                 return;
-
-                this.traverse(data, this.processObject);
-                var json = JSON.stringify(data);
-                fs.writeFileSync(path, json);
-        }
-        private processObject(key, data)
-        {
-                if (data[key] instanceof RegExp)
-                {
-                        var s = data[key].toString();
-                        data[key] = s.slice(1, s.length - 1);
-                }
-        }
-        private traverse(data, func)
-        {
-                for (var field in data)
-                {
-                        func.apply(this, [ field, data ]);
-                        if (data[field] !== null &&
-                            typeof(data[field]) == "object")
+                var replacer = function(key, value) {
+                        if (value instanceof RegExp)
                         {
-                                this.traverse(data[field], func);
+                                var s = value.toString();
+                                return s.slice(1, s.length - 1);
                         }
-                }
+                        return value;
+                };
+                var json = JSON.stringify(data, replacer, 4);
+                fs.writeFileSync(path, json);
         }
 };
