@@ -67,15 +67,6 @@ describe("Validator", () => {
            () => { _theValidator.validate(createAlbum()); });
 
         describe("on tracks", () => {
-                it("throws on missing track number", () => {
-                        musicTrack[0].trackNumber = undefined;
-
-                        expect(() => { _theValidator.validate(createAlbum()); })
-                            .to.throw(
-                                Error,
-                                /Track number out of order, expected 1 but got <undefined>/);
-                });
-
                 it("accepts tracks out of order", () => {
                         musicTrack[0].trackNumber = 2;
                         musicTrack[1].trackNumber = 1;

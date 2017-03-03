@@ -44,6 +44,10 @@ describe("CustomFixerFactory", () => {
                         var customFixer = buildFixer(
                             "artist name", "the original album name", rules);
 
+                        if (!customFixer.fixAlbumTitle)
+                        {
+                                throw new Error("test fails");
+                        }
                         expect(customFixer.fixAlbumTitle.toString())
                             .to.equal("Cantata BWV.131");
                 });

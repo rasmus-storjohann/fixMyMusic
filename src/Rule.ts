@@ -1,5 +1,6 @@
 export interface Rule {
-        firstTrackNumber?: number, fixTrackName?: string, fixAlbumTitle?: AlbumFormat
+        firstTrackNumber?: number, fixTrackName?: string,
+            fixAlbumTitle?: AlbumFormat
 }
 
 export interface AlbumFormat {
