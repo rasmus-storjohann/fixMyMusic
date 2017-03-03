@@ -64,6 +64,8 @@ export class RulesFactory
         };
         private dumpJson(data, path)
         {
+                return;
+
                 this.traverse(data, this.processObject);
                 var json = JSON.stringify(data);
                 fs.writeFileSync(path, json);

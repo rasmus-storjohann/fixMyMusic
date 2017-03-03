@@ -1,5 +1,6 @@
 export interface AlbumFixer {
-        firstTrackNumber?: number, fixTrackName?: string,
+        firstTrackNumber?: number,
+        fixTrackName?: string, // TODO should be regexp
             fixAlbumTitle?: AlbumNameFixer
 }
 
@@ -9,7 +10,7 @@ export interface AlbumNameFixer {
             mode?: string, key?: string
 }
 
-export class AlbumFixerFactory
+export class AlbumFixerParser
 {
         public parseAlbumFixer(json: string): AlbumFixer
         {

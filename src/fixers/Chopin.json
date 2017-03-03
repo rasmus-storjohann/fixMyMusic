@@ -125,15 +125,7 @@
     "fixTrackName": "Piano Sonata no. 1 in C minor, op. 4: [IV]+\\. (.*) \\(feat. piano: Lilya Zilberstein\\)"
   },
   "Sonata2": {
-    "fixAlbumTitle": {
-      "form": "Sonata",
-      "num": 2,
-      "key": "Bb",
-      "mode": "minor",
-      "opus": 35,
-      "opus_prefix": "Op.",
-      "performer": "Pollini"
-    },
+    "fixAlbumTitle": { "form": "Sonata", "num": 2, "key": "Bb", "mode": "minor", "opus": 35, "opus_prefix": "Op.", "performer": "Pollini" },
     "firstTrackNumber": 5,
     "fixTrackName": "Piano Sonata no. 2 in B-flat minor, op. 35: [IV]+\\. (.*) \\(feat. piano: Maurizio Pollini\\)"
   },
