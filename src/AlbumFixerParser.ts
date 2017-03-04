@@ -7,9 +7,17 @@ export interface AlbumFixer {
 
 // TODO rename AlbumNameFix
 export interface AlbumNameFixer {
-        form: string, instrument?: string, num?: number, opus?: number,
-            opus_number?: number, subTitle?: string, performer?: string,
-            mode?: string, key?: string
+        concerto: AlbumNameFixerAttr
+}
+
+export interface AlbumNameFixerAttr {
+        instrument?: string,
+        num?: number,
+        opus?: number | number[],
+        subTitle?: string,
+        performer?: string,
+        major?: string,
+        minor?: string
 }
 
 // TODO rename FixParser
@@ -48,17 +56,16 @@ export class AlbumFixerParser
                 }
                 return to;
         }
-        private parseOptionalString(from, to, field: string, toField?: string)
+        private parseOptionalString(from, to, field: string)
         {
                 if (!from[field]) return;
 
-                var fieldToAssignTo = toField || field;
-                to[fieldToAssignTo] = from[field] + "";
+                to[field] = from[field] + "";
         }
         private parseOptionalStringArray(from, to, field: string)
         {
                 if (!from[field]) return;
-
+                // TODO validate that this really is a string array
                 to[field] = from[field];
         }
         private parseOptionalNumber(from, to, field)
@@ -74,27 +81,28 @@ export class AlbumFixerParser
         }
         public buildAlbumNameFixer(from): AlbumNameFixer
         {
-                var to: AlbumNameFixer = {form : from.form + ""};
+                var to: AlbumNameFixerAttr = {};
 
-                // TODO don't change the names of the fields, this should be a pure parser
-                this.parseOptionalString(from, to, "for", "instrument");
-                this.parseOptionalString(from, to, "subTitle");
-                this.parseOptionalString(from, to, "by", "performer");
-                this.parseOptionalNumber(from, to, "num");
-                this.parseOpus(from, to);
-                this.parseKeyAndMode(from, to);
+                var kind = Object.keys(from)[0];
+                var contents = from[kind];
 
-                return to;
+                this.parseOptionalString(contents, to, "for");
+                this.parseOptionalString(contents, to, "subTitle");
+                this.parseOptionalString(contents, to, "by");
+                this.parseOptionalNumber(contents, to, "num");
+                this.parseOpus(contents, to);
+                this.parseKeyAndMode(contents, to);
+
+                return { concerto: to };
         }
-        private parseOpus(from, to)
+        private parseOpus(from, to: AlbumNameFixerAttr)
         {
                 if (!from.opus) return;
 
                 if (Array.isArray(from.opus))
                 {
                         this.validateLengthIsTwo(from.opus);
-                        to.opus = from.opus[0] + 0;
-                        to.opus_number = from.opus[1] + 0;
+                        to.opus = from.opus;
                 }
                 else
                 {
@@ -109,7 +117,7 @@ export class AlbumFixerParser
                             "invalid opus array, should have two elements");
                 }
         }
-        private parseKeyAndMode(from, to)
+        private parseKeyAndMode(from, to: AlbumNameFixerAttr)
         {
                 if (from.major && from.minor)
                 {
@@ -117,13 +125,11 @@ export class AlbumFixerParser
                 }
                 if (from.major)
                 {
-                        to.mode = "major";
-                        to.key = from.major + "";
+                        to.major = from.major + "";
                 }
                 if (from.minor)
                 {
-                        to.mode = "minor";
-                        to.key = from.minor + "";
+                        to.minor = from.minor + "";
                 }
         }
 }
