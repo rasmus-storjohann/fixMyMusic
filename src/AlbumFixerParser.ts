@@ -1,17 +1,33 @@
+// TODO rename Fix
 export interface AlbumFixer {
         firstTrackNumber?: number,
-        fixTrackName?: string, // TODO should be regexp
+            fixTrackName?: string, // TODO should be regexp
             fixAlbumTitle?: AlbumNameFixer
 }
 
+// TODO rename AlbumNameFix
 export interface AlbumNameFixer {
         form: string, instrument?: string, num?: number, opus?: number,
             opus_number?: number, subTitle?: string, performer?: string,
             mode?: string, key?: string
 }
 
+// TODO rename FixParser
 export class AlbumFixerParser
 {
+        public parse(json: string): any
+        {
+                var result = {};
+                var parsed = JSON.parse(json);
+                for (var album in parsed)
+                {
+                        if (parsed.hasOwnProperty(album))
+                        {
+                                result[album] = this.buildAlbumFixer(parsed[album]);
+                        }
+                }
+                return result;
+        }
         public parseAlbumFixer(json: string): AlbumFixer
         {
                 var parsed = JSON.parse(json);
@@ -23,6 +39,7 @@ export class AlbumFixerParser
 
                 this.parseOptionalNumber(from, to, "firstTrackNumber");
                 this.parseOptionalString(from, to, "fixTrackName");
+                this.parseOptionalStringArray(from, to, "validation");
 
                 if (from.fixAlbumTitle)
                 {
@@ -37,6 +54,12 @@ export class AlbumFixerParser
 
                 var fieldToAssignTo = toField || field;
                 to[fieldToAssignTo] = from[field] + "";
+        }
+        private parseOptionalStringArray(from, to, field: string)
+        {
+                if (!from[field]) return;
+
+                to[field] = from[field];
         }
         private parseOptionalNumber(from, to, field)
         {
@@ -53,6 +76,7 @@ export class AlbumFixerParser
         {
                 var to: AlbumNameFixer = {form : from.form + ""};
 
+                // TODO don't change the names of the fields, this should be a pure parser
                 this.parseOptionalString(from, to, "for", "instrument");
                 this.parseOptionalString(from, to, "subTitle");
                 this.parseOptionalString(from, to, "by", "performer");

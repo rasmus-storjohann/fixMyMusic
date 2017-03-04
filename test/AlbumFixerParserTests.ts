@@ -10,6 +10,7 @@ describe("Album fixer parser", () => {
 
                 expect(parsed).to.deep.equal(dto);
         });
+        // throws if firstTrackNumber is not a number
         it("can parse fixTrackName", () => {
                 var dto = {fixTrackName : "foo"};
                 var json = JSON.stringify(dto);
