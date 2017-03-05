@@ -36,7 +36,7 @@ export interface AlbumNameFixerAttr {
 // TODO rename FixParser
 export class AlbumFixerParser
 {
-        public parse(json: string): any // TODO should be hash from string to AlbumFixer
+        public parseComposerJsonFile(json: string): any // TODO should be hash from string to AlbumFixer
         {
                 var result = {};
                 var parsed = JSON.parse(json);
