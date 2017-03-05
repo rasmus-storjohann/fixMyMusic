@@ -1,9 +1,9 @@
-import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
-import {FixOptionsForOneComposer} from "./businessInterfaces/fixers/FixOptionsForOneComposer";
-import {GlobalFixOptions} from "./businessInterfaces/fixers/GlobalFixOptions";
-import {FixOptions} from "./businessInterfaces/fixers/FixOptions";
-import {AlbumNameFixOptions} from "./businessInterfaces/fixers/AlbumNameFixOptions";
-import {NameOptions} from "./businessInterfaces/fixers/NameOptions";
+import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
+import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {GlobalFixOptions} from "../../businessInterfaces/fixers/GlobalFixOptions";
+import {FixOptions} from "../../businessInterfaces/fixers/FixOptions";
+import {AlbumNameFixOptions} from "../../businessInterfaces/fixers/AlbumNameFixOptions";
+import {NameOptions} from "../../businessInterfaces/fixers/NameOptions";
 
 export class FixOptionsParser
 {

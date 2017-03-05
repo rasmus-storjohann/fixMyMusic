@@ -1,9 +1,8 @@
-import {expect} from "chai";
-import {beforeEach, describe, it} from "mocha";
-import {FixOptionsParser} from "../src/AlbumFixerParser";
 import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
 import {FixOptions} from "../src/businessInterfaces/fixers/FixOptions";
-
+import {FixOptionsParser} from "../src/businessObjects/fixers/FixOptionsParser";
+import {expect} from "chai";
+import {beforeEach, describe, it} from "mocha";
 import * as fs from "fs";
 
 describe("Fixer integration", () => {
