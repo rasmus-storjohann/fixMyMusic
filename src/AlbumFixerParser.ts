@@ -1,39 +1,51 @@
-// TODO rename FixOptions
-// TODO everything should be read only
-export interface AlbumFixer {
-        firstTrackNumber?: number,
-        fixTrackName?: string, // TODO should be regexp
-        fixAlbumTitle?: AlbumNameFixer
+export class FixOptions {
+        constructor(
+                readonly firstTrackNumber?: number,
+                readonly fixTrackName?: string, // TODO should be regexp
+                readonly fixAlbumTitle?: AlbumNameFixOptions,
+                readonly validation?: string[] // TODO should be an enum
+        )
+        {
+                var myObj = this;
+                Object.keys(myObj).forEach((key) => (myObj[key] == null) && delete myObj[key]);
+        }
 }
 
-// TODO rename AlbumNameFixOption
 // TODO this should be a class with a validating constructor, since exactly one of the members should be set
-export interface AlbumNameFixer {
-        cantata?: AlbumNameFixerAttr,
-        concerto?: AlbumNameFixerAttr,
-        grosso?: AlbumNameFixerAttr,
-        quartet?: AlbumNameFixerAttr,
-        quintet?: AlbumNameFixerAttr,
-        sonata?: AlbumNameFixerAttr,
-        suite?: AlbumNameFixerAttr,
-        symphony?: AlbumNameFixerAttr,
-        trio?: AlbumNameFixerAttr
+export interface AlbumNameFixOptions {
+        cantata?: AlbumNameOptions,
+        concerto?: AlbumNameOptions,
+        grosso?: AlbumNameOptions,
+        quartet?: AlbumNameOptions,
+        quintet?: AlbumNameOptions,
+        sonata?: AlbumNameOptions,
+        suite?: AlbumNameOptions,
+        symphony?: AlbumNameOptions,
+        trio?: AlbumNameOptions
 }
 
-// TODO rename AlbumNameFixAttributes
-// TODO this should be a class with a validating constructor, e.g. both major and minor can not be set
-export interface AlbumNameFixerAttr {
-        instrument?: string,
-        num?: number,
-        opus?: number | number[],
-        subTitle?: string,
-        performer?: string,
-        major?: string,
-        minor?: string
+export class AlbumNameOptions {
+        constructor(
+                readonly instrument?: string,
+                readonly num?: number,
+                readonly opus?: number | number[],
+                readonly subTitle?: string,
+                readonly by?: string,
+                readonly major?: string,
+                readonly minor?: string
+        )
+        {
+                var myObj = this;
+                Object.keys(myObj).forEach((key) => (myObj[key] == null) && delete myObj[key]);
+
+                if (this.major && minor)
+                {
+                        throw new Error("major and minor keys given");
+                }
+        }
 }
 
-// TODO rename FixParser
-export class AlbumFixerParser
+export class FixOptionsParser
 {
         public parseGlobalJsonFile(json: string) : any
         {
@@ -68,55 +80,54 @@ export class AlbumFixerParser
                 }
                 return result;
         }
-        public parseAlbumFixer(json: string): AlbumFixer
+        public parseAlbumFixer(json: string): FixOptions
         {
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
-        private buildAlbumFixer(from): AlbumFixer
+        private buildAlbumFixer(from): FixOptions
         {
-                var to: AlbumFixer = {};
+                var firstTrackNumber = this.parseOptionalNumber(from, "firstTrackNumber");
+                var fixTrackName = this.parseOptionalString(from, "fixTrackName");
+                var validation = this.parseOptionalStringArray(from, "validation");
 
-                this.parseOptionalNumber(from, to, "firstTrackNumber");
-                this.parseOptionalString(from, to, "fixTrackName");
-                this.parseOptionalStringArray(from, to, "validation");
-
+                var fixAlbumTitle: AlbumNameFixOptions | string | undefined = undefined;
                 if (from.fixAlbumTitle)
                 {
-                        to.fixAlbumTitle =
-                            this.buildAlbumNameFixer(from.fixAlbumTitle);
+                        fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
                 }
-                return to;
+
+                return new FixOptions(firstTrackNumber, fixTrackName, fixAlbumTitle, validation);
         }
-        private parseOptionalString(from, to, field: string)
+        private parseOptionalString(from, field: string) : string | undefined
         {
                 if (from[field])
                 {
-                        to[field] = from[field] + "";
+                        return from[field] + "";
                 }
 
         }
-        private parseOptionalStringArray(from, to, field: string)
+        private parseOptionalStringArray(from, field: string) : string[] | undefined
         {
                 if (from[field])
                 {
                         // TODO validate that this really is a string array
-                        to[field] = from[field];
+                        return from[field];
                 }
         }
-        private parseOptionalNumber(from, to, field)
+        private parseOptionalNumber(from, field): number | undefined
         {
                 if (from[field])
                 {
-                        to[field] = from[field] + 0;
+                        return from[field] + 0;
                 }
         }
-        public parseAlbumNameFixer(json: string): AlbumNameFixer
+        public parseAlbumNameFixer(json: string): AlbumNameFixOptions
         {
                 var from = JSON.parse(json);
                 return this.buildAlbumNameFixer(from); // TODO type system fail
         }
-        private buildAlbumNameFixer(from): AlbumNameFixer | string
+        private buildAlbumNameFixer(from): AlbumNameFixOptions | string
         {
                 // TODO fix json to never get here, use a different key
                 if (typeof from === "string")
@@ -124,47 +135,49 @@ export class AlbumFixerParser
                         return from;
                 }
 
-                var to: AlbumNameFixerAttr = {};
-
                 var kind = Object.keys(from)[0];
                 var contents = from[kind];
 
-                this.parseOptionalString(contents, to, "for");
-                this.parseOptionalString(contents, to, "subTitle");
-                this.parseOptionalString(contents, to, "by");
-                this.parseOptionalNumber(contents, to, "num");
-                this.parseOpus(contents, to);
-                this.parseKeyAndMode(contents, to);
+                var instrument = this.parseOptionalString(contents, "for");
+                var num = this.parseOptionalNumber(contents, "num");
+                var opus = this.parseOpus(contents);
+                var subTitle = this.parseOptionalString(contents, "subTitle");
+                var performer = this.parseOptionalString(contents, "by");
+                var major = this.parseOptionalString(contents, "major");
+                var minor = this.parseOptionalString(contents, "minor");
+
+                var albumNameOptions = new AlbumNameOptions(instrument, num, opus, subTitle, performer, major, minor);
 
                 switch(kind)
                 {
-                        case "concerto": { return { concerto: to }; }
-                        case "grosso": { return { grosso: to }; }
-                        case "sonata": { return { sonata: to }; }
-                        case "quartet": { return { quartet: to }; }
-                        case "quintet": { return { quintet: to }; }
-                        case "cantata": { return { cantata: to }; }
-                        case "symphony": { return { symphony: to }; }
-                        case "suite": { return { suite: to }; }
-                        case "trio": { return { trio: to }; }
+                        case "concerto": { return { concerto: albumNameOptions }; }
+                        case "grosso": { return { grosso: albumNameOptions }; }
+                        case "sonata": { return { sonata: albumNameOptions }; }
+                        case "quartet": { return { quartet: albumNameOptions }; }
+                        case "quintet": { return { quintet: albumNameOptions }; }
+                        case "cantata": { return { cantata: albumNameOptions }; }
+                        case "symphony": { return { symphony: albumNameOptions }; }
+                        case "suite": { return { suite: albumNameOptions }; }
+                        case "trio": { return { trio: albumNameOptions }; }
+
                         default: { throw new Error(kind + ": Invalid form"); }
                 }
         }
-        private parseOpus(from, to: AlbumNameFixerAttr)
+        private parseOpus(from) : number | number[] | undefined
         {
                 if (!from.opus)
                 {
-                        return;
+                        return undefined;
                 }
 
                 if (Array.isArray(from.opus))
                 {
                         this.validateLengthIsTwo(from.opus);
-                        to.opus = from.opus;
+                        return from.opus;
                 }
                 else
                 {
-                        to.opus = from.opus + 0;
+                        return from.opus + 0;
                 }
         }
         private validateLengthIsTwo(item: Array<string>)
@@ -173,21 +186,6 @@ export class AlbumFixerParser
                 {
                         throw new Error(
                             "invalid opus array, should have two elements");
-                }
-        }
-        private parseKeyAndMode(from, to: AlbumNameFixerAttr)
-        {
-                if (from.major && from.minor)
-                {
-                        throw new Error("major and minor keys given");
-                }
-                if (from.major)
-                {
-                        to.major = from.major + "";
-                }
-                if (from.minor)
-                {
-                        to.minor = from.minor + "";
                 }
         }
 }

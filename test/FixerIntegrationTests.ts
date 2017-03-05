@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {AlbumFixer, AlbumFixerParser} from "../src/AlbumFixerParser";
+import {FixOptions, FixOptionsParser} from "../src/AlbumFixerParser";
 
 import * as fs from "fs";
 
@@ -9,7 +9,7 @@ describe("Fixer integration", () => {
         function parseComposerJson(file: string) : any
         {
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
-                return new AlbumFixerParser().parseComposerJsonFile(json);
+                return new FixOptionsParser().parseComposerJsonFile(json);
         }
 
         it("can parse BachJs.json", () =>
@@ -70,7 +70,7 @@ describe("Fixer integration", () => {
         {
                 var file = "Others.json";
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
-                var parsed = new AlbumFixerParser().parseGlobalJsonFile(json);
+                var parsed = new FixOptionsParser().parseGlobalJsonFile(json);
 
                 expect(parsed["Carl Nielsen"]["Symph 1"].fixAlbumTitle.symphony.num).to.equal(1);
         });
