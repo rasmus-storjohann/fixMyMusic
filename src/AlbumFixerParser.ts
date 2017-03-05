@@ -16,19 +16,74 @@ export class FixOptions {
         }
 }
 
-export interface AlbumNameFixOptions {
-        cantata?: AlbumNameOptions,
-        concerto?: AlbumNameOptions,
-        grosso?: AlbumNameOptions,
-        quartet?: AlbumNameOptions,
-        quintet?: AlbumNameOptions,
-        sonata?: AlbumNameOptions,
-        suite?: AlbumNameOptions,
-        symphony?: AlbumNameOptions,
-        trio?: AlbumNameOptions
+export interface IAlbumNameFixOptions {
+        cantata?: NameOptions,
+        concerto?: NameOptions,
+        grosso?: NameOptions,
+        quartet?: NameOptions,
+        quintet?: NameOptions,
+        sonata?: NameOptions,
+        suite?: NameOptions,
+        symphony?: NameOptions,
+        trio?: NameOptions
 }
 
-export class AlbumNameOptions {
+export class AlbumNameFixOptions
+{
+        cantata?: NameOptions;
+        concerto?: NameOptions;
+        grosso?: NameOptions;
+        quartet?: NameOptions;
+        quintet?: NameOptions;
+        sonata?: NameOptions;
+        suite?: NameOptions;
+        symphony?: NameOptions;
+        trio?: NameOptions;
+
+        static buildFromForm(form: string, albumNameOptions: NameOptions)
+        {
+                switch(form)
+                {
+                        case "concerto": { return new AlbumNameFixOptions({ concerto: albumNameOptions }); }
+                        case "grosso": { return new AlbumNameFixOptions({ grosso: albumNameOptions }); }
+                        case "sonata": { return new AlbumNameFixOptions({ sonata: albumNameOptions }); }
+                        case "quartet": { return new AlbumNameFixOptions({ quartet: albumNameOptions }); }
+                        case "quintet": { return new AlbumNameFixOptions({ quintet: albumNameOptions }); }
+                        case "cantata": { return new AlbumNameFixOptions({ cantata: albumNameOptions }); }
+                        case "symphony": { return new AlbumNameFixOptions({ symphony: albumNameOptions }); }
+                        case "suite": { return new AlbumNameFixOptions({ suite: albumNameOptions }); }
+                        case "trio": { return new AlbumNameFixOptions({ trio: albumNameOptions }); }
+
+                        default: { throw new Error(form + ": Invalid form"); }
+                }
+        }
+
+        constructor(options: IAlbumNameFixOptions)
+        {
+                this.cantata = options.cantata;
+                this.concerto = options.concerto;
+                this.grosso = options.grosso;
+                this.quartet = options.quartet;
+                this.quintet = options.quintet;
+                this.sonata = options.sonata;
+                this.suite = options.suite;
+                this.symphony = options.symphony;
+                this.trio = options.trio;
+
+                removeUndefinedFields(this);
+                this.validateOnlyOneFieldIsSet();
+        }
+
+        private validateOnlyOneFieldIsSet()
+        {
+                if (Object.keys(this).length !== 1)
+                {
+                        throw new Error("Album name fix spec has more than one entry");
+                }
+        }
+}
+
+export class NameOptions {
         constructor(
                 readonly instrument?: string,
                 readonly num?: number,
@@ -40,14 +95,21 @@ export class AlbumNameOptions {
         )
         {
                 removeUndefinedFields(this);
-                this.validateMajorAndMinorAreNotBothDefined();
-                // also opus length is 1 or two
+                this.validateMajorMinor();
+                this.validateOpus();
         }
-        private validateMajorAndMinorAreNotBothDefined()
+        private validateMajorMinor()
         {
                 if (this.major && this.minor)
                 {
                         throw new Error("major and minor keys given");
+                }
+        }
+        private validateOpus()
+        {
+                if (this.opus && typeof this.opus !== "number" && this.opus.length !== 2)
+                {
+                        throw new Error("opus must be number or array of two numbers");
                 }
         }
 }
@@ -98,7 +160,7 @@ export class FixOptionsParser
                 var fixTrackName = this.parseOptionalString(from, "fixTrackName");
                 var validation = this.parseOptionalStringArray(from, "validation");
 
-                var fixAlbumTitle: AlbumNameFixOptions | undefined = undefined;
+                var fixAlbumTitle: AlbumNameFixOptions | undefined;
                 if (from.fixAlbumTitle)
                 {
                         fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
@@ -133,43 +195,24 @@ export class FixOptionsParser
         public parseAlbumNameFixer(json: string): AlbumNameFixOptions
         {
                 var from = JSON.parse(json);
-                return this.buildAlbumNameFixer(from); // TODO type system fail
+                return this.buildAlbumNameFixer(from);
         }
-        private buildAlbumNameFixer(from): AlbumNameFixOptions
+        private buildAlbumNameFixer(json): AlbumNameFixOptions
         {
-                // TODO fix json to never get here, use a different key
-                if (typeof from === "string")
-                {
-                        throw new Error(from + ": Invalid album name fixer");
-                }
+                var form = Object.keys(json)[0];
+                var body = json[form];
 
-                var kind = Object.keys(from)[0];
-                var contents = from[kind];
+                var instrument = this.parseOptionalString(body, "for");
+                var num = this.parseOptionalNumber(body, "num");
+                var opus = this.parseOpus(body);
+                var subTitle = this.parseOptionalString(body, "subTitle");
+                var performer = this.parseOptionalString(body, "by");
+                var major = this.parseOptionalString(body, "major");
+                var minor = this.parseOptionalString(body, "minor");
 
-                var instrument = this.parseOptionalString(contents, "for");
-                var num = this.parseOptionalNumber(contents, "num");
-                var opus = this.parseOpus(contents);
-                var subTitle = this.parseOptionalString(contents, "subTitle");
-                var performer = this.parseOptionalString(contents, "by");
-                var major = this.parseOptionalString(contents, "major");
-                var minor = this.parseOptionalString(contents, "minor");
+                var albumNameOptions = new NameOptions(instrument, num, opus, subTitle, performer, major, minor);
 
-                var albumNameOptions = new AlbumNameOptions(instrument, num, opus, subTitle, performer, major, minor);
-
-                switch(kind)
-                {
-                        case "concerto": { return { concerto: albumNameOptions }; }
-                        case "grosso": { return { grosso: albumNameOptions }; }
-                        case "sonata": { return { sonata: albumNameOptions }; }
-                        case "quartet": { return { quartet: albumNameOptions }; }
-                        case "quintet": { return { quintet: albumNameOptions }; }
-                        case "cantata": { return { cantata: albumNameOptions }; }
-                        case "symphony": { return { symphony: albumNameOptions }; }
-                        case "suite": { return { suite: albumNameOptions }; }
-                        case "trio": { return { trio: albumNameOptions }; }
-
-                        default: { throw new Error(kind + ": Invalid form"); }
-                }
+                return AlbumNameFixOptions.buildFromForm(form, albumNameOptions);
         }
         private parseOpus(from) : number | number[] | undefined
         {
@@ -183,10 +226,13 @@ export class FixOptionsParser
                         this.validateLengthIsTwo(from.opus);
                         return from.opus;
                 }
-                else
+
+                if (this.isNumber(from.opus))
                 {
-                        return from.opus + 0;
+                        return from.opus;
                 }
+
+                throw new Error("Invalid data for opus");
         }
         private validateLengthIsTwo(item: string[])
         {

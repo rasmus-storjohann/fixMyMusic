@@ -3,6 +3,27 @@ import {beforeEach, describe, it} from "mocha";
 import {FixOptions, FixOptionsParser} from "../src/AlbumFixerParser";
 
 describe("Album fixer parser", () => {
+
+        describe("Language assumptions", () => {
+                it("Append empty string and compare to test for string", () => {
+                        var s: any = "";
+                        var n: any = 1;
+                        var o: any = {};
+                        expect(s + "" === s).to.be.true;
+                        expect(n + "" === n).to.be.false;
+                        expect(o + "" === o).to.be.false;
+                });
+
+                it("Add zero and compare to test for number", () => {
+                        var s: any = "";
+                        var n: any = 1;
+                        var o: any = {};
+                        expect(s + 0 === s).to.be.false;
+                        expect(n + 0 === n).to.be.true;
+                        expect(o + 0 === o).to.be.false;
+                });
+        });
+
         it("can parse firstTrackNumber", () => {
                 var dto = {firstTrackNumber : 4};
                 var json = JSON.stringify(dto);

@@ -6,7 +6,7 @@
 		"target": "es6",
 		"noImplicitAny": false,
 		"outDir": "dist",
-                
+
                 "alwaysStrict" : true,
                 "noFallthroughCasesInSwitch": true,
                 "noImplicitAny": false,
