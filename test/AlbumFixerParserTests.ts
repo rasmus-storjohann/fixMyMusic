@@ -1,6 +1,8 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {FixOptions, FixOptionsParser} from "../src/AlbumFixerParser";
+import {FixOptionsParser} from "../src/AlbumFixerParser";
+import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
+import {FixOptions} from "../src/businessInterfaces/fixers/FixOptions";
 
 describe("Album fixer parser", () => {
 
@@ -37,7 +39,7 @@ describe("Album fixer parser", () => {
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({fixTrackName : /foo/});
         });
         it("can parse fixAlbumTitle", () => {
                 var dto = {fixAlbumTitle : {concerto : {}}};
@@ -51,7 +53,8 @@ describe("Album fixer parser", () => {
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal(
+                    {validation : [ ValidationOption.skipUniqueTrackNameCheck ]});
         });
 });
 

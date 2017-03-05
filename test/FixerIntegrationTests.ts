@@ -1,6 +1,8 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {FixOptions, FixOptionsParser} from "../src/AlbumFixerParser";
+import {FixOptionsParser} from "../src/AlbumFixerParser";
+import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
+import {FixOptions} from "../src/businessInterfaces/fixers/FixOptions";
 
 import * as fs from "fs";
 
@@ -14,7 +16,8 @@ describe("Fixer integration", () => {
 
         it("can parse BachJs.json", () => {
                 var parsed = parseComposerJson("BachJs.json");
-                expect(parsed.BminorMass.validation[0]).to.equal("skipUniqueTrackNameCheck");
+                expect(parsed.BminorMass.validation[0])
+                    .to.equal(ValidationOption.skipUniqueTrackNameCheck);
         });
 
         it("can parse Beethoven.json", () => {
