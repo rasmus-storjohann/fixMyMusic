@@ -6,8 +6,7 @@ function removeUndefinedFields(anObject: any)
 
 export class FixOptions
 {
-        constructor(readonly firstTrackNumber?: number,
-                    readonly fixTrackName?: string, // TODO should be regexp
+        constructor(readonly firstTrackNumber?: number, readonly fixTrackName?: RegExp,
                     readonly fixAlbumTitle?: AlbumNameFixOptions,
                     readonly validation?: string[] // TODO should be an enum
                     )
@@ -155,42 +154,45 @@ export class FixOptionsParser
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
+        public parseAlbumNameFixer(json: string): AlbumNameFixOptions
+        {
+                var from = JSON.parse(json);
+                return this.buildAlbumNameFixer(from);
+        }
         private buildAlbumFixer(from): FixOptions
         {
                 var firstTrackNumber = this.parseOptionalNumber(from, "firstTrackNumber");
-                var fixTrackName = this.parseOptionalString(from, "fixTrackName");
+                var fixTrackName = this.parseOptionalRegExp(from, "fixTrackName");
+                var nameFixOptions = this.parseOptionalNameFixOptions(from, "fixAlbumTitle");
                 var validation = this.parseOptionalStringArray(from, "validation");
 
-                var fixAlbumTitle: AlbumNameFixOptions | undefined;
-                if (from.fixAlbumTitle)
-                {
-                        fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
-                }
-
-                return new FixOptions(firstTrackNumber, fixTrackName, fixAlbumTitle, validation);
+                return new FixOptions(firstTrackNumber, fixTrackName, nameFixOptions, validation);
         }
         private parseOptionalString(from, field: string): string | undefined
         {
                 return this.isString(from[field]) ? from[field] + "" : undefined;
         }
-        private isString(s: any): boolean { return s && s + "" === s; }
+        private parseOptionalRegExp(from, field: string): RegExp | undefined
+        {
+                return this.isString(from[field]) ? new RegExp(from[field]) : undefined;
+        }
         private parseOptionalStringArray(from, field: string): string[] | undefined
         {
                 return this.isStringArray(from[field]) ? from[field] : undefined;
-        }
-        private isStringArray(s: any): boolean
-        {
-                return s && s.length && s.every(element => element + "" === element);
         }
         private parseOptionalNumber(from, field): number | undefined
         {
                 return this.isNumber(from[field]) ? from[field] + 0 : undefined;
         }
-        private isNumber(s: any): boolean { return s && s + 0 === s; }
-        public parseAlbumNameFixer(json: string): AlbumNameFixOptions
+        private isString(s: any): boolean { return s && s + "" === s; }
+        private isNumber(n: any): boolean { return n && n + 0 === n; }
+        private isStringArray(s: any): boolean
         {
-                var from = JSON.parse(json);
-                return this.buildAlbumNameFixer(from);
+                return s && s.length && s.every(item => this.isString(item));
+        }
+        private parseOptionalNameFixOptions(from, field: string): AlbumNameFixOptions | undefined
+        {
+                return from[field] ? this.buildAlbumNameFixer(from[field]) : undefined;
         }
         private buildAlbumNameFixer(json): AlbumNameFixOptions
         {
