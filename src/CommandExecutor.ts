@@ -14,8 +14,7 @@ export class CommandExecutor
                 commands.forEach((command) => {
                         if (fileExists("stop"))
                         {
-                                this.logger.error(
-                                    "abort: file \"stop\" exists");
+                                this.logger.error("abort: file \"stop\" exists");
                                 return;
                         }
                         if (command.command === "mkdir")
@@ -32,8 +31,7 @@ export class CommandExecutor
                         }
                         else
                         {
-                                throw new Error(command.command +
-                                                ": unknown command");
+                                throw new Error(command.command + ": unknown command");
                         }
                 });
         }
@@ -55,30 +53,22 @@ export class CommandExecutor
                 if (!command || !command.tags || command.tags.artist === "" ||
                     command.tags.album === "" || command.tags.track === "")
                 {
-                        throw new Error(
-                            command.target +
-                            ": Failed to set mp3 tags, missing track attribute(s)");
+                        throw new Error(command.target +
+                                        ": Failed to set mp3 tags, missing track attribute(s)");
                 }
                 this.logger.info("TAG   " + command.target);
-                var mp3infoCommand =
-                    [
-                      "mp3info", "-a", this.quote(command.tags.artist), "-l",
-                      this.quote(command.tags.album), "-t",
-                      this.quote(command.tags.track), this.quote(command.target)
-                    ].join(" ");
+                var mp3infoCommand = [
+                        "mp3info", "-a", this.quote(command.tags.artist), "-l",
+                        this.quote(command.tags.album), "-t", this.quote(command.tags.track),
+                        this.quote(command.target)
+                ].join(" ");
 
-                this.ensureWritable(command.target, function() {
-                        shelljs.exec(mp3infoCommand);
-                });
+                this.ensureWritable(command.target, function() { shelljs.exec(mp3infoCommand); });
         }
 
-        private quote(s: string): string
-        {
-                return "\"" + s.replace(/\"/g, "\\\"") + "\"";
-        }
+        private quote(s: string): string { return "\"" + s.replace(/\"/g, "\\\"") + "\""; }
 
-        private ensureWritable(target: string,
-                               functionNeedingWriteAccess: () => void)
+        private ensureWritable(target: string, functionNeedingWriteAccess: () => void)
         {
                 shelljs.chmod("u+w", target);
                 functionNeedingWriteAccess();

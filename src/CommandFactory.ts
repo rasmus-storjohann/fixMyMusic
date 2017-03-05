@@ -19,12 +19,9 @@ export class CommandFactory
         {
                 var result: Command[];
                 result = [];
-                albums.forEach((album) => {
-                        result =
-                            result.concat(this.createCommandsForAlbum(album));
-                });
-                this.logger.info("Command factory",
-                                 "Created " + result.length + " commands");
+                albums.forEach(
+                    (album) => { result = result.concat(this.createCommandsForAlbum(album)); });
+                this.logger.info("Command factory", "Created " + result.length + " commands");
                 return result;
         }
 
@@ -32,9 +29,7 @@ export class CommandFactory
         {
                 var mkDirCommand = {
                         command : "mkdir",
-                        target : [
-                                this.outputDirectory, album.artist, album.title
-                        ].join("/")
+                        target : [ this.outputDirectory, album.artist, album.title ].join("/")
                 };
                 var copyFilesCommands = this.createCommandsForTracks(album);
                 copyFilesCommands.unshift(mkDirCommand);
@@ -49,14 +44,9 @@ export class CommandFactory
                         var trackTitle = this.buildTrackName(track);
 
                         var target = [
-                                this.outputDirectory, album.artist, album.title,
-                                trackTitle + ".mp3"
+                                this.outputDirectory, album.artist, album.title, trackTitle + ".mp3"
                         ].join("/");
-                        result.push({
-                                command : "cp",
-                                source : track.path,
-                                target : target
-                        });
+                        result.push({command : "cp", source : track.path, target : target});
                         result.push({
                                 command : "tag",
                                 target : target,
@@ -79,9 +69,7 @@ export class CommandFactory
                 }
                 if (title.indexOf(".mp3") !== -1)
                 {
-                        throw new Error(
-                            track.path +
-                            ": track name contains the mp3 extension");
+                        throw new Error(track.path + ": track name contains the mp3 extension");
                 }
                 var formattedNumber = ("00" + track.trackNumber).slice(-2);
                 return formattedNumber + " " + title;

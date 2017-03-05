@@ -37,10 +37,9 @@ describe("Album", () => {
                                 title : "track"
                         };
 
-                        expect(() => { album.push(trackWithBadArtist); })
-                            .to.throw(
-                                Error,
-                                /Music track cannot be added to this album/);
+                        expect(() => {
+                                album.push(trackWithBadArtist);
+                        }).to.throw(Error, /Music track cannot be added to this album/);
                 });
                 it("throws when adding track with wrong album title", () => {
                         var album = new Album("artist", "title");
@@ -52,10 +51,9 @@ describe("Album", () => {
                                 title : "track"
                         };
 
-                        expect(() => { album.push(trackWithBadTitle); })
-                            .to.throw(
-                                Error,
-                                /Music track cannot be added to this album/);
+                        expect(() => {
+                                album.push(trackWithBadTitle);
+                        }).to.throw(Error, /Music track cannot be added to this album/);
                 });
         });
         describe("sorting tracks", () => {

@@ -20,21 +20,15 @@ export class CustomFixerFactory
                                 var rulesForArtist = allRules[artist];
                                 for (var album in rulesForArtist)
                                 {
-                                        if (rulesForArtist.hasOwnProperty(
-                                                album))
+                                        if (rulesForArtist.hasOwnProperty(album))
                                         {
-                                                var rulesForAlbum =
-                                                    rulesForArtist[album];
+                                                var rulesForAlbum = rulesForArtist[album];
                                                 for (var rule in rulesForAlbum)
                                                 {
-                                                        if (rulesForAlbum
-                                                                .hasOwnProperty(
-                                                                    rule))
+                                                        if (rulesForAlbum.hasOwnProperty(rule))
                                                         {
-                                                                this.validateRule(
-                                                                    rule,
-                                                                    artist,
-                                                                    album);
+                                                                this.validateRule(rule, artist,
+                                                                                  album);
                                                         }
                                                 }
                                         }
@@ -47,15 +41,14 @@ export class CustomFixerFactory
         private validateRule(ruleName: string, artist: string, album: string)
         {
                 var validRules = [
-                        "fixAlbumTitle", "fixTrackName", "fixTrackNameFunc",
-                        "firstTrackNumber", "validation"
+                        "fixAlbumTitle", "fixTrackName", "fixTrackNameFunc", "firstTrackNumber",
+                        "validation"
                 ];
 
                 if (validRules.indexOf(ruleName) === -1)
                 {
-                        throw new Error(ruleName +
-                                        ": Invalid custom rule for [" + artist +
-                                        "][" + album + "]");
+                        throw new Error(ruleName + ": Invalid custom rule for [" + artist + "][" +
+                                        album + "]");
                 }
         }
 
@@ -67,9 +60,8 @@ export class CustomFixerFactory
                 var artist = album.originalArtist;
                 var albumTitle = album.originalTitle;
 
-                this.logger.silly("Custom fixer factory", "called with " +
-                                                              artist + " and " +
-                                                              albumTitle);
+                this.logger.silly("Custom fixer factory",
+                                  "called with " + artist + " and " + albumTitle);
 
                 var artistRules = this.rules[artist];
                 var albumRules = artistRules && artistRules[albumTitle];
@@ -96,9 +88,7 @@ export class CustomFixerFactory
                                 if (value !== "skipTrackNumberCheck" &&
                                     value !== "skipUniqueTrackNameCheck")
                                 {
-                                        throw new Error(
-                                            value +
-                                            ": Invalid validation option");
+                                        throw new Error(value + ": Invalid validation option");
                                 }
                         });
                 }
@@ -116,11 +106,9 @@ export class CustomFixerFactory
                 var fixers: ((album: Album, logger: npmlog.NpmLog) => void)[];
                 fixers = [];
 
-                if (specification.fixTrackNameFunc &&
-                    specification.fixTrackName)
+                if (specification.fixTrackNameFunc && specification.fixTrackName)
                 {
-                        throw new Error(
-                            "Can't have both kinds of track fixers");
+                        throw new Error("Can't have both kinds of track fixers");
                 }
 
                 if (specification.fixTrackNameFunc)
@@ -130,12 +118,10 @@ export class CustomFixerFactory
                                 album.tracks.forEach((track) => {
                                         var oldTitle = track.title;
                                         var newTitle =
-                                            specification.fixTrackNameFunc(
-                                                oldTitle, logger);
-                                        logger.verbose("fixTrackNameFunc",
-                                                       "Changing old title '" +
-                                                           oldTitle + "' to '" +
-                                                           newTitle + "'");
+                                            specification.fixTrackNameFunc(oldTitle, logger);
+                                        logger.verbose("fixTrackNameFunc", "Changing old title '" +
+                                                                               oldTitle + "' to '" +
+                                                                               newTitle + "'");
                                         track.title = newTitle;
                                 });
                         }
@@ -145,27 +131,21 @@ export class CustomFixerFactory
 
                 if (specification.fixTrackName)
                 {
-                        var fixTrackName = function(album: Album,
-                                                    logger: npmlog.NpmLog) {
+                        var fixTrackName = function(album: Album, logger: npmlog.NpmLog) {
                                 album.tracks.forEach((track) => {
-                                        var match =
-                                            specification.fixTrackName.exec(
-                                                track.title);
+                                        var match = specification.fixTrackName.exec(track.title);
                                         if (!match)
                                         {
                                                 throw new Error(
-                                                    "'" + track.path +
-                                                    "': Track name \n'" +
+                                                    "'" + track.path + "': Track name \n'" +
                                                     track.title +
                                                     "' does not match fixer for fixTrackName: \n" +
                                                     specification.fixTrackName);
                                         }
                                         var newTitle = match[1];
-                                        logger.silly(
-                                            "SpecialFixTrackName",
-                                            track.title +
-                                                ": Extracting track name '" +
-                                                newTitle + "'");
+                                        logger.silly("SpecialFixTrackName",
+                                                     track.title + ": Extracting track name '" +
+                                                         newTitle + "'");
                                         track.title = newTitle;
                                 });
                         };
@@ -176,10 +156,8 @@ export class CustomFixerFactory
                 if (specification.firstTrackNumber)
                 {
                         var self = this;
-                        var fixTrackNumber = function(album: Album,
-                                                      logger: npmlog.NpmLog) {
-                                var adjustment =
-                                    1 - specification.firstTrackNumber;
+                        var fixTrackNumber = function(album: Album, logger: npmlog.NpmLog) {
+                                var adjustment = 1 - specification.firstTrackNumber;
                                 var previousDiskNumber = album.tracks[0].disk;
                                 var previousTrackNumber = 0;
 
@@ -187,15 +165,13 @@ export class CustomFixerFactory
                                         if (previousDiskNumber !== track.disk)
                                         {
                                                 previousDiskNumber = track.disk;
-                                                adjustment =
-                                                    previousTrackNumber;
+                                                adjustment = previousTrackNumber;
                                         }
 
                                         track.trackNumber += adjustment;
-                                        var expectedTrackNumber =
-                                            previousTrackNumber + 1;
-                                        self.validateTrackNumber(
-                                            track, expectedTrackNumber, logger);
+                                        var expectedTrackNumber = previousTrackNumber + 1;
+                                        self.validateTrackNumber(track, expectedTrackNumber,
+                                                                 logger);
                                         // TODO have this function quit when the
                                         // disk number changes,
                                         // then the disk number can remain and
@@ -210,39 +186,33 @@ export class CustomFixerFactory
                         fixers.push(fixTrackNumber);
                 }
 
-                var applyAllFixers =
-                    function(album: Album, logger: npmlog.NpmLog) {
-                        fixers.forEach((fixer) => { fixer(album, logger); });
-                }
+                var applyAllFixers = function(
+                    album: Album,
+                    logger: npmlog.NpmLog) { fixers.forEach((fixer) => { fixer(album, logger); }); }
 
                 return applyAllFixers;
         }
 
-        private validateTrackNumber(track: AlbumTrack,
-                                    expectedTrackNumber: number,
+        private validateTrackNumber(track: AlbumTrack, expectedTrackNumber: number,
                                     logger: npmlog.NpmLog)
         {
                 if (track.trackNumber < 1)
                 {
-                        throw new Error(
-                            track.title +
-                            ": fixing track number gave negative result of " +
-                            track.trackNumber);
+                        throw new Error(track.title +
+                                        ": fixing track number gave negative result of " +
+                                        track.trackNumber);
                 }
                 if (track.trackNumber < expectedTrackNumber)
                 {
-                        throw new Error(track.title +
-                                        ": duplicate track number " +
+                        throw new Error(track.title + ": duplicate track number " +
                                         expectedTrackNumber);
                 }
                 if (track.trackNumber > expectedTrackNumber)
                 {
-                        throw new Error(track.title +
-                                        ": missing track number " +
+                        throw new Error(track.title + ": missing track number " +
                                         expectedTrackNumber);
                 }
                 this.logger.verbose("SpecialFixTrackNumber",
-                                    track.title + ": setting track number to " +
-                                        track.trackNumber);
+                                    track.title + ": setting track number to " + track.trackNumber);
         }
 }

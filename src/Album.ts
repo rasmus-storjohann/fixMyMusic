@@ -26,8 +26,7 @@ export class Album
         {
                 if (artist !== this.artist)
                 {
-                        throw new Error(
-                            "Music track cannot be added to this album: Wrong artist");
+                        throw new Error("Music track cannot be added to this album: Wrong artist");
                 }
                 if (album !== this.title)
                 {

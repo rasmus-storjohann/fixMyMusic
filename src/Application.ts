@@ -35,14 +35,12 @@ export class Application
                         throw new Error("Specify --out argument");
                 }
 
-                var files =
-                    new FileFactory(this.logger).create(fromDirectories);
+                var files = new FileFactory(this.logger).create(fromDirectories);
                 var tracks = new TrackFactory(this.logger).create(files);
                 var albums = new AlbumFactory(this.logger).create(tracks);
 
                 var rules = new RulesFactory().create();
-                var customFixerFactory =
-                    new CustomFixerFactory(rules, this.logger);
+                var customFixerFactory = new CustomFixerFactory(rules, this.logger);
 
                 var validator = new Validator(customFixerFactory, this.logger);
                 var fixer = new Fixer(customFixerFactory, this.logger);
@@ -53,8 +51,7 @@ export class Application
                         album.reassignTrackNumbers();
                 });
 
-                var commands =
-                    new CommandFactory(toDir, this.logger).create(albums);
+                var commands = new CommandFactory(toDir, this.logger).create(albums);
 
                 if (!dryRun)
                 {

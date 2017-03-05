@@ -10,10 +10,8 @@ export class TrackFactory
         public create(paths: string[]): Track[]
         {
                 var result = new Array<Track>();
-                paths.forEach(
-                    (path) => { result.push(this.createTrack(path)); });
-                this.logger.info("Track factory",
-                                 "Processed " + result.length + " tracks");
+                paths.forEach((path) => { result.push(this.createTrack(path)); });
+                this.logger.info("Track factory", "Processed " + result.length + " tracks");
                 return result;
         }
 
@@ -43,8 +41,7 @@ export class TrackFactory
                         trackNumber = parseInt(match[1]);
                         title = match[2];
                 }
-                else if (match =
-                             /^Disc (\d+) - (\d+)[ -]*(.*)\.mp3$/.exec(title))
+                else if (match = /^Disc (\d+) - (\d+)[ -]*(.*)\.mp3$/.exec(title))
                 {
                         disk = parseInt(match[1]);
                         trackNumber = parseInt(match[2]);
@@ -71,14 +68,12 @@ export class TrackFactory
                 };
         }
 
-        private validateElementCount(actual: number, expected: number,
-                                     path: string)
+        private validateElementCount(actual: number, expected: number, path: string)
         {
                 if (actual < expected)
                 {
-                        throw new Error(
-                            path + ": Invalid path to music file, at least " +
-                            expected + " elements needed");
+                        throw new Error(path + ": Invalid path to music file, at least " +
+                                        expected + " elements needed");
                 }
         }
 };

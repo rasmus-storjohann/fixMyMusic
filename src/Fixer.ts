@@ -6,8 +6,7 @@ import * as npmlog from "npmlog";
 
 export class Fixer
 {
-        public constructor(customFixerFactory: ICustomFixerFactory,
-                           logger: npmlog.NpmLog)
+        public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)
         {
                 this.customFixerFactory = customFixerFactory;
                 this.logger = logger;
@@ -18,8 +17,7 @@ export class Fixer
 
         public fix(album: Album): void
         {
-                this.logger.verbose("Fixer", "Fixing album " + album.artist +
-                                                 ": " + album.title);
+                this.logger.verbose("Fixer", "Fixing album " + album.artist + ": " + album.title);
 
                 var customFixer = this.customFixerFactory.create(album);
 

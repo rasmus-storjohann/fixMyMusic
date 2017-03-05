@@ -115,8 +115,7 @@ describe("Album format specification", () => {
                                              subTitle : "Eroica",
                                              by : "Haitink"
                                      }).toString();
-                        expect(result).to.equal(
-                            "Symph 3 [Haitink] \"Eroica\" in Eb Op.55");
+                        expect(result).to.equal("Symph 3 [Haitink] \"Eroica\" in Eb Op.55");
                 });
 
                 it("with instrument", () => {
@@ -126,31 +125,23 @@ describe("Album format specification", () => {
                 });
 
                 it("with opus and opus number", () => {
-                        var result = sonata({
-                                             num : 10,
-                                             major : "g",
-                                             op : [ 14, 2 ],
-                                             by : "Goode"
-                                     }).toString();
-                        expect(result).to.equal(
-                            "Sonata 10 [Goode] in G Op.14-2");
+                        var result = sonata({num : 10, major : "g", op : [ 14, 2 ], by : "Goode"})
+                                         .toString();
+                        expect(result).to.equal("Sonata 10 [Goode] in G Op.14-2");
                 });
 
                 it("with BWV number", () => {
-                        var result =
-                            cantata({
-                                    subTitle :
-                                        "Der Himmel lacht! die Erde jubilieret",
-                                    BWV : 31,
-                                    by : "Norrington"
-                            }).toString();
+                        var result = cantata({
+                                             subTitle : "Der Himmel lacht! die Erde jubilieret",
+                                             BWV : 31,
+                                             by : "Norrington"
+                                     }).toString();
                         expect(result).to.equal(
                             "Cantata [Norrington] \"Der Himmel lacht! die Erde jubilieret\" BWV.31");
                 });
 
                 it("with minor key", () => {
-                        var result = quartet({num : 14, minor : "C#", op : 131})
-                                         .toString();
+                        var result = quartet({num : 14, minor : "C#", op : 131}).toString();
                         expect(result).to.equal("Quartet 14 in c# Op.131");
                 });
         });

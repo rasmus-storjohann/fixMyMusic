@@ -32,8 +32,7 @@ describe("FileFactory", () => {
                 shelljs.mkdir("-p", "out/artist2/album/");
                 shelljs.cp("test.mp3", "out/artist2/album/03 track.mp3");
 
-                var files = new FileFactory(log).create(
-                    [ "out/artist1", "out/artist2" ]);
+                var files = new FileFactory(log).create([ "out/artist1", "out/artist2" ]);
                 expect(files).has.lengthOf(2);
         });
 });

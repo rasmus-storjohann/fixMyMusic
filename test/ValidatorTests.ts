@@ -15,8 +15,7 @@ beforeEach(() => {
                 create : function(album: Album) : CustomFixer {
                         var fixAlbumTitle = "";
                         var validation = [];
-                        var fixTrack = function(album: Album,
-                                                logger: npmlog.NpmLog) {};
+                        var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                         return {
                                 fixAlbumTitle : fixAlbumTitle,
                                 validation : validation,
@@ -96,19 +95,17 @@ describe("Validator", () => {
                         musicTrack[0].title = "12345678901 bla.mp3";
                         musicTrack[1].title = "12345678901 foo.mp3";
 
-                        expect(() => { _theValidator.validate(createAlbum()); })
-                            .to.throw(
-                                Error,
-                                /bbbb: Album contains redundant track names/);
+                        expect(() => {
+                                _theValidator.validate(createAlbum());
+                        }).to.throw(Error, /bbbb: Album contains redundant track names/);
                 });
 
-                it("does not throw similar track names if they're short enough",
-                   () => {
-                           musicTrack[0].title = "1234567890 bla.mp3";
-                           musicTrack[1].title = "1234567890 foo.mp3";
+                it("does not throw similar track names if they're short enough", () => {
+                        musicTrack[0].title = "1234567890 bla.mp3";
+                        musicTrack[1].title = "1234567890 foo.mp3";
 
-                           _theValidator.validate(createAlbum());
-                   });
+                        _theValidator.validate(createAlbum());
+                });
         });
 
         it("throws on space in artist", () => {
@@ -125,11 +122,9 @@ describe("Validator", () => {
                         var mockCustomFixerFactory = {
                                 create : function(album: Album) : CustomFixer {
                                         var fixAlbumTitle = "";
-                                        var validation =
-                                            [ "skipTrackNumberCheck" ];
-                                        var fixTrack = function(
-                                            album: Album,
-                                            logger: npmlog.NpmLog) {};
+                                        var validation = [ "skipTrackNumberCheck" ];
+                                        var fixTrack = function(album: Album,
+                                                                logger: npmlog.NpmLog) {};
                                         return {
                                                 fixAlbumTitle : fixAlbumTitle,
                                                 validation : validation,
@@ -140,18 +135,15 @@ describe("Validator", () => {
                         musicTrack[0].trackNumber = 2;
                         musicTrack[1].trackNumber = 1;
 
-                        new Validator(mockCustomFixerFactory, npmlog)
-                            .validate(createAlbum());
+                        new Validator(mockCustomFixerFactory, npmlog).validate(createAlbum());
                 });
                 it("can ignores similar track names", () => {
                         var customFixerFactory = {
                                 create : function(album: Album) : CustomFixer {
                                         var fixAlbumTitle = "fixed album name";
-                                        var validation =
-                                            [ "skipUniqueTrackNameCheck" ];
-                                        var fixTrack = function(
-                                            album: Album,
-                                            logger: npmlog.NpmLog) {};
+                                        var validation = [ "skipUniqueTrackNameCheck" ];
+                                        var fixTrack = function(album: Album,
+                                                                logger: npmlog.NpmLog) {};
                                         return {
                                                 fixAlbumTitle : fixAlbumTitle,
                                                 validation : validation,
@@ -162,8 +154,7 @@ describe("Validator", () => {
                         musicTrack[0].title = "12345678901234567890.mp3";
                         musicTrack[1].title = "12345678901234567890.mp3";
 
-                        new Validator(customFixerFactory, npmlog)
-                            .validate(createAlbum());
+                        new Validator(customFixerFactory, npmlog).validate(createAlbum());
                 });
                 // add tests confirming that skipping one test does not skip the
                 // other

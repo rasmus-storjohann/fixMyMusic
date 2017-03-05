@@ -43,8 +43,7 @@ describe("TrackFactory", () => {
                 it("Gets the album name from path",
                    () => { expect(_track.album).equals("album"); });
 
-                it("Gets the disk id from the path",
-                   () => { expect(_track.disk).equals(2); });
+                it("Gets the disk id from the path", () => { expect(_track.disk).equals(2); });
 
                 it("Gets the track number from the path",
                    () => { expect(_track.trackNumber).equals(1); });
@@ -65,8 +64,7 @@ describe("TrackFactory", () => {
                 it("Gets the album name from path",
                    () => { expect(_track.album).equals("album"); });
 
-                it("Gets the disk id from the path",
-                   () => { expect(_track.disk).equals(2); });
+                it("Gets the disk id from the path", () => { expect(_track.disk).equals(2); });
 
                 it("Gets the track number from path",
                    () => { expect(_track.trackNumber).equals(1); });
@@ -87,8 +85,7 @@ describe("TrackFactory", () => {
                 it("Gets the album name from path",
                    () => { expect(_track.album).equals("album"); });
 
-                it("Gets the disk id from the path",
-                   () => { expect(_track.disk).equals(2); });
+                it("Gets the disk id from the path", () => { expect(_track.disk).equals(2); });
 
                 it("Gets the track number from path",
                    () => { expect(_track.trackNumber).equals(1); });
@@ -99,15 +96,13 @@ describe("TrackFactory", () => {
 
         describe("with track number", () => {
                 it("of just one digit", () => {
-                        var track = _theTrackFactory.createTrack(
-                            "root/artist/album/1 track.mp3");
+                        var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");
                         expect(track.trackNumber).equals(1);
                         expect(track.title).equals("track");
                 });
 
                 it("with trailing dot", () => {
-                        var track = _theTrackFactory.createTrack(
-                            "root/artist/album/1. track.mp3");
+                        var track = _theTrackFactory.createTrack("root/artist/album/1. track.mp3");
                         expect(track.trackNumber).equals(1);
                         expect(track.title).equals("track");
                 });
@@ -116,8 +111,7 @@ describe("TrackFactory", () => {
         describe("with deep path", () => {
                 var _track: Track;
                 beforeEach(() => {
-                        var deepPath =
-                            "the/deep/path/artist/album/01 track.mp3";
+                        var deepPath = "the/deep/path/artist/album/01 track.mp3";
                         _track = _theTrackFactory.createTrack(deepPath);
                 });
 

@@ -1,7 +1,6 @@
 export interface Format {
-        form: string, instrument?: string, num?: number, mode?: string,
-            key?: string, opus?: number, opus_number?: number,
-            opus_prefix?: string, subTitle?: string, performer?: string
+        form: string, instrument?: string, num?: number, mode?: string, key?: string, opus?: number,
+            opus_number?: number, opus_prefix?: string, subTitle?: string, performer?: string
 }
 
 function setOpus(opus: number | number[], result: Format): void
@@ -105,9 +104,7 @@ function buildFormat(form: string, formatOptions?: any): Format
                         case "num":
                         case "subTitle": result[option] = value; break;
 
-                        default:
-                                throw new Error("Invalid format specifier: " +
-                                                option);
+                        default: throw new Error("Invalid format specifier: " + option);
                         }
                 }
         }
@@ -119,10 +116,7 @@ export function cantata(formatOptions?: any): Format
 {
         return buildFormat("Cantata", formatOptions);
 }
-export function concerto(formatOptions?: any): Format
-{
-        return buildFormat("Conc", formatOptions);
-}
+export function concerto(formatOptions?: any): Format { return buildFormat("Conc", formatOptions); }
 export function concerto_grosso(formatOptions?: any): Format
 {
         return buildFormat("ConcGrosso", formatOptions);
@@ -131,22 +125,13 @@ export function quartet(formatOptions?: any): Format
 {
         return buildFormat("Quartet", formatOptions);
 }
-export function sonata(formatOptions?: any): Format
-{
-        return buildFormat("Sonata", formatOptions);
-}
-export function suite(formatOptions?: any): Format
-{
-        return buildFormat("Suite", formatOptions);
-}
+export function sonata(formatOptions?: any): Format { return buildFormat("Sonata", formatOptions); }
+export function suite(formatOptions?: any): Format { return buildFormat("Suite", formatOptions); }
 export function symphony(formatOptions?: any): Format
 {
         return buildFormat("Symph", formatOptions);
 }
-export function trio(formatOptions?: any): Format
-{
-        return buildFormat("Trio", formatOptions);
-}
+export function trio(formatOptions?: any): Format { return buildFormat("Trio", formatOptions); }
 export function quintet(formatOptions?: any): Format
 {
         return buildFormat("Quintet", formatOptions);

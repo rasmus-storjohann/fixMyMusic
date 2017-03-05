@@ -17,14 +17,12 @@ export class AlbumFactory
         public create(tracks: Track[]): Album[]
         {
                 tracks.forEach((track) => {
-                        var album = this.getAlbumForTrack(track) ||
-                                    this.createAlbumForTrack(track);
+                        var album = this.getAlbumForTrack(track) || this.createAlbumForTrack(track);
                         album.push(track);
                 });
                 var albums = this.buildAlbums();
 
-                this.logger.info("Album factory",
-                                 "Assembled " + albums.length + " albums");
+                this.logger.info("Album factory", "Assembled " + albums.length + " albums");
 
                 return albums;
         }
@@ -40,17 +38,13 @@ export class AlbumFactory
                 var key = this.computeKey(track);
                 if (this.working[key])
                 {
-                        throw new Error(
-                            "Cannot create album that already exists");
+                        throw new Error("Cannot create album that already exists");
                 }
                 this.working[key] = new Album(track.artist, track.album);
                 return this.working[key];
         }
 
-        private computeKey(track: Track): string
-        {
-                return track.artist + "->" + track.album;
-        }
+        private computeKey(track: Track): string { return track.artist + "->" + track.album; }
 
         private buildAlbums(): Album[]
         {

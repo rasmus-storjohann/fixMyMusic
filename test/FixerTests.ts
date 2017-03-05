@@ -18,8 +18,7 @@ beforeEach(() => {
                 create : function(album: Album) : CustomFixer {
                         var fixAlbumTitle = "";
                         var validation = [];
-                        var fixTrack = function(album: Album,
-                                                logger: npmlog.NpmLog) {};
+                        var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                         return {
                                 fixAlbumTitle : fixAlbumTitle,
                                 validation : validation,
@@ -30,13 +29,8 @@ beforeEach(() => {
 
         fixer = new Fixer(mockCustomFixerFactory, npmlog);
         album = new Album("aaaa", "bbbb");
-        album.push({
-                path : "cccc",
-                artist : "aaaa",
-                album : "bbbb",
-                trackNumber : 1,
-                title : "dddd"
-        });
+        album.push(
+            {path : "cccc", artist : "aaaa", album : "bbbb", trackNumber : 1, title : "dddd"});
 });
 
 describe("Fixer", () => {
@@ -64,20 +58,16 @@ describe("Fixer", () => {
                         fixer.fix(album);
                         expect(album.tracks[0].title).to.equal("track one.mp3");
                 });
-                it("replaces repeated space with one space in track names",
-                   () => {
-                           album.push(trackWithName("track     one.mp3"));
-                           fixer.fix(album);
-                           expect(album.tracks[0].title)
-                               .to.equal("track one.mp3");
-                   });
-                it("replaces repeated space/underscores with one space in track names",
-                   () => {
-                           album.push(trackWithName("track _ one.mp3"));
-                           fixer.fix(album);
-                           expect(album.tracks[0].title)
-                               .to.equal("track one.mp3");
-                   });
+                it("replaces repeated space with one space in track names", () => {
+                        album.push(trackWithName("track     one.mp3"));
+                        fixer.fix(album);
+                        expect(album.tracks[0].title).to.equal("track one.mp3");
+                });
+                it("replaces repeated space/underscores with one space in track names", () => {
+                        album.push(trackWithName("track _ one.mp3"));
+                        fixer.fix(album);
+                        expect(album.tracks[0].title).to.equal("track one.mp3");
+                });
 
                 it("assigns track numbers based on the disk number", () => {
                         album.push({
@@ -220,12 +210,11 @@ describe("Fixer", () => {
                         expect(album.artist).to.equal("a_b_c");
                 });
 
-                it("drops the 'the' and replaces space with _ in names starting with 'the'",
-                   () => {
-                           album.artist = "The Tragically Hip";
-                           fixer.fix(album);
-                           expect(album.artist).to.equal("Tragically_Hip");
-                   });
+                it("drops the 'the' and replaces space with _ in names starting with 'the'", () => {
+                        album.artist = "The Tragically Hip";
+                        fixer.fix(album);
+                        expect(album.artist).to.equal("Tragically_Hip");
+                });
 
                 it("swaps first and last name and replaces spaces with _ in names consisting first and last name",
                    () => {
@@ -234,57 +223,45 @@ describe("Fixer", () => {
                            expect(album.artist).to.equal("Hendrix_Jimi");
                    });
 
-                it("makes no changes to artist names that don't fit these patterns",
-                   () => {
-                           album.artist = "One Two Three";
-                           fixer.fix(album);
-                           expect(album.artist).to.equal("One Two Three");
-                   });
+                it("makes no changes to artist names that don't fit these patterns", () => {
+                        album.artist = "One Two Three";
+                        fixer.fix(album);
+                        expect(album.artist).to.equal("One Two Three");
+                });
 
                 describe("with custom fixer", () => {
 
                         it("can set album name", () => {
                                 var mockCustomFixerFactory = {
-                                        create : function(
-                                            album: Album) : CustomFixer {
-                                                var fixAlbumTitle =
-                                                    "fixed album name";
+                                        create : function(album: Album) : CustomFixer {
+                                                var fixAlbumTitle = "fixed album name";
                                                 var validation = [];
-                                                var fixTrack = function(
-                                                    album: Album,
-                                                    logger: npmlog.NpmLog) {};
+                                                var fixTrack = function(album: Album,
+                                                                        logger: npmlog.NpmLog) {};
                                                 return {
-                                                        fixAlbumTitle :
-                                                            fixAlbumTitle,
+                                                        fixAlbumTitle : fixAlbumTitle,
                                                         validation : validation,
                                                         fixTrack : fixTrack
                                                 };
                                         }
                                 }
 
-                                                             album.title =
-                                    "original album name";
-                                new Fixer(mockCustomFixerFactory, npmlog)
-                                    .fix(album);
-                                expect(album.title)
-                                    .to.equal("fixed album name");
+                                                             album.title = "original album name";
+                                new Fixer(mockCustomFixerFactory, npmlog).fix(album);
+                                expect(album.title).to.equal("fixed album name");
                         });
 
                         it("can set the track name", () => {
                                 var mockCustomFixerFactory = {
-                                        create : function(
-                                            album: Album) : CustomFixer {
+                                        create : function(album: Album) : CustomFixer {
                                                 var fixAlbumTitle = "";
                                                 var validation = [];
-                                                var fixTrack = function(
-                                                    album: Album,
-                                                    logger: npmlog.NpmLog) {
-                                                        album.tracks[0].title =
-                                                            "Fixed track.mp3";
+                                                var fixTrack = function(album: Album,
+                                                                        logger: npmlog.NpmLog) {
+                                                        album.tracks[0].title = "Fixed track.mp3";
                                                 };
                                                 return {
-                                                        fixAlbumTitle :
-                                                            fixAlbumTitle,
+                                                        fixAlbumTitle : fixAlbumTitle,
                                                         validation : validation,
                                                         fixTrack : fixTrack
                                                 };
@@ -292,12 +269,9 @@ describe("Fixer", () => {
                                 }
 
                                                              album.tracks[0]
-                                                                 .title =
-                                    "Original track.mp3";
-                                new Fixer(mockCustomFixerFactory, npmlog)
-                                    .fix(album);
-                                expect(album.tracks[0].title)
-                                    .to.equal("Fixed track.mp3");
+                                                                 .title = "Original track.mp3";
+                                new Fixer(mockCustomFixerFactory, npmlog).fix(album);
+                                expect(album.tracks[0].title).to.equal("Fixed track.mp3");
                         });
                 });
         });

@@ -5,8 +5,7 @@ import * as npmlog from "npmlog";
 
 export class Validator
 {
-        public constructor(customFixerFactory: ICustomFixerFactory,
-                           logger: npmlog.NpmLog)
+        public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)
         {
                 this.customFixerFactory = customFixerFactory;
                 this.logger = logger;
@@ -30,15 +29,12 @@ export class Validator
         {
                 if (validationOptions.indexOf("skipTrackNumberCheck") >= 0)
                 {
-                        this.logger.info(
-                            "Validate", "Skipping track number check for ",
-                            "[" + album.artist + "][" + album.title + "]");
+                        this.logger.info("Validate", "Skipping track number check for ",
+                                         "[" + album.artist + "][" + album.title + "]");
                         album.tracks.forEach((track) => {
                                 this.logger.info("Skipped",
-                                                 "[" + album.artist + "][" +
-                                                     album.title + "][" +
-                                                     track.trackNumber + "][" +
-                                                     track.title + "]");
+                                                 "[" + album.artist + "][" + album.title + "][" +
+                                                     track.trackNumber + "][" + track.title + "]");
                         });
                         return;
                 }
@@ -46,27 +42,22 @@ export class Validator
                 var index = 1;
                 var numberPrefixLength: number;
                 album.tracks.forEach((track) => {
-                        this.logger.info(
-                            "Validate",
-                            "[" + album.artist + "][" + album.title + "][" +
-                                track.trackNumber + "][" + track.title + "]");
+                        this.logger.info("Validate", "[" + album.artist + "][" + album.title +
+                                                         "][" + track.trackNumber + "][" +
+                                                         track.title + "]");
 
                         if (track.trackNumber != index)
                         {
-                                var trackNumber =
-                                    track.trackNumber || "<undefined>";
+                                var trackNumber = track.trackNumber || "<undefined>";
                                 var suggestedSpecialHandler =
-                                    "\"" + album.artist + "\" : {\n" +
-                                    "    \"" + album.title + "\" : {\n" +
-                                    "        firstTrackNumber: " + trackNumber +
-                                    ",\n" + "        fixTrackName: /" +
-                                    track.title + "(.*)/\n" + "    }\n" + "}";
+                                    "\"" + album.artist + "\" : {\n" + "    \"" + album.title +
+                                    "\" : {\n" + "        firstTrackNumber: " + trackNumber +
+                                    ",\n" + "        fixTrackName: /" + track.title + "(.*)/\n" +
+                                    "    }\n" + "}";
                                 throw new Error(
-                                    track.title +
-                                    ": Track number out of order, expected " +
-                                    index + " but got " + trackNumber +
-                                    "\nTemplate for special handler:\n" +
-                                    suggestedSpecialHandler);
+                                    track.title + ": Track number out of order, expected " + index +
+                                    " but got " + trackNumber +
+                                    "\nTemplate for special handler:\n" + suggestedSpecialHandler);
                         }
                         index++;
                 });
@@ -76,43 +67,35 @@ export class Validator
         {
                 if (album.artist.indexOf(" ") !== -1)
                 {
-                        throw new Error(album.tracks[0].path +
-                                        ": Artist contains a space: \"" +
+                        throw new Error(album.tracks[0].path + ": Artist contains a space: \"" +
                                         album.artist + "\"");
                 }
         }
 
-        private validateTrackUniqueness(album: Album,
-                                        validationOptions: string[])
+        private validateTrackUniqueness(album: Album, validationOptions: string[])
         {
                 if (validationOptions.indexOf("skipUniqueTrackNameCheck") >= 0)
                 {
-                        this.logger.info(
-                            "Validate",
-                            "Skipping track name uniqueness check for ",
-                            "[" + album.artist + "][" + album.title + "]");
+                        this.logger.info("Validate", "Skipping track name uniqueness check for ",
+                                         "[" + album.artist + "][" + album.title + "]");
                         return;
                 }
 
                 var firstTrackName: string;
                 album.tracks.forEach((track) => {
                         if (firstTrackName &&
-                            this.isTrackNameRedundant(firstTrackName,
-                                                      track.title))
+                            this.isTrackNameRedundant(firstTrackName, track.title))
                         {
                                 var suggestedSpecialHandler =
-                                    "\"" + album.artist + "\" : {\n" +
-                                    "    \"" + album.title + "\" : {\n" +
-                                    "        fixTrackName: /" + track.title +
+                                    "\"" + album.artist + "\" : {\n" + "    \"" + album.title +
+                                    "\" : {\n" + "        fixTrackName: /" + track.title +
                                     "(.*)/,\n" +
                                     "        validation : [\"skipUniqueTrackNameCheck\"]\n" +
                                     "    }\n" + "}";
 
                                 throw new Error(
-                                    album.title +
-                                    ": Album contains redundant track names '" +
-                                    track.title + "'" +
-                                    "\nTemplate for special handler:\n" +
+                                    album.title + ": Album contains redundant track names '" +
+                                    track.title + "'" + "\nTemplate for special handler:\n" +
                                     suggestedSpecialHandler);
                         }
                         if (!firstTrackName)
@@ -122,11 +105,9 @@ export class Validator
                 });
         }
 
-        private isTrackNameRedundant(firstTrackName: string,
-                                     secondTrackName: string): boolean
+        private isTrackNameRedundant(firstTrackName: string, secondTrackName: string): boolean
         {
-                var length =
-                    Math.min(firstTrackName.length, secondTrackName.length);
+                var length = Math.min(firstTrackName.length, secondTrackName.length);
                 var matches = 0;
                 for (var i = 0; i < length; i++)
                 {

@@ -18,141 +18,113 @@ describe("Acceptance tests", () => {
                 shelljs.rm("-rf", "testOutput");
         });
 
-        it("Has test prerequisites",
-           () => { expect(fileExists("test.mp3")).is.true; });
+        it("Has test prerequisites", () => { expect(fileExists("test.mp3")).is.true; });
 
         it("Copies file from source to destination", () => {
                 shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                shelljs.cp("test.mp3",
-                           "testOutput/source/artist/album/01 first track.mp3");
+                shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
                 log.level = "silent";
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out",
-                      "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/artist/album/01 first track.mp3"))
+                expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
                     .is.true;
         });
 
         it("With --dry-run does not copy file", () => {
                 shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                shelljs.cp("test.mp3",
-                           "testOutput/source/artist/album/01 first track.mp3");
+                shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
                 log.level = "silent";
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--dry-run",
-                      "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--dry-run", "--out",
+                      "testOutput/destination"
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/artist/album/01 first track.mp3"))
+                expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
                     .is.false;
         });
 
         describe("with special characters in filenames", () => {
                 it("supports []", () => {
                         shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp(
-                            "test.mp3",
-                            "testOutput/source/artist/album/01 [abc].mp3");
+                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 [abc].mp3");
 
                         log.level = "silent";
                         Application.main(
                             [
-                              "ignored", "ignored", "testOutput/source",
-                              "--out", "testOutput/destination"
+                              "ignored", "ignored", "testOutput/source", "--out",
+                              "testOutput/destination"
                             ],
                             log);
 
-                        expect(
-                            fileExists(
-                                "testOutput/destination/artist/album/01 [abc].mp3"))
+                        expect(fileExists("testOutput/destination/artist/album/01 [abc].mp3"))
                             .is.true;
                 });
                 it("supports *", () => {
                         shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp(
-                            "test.mp3",
-                            "testOutput/source/artist/album/01 abc*efg.mp3");
+                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 abc*efg.mp3");
 
                         log.level = "silent";
                         Application.main(
                             [
-                              "ignored", "ignored", "testOutput/source",
-                              "--out", "testOutput/destination"
+                              "ignored", "ignored", "testOutput/source", "--out",
+                              "testOutput/destination"
                             ],
                             log);
 
-                        expect(
-                            fileExists(
-                                "testOutput/destination/artist/album/01 abc*efg.mp3"))
+                        expect(fileExists("testOutput/destination/artist/album/01 abc*efg.mp3"))
                             .is.true;
                 });
                 it("supports ()", () => {
                         shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp(
-                            "test.mp3",
-                            "testOutput/source/artist/album/01 (efg).mp3");
+                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 (efg).mp3");
 
                         log.level = "silent";
                         Application.main(
                             [
-                              "ignored", "ignored", "testOutput/source",
-                              "--out", "testOutput/destination"
+                              "ignored", "ignored", "testOutput/source", "--out",
+                              "testOutput/destination"
                             ],
                             log);
 
-                        expect(
-                            fileExists(
-                                "testOutput/destination/artist/album/01 (efg).mp3"))
+                        expect(fileExists("testOutput/destination/artist/album/01 (efg).mp3"))
                             .is.true;
                 });
                 it("supports \"", () => {
                         shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp(
-                            "test.mp3",
-                            "testOutput/source/artist/album/01 \"efg\".mp3");
+                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 \"efg\".mp3");
 
                         log.level = "silent";
                         Application.main(
                             [
-                              "ignored", "ignored", "testOutput/source",
-                              "--out", "testOutput/destination"
+                              "ignored", "ignored", "testOutput/source", "--out",
+                              "testOutput/destination"
                             ],
                             log);
 
-                        expect(
-                            fileExists(
-                                "testOutput/destination/artist/album/01 \"efg\".mp3"))
+                        expect(fileExists("testOutput/destination/artist/album/01 \"efg\".mp3"))
                             .is.true;
                 });
                 it("supports '", () => {
                         shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp(
-                            "test.mp3",
-                            "testOutput/source/artist/album/01 'efg'.mp3");
+                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 'efg'.mp3");
 
                         log.level = "silent";
                         Application.main(
                             [
-                              "ignored", "ignored", "testOutput/source",
-                              "--out", "testOutput/destination"
+                              "ignored", "ignored", "testOutput/source", "--out",
+                              "testOutput/destination"
                             ],
                             log);
 
-                        expect(
-                            fileExists(
-                                "testOutput/destination/artist/album/01 'efg'.mp3"))
+                        expect(fileExists("testOutput/destination/artist/album/01 'efg'.mp3"))
                             .is.true;
                 });
         });
@@ -160,33 +132,23 @@ describe("Acceptance tests", () => {
         it("Copies file with disk id in path from source to destination", () => {
                 shelljs.mkdir("-p", "testOutput/source/artist/album/disk1");
                 shelljs.mkdir("-p", "testOutput/source/artist/album/disk2");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/artist/album/disk1/01 first track.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/artist/album/disk2/01 second track.mp3");
+                shelljs.cp("test.mp3", "testOutput/source/artist/album/disk1/01 first track.mp3");
+                shelljs.cp("test.mp3", "testOutput/source/artist/album/disk2/01 second track.mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out",
-                      "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/artist/album/01 first track.mp3"))
+                expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
                     .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/artist/album/02 second track.mp3"))
+                expect(fileExists("testOutput/destination/artist/album/02 second track.mp3"))
                     .is.true;
         });
 
         it("Supports validation directive to ignore track numbers", () => {
-                shelljs.mkdir("-p",
-                              "testOutput/source/Aaron Copland/FourPieces");
+                shelljs.mkdir("-p", "testOutput/source/Aaron Copland/FourPieces");
                 shelljs.cp(
                     "test.mp3",
                     "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 05 - Grohg - Cortège macabre.mp3");
@@ -202,8 +164,7 @@ describe("Acceptance tests", () => {
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out",
-                      "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
                     ],
                     log);
 
@@ -215,13 +176,11 @@ describe("Acceptance tests", () => {
                     fileExists(
                         "testOutput/destination/Copland_Aaron/Four Pieces/02 Letter From Home.mp3"))
                     .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3"))
+                expect(fileExists(
+                           "testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3"))
                     .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3"))
+                expect(fileExists(
+                           "testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3"))
                     .is.true;
         });
 
@@ -257,15 +216,11 @@ describe("Acceptance tests", () => {
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out",
-                      "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3"))
-                    .is.true;
+                expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3")).is.true;
                 expect(
                     fileExists(
                         "testOutput/destination/Janáček/Jenůfa2/02 Nechám ještě dveře otevřeny (Kostelnička).mp3"))
@@ -291,8 +246,7 @@ describe("Acceptance tests", () => {
                         "testOutput/destination/Janáček/Jenůfa2/07 Mamičko, mám těžkou hlavu (Jenůfa).mp3"))
                     .is.true;
                 expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3"))
+                    fileExists("testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3"))
                     .is.true;
                 expect(
                     fileExists(
@@ -301,25 +255,21 @@ describe("Acceptance tests", () => {
         });
 
         it("sets mp3 tags", () => {
-                shelljs.mkdir("-p",
-                              "testOutput/source/dummy artist/dummy album");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
+                shelljs.mkdir("-p", "testOutput/source/dummy artist/dummy album");
+                shelljs.cp("test.mp3",
+                           "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out",
-                      "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
                     ],
                     log);
 
-                var mp3infoCommand =
-                    [
-                      "mp3info",
-                      "\"testOutput/destination/artist_dummy/dummy album/01 dummy track.mp3\"",
-                      "-p \"artist='%a' album='%l' track='%t'\n\""
-                    ].join(" ");
+                var mp3infoCommand = [
+                        "mp3info",
+                        "\"testOutput/destination/artist_dummy/dummy album/01 dummy track.mp3\"",
+                        "-p \"artist='%a' album='%l' track='%t'\n\""
+                ].join(" ");
 
                 shelljs.exec(mp3infoCommand, function(code, stdout, stderr) {
                         var expected =
