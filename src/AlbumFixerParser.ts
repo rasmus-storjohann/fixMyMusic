@@ -1,15 +1,28 @@
-// TODO rename Fix
+// TODO rename FixOptions
+// TODO everything should be read only
+// TODO this should be a class with a validating constructor
 export interface AlbumFixer {
         firstTrackNumber?: number,
-            fixTrackName?: string, // TODO should be regexp
-            fixAlbumTitle?: AlbumNameFixer
+        fixTrackName?: string, // TODO should be regexp
+        fixAlbumTitle?: AlbumNameFixer
 }
 
-// TODO rename AlbumNameFix
+// TODO rename AlbumNameFixOption
+// TODO this should be a class with a validating constructor
 export interface AlbumNameFixer {
-        concerto: AlbumNameFixerAttr
+        cantata?: AlbumNameFixerAttr,
+        concerto?: AlbumNameFixerAttr,
+        grosso?: AlbumNameFixerAttr,
+        quartet?: AlbumNameFixerAttr,
+        quintet?: AlbumNameFixerAttr,
+        sonata?: AlbumNameFixerAttr,
+        suite?: AlbumNameFixerAttr,
+        symphony?: AlbumNameFixerAttr,
+        trio?: AlbumNameFixerAttr
 }
 
+// TODO rename AlbumNameFixAttributes
+// TODO this should be a class with a validating constructor
 export interface AlbumNameFixerAttr {
         instrument?: string,
         num?: number,
@@ -23,7 +36,7 @@ export interface AlbumNameFixerAttr {
 // TODO rename FixParser
 export class AlbumFixerParser
 {
-        public parse(json: string): any
+        public parse(json: string): any // TODO should be hash from string to AlbumFixer
         {
                 var result = {};
                 var parsed = JSON.parse(json);
@@ -77,10 +90,16 @@ export class AlbumFixerParser
         public parseAlbumNameFixer(json: string): AlbumNameFixer
         {
                 var from = JSON.parse(json);
-                return this.buildAlbumNameFixer(from);
+                return this.buildAlbumNameFixer(from); // TODO type system fail
         }
-        public buildAlbumNameFixer(from): AlbumNameFixer
+        public buildAlbumNameFixer(from): AlbumNameFixer | string
         {
+                // TODO fix json to never get here, use a different key
+                if (typeof from === "string")
+                {
+                        return from;
+                }
+
                 var to: AlbumNameFixerAttr = {};
 
                 var kind = Object.keys(from)[0];
@@ -93,7 +112,17 @@ export class AlbumFixerParser
                 this.parseOpus(contents, to);
                 this.parseKeyAndMode(contents, to);
 
-                return { concerto: to };
+                if (kind === "concerto") { return { concerto: to }; }
+                if (kind === "grosso") { return { grosso: to }; }
+                if (kind === "sonata") { return { sonata: to }; }
+                if (kind === "quartet") { return { quartet: to }; }
+                if (kind === "quintet") { return { quintet: to }; }
+                if (kind === "cantata") { return { cantata: to }; }
+                if (kind === "symphony") { return { symphony: to }; }
+                if (kind === "suite") { return { suite: to }; }
+                if (kind === "trio") { return { trio: to }; }
+
+                throw new Error(kind + ": Invalid form in " + from.toString());
         }
         private parseOpus(from, to: AlbumNameFixerAttr)
         {
