@@ -65,4 +65,13 @@ describe("Fixer integration", () => {
                 var parsed = parseComposerJson("Shostakovich.json");
                 expect(parsed["Lady Macbeth4"].firstTrackNumber).to.equal(8);
         });
+
+        it("can parse Others.json", () =>
+        {
+                var file = "Others.json";
+                var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
+                var parsed = new AlbumFixerParser().parseGlobalJsonFile(json);
+
+                expect(parsed["Carl Nielsen"]["Symph 1"].fixAlbumTitle.symphony.num).to.equal(1);
+        });
 });

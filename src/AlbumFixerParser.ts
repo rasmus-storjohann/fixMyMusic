@@ -1,6 +1,5 @@
 // TODO rename FixOptions
 // TODO everything should be read only
-// TODO this should be a class with a validating constructor
 export interface AlbumFixer {
         firstTrackNumber?: number,
         fixTrackName?: string, // TODO should be regexp
@@ -8,7 +7,7 @@ export interface AlbumFixer {
 }
 
 // TODO rename AlbumNameFixOption
-// TODO this should be a class with a validating constructor
+// TODO this should be a class with a validating constructor, since exactly one of the members should be set
 export interface AlbumNameFixer {
         cantata?: AlbumNameFixerAttr,
         concerto?: AlbumNameFixerAttr,
@@ -22,7 +21,7 @@ export interface AlbumNameFixer {
 }
 
 // TODO rename AlbumNameFixAttributes
-// TODO this should be a class with a validating constructor
+// TODO this should be a class with a validating constructor, e.g. both major and minor can not be set
 export interface AlbumNameFixerAttr {
         instrument?: string,
         num?: number,
@@ -36,7 +35,27 @@ export interface AlbumNameFixerAttr {
 // TODO rename FixParser
 export class AlbumFixerParser
 {
-        public parseComposerJsonFile(json: string): any // TODO should be hash from string to AlbumFixer
+        public parseGlobalJsonFile(json: string) : any
+        {
+                var result = {};
+                var parsed = JSON.parse(json);
+                for (var artist in parsed)
+                {
+                        if (parsed.hasOwnProperty(artist))
+                        {
+                                result[artist] = {};
+                                for (var album in parsed[artist])
+                                {
+                                        if (parsed[artist].hasOwnProperty(album))
+                                        {
+                                                result[artist][album] = this.buildAlbumFixer(parsed[artist][album]);
+                                        }
+                                }
+                        }
+                }
+                return result;
+        }
+        public parseComposerJsonFile(json: string): any // TODO should return hash from string to AlbumFixer
         {
                 var result = {};
                 var parsed = JSON.parse(json);
@@ -54,7 +73,7 @@ export class AlbumFixerParser
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
-        public buildAlbumFixer(from): AlbumFixer
+        private buildAlbumFixer(from): AlbumFixer
         {
                 var to: AlbumFixer = {};
 
@@ -71,28 +90,33 @@ export class AlbumFixerParser
         }
         private parseOptionalString(from, to, field: string)
         {
-                if (!from[field]) return;
+                if (from[field])
+                {
+                        to[field] = from[field] + "";
+                }
 
-                to[field] = from[field] + "";
         }
         private parseOptionalStringArray(from, to, field: string)
         {
-                if (!from[field]) return;
-                // TODO validate that this really is a string array
-                to[field] = from[field];
+                if (from[field])
+                {
+                        // TODO validate that this really is a string array
+                        to[field] = from[field];
+                }
         }
         private parseOptionalNumber(from, to, field)
         {
-                if (!from[field]) return;
-
-                to[field] = from[field] + 0;
+                if (from[field])
+                {
+                        to[field] = from[field] + 0;
+                }
         }
         public parseAlbumNameFixer(json: string): AlbumNameFixer
         {
                 var from = JSON.parse(json);
                 return this.buildAlbumNameFixer(from); // TODO type system fail
         }
-        public buildAlbumNameFixer(from): AlbumNameFixer | string
+        private buildAlbumNameFixer(from): AlbumNameFixer | string
         {
                 // TODO fix json to never get here, use a different key
                 if (typeof from === "string")
@@ -112,21 +136,26 @@ export class AlbumFixerParser
                 this.parseOpus(contents, to);
                 this.parseKeyAndMode(contents, to);
 
-                if (kind === "concerto") { return { concerto: to }; }
-                if (kind === "grosso") { return { grosso: to }; }
-                if (kind === "sonata") { return { sonata: to }; }
-                if (kind === "quartet") { return { quartet: to }; }
-                if (kind === "quintet") { return { quintet: to }; }
-                if (kind === "cantata") { return { cantata: to }; }
-                if (kind === "symphony") { return { symphony: to }; }
-                if (kind === "suite") { return { suite: to }; }
-                if (kind === "trio") { return { trio: to }; }
-
-                throw new Error(kind + ": Invalid form in " + from.toString());
+                switch(kind)
+                {
+                        case "concerto": { return { concerto: to }; }
+                        case "grosso": { return { grosso: to }; }
+                        case "sonata": { return { sonata: to }; }
+                        case "quartet": { return { quartet: to }; }
+                        case "quintet": { return { quintet: to }; }
+                        case "cantata": { return { cantata: to }; }
+                        case "symphony": { return { symphony: to }; }
+                        case "suite": { return { suite: to }; }
+                        case "trio": { return { trio: to }; }
+                        default: { throw new Error(kind + ": Invalid form"); }
+                }
         }
         private parseOpus(from, to: AlbumNameFixerAttr)
         {
-                if (!from.opus) return;
+                if (!from.opus)
+                {
+                        return;
+                }
 
                 if (Array.isArray(from.opus))
                 {
