@@ -470,7 +470,7 @@
         "fixTrackName": "Sonata for Two Pianos in D major, K.448 [IV]+\\. (.*)"
     },
     "Sinfonia Concertante": {
-        "fixAlbumTitle": "SinfConc Violin, Viola & Orch K320",
+        "albumTitle": "SinfConc Violin, Viola & Orch K320",
         "firstTrackNumber": 7,
         "fixTrackName": "Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"
     },

@@ -529,7 +529,7 @@
     },
     "Quintet Op16[Richter]": {
         "firstTrackNumber": 5,
-        "fixAlbumTitle": "Quintet [Richter] in Eb Op.16",
+        "albumTitle": "Quintet [Richter] in Eb Op.16",
         "fixTrackName": "Quintet in E flat, Op. 16 - \\d+\\. (.*)",
         "validation": [
             "skipUniqueTrackNameCheck"
@@ -537,7 +537,7 @@
     },
     "Quintet [Tokyo]": {
         "firstTrackNumber": 5,
-        "fixAlbumTitle": "Quintet [Tokyo] in Eb Op.16",
+        "albumTitle": "Quintet [Tokyo] in Eb Op.16",
         "fixTrackName": "String Quartet in C major, op. 29: [IV]+\\. (.*)"
     },
     "Sonata1[Goode]": {

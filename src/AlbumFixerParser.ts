@@ -1,3 +1,9 @@
+function removeUndefinedFields(anObject: any)
+{
+        // does this remove elements that are falsy, such as "", false, 0?
+        Object.keys(anObject).forEach((key) => (anObject[key] == null) && delete anObject[key]);
+}
+
 export class FixOptions {
         constructor(
                 readonly firstTrackNumber?: number,
@@ -6,12 +12,10 @@ export class FixOptions {
                 readonly validation?: string[] // TODO should be an enum
         )
         {
-                var myObj = this;
-                Object.keys(myObj).forEach((key) => (myObj[key] == null) && delete myObj[key]);
+                removeUndefinedFields(this);
         }
 }
 
-// TODO this should be a class with a validating constructor, since exactly one of the members should be set
 export interface AlbumNameFixOptions {
         cantata?: AlbumNameOptions,
         concerto?: AlbumNameOptions,
@@ -35,10 +39,13 @@ export class AlbumNameOptions {
                 readonly minor?: string
         )
         {
-                var myObj = this;
-                Object.keys(myObj).forEach((key) => (myObj[key] == null) && delete myObj[key]);
-
-                if (this.major && minor)
+                removeUndefinedFields(this);
+                this.validateMajorAndMinorAreNotBothDefined();
+                // also opus length is 1 or two
+        }
+        private validateMajorAndMinorAreNotBothDefined()
+        {
+                if (this.major && this.minor)
                 {
                         throw new Error("major and minor keys given");
                 }
@@ -91,7 +98,7 @@ export class FixOptionsParser
                 var fixTrackName = this.parseOptionalString(from, "fixTrackName");
                 var validation = this.parseOptionalStringArray(from, "validation");
 
-                var fixAlbumTitle: AlbumNameFixOptions | string | undefined = undefined;
+                var fixAlbumTitle: AlbumNameFixOptions | undefined = undefined;
                 if (from.fixAlbumTitle)
                 {
                         fixAlbumTitle = this.buildAlbumNameFixer(from.fixAlbumTitle);
@@ -101,38 +108,39 @@ export class FixOptionsParser
         }
         private parseOptionalString(from, field: string) : string | undefined
         {
-                if (from[field])
-                {
-                        return from[field] + "";
-                }
-
+                return this.isString(from[field]) ? from[field] + "" : undefined;
+        }
+        private isString(s: any) : boolean
+        {
+                return s && s + "" === s;
         }
         private parseOptionalStringArray(from, field: string) : string[] | undefined
         {
-                if (from[field])
-                {
-                        // TODO validate that this really is a string array
-                        return from[field];
-                }
+                return this.isStringArray(from[field]) ? from[field] : undefined;
+        }
+        private isStringArray(s: any) : boolean
+        {
+                return s && s.length && s.every(element => element + "" === element);
         }
         private parseOptionalNumber(from, field): number | undefined
         {
-                if (from[field])
-                {
-                        return from[field] + 0;
-                }
+                return this.isNumber(from[field]) ? from[field] + 0 : undefined;
+        }
+        private isNumber(s: any) : boolean
+        {
+                return s && s + 0 === s;
         }
         public parseAlbumNameFixer(json: string): AlbumNameFixOptions
         {
                 var from = JSON.parse(json);
                 return this.buildAlbumNameFixer(from); // TODO type system fail
         }
-        private buildAlbumNameFixer(from): AlbumNameFixOptions | string
+        private buildAlbumNameFixer(from): AlbumNameFixOptions
         {
                 // TODO fix json to never get here, use a different key
                 if (typeof from === "string")
                 {
-                        return from;
+                        throw new Error(from + ": Invalid album name fixer");
                 }
 
                 var kind = Object.keys(from)[0];
@@ -180,7 +188,7 @@ export class FixOptionsParser
                         return from.opus + 0;
                 }
         }
-        private validateLengthIsTwo(item: Array<string>)
+        private validateLengthIsTwo(item: string[])
         {
                 if (item.length !== 2)
                 {

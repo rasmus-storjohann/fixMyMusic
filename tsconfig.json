@@ -2,10 +2,18 @@
         "compileOnSave": false,
 	"compilerOptions": {
 		"declaration": true,
-                "strictNullChecks" : true,
 		"module": "CommonJS",
 		"target": "es6",
 		"noImplicitAny": false,
-		"outDir": "dist"
+		"outDir": "dist",
+                
+                "alwaysStrict" : true,
+                "noFallthroughCasesInSwitch": true,
+                "noImplicitAny": false,
+                "noImplicitReturns": true,
+                "noImplicitThis": true,
+                "noUnusedLocals": false,
+                "noUnusedParameters": false,
+                "strictNullChecks" : true
 	}
 }

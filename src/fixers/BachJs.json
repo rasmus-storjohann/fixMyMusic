@@ -1,6 +1,6 @@
 {
     "BminorMass": {
-        "fixAlbumTitle": "Mass in b BWV232",
+        "albumTitle": "Mass in b BWV232",
         "fixTrackName": "(?:Mass in B minor -[IV]+- )?(.*)",
         "validation": [
             "skipUniqueTrackNameCheck"
@@ -507,7 +507,7 @@
         ]
     },
     "ArtOfFugue[Gould,organ]": {
-        "fixAlbumTitle": "Kunst[Gould,organ]",
+        "albumTitle": "Kunst[Gould,organ]",
         "fixTrackName": "The Art of the Fugue, BWV 1080: (.*)",
         "validation": [
             "skipUniqueTrackNameCheck"

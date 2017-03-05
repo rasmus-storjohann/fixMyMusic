@@ -20,7 +20,7 @@
             "fixTrackName": "Fall River Legend: (.*)"
         },
         "FourPieces": {
-            "fixAlbumTitle": "Four Pieces",
+            "albumTitle": "Four Pieces",
             "validation": [
                 "skipTrackNumberCheck"
             ]
@@ -1414,22 +1414,22 @@
     },
     "Richter": {
         "The Essential Richter ~ The Mystic": {
-            "fixAlbumTitle": "Essential Richter: The Mystic"
+            "albumTitle": "Essential Richter: The Mystic"
         },
         "The Essential Richter ~ The Philosopher": {
-            "fixAlbumTitle": "Essential Richter: The Philosopher",
+            "albumTitle": "Essential Richter: The Philosopher",
             "validation": [
                 "skipUniqueTrackNameCheck"
             ]
         },
         "The Essential Richter ~ The Poet - Sviatoslav Richter": {
-            "fixAlbumTitle": "Essential Richter: The Poet"
+            "albumTitle": "Essential Richter: The Poet"
         },
         "The Essential Richter ~ The Virtuoso": {
-            "fixAlbumTitle": "Essential Richter: The Virtuoso"
+            "albumTitle": "Essential Richter: The Virtuoso"
         },
         "The Sofia Recital 1958": {
-            "fixAlbumTitle": "Essential Richter: The Sofia Recital 1958",
+            "albumTitle": "Essential Richter: The Sofia Recital 1958",
             "validation": [
                 "skipUniqueTrackNameCheck"
             ]
@@ -1522,13 +1522,13 @@
     },
     "Scarlatti": {
         "Sonatas Pogorelich": {
-            "fixAlbumTitle": "Sonatas [Pogorelich]",
+            "albumTitle": "Sonatas [Pogorelich]",
             "validation": [
                 "skipUniqueTrackNameCheck"
             ]
         },
         "Sonatas Zacharias": {
-            "fixAlbumTitle": "Sonatas [Zacharias]",
+            "albumTitle": "Sonatas [Zacharias]",
             "validation": [
                 "skipUniqueTrackNameCheck"
             ]
@@ -1567,7 +1567,7 @@
     },
     "JS Bach": {
         "BminorMass": {
-            "fixAlbumTitle": "Mass in b BWV232",
+            "albumTitle": "Mass in b BWV232",
             "fixTrackName": "(?:Mass in B minor -[IV]+- )?(.*)",
             "validation": [
                 "skipUniqueTrackNameCheck"
@@ -2074,7 +2074,7 @@
             ]
         },
         "ArtOfFugue[Gould,organ]": {
-            "fixAlbumTitle": "Kunst[Gould,organ]",
+            "albumTitle": "Kunst[Gould,organ]",
             "fixTrackName": "The Art of the Fugue, BWV 1080: (.*)",
             "validation": [
                 "skipUniqueTrackNameCheck"
@@ -2852,7 +2852,7 @@
         },
         "Quintet Op16[Richter]": {
             "firstTrackNumber": 5,
-            "fixAlbumTitle": "Quintet [Richter] in Eb Op.16",
+            "albumTitle": "Quintet [Richter] in Eb Op.16",
             "fixTrackName": "Quintet in E flat, Op. 16 - \\d+\\. (.*)",
             "validation": [
                 "skipUniqueTrackNameCheck"
@@ -2860,7 +2860,7 @@
         },
         "Quintet [Tokyo]": {
             "firstTrackNumber": 5,
-            "fixAlbumTitle": "Quintet [Tokyo] in Eb Op.16",
+            "albumTitle": "Quintet [Tokyo] in Eb Op.16",
             "fixTrackName": "String Quartet in C major, op. 29: [IV]+\\. (.*)"
         },
         "Sonata1[Goode]": {
@@ -5891,7 +5891,7 @@
             "fixTrackName": "Sonata for Two Pianos in D major, K.448 [IV]+\\. (.*)"
         },
         "Sinfonia Concertante": {
-            "fixAlbumTitle": "SinfConc Violin, Viola & Orch K320",
+            "albumTitle": "SinfConc Violin, Viola & Orch K320",
             "firstTrackNumber": 7,
             "fixTrackName": "Sinfonia Concertante in E major for Violin, Viola & Orchestra, K. 320d-364 [IV]+\\. (.*)"
         },
