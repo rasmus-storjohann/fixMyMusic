@@ -1,7 +1,7 @@
-import {NameOptions} from "./NameOptions";
+import {ParametersForAlbumName} from "./ParametersForAlbumName";
 
 export interface IAlbumNameFixOptions {
-        cantata?: NameOptions, concerto?: NameOptions, grosso?: NameOptions, quartet?: NameOptions,
-            quintet?: NameOptions, sonata?: NameOptions, suite?: NameOptions,
-            symphony?: NameOptions, trio?: NameOptions
+        cantata?: ParametersForAlbumName, concerto?: ParametersForAlbumName, grosso?: ParametersForAlbumName, quartet?: ParametersForAlbumName,
+            quintet?: ParametersForAlbumName, sonata?: ParametersForAlbumName, suite?: ParametersForAlbumName,
+            symphony?: ParametersForAlbumName, trio?: ParametersForAlbumName
 }

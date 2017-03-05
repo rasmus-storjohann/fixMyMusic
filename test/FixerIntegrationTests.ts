@@ -1,5 +1,5 @@
 import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
-import {FixOptions} from "../src/businessInterfaces/fixers/FixOptions";
+import {FixOptionsForOneAlbum} from "../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsParser} from "../src/businessObjects/fixers/FixOptionsParser";
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";

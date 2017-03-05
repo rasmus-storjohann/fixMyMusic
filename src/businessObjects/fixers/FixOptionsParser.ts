@@ -1,15 +1,16 @@
-import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
-import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
-import {GlobalFixOptions} from "../../businessInterfaces/fixers/GlobalFixOptions";
-import {FixOptions} from "../../businessInterfaces/fixers/FixOptions";
-import {AlbumNameFixOptions} from "../../businessInterfaces/fixers/AlbumNameFixOptions";
-import {NameOptions} from "../../businessInterfaces/fixers/NameOptions";
+// TODO find a way to avoid relative paths
+import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
+import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
+import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {FixOptionsForAlbumName} from "./../../businessInterfaces/fixers/FixOptionsForAlbumName";
+import {ParametersForAlbumName} from "./../../businessInterfaces/fixers/ParametersForAlbumName";
 
 export class FixOptionsParser
 {
-        public parseGlobalJsonFile(json: string): GlobalFixOptions
+        public parseGlobalJsonFile(json: string): FixOptionsForAll
         {
-                var result: GlobalFixOptions = {};
+                var result: FixOptionsForAll = {};
                 var parsed = JSON.parse(json);
                 for (var artist in parsed)
                 {
@@ -41,24 +42,24 @@ export class FixOptionsParser
                 }
                 return result;
         }
-        public parseAlbumFixer(json: string): FixOptions
+        public parseAlbumFixer(json: string): FixOptionsForOneAlbum
         {
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
-        public parseAlbumNameFixer(json: string): AlbumNameFixOptions
+        public parseAlbumNameFixer(json: string): FixOptionsForAlbumName
         {
                 var from = JSON.parse(json);
                 return this.buildAlbumNameFixer(from);
         }
-        private buildAlbumFixer(from): FixOptions
+        private buildAlbumFixer(from): FixOptionsForOneAlbum
         {
                 var firstTrackNumber = this.toNumber(from, "firstTrackNumber");
                 var fixTrackName = this.toRegExp(from, "fixTrackName");
                 var nameFixOptions = this.toNameFixOption(from, "fixAlbumTitle");
                 var validation = this.toValidationOptions(from, "validation");
 
-                return new FixOptions(firstTrackNumber, fixTrackName, nameFixOptions, validation);
+                return new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, nameFixOptions, validation);
         }
         private toString(from, field: string): string | undefined
         {
@@ -98,11 +99,11 @@ export class FixOptionsParser
         {
                 return s && s.length && s.every(item => this.isString(item));
         }
-        private toNameFixOption(from, field: string): AlbumNameFixOptions | undefined
+        private toNameFixOption(from, field: string): FixOptionsForAlbumName | undefined
         {
                 return from[field] ? this.buildAlbumNameFixer(from[field]) : undefined;
         }
-        private buildAlbumNameFixer(json): AlbumNameFixOptions
+        private buildAlbumNameFixer(json): FixOptionsForAlbumName
         {
                 var form = Object.keys(json)[0];
                 var body = json[form];
@@ -115,10 +116,10 @@ export class FixOptionsParser
                 var major = this.toString(body, "major");
                 var minor = this.toString(body, "minor");
 
-                var albumNameOptions =
-                    new NameOptions(instrument, num, opus, subTitle, performer, major, minor);
+                var parameters =
+                    new ParametersForAlbumName(instrument, num, opus, subTitle, performer, major, minor);
 
-                return AlbumNameFixOptions.buildFromForm(form, albumNameOptions);
+                return FixOptionsForAlbumName.buildFromForm(form, parameters);
         }
         private parseOpus(from): number | number[] | undefined
         {

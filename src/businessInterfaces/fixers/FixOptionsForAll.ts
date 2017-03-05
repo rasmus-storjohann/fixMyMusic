@@ -1,5 +1,5 @@
 import {FixOptionsForOneComposer} from "./FixOptionsForOneComposer";
 
-export interface GlobalFixOptions {
+export interface FixOptionsForAll {
         [name: string]: FixOptionsForOneComposer;
 }

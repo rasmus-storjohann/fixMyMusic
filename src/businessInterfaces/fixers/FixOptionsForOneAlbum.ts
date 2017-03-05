@@ -1,11 +1,11 @@
-import {AlbumNameFixOptions} from "./AlbumNameFixOptions";
+import {FixOptionsForAlbumName} from "./FixOptionsForAlbumName";
 import {ValidationOption} from "./ValidationOption";
 import {removeUndefinedFields} from "./removeUndefinedFields";
 
-export class FixOptions
+export class FixOptionsForOneAlbum
 {
         constructor(readonly firstTrackNumber?: number, readonly fixTrackName?: RegExp,
-                    readonly fixAlbumTitle?: AlbumNameFixOptions,
+                    readonly fixAlbumTitle?: FixOptionsForAlbumName,
                     readonly validation?: ValidationOption[])
         {
                 removeUndefinedFields(this);
