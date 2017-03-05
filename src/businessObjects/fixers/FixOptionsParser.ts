@@ -4,7 +4,7 @@ import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOpt
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsForAlbumName} from "./../../businessInterfaces/fixers/FixOptionsForAlbumName";
-import {ParametersForAlbumName} from "./../../businessInterfaces/fixers/ParametersForAlbumName";
+import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 
 export class FixOptionsParser
 {
@@ -117,7 +117,7 @@ export class FixOptionsParser
                 var minor = this.toString(body, "minor");
 
                 var parameters =
-                    new ParametersForAlbumName(instrument, num, opus, subTitle, performer, major, minor);
+                    new ClassicalWorkName(instrument, num, opus, subTitle, performer, major, minor);
 
                 return FixOptionsForAlbumName.buildFromForm(form, parameters);
         }

@@ -1,21 +1,21 @@
-import {ParametersForAlbumName} from "./ParametersForAlbumName";
-import {IAlbumNameFixOptions} from "./IAlbumNameFixOptions";
+import {ClassicalWorkName} from "./ClassicalWorkName";
+import {IFixOptionsForAlbumName} from "./IFixOptionsForAlbumName";
 import {removeUndefinedFields} from "./removeUndefinedFields";
 
 export class FixOptionsForAlbumName
 {
-        readonly cantata?: ParametersForAlbumName;
-        readonly concerto?: ParametersForAlbumName;
-        readonly grosso?: ParametersForAlbumName;
-        readonly quartet?: ParametersForAlbumName;
-        readonly quintet?: ParametersForAlbumName;
-        readonly sonata?: ParametersForAlbumName;
-        readonly suite?: ParametersForAlbumName;
-        readonly symphony?: ParametersForAlbumName;
-        readonly trio?: ParametersForAlbumName;
+        readonly cantata?: ClassicalWorkName;
+        readonly concerto?: ClassicalWorkName;
+        readonly grosso?: ClassicalWorkName;
+        readonly quartet?: ClassicalWorkName;
+        readonly quintet?: ClassicalWorkName;
+        readonly sonata?: ClassicalWorkName;
+        readonly suite?: ClassicalWorkName;
+        readonly symphony?: ClassicalWorkName;
+        readonly trio?: ClassicalWorkName;
 
         // this should be a normal constructor
-        static buildFromForm(form: string, nameOptions: ParametersForAlbumName)
+        static buildFromForm(form: string, nameOptions: ClassicalWorkName)
         {
                 switch (form)
                 {
@@ -33,7 +33,7 @@ export class FixOptionsForAlbumName
                 }
         }
 
-        constructor(options: IAlbumNameFixOptions)
+        constructor(options: IFixOptionsForAlbumName)
         {
                 this.cantata = options.cantata;
                 this.concerto = options.concerto;

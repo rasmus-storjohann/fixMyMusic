@@ -1,6 +1,6 @@
 import {removeUndefinedFields} from "./removeUndefinedFields";
 
-export class ParametersForAlbumName
+export class ClassicalWorkName
 {
         constructor(readonly instrument?: string, readonly num?: number,
                     readonly opus?: number | number[], readonly subTitle?: string,
