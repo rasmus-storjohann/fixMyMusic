@@ -1,4 +1,4 @@
-import {Command} from "../src/Command";
+import {Command} from "./businessInterfaces/commands/Command";
 import * as shelljs from 'shelljs';
 import * as fileExists from "file-exists";
 import * as npmlog from "npmlog";

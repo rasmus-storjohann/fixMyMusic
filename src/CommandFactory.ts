@@ -1,7 +1,7 @@
 import {Track} from "./businessInterfaces/tracks/Track";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {Album} from "./Album";
-import {Command} from "./Command";
+import {Command} from "./businessInterfaces/commands/Command";
 import * as npmlog from "npmlog";
 
 export class CommandFactory

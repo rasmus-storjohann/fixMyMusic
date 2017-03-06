@@ -3,6 +3,7 @@ import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {CustomFixer} from "./CustomFixer";
 import * as npmlog from "npmlog";
 
+// TODO refactor and rename
 export class CustomFixerFactory
 {
         public constructor(rules, logger: npmlog.NpmLog)
