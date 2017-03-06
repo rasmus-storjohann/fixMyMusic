@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
-import {Track} from "../src/Track";
+import {Track} from "../src/businessInterfaces/tracks/Track";
 import {Album} from "../src/Album";
 import {AlbumFactory} from "../src/AlbumFactory";
 

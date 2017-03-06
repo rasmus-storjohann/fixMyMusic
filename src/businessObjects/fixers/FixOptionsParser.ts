@@ -1,10 +1,10 @@
 // TODO find a way to avoid relative paths
-import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
-import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
+import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsForAlbumName} from "./../../businessInterfaces/fixers/FixOptionsForAlbumName";
 import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
+import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
 
 export class FixOptionsParser
 {

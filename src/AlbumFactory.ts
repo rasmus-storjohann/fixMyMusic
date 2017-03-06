@@ -1,6 +1,6 @@
 import {Album} from "./Album";
-import {AlbumTrack} from "./AlbumTrack";
-import {Track} from "./Track";
+import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
+import {Track} from "./businessInterfaces/tracks/Track";
 import * as npmlog from "npmlog";
 
 export class AlbumFactory

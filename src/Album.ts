@@ -1,5 +1,5 @@
-import {Track} from "./Track";
-import {AlbumTrack} from "./AlbumTrack";
+import {Track} from "./businessInterfaces/tracks/Track";
+import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 
 export class Album
 {

@@ -1,6 +1,6 @@
-import {Track} from "./Track";
+import {Track} from "./businessInterfaces/tracks/Track";
+import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {Album} from "./Album";
-import {AlbumTrack} from "./AlbumTrack";
 import {Command} from "./Command";
 import * as npmlog from "npmlog";
 

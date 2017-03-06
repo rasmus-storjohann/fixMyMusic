@@ -1,5 +1,5 @@
 import {Album} from "./Album";
-import {AlbumTrack} from "./AlbumTrack";
+import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
 import * as npmlog from "npmlog";
 

@@ -1,9 +1,9 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import {Validator} from "../src/Validator";
-import {Track} from "../src/Track";
+import {Track} from "../src/businessInterfaces/tracks/Track";
+import {AlbumTrack} from "../src/businessInterfaces/tracks/AlbumTrack";
 import {Album} from "../src/Album";
-import {AlbumTrack} from "../src/AlbumTrack";
 import {CustomFixer} from "../src/CustomFixer";
 import * as npmlog from "npmlog";
 
