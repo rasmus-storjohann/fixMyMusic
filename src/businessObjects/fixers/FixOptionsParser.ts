@@ -57,9 +57,10 @@ export class FixOptionsParser
                 var firstTrackNumber = this.toNumber(from, "firstTrackNumber");
                 var fixTrackName = this.toRegExp(from, "fixTrackName");
                 var nameFixOptions = this.toNameFixOption(from, "fixAlbumTitle");
+                var albumName = this.toString(from, "albumTitle");
                 var validation = this.toValidationOptions(from, "validation");
 
-                return new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, nameFixOptions, validation);
+                return new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, albumName, nameFixOptions, validation);
         }
         private toString(from, field: string): string | undefined
         {

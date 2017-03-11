@@ -1,6 +1,8 @@
 import {Track} from "./businessInterfaces/tracks/Track";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 
+// TODO move mutators out and make this class immutable, mutators should
+// create new Album instances
 export class Album
 {
         constructor(artist: string, title: string)

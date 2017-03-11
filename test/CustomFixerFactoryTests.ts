@@ -4,6 +4,8 @@ import {CustomFixerFactory} from "../src/CustomFixerFactory";
 import {Album} from "../src/Album";
 import {Format, cantata} from "../src/AlbumFormat";
 import * as npmlog from "npmlog";
+import {FixOptionsForOneAlbum} from "../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
 
 beforeEach(() => { npmlog.level = "silent"; });
 
@@ -51,68 +53,52 @@ describe("CustomFixerFactory", () => {
                         it("skipUniqueTrackNameCheck", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" :
-                                                    {validation : [ "skipUniqueTrackNameCheck" ]}
+                                                "album name" : new FixOptionsForOneAlbum(
+                                                    undefined, undefined, undefined, undefined,
+                                                    [ ValidationOption.skipUniqueTrackNameCheck ])
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
 
                                 expect(customFixer.validation).to.have.length(1);
                                 expect(customFixer.validation)
-                                    .to.contain("skipUniqueTrackNameCheck");
+                                    .to.contain(ValidationOption.skipUniqueTrackNameCheck);
                         });
 
                         it("skipTrackNumberCheck", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" :
-                                                    {validation : [ "skipTrackNumberCheck" ]}
+                                                "album name" : new FixOptionsForOneAlbum(
+                                                    undefined, undefined, undefined, undefined,
+                                                    [ ValidationOption.skipTrackNumberCheck ])
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
 
                                 expect(customFixer.validation).to.have.length(1);
-                                expect(customFixer.validation).to.contain("skipTrackNumberCheck");
+                                expect(customFixer.validation)
+                                    .to.contain(ValidationOption.skipTrackNumberCheck);
                         });
 
                         it("supports multiple flags", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" : {
-                                                        validation : [
-                                                                "skipUniqueTrackNameCheck",
-                                                                "skipTrackNumberCheck"
-                                                        ]
-                                                }
+                                                "album name" : new FixOptionsForOneAlbum(
+                                                    undefined, undefined, undefined, undefined,
+                                                    [
+                                                      ValidationOption.skipUniqueTrackNameCheck,
+                                                      ValidationOption.skipTrackNumberCheck
+                                                    ])
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
 
                                 expect(customFixer.validation).to.have.length(2);
                                 expect(customFixer.validation)
-                                    .to.contain("skipUniqueTrackNameCheck");
-                                expect(customFixer.validation).to.contain("skipTrackNumberCheck");
+                                    .to.contain(ValidationOption.skipUniqueTrackNameCheck);
+                                expect(customFixer.validation)
+                                    .to.contain(ValidationOption.skipTrackNumberCheck);
                         });
-                });
-
-                it("throws on invalid validation options", () => {
-                        var rules = {
-                                "artist name" : {"album name" : {validation : [ "invalidValue" ]}}
-                        };
-
-                        expect(() => {
-                                buildFixer("artist name", "album name", rules);
-                        }).to.throw(Error, /invalidValue: Invalid validation option/);
-                });
-
-                it("throws on invalid fixer options", () => {
-                        var rules = {
-                                "artist name" : {"album name" : {invalidOption : "any value"}}
-                        };
-
-                        expect(() => {
-                                buildFixer("artist name", "album name", rules);
-                        }).to.throw(Error, /invalidOption: Invalid custom rule/);
                 });
         });
 

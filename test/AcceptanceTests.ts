@@ -35,6 +35,44 @@ describe("Acceptance tests", () => {
                     .is.true;
         });
 
+        it("TODO complete description when I figure out the issue", () => {
+                shelljs.mkdir("-p", "testOutput/source/Aaron Copland/Symph3/");
+                shelljs.cp(
+                    "test.mp3",
+                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 04 - Symphony No. 3: IV. Molto deliberato.mp3");
+                shelljs.cp(
+                    "test.mp3",
+                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 03 - Symphony No. 3: III. Andantino quasi allegretto.mp3");
+                shelljs.cp(
+                    "test.mp3",
+                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 01 - Symphony No. 3: I. Molto moderato, with simple expression.mp3");
+                shelljs.cp(
+                    "test.mp3",
+                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 02 - Symphony No. 3: II. Allegro molto.mp3");
+
+                log.level = "silent";
+                Application.main(
+                    [
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                    ],
+                    log);
+
+                expect(
+                    fileExists(
+                        "testOutput/destination/Copland_Aaron/Symph3/01 Molto moderato, with simple expression.mp3"))
+                    .is.true;
+                expect(
+                    fileExists("testOutput/destination/Copland_Aaron/Symph3/02 Allegro molto.mp3"))
+                    .is.true;
+                expect(
+                    fileExists(
+                        "testOutput/destination/Copland_Aaron/Symph3/03 Andantino quasi allegretto.mp3"))
+                    .is.true;
+                expect(fileExists(
+                           "testOutput/destination/Copland_Aaron/Symph3/04 Molto deliberato.mp3"))
+                    .is.true;
+        });
+
         it("With --dry-run does not copy file", () => {
                 shelljs.mkdir("-p", "testOutput/source/artist/album/");
                 shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");

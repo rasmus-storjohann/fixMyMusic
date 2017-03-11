@@ -16,7 +16,7 @@ beforeEach(() => {
 
         var mockCustomFixerFactory = {
                 create : function(album: Album) : CustomFixer {
-                        var fixAlbumTitle = "";
+                        var fixAlbumTitle = undefined;
                         var validation = [];
                         var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                         return {
@@ -234,12 +234,12 @@ describe("Fixer", () => {
                         it("can set album name", () => {
                                 var mockCustomFixerFactory = {
                                         create : function(album: Album) : CustomFixer {
-                                                var fixAlbumTitle = "fixed album name";
+                                                var albumName = "fixed album name";
                                                 var validation = [];
                                                 var fixTrack = function(album: Album,
                                                                         logger: npmlog.NpmLog) {};
                                                 return {
-                                                        fixAlbumTitle : fixAlbumTitle,
+                                                        albumName : albumName,
                                                         validation : validation,
                                                         fixTrack : fixTrack
                                                 };
@@ -254,7 +254,7 @@ describe("Fixer", () => {
                         it("can set the track name", () => {
                                 var mockCustomFixerFactory = {
                                         create : function(album: Album) : CustomFixer {
-                                                var fixAlbumTitle = "";
+                                                var fixAlbumTitle = undefined;
                                                 var validation = [];
                                                 var fixTrack = function(album: Album,
                                                                         logger: npmlog.NpmLog) {

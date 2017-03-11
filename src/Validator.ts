@@ -1,6 +1,7 @@
 import {Album} from "./Album";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
+import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
 import * as npmlog from "npmlog";
 
 export class Validator
@@ -25,9 +26,9 @@ export class Validator
                 this.defaultValidateArtist(album);
         }
 
-        private validateTracks(album: Album, validationOptions: string[]): void
+        private validateTracks(album: Album, validationOptions: ValidationOption[]): void
         {
-                if (validationOptions.indexOf("skipTrackNumberCheck") >= 0)
+                if (validationOptions.indexOf(ValidationOption.skipTrackNumberCheck) >= 0)
                 {
                         this.logger.info("Validate", "Skipping track number check for ",
                                          "[" + album.artist + "][" + album.title + "]");
@@ -72,9 +73,9 @@ export class Validator
                 }
         }
 
-        private validateTrackUniqueness(album: Album, validationOptions: string[])
+        private validateTrackUniqueness(album: Album, validationOptions: ValidationOption[])
         {
-                if (validationOptions.indexOf("skipUniqueTrackNameCheck") >= 0)
+                if (validationOptions.indexOf(ValidationOption.skipUniqueTrackNameCheck) >= 0)
                 {
                         this.logger.info("Validate", "Skipping track name uniqueness check for ",
                                          "[" + album.artist + "][" + album.title + "]");

@@ -4,6 +4,7 @@ import {Validator} from "../src/Validator";
 import {Track} from "../src/businessInterfaces/tracks/Track";
 import {AlbumTrack} from "../src/businessInterfaces/tracks/AlbumTrack";
 import {Album} from "../src/Album";
+import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
 import {CustomFixer} from "../src/CustomFixer";
 import * as npmlog from "npmlog";
 
@@ -13,7 +14,7 @@ beforeEach(() => {
 
         var customFixerFactory = {
                 create : function(album: Album) : CustomFixer {
-                        var fixAlbumTitle = "";
+                        var fixAlbumTitle = undefined;
                         var validation = [];
                         var fixTrack = function(album: Album, logger: npmlog.NpmLog) {};
                         return {
@@ -121,8 +122,8 @@ describe("Validator", () => {
                 it("can ignore out of order tracks", () => {
                         var mockCustomFixerFactory = {
                                 create : function(album: Album) : CustomFixer {
-                                        var fixAlbumTitle = "";
-                                        var validation = [ "skipTrackNumberCheck" ];
+                                        var fixAlbumTitle = undefined;
+                                        var validation = [ ValidationOption.skipTrackNumberCheck ];
                                         var fixTrack = function(album: Album,
                                                                 logger: npmlog.NpmLog) {};
                                         return {
@@ -140,12 +141,13 @@ describe("Validator", () => {
                 it("can ignores similar track names", () => {
                         var customFixerFactory = {
                                 create : function(album: Album) : CustomFixer {
-                                        var fixAlbumTitle = "fixed album name";
-                                        var validation = [ "skipUniqueTrackNameCheck" ];
+                                        var albumName = "fixed album name";
+                                        var validation =
+                                            [ ValidationOption.skipUniqueTrackNameCheck ];
                                         var fixTrack = function(album: Album,
                                                                 logger: npmlog.NpmLog) {};
                                         return {
-                                                fixAlbumTitle : fixAlbumTitle,
+                                                albumName : albumName,
                                                 validation : validation,
                                                 fixTrack : fixTrack
                                         };

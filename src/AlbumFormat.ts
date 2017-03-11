@@ -1,3 +1,5 @@
+// TODO remove, just keep toString
+
 export interface Format {
         form: string, instrument?: string, num?: number, mode?: string, key?: string, opus?: number,
             opus_number?: number, opus_prefix?: string, subTitle?: string, performer?: string
@@ -108,7 +110,7 @@ function buildFormat(form: string, formatOptions?: any): Format
                         }
                 }
         }
-        result.toString = function() { return toString(this); };
+        result.toString = function() { return toString(result); };
         return result;
 }
 

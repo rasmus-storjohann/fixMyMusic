@@ -49,11 +49,15 @@ export class Fixer
 
         private fixAlbumName(album: Album, customFixer: CustomFixer): void
         {
-                var title = customFixer && customFixer.fixAlbumTitle;
-                if (title)
+                var p1: string | undefined =
+                    customFixer.fixAlbumTitle && customFixer.fixAlbumTitle.toString();
+                var p2: string | undefined = customFixer.albumName;
+                var p3 = p1 || p2;
+                if (!p3)
                 {
-                        album.title = title.toString();
+                        return;
                 }
+                album.title = p3;
         }
 
         private fixArtist(album: Album): void

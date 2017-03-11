@@ -1,60 +1,21 @@
 import {Album} from "./Album";
-import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {CustomFixer} from "./CustomFixer";
+import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
+import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
+import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";
 import * as npmlog from "npmlog";
 
 // TODO refactor and rename
 export class CustomFixerFactory
 {
-        public constructor(rules, logger: npmlog.NpmLog)
+        public constructor(rules: FixOptionsForAll, logger: npmlog.NpmLog)
         {
                 this.logger = logger;
-                this.rules = this.validate(rules);
-        }
-
-        private validate(allRules)
-        {
-                for (var artist in allRules)
-                {
-                        if (allRules.hasOwnProperty(artist))
-                        {
-                                var rulesForArtist = allRules[artist];
-                                for (var album in rulesForArtist)
-                                {
-                                        if (rulesForArtist.hasOwnProperty(album))
-                                        {
-                                                var rulesForAlbum = rulesForArtist[album];
-                                                for (var rule in rulesForAlbum)
-                                                {
-                                                        if (rulesForAlbum.hasOwnProperty(rule))
-                                                        {
-                                                                this.validateRule(rule, artist,
-                                                                                  album);
-                                                        }
-                                                }
-                                        }
-                                }
-                        }
-                }
-                return allRules;
-        }
-
-        private validateRule(ruleName: string, artist: string, album: string)
-        {
-                var validRules = [
-                        "fixAlbumTitle", "fixTrackName", "fixTrackNameFunc", "firstTrackNumber",
-                        "validation"
-                ];
-
-                if (validRules.indexOf(ruleName) === -1)
-                {
-                        throw new Error(ruleName + ": Invalid custom rule for [" + artist + "][" +
-                                        album + "]");
-                }
+                this.rules = rules;
         }
 
         private logger: npmlog.NpmLog;
-        private rules;
+        private rules: FixOptionsForAll;
 
         public create(album: Album): CustomFixer
         {
@@ -67,34 +28,18 @@ export class CustomFixerFactory
                 var artistRules = this.rules[artist];
                 var albumRules = artistRules && artistRules[albumTitle];
 
+                var albumName = albumRules && albumRules.albumName;
                 var fixAlbumTitle = albumRules && albumRules.fixAlbumTitle;
-                var validation = this.validateValidationOptions(albumRules);
+                var validation = albumRules && albumRules.validation;
 
                 var fixTrack = this.buildCustomTrackFixer(albumRules);
 
                 return {
+                        albumName : albumName,
                         fixAlbumTitle : fixAlbumTitle,
                         fixTrack : fixTrack,
-                        validation : validation
+                        validation : validation || []
                 };
-        }
-
-        private validateValidationOptions(albumRules)
-        {
-                var result = albumRules && albumRules.validation;
-
-                if (result)
-                {
-                        result.forEach((value) => {
-                                if (value !== "skipTrackNumberCheck" &&
-                                    value !== "skipUniqueTrackNameCheck")
-                                {
-                                        throw new Error(value + ": Invalid validation option");
-                                }
-                        });
-                }
-
-                return result;
         }
 
         private buildCustomTrackFixer(specification)
