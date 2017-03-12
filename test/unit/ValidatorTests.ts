@@ -1,12 +1,12 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {Validator} from "../src/Validator";
-import {Track} from "../src/businessInterfaces/tracks/Track";
-import {AlbumTrack} from "../src/businessInterfaces/tracks/AlbumTrack";
-import {Album} from "../src/Album";
-import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
-import {CustomFixer} from "../src/CustomFixer";
 import * as npmlog from "npmlog";
+import {Validator} from "../../src/Validator";
+import {Track} from "../../src/businessInterfaces/tracks/Track";
+import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
+import {Album} from "../../src/Album";
+import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
+import {CustomFixer} from "../../src/CustomFixer";
 
 var _theValidator: Validator;
 beforeEach(() => {

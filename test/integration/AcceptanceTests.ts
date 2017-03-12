@@ -3,7 +3,7 @@ import {beforeEach, describe, it} from "mocha";
 import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as log from "npmlog";
-import {Application} from "../src/Application";
+import {Application} from "../../src/Application";
 
 beforeEach(() => {
         log.level = "silent";

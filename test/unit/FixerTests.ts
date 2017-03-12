@@ -1,12 +1,12 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {Fixer} from "../src/Fixer";
-import {Album} from "../src/Album";
-import {AlbumTrack} from "../src/businessInterfaces/tracks/AlbumTrack";
-import {Track} from "../src/businessInterfaces/tracks/Track";
-import {sonata} from "../src/AlbumFormat";
-import {CustomFixer} from "../src/CustomFixer";
 import * as npmlog from "npmlog";
+import {Fixer} from "../../src/Fixer";
+import {Album} from "../../src/Album";
+import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
+import {Track} from "../../src/businessInterfaces/tracks/Track";
+import {sonata} from "../../src/AlbumFormat";
+import {CustomFixer} from "../../src/CustomFixer";
 
 var fixer: Fixer;
 var album: Album;

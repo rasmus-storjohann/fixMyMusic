@@ -8,7 +8,7 @@ import {cantata,
         sonata,
         suite,
         trio,
-        quintet} from "../src/AlbumFormat";
+        quintet} from "../../src/AlbumFormat";
 
 describe("Album format specification", () => {
 

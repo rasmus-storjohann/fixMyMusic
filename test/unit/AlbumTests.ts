@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {Album} from "../src/Album";
-import {Track} from "../src/businessInterfaces/tracks/Track";
+import {Album} from "../../src/Album";
+import {Track} from "../../src/businessInterfaces/tracks/Track";
 
 describe("Album", () => {
         describe("Constructor", () => {

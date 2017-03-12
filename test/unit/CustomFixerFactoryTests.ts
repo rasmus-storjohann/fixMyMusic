@@ -1,11 +1,11 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {CustomFixerFactory} from "../src/CustomFixerFactory";
-import {Album} from "../src/Album";
-import {Format, cantata} from "../src/AlbumFormat";
 import * as npmlog from "npmlog";
-import {FixOptionsForOneAlbum} from "../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
+import {CustomFixerFactory} from "../../src/CustomFixerFactory";
+import {Album} from "../../src/Album";
+import {Format, cantata} from "../../src/AlbumFormat";
+import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
 
 beforeEach(() => { npmlog.level = "silent"; });
 

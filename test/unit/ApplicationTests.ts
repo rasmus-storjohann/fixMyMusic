@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
-import {Application} from "../src/Application";
+import {Application} from "../../src/Application";
 
 class Logger
 {

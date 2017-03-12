@@ -2,7 +2,7 @@ import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as shelljs from 'shelljs';
 import * as log from "npmlog";
-import {FileFactory} from "../src/FileFactory";
+import {FileFactory} from "../../src/FileFactory";
 
 describe("FileFactory", () => {
         beforeEach(() => {

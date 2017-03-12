@@ -8,7 +8,7 @@
     "postinstall": "autodts link",
     "build": "tsc",
     "postbuild": "autodts generate",
-    "test": "mocha dist/test/**/*.js"
+    "test": "mocha dist/test/unit/**/*.js dist/test/integration/**/*.js"
   },
   "typescript": {
     "definition": "dist/src/index.d.ts"

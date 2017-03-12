@@ -1,10 +1,11 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
-import {Track} from "../src/businessInterfaces/tracks/Track";
-import {Album} from "../src/Album";
-import {Command} from "../src/businessInterfaces/commands/Command";
-import {CommandFactory} from "../src/CommandFactory";
+import {Track} from "../../src/businessInterfaces/tracks/Track";
+import {Album} from "../../src/Album";
+import {Command, Mp3Tags} from "../../src/businessInterfaces/commands/Command";
+import {CommandFactory} from "../../src/CommandFactory";
+import {getIfExistsOrThrow} from "../helpers/getIfExistsOrThrow";
 
 describe("Command factory", () => {
         var album: Album;
@@ -36,15 +37,25 @@ describe("Command factory", () => {
                    () => { expect(commands[1].target).to.equal("out/aaaa/bbbb/01 cccc.mp3"); });
         });
         describe("Tag file", () => {
-                it("creates command tagging file",
-                   () => { expect(commands[2].command).to.equal("tag"); });
-                it("tags the output file",
-                   () => { expect(commands[2].target).to.equal("out/aaaa/bbbb/01 cccc.mp3"); });
-                it("tags with artist", () => { expect(commands[2].tags.artist).to.equal("aaaa"); });
-                it("tags with album name",
-                   () => { expect(commands[2].tags.album).to.equal("bbbb"); });
-                it("tags with track name without file extension",
-                   () => { expect(commands[2].tags.track).to.equal("01 cccc"); });
+                it("creates command tagging file", () => {
+                        expect(getIfExistsOrThrow(commands, [ "2", "command" ])).to.equal("tag");
+                });
+                it("tags the output file", () => {
+                        expect(getIfExistsOrThrow(commands, [ "2", "target" ]))
+                            .to.equal("out/aaaa/bbbb/01 cccc.mp3");
+                });
+                it("tags with artist", () => {
+                        expect(getIfExistsOrThrow(commands, [ "2", "tags", "artist" ]))
+                            .to.equal("aaaa");
+                });
+                it("tags with album name", () => {
+                        expect(getIfExistsOrThrow(commands, [ "2", "tags", "album" ]))
+                            .to.equal("bbbb");
+                });
+                it("tags with track name without file extension", () => {
+                        expect(getIfExistsOrThrow(commands, [ "2", "tags", "track" ]))
+                            .to.equal("01 cccc");
+                });
         });
         describe("handles multiple albums", () => {
                 beforeEach(() => {

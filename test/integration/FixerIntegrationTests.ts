@@ -1,6 +1,7 @@
-import {ValidationOption} from "../src/businessInterfaces/fixers/ValidationOption";
-import {FixOptionsForOneAlbum} from "../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {FixOptionsParser} from "../src/businessObjects/fixers/FixOptionsParser";
+import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
+import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {FixOptionsParser} from "../../src/businessObjects/fixers/FixOptionsParser";
+import {getIfExistsOrThrow} from "../helpers/getIfExistsOrThrow";
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as fs from "fs";
@@ -64,6 +65,8 @@ describe("Fixer integration", () => {
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
                 var parsed = new FixOptionsParser().parseGlobalJsonFile(json);
 
-                expect(parsed["Carl Nielsen"]["Symph 1"].fixAlbumTitle.symphony.num).to.equal(1);
+                expect(getIfExistsOrThrow(parsed, [
+                        "Carl Nielsen", "Symph 1", "fixAlbumTitle", "symphony", "num"
+                ])).to.equal(1);
         });
 });
