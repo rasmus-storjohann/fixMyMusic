@@ -1,5 +1,6 @@
 import { Format, cantata, quartet, symphony, sonata, concerto } from "../AlbumFormat";
 
+// TODO remove
 export var rules = {
     "AdagioK261" : {
        firstTrackNumber: 10

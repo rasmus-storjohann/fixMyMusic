@@ -1,5 +1,5 @@
-import * as shelljs from 'shelljs';
-import * as fs from 'fs.realpath';
+import * as shelljs from "shelljs";
+import * as fileExists from "file-exists";
 import * as npmlog from "npmlog";
 
 export class FileFactory
@@ -23,7 +23,7 @@ export class FileFactory
         public create(directories: string[]): string[]
         {
                 var result = shelljs.find(directories).filter((path) => {
-                        var isIncluded = /mp3$/.test(path);
+                        var isIncluded = fileExists(path) && /mp3$/.test(path);
                         this.log(path, isIncluded, this.logger);
                         return isIncluded;
                 });

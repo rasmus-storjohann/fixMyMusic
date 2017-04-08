@@ -1,5 +1,6 @@
 import { Format, cantata, quartet, symphony, sonata, concerto, suite } from "../AlbumFormat";
 
+// TODO remove
 export var rules = {
     "BminorMass" : {
         fixAlbumTitle: "Mass in b BWV232",

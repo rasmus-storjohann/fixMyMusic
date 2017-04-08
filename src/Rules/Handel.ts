@@ -1,7 +1,8 @@
 import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata, trio, quintet } from "../AlbumFormat";
 
+// TODO remove
 export var rules = {
-    "ConcertoInC" : {
+        "ConcertoInC" : {
         fixAlbumTitle: concerto_grosso({major:"C"}),
         fixTrackName: /Concerto Grosso in C - \d+\.? (.*)/
     },

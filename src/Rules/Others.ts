@@ -2,6 +2,7 @@
 
 import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata, trio, quintet } from "../AlbumFormat";
 
+// TODO remove
 export var rules = {
     // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
     "Aaron Copland" : {

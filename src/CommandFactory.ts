@@ -19,6 +19,7 @@ export class CommandFactory
         {
                 var result: Command[];
                 result = [];
+                // TODO there must be a better way, see ts standard library map and flatten in order
                 albums.forEach(
                     (album) => { result = result.concat(this.createCommandsForAlbum(album)); });
                 this.logger.info("Command factory", "Created " + result.length + " commands");

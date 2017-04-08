@@ -35,7 +35,7 @@ describe("Acceptance tests", () => {
                     .is.true;
         });
 
-        it("TODO complete description when I figure out the issue", () => {
+        it("Applies album fix rule for classical work", () => {
                 shelljs.mkdir("-p", "testOutput/source/Aaron Copland/Symph3/");
                 shelljs.cp(
                     "test.mp3",
@@ -57,19 +57,13 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Symph3/01 Molto moderato, with simple expression.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/01 Molto moderato, with simple expression.mp3"))
                     .is.true;
-                expect(
-                    fileExists("testOutput/destination/Copland_Aaron/Symph3/02 Allegro molto.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/02 Allegro molto.mp3"))
                     .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Symph3/03 Andantino quasi allegretto.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/03 Andantino quasi allegretto.mp3"))
                     .is.true;
-                expect(fileExists(
-                           "testOutput/destination/Copland_Aaron/Symph3/04 Molto deliberato.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/04 Molto deliberato.mp3"))
                     .is.true;
         });
 

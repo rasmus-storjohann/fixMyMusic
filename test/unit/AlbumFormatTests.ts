@@ -9,12 +9,13 @@ import {cantata,
         suite,
         trio,
         quintet} from "../../src/AlbumFormat";
+import {fooToString} from "../../src/AlbumFormat";
 
 describe("Album format specification", () => {
 
         it("can create symphony", () => {
-                var result = symphony();
-                expect(result.form).to.equal("Symph");
+                var result = fooToString({form: "symphony"});
+                expect(result).to.equal("symphony");
         });
 
         it("can create concerto", () => {

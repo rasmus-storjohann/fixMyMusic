@@ -2,7 +2,6 @@
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {FixOptionsForAlbumName} from "./../../businessInterfaces/fixers/FixOptionsForAlbumName";
 import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
 
@@ -47,7 +46,7 @@ export class FixOptionsParser
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
-        public parseAlbumNameFixer(json: string): FixOptionsForAlbumName
+        public parseAlbumNameFixer(json: string): ClassicalWorkName
         {
                 var from = JSON.parse(json);
                 return this.buildAlbumNameFixer(from);
@@ -100,27 +99,28 @@ export class FixOptionsParser
         {
                 return s && s.length && s.every(item => this.isString(item));
         }
-        private toNameFixOption(from, field: string): FixOptionsForAlbumName | undefined
+        private toNameFixOption(from, field: string): ClassicalWorkName | undefined
         {
                 return from[field] ? this.buildAlbumNameFixer(from[field]) : undefined;
         }
-        private buildAlbumNameFixer(json): FixOptionsForAlbumName
+        private buildAlbumNameFixer(json): ClassicalWorkName
         {
+                // TODO throw if more than one elements in keys
                 var form = Object.keys(json)[0];
                 var body = json[form];
 
                 var instrument = this.toString(body, "for");
                 var num = this.toNumber(body, "num");
+                // TODO throw if opus has the wrong number of elements
+                // TODO support different opus prefixes
                 var opus = this.parseOpus(body);
                 var subTitle = this.toString(body, "subTitle");
                 var performer = this.toString(body, "by");
+                // TODO throw if major and minor are both given
                 var major = this.toString(body, "major");
                 var minor = this.toString(body, "minor");
 
-                var parameters =
-                    new ClassicalWorkName(instrument, num, opus, subTitle, performer, major, minor);
-
-                return FixOptionsForAlbumName.buildFromForm(form, parameters);
+                return new ClassicalWorkName(form, instrument, num, opus, subTitle, performer, major, minor);
         }
         private parseOpus(from): number | number[] | undefined
         {

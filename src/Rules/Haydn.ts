@@ -1,5 +1,6 @@
 import { Format, cantata, concerto, concerto_grosso, quartet, symphony, sonata, trio, quintet } from "../AlbumFormat";
 
+// TODO remove
 export var rules = {
     "CelloConc 1 C" : {
         fixAlbumTitle: concerto({ for:"Cello", num : 1, major: "C" }),

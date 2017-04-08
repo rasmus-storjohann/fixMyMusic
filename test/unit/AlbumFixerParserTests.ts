@@ -46,7 +46,7 @@ describe("Album fixer parser", () => {
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({fixAlbumTitle : {form: "concerto"}});
         });
         it("can parse validation", () => {
                 var dto = {validation : [ "skipUniqueTrackNameCheck" ]};
@@ -64,49 +64,49 @@ describe("Album name fixer", () => {
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form:"concerto"});
         });
         it("can parse instrument", () => {
                 var dto = { concerto: {for: "piano" }};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal({concerto : {instrument : "piano"}});
+                expect(parsed).to.deep.equal({form: "concerto", instrument : "piano"});
         });
         it("can parse subTitle", () => {
                 var dto = {concerto : {subTitle : "Eroica"}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form:"concerto", subTitle:"Eroica"});
         });
         it("can parse performer", () => {
                 var dto = {concerto : {by : "Brendel"}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form:"concerto", by:"Brendel"});
         });
         it("can parse number", () => {
                 var dto = {concerto : {num : 2}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form:"concerto", num: 2});
         });
         it("can parse opus number", () => {
                 var dto = {concerto : {opus : 2}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form:"concerto", opus:2});
         });
         it("can parse opus number and number within the opus", () => {
                 var dto = {concerto : {opus : [ 2, 4 ]}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form: "concerto", opus: [2,4]});
         });
         it("throws on opus number array having less than two elements", () => {
                 var dto = {concerto : {opus : [ 1 ]}};
@@ -127,14 +127,14 @@ describe("Album name fixer", () => {
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form: "concerto", major: "A"});
         });
         it("can parse minor key", () => {
                 var dto = {concerto : {minor : "A"}};
                 var json = JSON.stringify(dto);
                 var parsed = new FixOptionsParser().parseAlbumNameFixer(json);
 
-                expect(parsed).to.deep.equal(dto);
+                expect(parsed).to.deep.equal({form: "concerto", minor: "A"});
         });
         it("throws if both minor and major keys are given", () => {
                 var dto = {concerto : {major : "A", minor : "A"}};

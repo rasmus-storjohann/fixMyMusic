@@ -2,7 +2,7 @@ import {removeUndefinedFields} from "./removeUndefinedFields";
 
 export class ClassicalWorkName
 {
-        constructor(readonly instrument?: string, readonly num?: number,
+        constructor(readonly form: string, readonly instrument?: string, readonly num?: number,
                     readonly opus?: number | number[], readonly subTitle?: string,
                     readonly by?: string, readonly major?: string, readonly minor?: string)
         {

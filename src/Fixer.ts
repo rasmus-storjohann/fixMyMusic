@@ -2,6 +2,8 @@ import {Album} from "./Album";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {CustomFixer} from "./CustomFixer";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
+import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
+import {fooToString} from "./AlbumFormat";
 import * as npmlog from "npmlog";
 
 export class Fixer
@@ -49,15 +51,22 @@ export class Fixer
 
         private fixAlbumName(album: Album, customFixer: CustomFixer): void
         {
-                var p1: string | undefined =
-                    customFixer.fixAlbumTitle && customFixer.fixAlbumTitle.toString();
+                var p1: string | undefined = this.buildClassicalWorkName(customFixer.fixAlbumTitle);
                 var p2: string | undefined = customFixer.albumName;
                 var p3 = p1 || p2;
-                if (!p3)
+                if (p3)
                 {
-                        return;
+                        album.title = p3;
                 }
-                album.title = p3;
+        }
+
+        private buildClassicalWorkName(name?: ClassicalWorkName): string | undefined
+        {
+                if (!name)
+                {
+                        return undefined;
+                }
+                return fooToString(name);
         }
 
         private fixArtist(album: Album): void

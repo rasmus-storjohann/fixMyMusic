@@ -22,12 +22,12 @@ describe("Fixer integration", () => {
 
         it("can parse Beethoven.json", () => {
                 var parsed = parseComposerJson("Beethoven.json");
-                expect(parsed.PianoConc5.fixAlbumTitle.concerto.num).to.equal(5);
+                expect(parsed.PianoConc5.fixAlbumTitle.num).to.equal(5);
         });
 
         it("can parse Chopin.json", () => {
                 var parsed = parseComposerJson("Chopin.json");
-                expect(parsed.CelloSonata.fixAlbumTitle.sonata.by).to.equal("Rostropovich");
+                expect(parsed.CelloSonata.fixAlbumTitle.by).to.equal("Rostropovich");
         });
 
         it("can parse Handel.json", () => {
@@ -37,12 +37,12 @@ describe("Fixer integration", () => {
 
         it("can parse Haydn.json", () => {
                 var parsed = parseComposerJson("Haydn.json");
-                expect(parsed["Quartet56 E flat Op71 No3"].fixAlbumTitle.quartet.num).to.equal(56);
+                expect(parsed["Quartet56 E flat Op71 No3"].fixAlbumTitle.num).to.equal(56);
         });
 
         it("can parse Mahler.json", () => {
                 var parsed = parseComposerJson("Mahler.json");
-                expect(parsed["Symph3[Chailly]"].fixAlbumTitle.symphony.num).to.equal(3);
+                expect(parsed["Symph3[Chailly]"].fixAlbumTitle.num).to.equal(3);
         });
 
         it("can parse Mozart.json", () => {
@@ -66,7 +66,7 @@ describe("Fixer integration", () => {
                 var parsed = new FixOptionsParser().parseGlobalJsonFile(json);
 
                 expect(getIfExistsOrThrow(parsed, [
-                        "Carl Nielsen", "Symph 1", "fixAlbumTitle", "symphony", "num"
+                        "Carl Nielsen", "Symph 1", "fixAlbumTitle", "num"
                 ])).to.equal(1);
         });
 });
