@@ -6,7 +6,7 @@ import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
 import {Album} from "../../src/Album";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
-import {CustomFixer} from "../../src/CustomFixer";
+import {CustomFixer} from "../../src/businessInterfaces/fixers/CustomFixer";
 
 var _theValidator: Validator;
 beforeEach(() => {

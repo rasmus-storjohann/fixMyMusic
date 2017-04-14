@@ -1,6 +1,6 @@
-import {Album} from "./Album";
-import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
-import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
+import {Album} from "../../Album";
+import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkName";
+import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
 import * as npmlog from "npmlog";
 
 // move to business interfaces fixers

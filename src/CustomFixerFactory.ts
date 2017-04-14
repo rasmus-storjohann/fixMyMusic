@@ -1,5 +1,5 @@
 import {Album} from "./Album";
-import {CustomFixer} from "./CustomFixer";
+import {CustomFixer} from "./businessInterfaces/fixers/CustomFixer";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
 import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";

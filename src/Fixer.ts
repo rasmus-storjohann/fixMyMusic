@@ -1,6 +1,6 @@
 import {Album} from "./Album";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
-import {CustomFixer} from "./CustomFixer";
+import {CustomFixer} from "./businessInterfaces/fixers/CustomFixer";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
 import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
 import {AlbumNameFormatter} from "./businessObjects/AlbumNameFormatter";

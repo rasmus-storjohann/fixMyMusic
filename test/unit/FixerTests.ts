@@ -5,7 +5,7 @@ import {Fixer} from "../../src/Fixer";
 import {Album} from "../../src/Album";
 import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
-import {CustomFixer} from "../../src/CustomFixer";
+import {CustomFixer} from "../../src/businessInterfaces/fixers/CustomFixer";
 
 var fixer: Fixer;
 var album: Album;
