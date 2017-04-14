@@ -1,14 +1,14 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as npmlog from "npmlog";
-import {Validator} from "../../src/Validator";
+import {AlbumValidator} from "../../src/businessObjects/albums/AlbumValidator";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
 import {Album} from "../../src/Album";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
 import {CustomFixer} from "../../src/businessInterfaces/fixers/CustomFixer";
 
-var _theValidator: Validator;
+var _theValidator: AlbumValidator;
 beforeEach(() => {
         npmlog.level = "silent";
 
@@ -25,7 +25,7 @@ beforeEach(() => {
                 }
         };
 
-        _theValidator = new Validator(customFixerFactory, npmlog);
+        _theValidator = new AlbumValidator(customFixerFactory, npmlog);
 });
 
 describe("Validator", () => {
@@ -136,7 +136,7 @@ describe("Validator", () => {
                         musicTrack[0].trackNumber = 2;
                         musicTrack[1].trackNumber = 1;
 
-                        new Validator(mockCustomFixerFactory, npmlog).validate(createAlbum());
+                        new AlbumValidator(mockCustomFixerFactory, npmlog).validate(createAlbum());
                 });
                 it("can ignores similar track names", () => {
                         var customFixerFactory = {
@@ -156,7 +156,7 @@ describe("Validator", () => {
                         musicTrack[0].title = "12345678901234567890.mp3";
                         musicTrack[1].title = "12345678901234567890.mp3";
 
-                        new Validator(customFixerFactory, npmlog).validate(createAlbum());
+                        new AlbumValidator(customFixerFactory, npmlog).validate(createAlbum());
                 });
                 // add tests confirming that skipping one test does not skip the
                 // other

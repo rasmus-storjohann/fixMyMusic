@@ -6,7 +6,7 @@ import {FileFactory} from "./businessObjects/tracks/FileFactory";
 import {Fixer} from "./Fixer";
 import {RulesFactory} from "./RulesFactory";
 import {TrackFactory} from "./TrackFactory";
-import {Validator} from "./Validator";
+import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 
 import * as shelljs from 'shelljs';
 import * as fs from 'fs.realpath';
@@ -42,7 +42,7 @@ export class Application
                 var rules = new RulesFactory().create();
                 var customFixerFactory = new CustomFixerFactory(rules, this.logger);
 
-                var validator = new Validator(customFixerFactory, this.logger);
+                var validator = new AlbumValidator(customFixerFactory, this.logger);
                 var fixer = new Fixer(customFixerFactory, this.logger);
 
                 albums.forEach(album => {
