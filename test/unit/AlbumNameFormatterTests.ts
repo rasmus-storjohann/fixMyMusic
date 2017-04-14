@@ -1,6 +1,6 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {AlbumNameFormatter} from "../../src/businessObjects/AlbumNameFormatter";
+import {AlbumNameFormatter} from "../../src/businessObjects/albums/AlbumNameFormatter";
 
 describe("Album format specification", () => {
 

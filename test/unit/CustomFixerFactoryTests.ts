@@ -5,7 +5,7 @@ import {CustomFixerFactory} from "../../src/businessObjects/fixers/CustomFixerFa
 import {Album} from "../../src/Album";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
-import {AlbumNameFormatter} from "../../src/businessObjects/AlbumNameFormatter";
+import {AlbumNameFormatter} from "../../src/businessObjects/albums/AlbumNameFormatter";
 
 beforeEach(() => { npmlog.level = "silent"; });
 

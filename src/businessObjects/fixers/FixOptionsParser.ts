@@ -5,7 +5,7 @@ import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOption
 import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 import {Opus} from "./../../businessInterfaces/fixers/Opus";
 import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
-import {validateClassicalWorkName} from "../../businessInterfaces/fixers/validateClassicalWorkName";
+import {ClassicalWorkNameValidator} from "./ClassicalWorkNameValidator";
 
 export class FixOptionsParser
 {
@@ -134,8 +134,9 @@ export class FixOptionsParser
 
                 var result = new ClassicalWorkName(form, instrument, num, opus, subTitle, performer, major, minor);
 
-                // TODO move validateClassicalWorkName to this file
-                return validateClassicalWorkName(result);
+                // TODO move ClassicalWorkNameValidator functionality to this file
+                var validator = new ClassicalWorkNameValidator();
+                return validator.validate(result);
         }
         private parseOpus(from): Opus | undefined
         {

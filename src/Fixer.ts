@@ -3,7 +3,7 @@ import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {CustomFixer} from "./businessInterfaces/fixers/CustomFixer";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
 import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
-import {AlbumNameFormatter} from "./businessObjects/AlbumNameFormatter";
+import {AlbumNameFormatter} from "./businessObjects/albums/AlbumNameFormatter";
 import * as npmlog from "npmlog";
 
 export class Fixer

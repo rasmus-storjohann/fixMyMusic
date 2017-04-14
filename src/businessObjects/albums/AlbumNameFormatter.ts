@@ -1,5 +1,5 @@
-import {ClassicalWorkName} from "../businessInterfaces/fixers/ClassicalWorkName";
-import {Opus} from "../businessInterfaces/fixers/Opus";
+import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkName";
+import {Opus} from "../../businessInterfaces/fixers/Opus";
 
 export class AlbumNameFormatter
 {
