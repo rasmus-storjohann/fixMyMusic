@@ -3,7 +3,7 @@ import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {Album} from "../../src/Album";
-import {AlbumFactory} from "../../src/AlbumFactory";
+import {AlbumFactory} from "../../src/businessObjects/albums/AlbumFactory";
 
 describe("AlbumFactory", () => {
         var theFactory: AlbumFactory;

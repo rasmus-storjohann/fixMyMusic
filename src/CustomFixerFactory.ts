@@ -5,7 +5,7 @@ import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
 import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";
 import * as npmlog from "npmlog";
 
-// TODO refactor and rename
+// move to business objects fixers
 export class CustomFixerFactory
 {
         public constructor(rules: FixOptionsForAll, logger: npmlog.NpmLog)

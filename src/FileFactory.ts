@@ -2,6 +2,7 @@ import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as npmlog from "npmlog";
 
+// move to business objects tracks
 export class FileFactory
 {
         public constructor(logger: npmlog.NpmLog) { this.logger = logger; }

@@ -4,6 +4,7 @@ import {ICustomFixerFactory} from "./ICustomFixerFactory";
 import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
 import * as npmlog from "npmlog";
 
+// rename album validator, move to business objects albums
 export class Validator
 {
         public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)

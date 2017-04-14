@@ -3,6 +3,7 @@ import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "./businessInterfaces/fixers/FixOptionsForOneComposer";
 import * as fs from "fs";
 
+// rename to fixers options factory, move to business objects fixers
 export class RulesFactory
 {
         public create(): FixOptionsForAll

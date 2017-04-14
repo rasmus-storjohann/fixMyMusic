@@ -1,4 +1,4 @@
-import {AlbumFactory} from "./AlbumFactory";
+import {AlbumFactory} from "./businessObjects/albums/AlbumFactory";
 import {CommandExecutor} from "./CommandExecutor";
 import {CommandFactory} from "./CommandFactory";
 import {CustomFixerFactory} from "./CustomFixerFactory";
