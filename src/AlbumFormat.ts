@@ -1,4 +1,5 @@
-import {ClassicalWorkName, Opus} from "./businessInterfaces/fixers/ClassicalWorkName";
+import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
+import {Opus} from "./businessInterfaces/fixers/Opus";
 
 // TODO move function to somewhere better, this is really AlbumFormat
 export function fooToString(format: ClassicalWorkName): string
@@ -33,19 +34,19 @@ export function fooToString(format: ClassicalWorkName): string
         return result;
 }
 
-function buildForm(form: string) : string
+function buildForm(form: string): string
 {
-        switch(form)
+        switch (form)
         {
-                case "cantata" : return "Cantata";
-                case "concerto" : return "Conc";
-                case "grosso" : return "ConcGrosso";
-                case "quartet" : return "Quartet"
-                case "quintet" : return "Quintet";
-                case "sonata" : return "Sonata";
-                case "suite" : return "Suite";
-                case "symphony" : return "Symph";
-                case "trio" : return "Trio";
+        case "cantata": return "Cantata";
+        case "concerto": return "Conc";
+        case "grosso": return "ConcGrosso";
+        case "quartet": return "Quartet";
+        case "quintet": return "Quintet";
+        case "sonata": return "Sonata";
+        case "suite": return "Suite";
+        case "symphony": return "Symph";
+        case "trio": return "Trio";
         }
         return form;
 }
@@ -53,23 +54,30 @@ function buildForm(form: string) : string
 function buildKeyString(format: ClassicalWorkName): string | undefined
 {
         var key = format.major || format.minor;
+
         if (!key)
         {
                 return undefined;
         }
 
         key = key.toLowerCase();
+
         if (format.major)
         {
-                key = key.charAt(0).toUpperCase() + key.slice(1);
+                return capitalizeFirstLetter(key);
         }
 
         return key;
 }
 
+function capitalizeFirstLetter(key: string): string
+{
+        return key.charAt(0).toUpperCase() + key.slice(1);
+}
+
 function buildOpusString(opus: Opus): string | undefined
 {
-        var prefix = opus.prefix || "op"; // TODO set the default in the parser
+        var prefix = opus.prefix;
         if (prefix === "op")
         {
                 prefix = "Op.";

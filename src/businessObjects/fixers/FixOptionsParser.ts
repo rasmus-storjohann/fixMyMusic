@@ -2,7 +2,8 @@
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {ClassicalWorkName, Opus} from "./../../businessInterfaces/fixers/ClassicalWorkName";
+import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
+import {Opus} from "./../../businessInterfaces/fixers/Opus";
 import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
 import {validateClassicalWorkName} from "../../businessInterfaces/fixers/validateClassicalWorkName";
 

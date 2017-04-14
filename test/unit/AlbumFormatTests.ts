@@ -55,7 +55,7 @@ describe("Album format specification", () => {
         });
 
         it("can set opus and number", () => {
-                var result = fooToString({form: "symphony", opus: { opus: 12, num: 2}});
+                var result = fooToString({form: "symphony", opus: { opus: 12, num: 2, prefix: "op" }});
                 expect(result).to.contain("Op.12-2");
         });
 
@@ -89,7 +89,7 @@ describe("Album format specification", () => {
                         var result = fooToString({form: "symphony",
                                              num : 3,
                                              major : "Eb",
-                                             opus : { opus: 55 },
+                                             opus : { opus: 55, prefix: "op" },
                                              subTitle : "Eroica",
                                              by : "Haitink"
                                      });
@@ -98,14 +98,14 @@ describe("Album format specification", () => {
 
                 it("with instrument", () => {
                         var result = fooToString({form: "sonata",
-                        instrument : "Violin", major : "G", opus: { opus: 30, num: 3}
+                        instrument : "Violin", major : "G", opus: { opus: 30, num: 3, prefix: "op"}
                                      });
                         expect(result).to.equal("ViolinSonata in G Op.30-3");
                 });
 
                 it("with opus and opus number", () => {
                         var result = fooToString({form: "sonata",
-                        num : 10, major : "g", opus : { opus: 14, num: 2}, by : "Goode"});
+                        num : 10, major : "g", opus : { opus: 14, num: 2, prefix: "op"}, by : "Goode"});
                         expect(result).to.equal("Sonata 10 [Goode] in G Op.14-2");
                 });
 
@@ -122,7 +122,7 @@ describe("Album format specification", () => {
 
                 it("with minor key", () => {
                         var result = fooToString({form: "quartet",
-                        num : 14, minor : "C#", opus : { opus: 131}});
+                        num : 14, minor : "C#", opus : { opus: 131, prefix: "op"}});
                         expect(result).to.equal("Quartet 14 in c# Op.131");
                 });
         });

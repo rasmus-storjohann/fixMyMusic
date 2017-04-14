@@ -1,9 +1,4 @@
-export interface Opus
-{
-        opus: number;
-        prefix?: string; // default to Op
-        num?:  number;
-}
+import {Opus} from "./Opus";
 
 export class ClassicalWorkName
 {
