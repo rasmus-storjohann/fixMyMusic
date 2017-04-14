@@ -11,7 +11,8 @@ describe("Fixer integration", () => {
         function parseComposerJson(file: string): any
         {
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
-                return new FixOptionsParser().parseComposerJsonFile(json);
+                var parser = new FixOptionsParser();
+                return parser.parseComposerJsonFile(json);
         }
 
         it("can parse BachJs.json", () => {

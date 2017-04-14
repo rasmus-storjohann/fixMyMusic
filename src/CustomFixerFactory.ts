@@ -119,9 +119,8 @@ export class CustomFixerFactory
                                         self.validateTrackNumber(track, expectedTrackNumber,
                                                                  logger);
                                         // TODO have this function quit when the
-                                        // disk number changes,
-                                        // then the disk number can remain and
-                                        // subsequent call to
+                                        // disk number changes, then the disk
+                                        // number can remain and subsequent call to
                                         // Fixer.fixTrackNumbering() will finish
                                         // up the track numbering
                                         track.disk = undefined;

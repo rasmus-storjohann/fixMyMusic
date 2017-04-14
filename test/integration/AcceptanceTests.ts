@@ -57,13 +57,13 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/01 Molto moderato, with simple expression.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/01 Molto moderato, with simple expression.mp3"))
                     .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/02 Allegro molto.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/02 Allegro molto.mp3"))
                     .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/03 Andantino quasi allegretto.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/03 Andantino quasi allegretto.mp3"))
                     .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/symphony 3/04 Molto deliberato.mp3"))
+                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/04 Molto deliberato.mp3"))
                     .is.true;
         });
 

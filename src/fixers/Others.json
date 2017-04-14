@@ -935,9 +935,7 @@
             "fixAlbumTitle": {
                 "concerto": {
                     "for": "Violin",
-                    "op": [
-                        35
-                    ],
+                    "op": 35,
                     "major": "D"
                 }
             },

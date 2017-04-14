@@ -2,11 +2,13 @@
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
+import {ClassicalWorkName, Opus} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
+import {validateClassicalWorkName} from "../../businessInterfaces/fixers/validateClassicalWorkName";
 
 export class FixOptionsParser
 {
+        // TODO parser should throw on both albumName and fixAlbumTitle being defined
         public parseGlobalJsonFile(json: string): FixOptionsForAll
         {
                 var result: FixOptionsForAll = {};
@@ -46,20 +48,27 @@ export class FixOptionsParser
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
-        public parseAlbumNameFixer(json: string): ClassicalWorkName
+        public parseClassicalWorkName(json: string): ClassicalWorkName
         {
                 var from = JSON.parse(json);
-                return this.buildAlbumNameFixer(from);
+                return this.buildClassicalWorkName(from);
         }
         private buildAlbumFixer(from): FixOptionsForOneAlbum
         {
                 var firstTrackNumber = this.toNumber(from, "firstTrackNumber");
                 var fixTrackName = this.toRegExp(from, "fixTrackName");
-                var nameFixOptions = this.toNameFixOption(from, "fixAlbumTitle");
+                var classicalWorkName = this.toClassicalWorkName(from, "fixAlbumTitle");
                 var albumName = this.toString(from, "albumTitle");
                 var validation = this.toValidationOptions(from, "validation");
 
-                return new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, albumName, nameFixOptions, validation);
+                var options = new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, albumName, classicalWorkName, validation);
+
+                return this.StripUndefinedFieldsFromFixOptionsForOneAlbum(options);
+        }
+        private StripUndefinedFieldsFromFixOptionsForOneAlbum(options: FixOptionsForOneAlbum): FixOptionsForOneAlbum
+        {
+                Object.keys(options).forEach((key) => (options[key] == null) && delete options[key]);
+                return options;
         }
         private toString(from, field: string): string | undefined
         {
@@ -75,13 +84,15 @@ export class FixOptionsParser
                 {
                         return undefined;
                 }
-                return from[field].map(el => {
-                        switch (el)
+                return from[field].map(element => {
+                        switch (element)
                         {
                         case "skipUniqueTrackNameCheck":
                                 return ValidationOption.skipUniqueTrackNameCheck;
-                        case "skipTrackNumberCheck": return ValidationOption.skipTrackNumberCheck;
-                        default: throw new Error(el + ": Unknown validation option");
+                        case "skipTrackNumberCheck":
+                                return ValidationOption.skipTrackNumberCheck;
+                        default:
+                                throw new Error(element + ": Unknown validation option");
                         }
                 });
         }
@@ -99,49 +110,58 @@ export class FixOptionsParser
         {
                 return s && s.length && s.every(item => this.isString(item));
         }
-        private toNameFixOption(from, field: string): ClassicalWorkName | undefined
+        private toClassicalWorkName(from, field: string): ClassicalWorkName | undefined
         {
-                return from[field] ? this.buildAlbumNameFixer(from[field]) : undefined;
+                return from[field] ? this.buildClassicalWorkName(from[field]) : undefined;
         }
-        private buildAlbumNameFixer(json): ClassicalWorkName
+        private buildClassicalWorkName(json): ClassicalWorkName
         {
                 // TODO throw if more than one elements in keys
+                // TODO throw if opus has the wrong number of elements
+                // TODO support different opus prefixes
+                // TODO throw if major and minor are both given
                 var form = Object.keys(json)[0];
                 var body = json[form];
 
                 var instrument = this.toString(body, "for");
                 var num = this.toNumber(body, "num");
-                // TODO throw if opus has the wrong number of elements
-                // TODO support different opus prefixes
                 var opus = this.parseOpus(body);
                 var subTitle = this.toString(body, "subTitle");
                 var performer = this.toString(body, "by");
-                // TODO throw if major and minor are both given
                 var major = this.toString(body, "major");
                 var minor = this.toString(body, "minor");
 
-                return new ClassicalWorkName(form, instrument, num, opus, subTitle, performer, major, minor);
+                var result = new ClassicalWorkName(form, instrument, num, opus, subTitle, performer, major, minor);
+
+                // TODO move validateClassicalWorkName to this file
+                return validateClassicalWorkName(result);
         }
-        private parseOpus(from): number | number[] | undefined
+        private parseOpus(from): Opus | undefined
         {
-                if (!from.opus)
+                var validPrefixes = ["op", "K", "BWV", "HWV"];
+                for (let prefix of validPrefixes)
                 {
-                        return undefined;
+                        var opus = from[prefix];
+                        if (Array.isArray(opus))
+                        {
+                                this.validateLengthIsTwo(opus);
+                                return {
+                                        opus: opus[0],
+                                        num: opus[1],
+                                        prefix: prefix
+                                };
+                        }
+                        else if (this.isNumber(opus))
+                        {
+                                return {
+                                        opus: opus,
+                                        prefix: prefix
+                                };
+                        }
                 }
-
-                if (Array.isArray(from.opus))
-                {
-                        this.validateLengthIsTwo(from.opus);
-                        return from.opus;
-                }
-
-                if (this.isNumber(from.opus))
-                {
-                        return from.opus;
-                }
-
-                throw new Error("Invalid data for opus");
+                return undefined;
         }
+
         private validateLengthIsTwo(item: string[])
         {
                 if (item.length !== 2)

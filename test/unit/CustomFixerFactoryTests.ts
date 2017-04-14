@@ -3,9 +3,9 @@ import {beforeEach, describe, it} from "mocha";
 import * as npmlog from "npmlog";
 import {CustomFixerFactory} from "../../src/CustomFixerFactory";
 import {Album} from "../../src/Album";
-import {Format, cantata} from "../../src/AlbumFormat";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
+import {fooToString} from "../../src/AlbumFormat";
 
 beforeEach(() => { npmlog.level = "silent"; });
 
@@ -34,18 +34,23 @@ describe("CustomFixerFactory", () => {
                 it("with fixAlbumTitle as a spec", () => {
                         var rules = {
                                 "artist name" : {
-                                        "the original album name" :
-                                            {fixAlbumTitle : cantata({BWV : 131})}
-                                }
-                        };
-                        var customFixer =
-                            buildFixer("artist name", "the original album name", rules);
-
+                                        "the original album name" : {
+                                                    fixAlbumTitle : {
+                                                            form: "cantata",
+                                                            opus: {
+                                                                    opus : 131,
+                                                                    prefix : "BWV"
+                                                            }
+                                                    }
+                                            }
+                                    }
+                            };
+                        var customFixer = buildFixer("artist name", "the original album name", rules);
                         if (!customFixer.fixAlbumTitle)
                         {
                                 throw new Error("test fails");
                         }
-                        expect(customFixer.fixAlbumTitle.toString()).to.equal("Cantata BWV.131");
+                        expect(fooToString(customFixer.fixAlbumTitle)).to.equal("Cantata BWV131");
                 });
 
                 describe("with valid validation options as strings", () => {

@@ -1,148 +1,128 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import {cantata,
-        concerto,
-        concerto_grosso,
-        quartet,
-        symphony,
-        sonata,
-        suite,
-        trio,
-        quintet} from "../../src/AlbumFormat";
 import {fooToString} from "../../src/AlbumFormat";
 
 describe("Album format specification", () => {
 
         it("can create symphony", () => {
                 var result = fooToString({form: "symphony"});
-                expect(result).to.equal("symphony");
+                expect(result).to.equal("Symph");
         });
 
         it("can create concerto", () => {
-                var result = concerto();
-                expect(result.form).to.equal("Conc");
+                var result = fooToString({form: "concerto"});
+                expect(result).to.equal("Conc");
         });
 
         it("can create concerto grosso", () => {
-                var result = concerto_grosso();
-                expect(result.form).to.equal("ConcGrosso");
+                var result = fooToString({form: "grosso"});
+                expect(result).to.equal("ConcGrosso");
         });
 
         it("can create suite", () => {
-                var result = suite();
-                expect(result.form).to.equal("Suite");
+                var result = fooToString({form: "suite"});
+                expect(result).to.equal("Suite");
         });
 
         it("can create trio", () => {
-                var result = trio();
-                expect(result.form).to.equal("Trio");
+                var result = fooToString({form: "trio"});
+                expect(result).to.equal("Trio");
         });
 
         it("can create quintet", () => {
-                var result = quintet();
-                expect(result.form).to.equal("Quintet");
+                var result = fooToString({form: "quintet"});
+                expect(result).to.equal("Quintet");
         });
 
         it("can set number", () => {
-                var result = symphony({num : 2});
-                expect(result.num).to.equal(2);
+                var result = fooToString({form: "symphony", num: 2});
+                expect(result).to.contain("2");
         });
 
         it("can set key", () => {
-                var result = symphony({major : "C"});
-                expect(result.key).to.equal("C");
-        });
-
-        it("can set major mode", () => {
-                var result = symphony({major : "C"});
-                expect(result.mode).to.equal("major");
+                var result = fooToString({form: "symphony", major : "C"});
+                expect(result).to.contain("in C");
         });
 
         it("can set minor mode", () => {
-                var result = symphony({minor : "C"});
-                expect(result.mode).to.equal("minor");
+                var result = fooToString({form: "symphony", minor : "C"});
+                expect(result).to.contain("in c");
         });
 
         it("can set opus", () => {
-                var result = symphony({op : 12});
-                expect(result.opus).to.equal(12);
-        });
-
-        it("opus prefix defaults to Op.", () => {
-                var result = symphony({op : 12});
-                expect(result.opus_prefix).to.equal("Op.");
+                var result = fooToString({form: "symphony", opus: { opus: 12, prefix: "op" }});
+                expect(result).to.contain("Op.12");
         });
 
         it("can set opus and number", () => {
-                var result = symphony({op : [ 12, 2 ]});
-                expect(result.opus).to.equal(12);
-                expect(result.opus_number).to.equal(2);
+                var result = fooToString({form: "symphony", opus: { opus: 12, num: 2}});
+                expect(result).to.contain("Op.12-2");
         });
 
         it("can set BWV number", () => {
-                var result = symphony({BWV : 12});
-                expect(result.opus).to.equal(12);
-                expect(result.opus_prefix).to.equal("BWV.");
+                var result = fooToString({form: "symphony", opus : { prefix:"BWV.", opus: 12}});
+                expect(result).to.contain("BWV.12");
         });
 
         it("can set K number", () => {
-                var result = symphony({K : 12});
-                expect(result.opus).to.equal(12);
-                expect(result.opus_prefix).to.equal("K.");
+                var result = fooToString({form: "symphony", opus : { opus: 12, prefix: "K."}});
+                expect(result).to.contain("K.12");
         });
 
         it("can set subtitle", () => {
-                var result = symphony({subTitle : "Jupiter"});
-                expect(result.subTitle).to.equal("Jupiter");
+                var result = fooToString({form: "symphony", subTitle : "Jupiter"});
+                expect(result).to.contain("\"Jupiter\"");
         });
 
         it("can set performer", () => {
-                var result = symphony({by : "Karajan"});
-                expect(result.performer).to.equal("Karajan");
+                var result = fooToString({form: "symphony", by : "Karajan"});
+                expect(result).to.contain("[Karajan]");
         });
 
         it("can set instrument", () => {
-                var result = sonata({ for: "Cello"
-                });
-                expect(result.instrument).to.equal("Cello");
+                var result = fooToString({form: "sonata", instrument: "Cello"});
+                expect(result).to.contain("Cello");
         });
 
         describe("can format to string", () => {
                 it("with subtitle", () => {
-                        var result = symphony({
+                        var result = fooToString({form: "symphony",
                                              num : 3,
                                              major : "Eb",
-                                             op : 55,
+                                             opus : { opus: 55 },
                                              subTitle : "Eroica",
                                              by : "Haitink"
-                                     }).toString();
+                                     });
                         expect(result).to.equal("Symph 3 [Haitink] \"Eroica\" in Eb Op.55");
                 });
 
                 it("with instrument", () => {
-                        var result = sonata({ for : "Violin", major : "G", op: [30,3]
-                                     }).toString();
+                        var result = fooToString({form: "sonata",
+                        instrument : "Violin", major : "G", opus: { opus: 30, num: 3}
+                                     });
                         expect(result).to.equal("ViolinSonata in G Op.30-3");
                 });
 
                 it("with opus and opus number", () => {
-                        var result = sonata({num : 10, major : "g", op : [ 14, 2 ], by : "Goode"})
-                                         .toString();
+                        var result = fooToString({form: "sonata",
+                        num : 10, major : "g", opus : { opus: 14, num: 2}, by : "Goode"});
                         expect(result).to.equal("Sonata 10 [Goode] in G Op.14-2");
                 });
 
                 it("with BWV number", () => {
-                        var result = cantata({
+                        var result = fooToString({form: "cantata",
                                              subTitle : "Der Himmel lacht! die Erde jubilieret",
-                                             BWV : 31,
+                                             opus : { opus: 31,
+                                             prefix:"BWV."},
                                              by : "Norrington"
-                                     }).toString();
+                                     });
                         expect(result).to.equal(
                             "Cantata [Norrington] \"Der Himmel lacht! die Erde jubilieret\" BWV.31");
                 });
 
                 it("with minor key", () => {
-                        var result = quartet({num : 14, minor : "C#", op : 131}).toString();
+                        var result = fooToString({form: "quartet",
+                        num : 14, minor : "C#", opus : { opus: 131}});
                         expect(result).to.equal("Quartet 14 in c# Op.131");
                 });
         });

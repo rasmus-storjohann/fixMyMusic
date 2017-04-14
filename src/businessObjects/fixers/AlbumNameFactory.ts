@@ -64,22 +64,17 @@ export class AlbumNameFactory
         }
         private getOpus(format: ClassicalWorkName) : string | undefined
         {
-                if (!format.opus)
+                var opus = format.opus;
+                if (!opus)
                 {
                         return undefined;
                 }
 
-                var prefix = this.getOpusPrefix(format);
-
-                if (format.opus instanceof Array)
+                if (!opus.num)
                 {
-                        return prefix + format.opus[0] + "-" + format.opus[1];
+                        return opus.prefix + opus.opus;
                 }
 
-                return prefix + format.opus;
-        }
-        private getOpusPrefix(format: ClassicalWorkName) : string
-        {
-                return "Op.";
+                return opus.prefix + opus.opus + "-" + opus.num;
         }
 }
