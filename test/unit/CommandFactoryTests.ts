@@ -4,7 +4,7 @@ import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {Album} from "../../src/Album";
 import {Command, Mp3Tags} from "../../src/businessInterfaces/commands/Command";
-import {CommandFactory} from "../../src/CommandFactory";
+import {CommandFactory} from "../../src/businessObjects/commands/CommandFactory";
 import {getIfExistsOrThrow} from "../helpers/getIfExistsOrThrow";
 
 describe("Command factory", () => {

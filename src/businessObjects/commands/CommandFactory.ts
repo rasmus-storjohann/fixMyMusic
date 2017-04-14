@@ -1,10 +1,9 @@
-import {Track} from "./businessInterfaces/tracks/Track";
-import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
-import {Album} from "./Album";
-import {Command} from "./businessInterfaces/commands/Command";
+import {Track} from "../../businessInterfaces/tracks/Track";
+import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
+import {Album} from "../../Album";
+import {Command} from "../../businessInterfaces/commands/Command";
 import * as npmlog from "npmlog";
 
-// move to business objects commands
 export class CommandFactory
 {
         private logger: npmlog.NpmLog;
