@@ -1,4 +1,4 @@
-import {Track} from "./businessInterfaces/tracks/Track";
+import {Track} from "../../businessInterfaces/tracks/Track";
 import * as npmlog from "npmlog";
 
 // move to business objects tracks

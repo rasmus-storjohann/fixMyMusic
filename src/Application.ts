@@ -5,7 +5,7 @@ import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {FileFactory} from "./businessObjects/tracks/FileFactory";
 import {Fixer} from "./Fixer";
 import {RulesFactory} from "./RulesFactory";
-import {TrackFactory} from "./TrackFactory";
+import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 
 import * as shelljs from 'shelljs';

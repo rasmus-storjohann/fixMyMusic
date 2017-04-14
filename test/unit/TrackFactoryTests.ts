@@ -2,7 +2,7 @@ import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
-import {TrackFactory} from "../../src/TrackFactory";
+import {TrackFactory} from "../../src/businessObjects/tracks/TrackFactory";
 
 var _theTrackFactory: TrackFactory;
 beforeEach(() => {
