@@ -4,7 +4,7 @@ import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {FileFactory} from "./businessObjects/tracks/FileFactory";
 import {Fixer} from "./Fixer";
-import {RulesFactory} from "./RulesFactory";
+import {RulesFactory} from "./businessObjects/fixers/RulesFactory";
 import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 

@@ -1,9 +1,9 @@
-import {FixOptionsParser} from "./businessObjects/fixers/FixOptionsParser";
-import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";
-import {FixOptionsForOneComposer} from "./businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsParser} from "./FixOptionsParser";
+import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
+import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import * as fs from "fs";
 
-// rename to fixers options factory, move to business objects fixers
+// rename to fixers options factory
 export class RulesFactory
 {
         public create(): FixOptionsForAll
