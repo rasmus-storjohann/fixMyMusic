@@ -4,7 +4,7 @@ import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptio
 import * as fs from "fs";
 
 // rename to fixers options factory
-export class RulesFactory
+export class FixOptionsFactory
 {
         public create(): FixOptionsForAll
         {

@@ -4,7 +4,7 @@ import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {FileFactory} from "./businessObjects/tracks/FileFactory";
 import {Fixer} from "./Fixer";
-import {RulesFactory} from "./businessObjects/fixers/RulesFactory";
+import {FixOptionsFactory} from "./businessObjects/fixers/FixOptionsFactory";
 import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 
@@ -39,8 +39,8 @@ export class Application
                 var tracks = new TrackFactory(this.logger).create(files);
                 var albums = new AlbumFactory(this.logger).create(tracks);
 
-                var rules = new RulesFactory().create();
-                var customFixerFactory = new CustomFixerFactory(rules, this.logger);
+                var fixOptions = new FixOptionsFactory().create();
+                var customFixerFactory = new CustomFixerFactory(fixOptions, this.logger);
 
                 var validator = new AlbumValidator(customFixerFactory, this.logger);
                 var fixer = new Fixer(customFixerFactory, this.logger);
