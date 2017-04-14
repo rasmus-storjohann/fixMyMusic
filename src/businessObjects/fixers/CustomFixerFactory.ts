@@ -1,8 +1,8 @@
-import {Album} from "./Album";
-import {CustomFixer} from "./businessInterfaces/fixers/CustomFixer";
-import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
-import {ValidationOption} from "./businessInterfaces/fixers/ValidationOption";
-import {FixOptionsForAll} from "./businessInterfaces/fixers/FixOptionsForAll";
+import {Album} from "../../Album";
+import {CustomFixer} from "../../businessInterfaces/fixers/CustomFixer";
+import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
+import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
+import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
 import * as npmlog from "npmlog";
 
 // move to business objects fixers

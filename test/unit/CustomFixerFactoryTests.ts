@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as npmlog from "npmlog";
-import {CustomFixerFactory} from "../../src/CustomFixerFactory";
+import {CustomFixerFactory} from "../../src/businessObjects/fixers/CustomFixerFactory";
 import {Album} from "../../src/Album";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";

@@ -4,10 +4,7 @@ import * as npmlog from "npmlog";
 // move to business objects tracks
 export class TrackFactory
 {
-        public constructor(logger: npmlog.NpmLog)
-        {
-                this.logger = logger;
-        }
+        public constructor(logger: npmlog.NpmLog) { this.logger = logger; }
 
         private logger: npmlog.NpmLog;
 
