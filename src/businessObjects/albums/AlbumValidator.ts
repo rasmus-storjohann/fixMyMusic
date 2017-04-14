@@ -1,6 +1,6 @@
 import {Album} from "../../Album";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
-import {ICustomFixerFactory} from "../../ICustomFixerFactory";
+import {ICustomFixerFactory} from "../../businessInterfaces/fixers/ICustomFixerFactory";
 import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
 import * as npmlog from "npmlog";
 

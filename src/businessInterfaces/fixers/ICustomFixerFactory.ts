@@ -1,5 +1,5 @@
-import {Album} from "./Album";
-import {CustomFixer} from "./businessInterfaces/fixers/CustomFixer";
+import {Album} from "../../Album";
+import {CustomFixer} from "../../businessInterfaces/fixers/CustomFixer";
 
 // move to interfaces fixers
 export interface ICustomFixerFactory {
