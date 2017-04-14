@@ -3,7 +3,7 @@ import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 import {CustomFixer} from "./CustomFixer";
 import {ICustomFixerFactory} from "./ICustomFixerFactory";
 import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
-import {fooToString} from "./AlbumFormat";
+import {AlbumNameFormatter} from "./businessObjects/AlbumNameFormatter";
 import * as npmlog from "npmlog";
 
 export class Fixer
@@ -66,7 +66,7 @@ export class Fixer
                 {
                         return undefined;
                 }
-                return fooToString(name);
+                return new AlbumNameFormatter().create(name);
         }
 
         private fixArtist(album: Album): void

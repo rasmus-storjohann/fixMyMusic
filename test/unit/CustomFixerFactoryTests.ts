@@ -5,7 +5,7 @@ import {CustomFixerFactory} from "../../src/CustomFixerFactory";
 import {Album} from "../../src/Album";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
-import {fooToString} from "../../src/AlbumFormat";
+import {AlbumNameFormatter} from "../../src/businessObjects/AlbumNameFormatter";
 
 beforeEach(() => { npmlog.level = "silent"; });
 
@@ -50,7 +50,8 @@ describe("CustomFixerFactory", () => {
                         {
                                 throw new Error("test fails");
                         }
-                        expect(fooToString(customFixer.fixAlbumTitle)).to.equal("Cantata BWV131");
+                        var formatter = new AlbumNameFormatter();
+                        expect(formatter.create(customFixer.fixAlbumTitle)).to.equal("Cantata BWV131");
                 });
 
                 describe("with valid validation options as strings", () => {
