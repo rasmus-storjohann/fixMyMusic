@@ -6,7 +6,8 @@ import {ClassicalWorkName} from "./businessInterfaces/fixers/ClassicalWorkName";
 import {AlbumNameFormatter} from "./businessObjects/albums/AlbumNameFormatter";
 import * as npmlog from "npmlog";
 
-export class Fixer
+// TODO rename AlbumFixer and move to business objects albumste
+export class AlbumFixer
 {
         public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)
         {

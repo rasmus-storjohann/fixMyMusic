@@ -1,12 +1,9 @@
 import {Track} from "./businessInterfaces/tracks/Track";
 import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 
-// TODO move mutators out and make this class immutable, mutators should
-// create new Album instances. This data should be represented by a number
-// of different classes, representing the different properties of the album as
-// it's being processed
 export class Album
 {
+        // Move to an AlbumBuilder class that produces Albums
         constructor(artist: string, title: string)
         {
                 this.artist = this.originalArtist = artist;
@@ -14,9 +11,10 @@ export class Album
                 this.tracks = [];
         }
 
+        // Move to the AlbumBuilder class
         public push(file: Track)
         {
-                this.validate(file.artist, file.album);
+                this.validateTrack(file.artist, file.album);
 
                 this.tracks.push({
                         path : file.path,
@@ -26,7 +24,7 @@ export class Album
                 });
         }
 
-        private validate(artist: string, album: string)
+        private validateTrack(artist: string, album: string)
         {
                 if (artist !== this.artist)
                 {
@@ -39,6 +37,7 @@ export class Album
                 }
         }
 
+        // TODO move out into an AlbumSorter class which produces SortedAlbum[]
         public sortTracks(): void { this.tracks.sort(this.sortOrder); }
 
         private sortOrder(first: AlbumTrack, second: AlbumTrack)
@@ -56,7 +55,7 @@ export class Album
                 if (first.trackNumber > second.trackNumber) return 1;
                 return 0;
         }
-
+        // include in the album sorter probably
         public reassignTrackNumbers()
         {
                 var i = 1;

@@ -1,13 +1,13 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as npmlog from "npmlog";
-import {Fixer} from "../../src/Fixer";
+import {AlbumFixer} from "../../src/AlbumFixer";
 import {Album} from "../../src/Album";
 import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {CustomFixer} from "../../src/businessInterfaces/fixers/CustomFixer";
 
-var fixer: Fixer;
+var fixer: AlbumFixer;
 var album: Album;
 
 beforeEach(() => {
@@ -26,7 +26,7 @@ beforeEach(() => {
                 }
         };
 
-        fixer = new Fixer(mockCustomFixerFactory, npmlog);
+        fixer = new AlbumFixer(mockCustomFixerFactory, npmlog);
         album = new Album("aaaa", "bbbb");
         album.push(
             {path : "cccc", artist : "aaaa", album : "bbbb", trackNumber : 1, title : "dddd"});
@@ -246,7 +246,7 @@ describe("Fixer", () => {
                                 }
 
                                                              album.title = "original album name";
-                                new Fixer(mockCustomFixerFactory, npmlog).fix(album);
+                                new AlbumFixer(mockCustomFixerFactory, npmlog).fix(album);
                                 expect(album.title).to.equal("fixed album name");
                         });
 
@@ -269,7 +269,7 @@ describe("Fixer", () => {
 
                                                              album.tracks[0]
                                                                  .title = "Original track.mp3";
-                                new Fixer(mockCustomFixerFactory, npmlog).fix(album);
+                                new AlbumFixer(mockCustomFixerFactory, npmlog).fix(album);
                                 expect(album.tracks[0].title).to.equal("Fixed track.mp3");
                         });
                 });

@@ -3,7 +3,7 @@ import {CommandExecutor} from "./businessObjects/commands/CommandExecutor";
 import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {FileFactory} from "./businessObjects/tracks/FileFactory";
-import {Fixer} from "./Fixer";
+import {AlbumFixer} from "./AlbumFixer";
 import {FixOptionsFactory} from "./businessObjects/fixers/FixOptionsFactory";
 import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
@@ -43,7 +43,7 @@ export class Application
                 var customFixerFactory = new CustomFixerFactory(fixOptions, this.logger);
 
                 var validator = new AlbumValidator(customFixerFactory, this.logger);
-                var fixer = new Fixer(customFixerFactory, this.logger);
+                var fixer = new AlbumFixer(customFixerFactory, this.logger);
 
                 albums.forEach(album => {
                         fixer.fix(album);

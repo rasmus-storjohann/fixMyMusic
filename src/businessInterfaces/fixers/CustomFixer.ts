@@ -3,7 +3,6 @@ import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkNa
 import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
 import * as npmlog from "npmlog";
 
-// move to business interfaces fixers
 export interface CustomFixer {
         albumName?: string;
         fixAlbumTitle?: ClassicalWorkName;
