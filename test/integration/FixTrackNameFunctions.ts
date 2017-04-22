@@ -15,7 +15,6 @@ beforeEach(() => {
 describe("Fix track name functions for", () => {
 
         beforeEach(() => {
-                log.level = "silent";
                 shelljs.rm("-rf", "testOutput");
         });
 
@@ -84,7 +83,6 @@ describe("Fix track name functions for", () => {
                 describe("Inventions", () => {
 
                         var album = "Inventions[Gould]";
-                        var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
 
                         beforeEach(() => {
                                 var sourceDir = "testOutput/source/JS Bach/" + album + "/";
@@ -99,6 +97,8 @@ describe("Fix track name functions for", () => {
                         });
 
                         it("Maps 2/3 part, key, BWV number", () => {
+                                var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
+
                                 expect(outputHelper.exists("01 2-Part Invention 1 C BWV772.mp3")).is.true;
                                 expect(outputHelper.exists("02 3-Part Invention 1 C BWV787.mp3")).is.true;
                                 expect(outputHelper.exists("03 2-Part Invention 2 c BWV773.mp3")).is.true;
@@ -109,7 +109,6 @@ describe("Fix track name functions for", () => {
                 describe("St. John's Passion", () => {
 
                         var album = "St. John Passion";
-                        var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
 
                         beforeEach(() => {
                                 var sourceDir = "testOutput/source/JS Bach/" + album + "/";
@@ -122,6 +121,8 @@ describe("Fix track name functions for", () => {
                         });
 
                         it("extracts the track name", () => {
+                                var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
+
                                 expect(outputHelper.exists("01 Verrat und Gefangennahme: Chor \"Herr, unser Herrscher\".mp3")).is.true;
                                 expect(outputHelper.exists("02 Verrat und Gefangennahme: \"Jesus ging mit seinen Jüngern über den Bach Kidron\" (Evangelista, Jesus) - Chor \"Jesum von Nazareth!\" - \"Jesus spricht zu ihnen\" (Evangelista, Jesus) - Chor \"Jesum von Nazar.mp3")).is.true;
                         });
@@ -130,7 +131,6 @@ describe("Fix track name functions for", () => {
                 describe("Welltempered Clavier Book 1 with Till Fellner", () => {
 
                         var album = "WellTemp1 [Fellner]";
-                        var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
 
                         beforeEach(() => {
                                 var sourceDir = "testOutput/source/JS Bach/" + album + "/disk1/";
@@ -143,6 +143,8 @@ describe("Fix track name functions for", () => {
                         });
 
                         it("extracts the track name", () => {
+                                var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
+
                                 expect(outputHelper.exists("01 Prelude in C.mp3")).is.true;
                                 expect(outputHelper.exists("02 Fuge in C.mp3")).is.true;
                         });
@@ -151,7 +153,6 @@ describe("Fix track name functions for", () => {
                 describe("Welltempered Clavier Book 1 with Glen Gould", () => {
 
                         var album = "WellTemp1 [Gould]";
-                        var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
 
                         beforeEach(() => {
                                 var sourceDir = "testOutput/source/JS Bach/" + album + "/";
@@ -164,6 +165,8 @@ describe("Fix track name functions for", () => {
                         });
 
                         it("extracts the track name", () => {
+                                var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
+
                                 expect(outputHelper.exists("01 Prelude in C.mp3")).is.true;
                                 expect(outputHelper.exists("02 Fuge in C.mp3")).is.true;
                         });
@@ -172,7 +175,6 @@ describe("Fix track name functions for", () => {
                 describe("Welltempered Clavier Book 2 with Glen Gould", () => {
 
                         var album = "WellTemp2 [Gould]";
-                        var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
 
                         beforeEach(() => {
                                 var sourceDir = "testOutput/source/JS Bach/" + album + "/disk1/";
@@ -194,6 +196,8 @@ describe("Fix track name functions for", () => {
                         });
 
                         it("handles first format", () => {
+                                var outputHelper = new TrackTestHelper("testOutput/destination/Bach_JS/" + album);
+
                                 expect(outputHelper.exists("01 Prelude in C.mp3")).is.true;
                                 expect(outputHelper.exists("02 Fuge in C.mp3")).is.true;
 

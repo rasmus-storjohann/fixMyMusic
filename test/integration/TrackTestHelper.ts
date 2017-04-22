@@ -29,7 +29,6 @@ export class TrackTestHelper
         private createFile(fileName: string)
         {
                 var path = this.filepath(fileName);
-
                 shelljs.cp("test.mp3", path);
         }
 
@@ -41,7 +40,6 @@ export class TrackTestHelper
         public exists(fileName: string) : boolean
         {
                 var path = this.filepath(fileName);
-
                 return fileExists(path);
         }
 }

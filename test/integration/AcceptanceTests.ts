@@ -48,14 +48,12 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/01 Molto moderato, with simple expression.mp3"))
-                    .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/02 Allegro molto.mp3"))
-                    .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/03 Andantino quasi allegretto.mp3"))
-                    .is.true;
-                expect(fileExists("testOutput/destination/Copland_Aaron/Symph 3/04 Molto deliberato.mp3"))
-                    .is.true;
+                var outputHelper = new TrackTestHelper("testOutput/destination/Copland_Aaron/Symph 3");
+
+                expect(outputHelper.exists("01 Molto moderato, with simple expression.mp3")).is.true;
+                expect(outputHelper.exists("02 Allegro molto.mp3")).is.true;
+                expect(outputHelper.exists("03 Andantino quasi allegretto.mp3")).is.true;
+                expect(outputHelper.exists("04 Molto deliberato.mp3")).is.true;
         });
 
         it("With --dry-run does not copy file", () => {
@@ -68,8 +66,9 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
-                    .is.false;
+                var outputHelper = new TrackTestHelper("testOutput/destination/artist/album/");
+
+                expect(outputHelper.exists("01 first track.mp3")).is.false;
         });
 
         describe("with special characters in filenames", () => {
@@ -83,8 +82,8 @@ describe("Acceptance tests", () => {
                             ],
                             log);
 
-                        expect(fileExists("testOutput/destination/artist/album/01 [abc].mp3"))
-                            .is.true;
+                        var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                        expect(outputHelper.exists("01 [abc].mp3")).is.true;
                 });
                 it("supports *", () => {
                         new TrackTestHelper("testOutput/source/artist/album/").create("01 abc*efg.mp3");
@@ -96,8 +95,8 @@ describe("Acceptance tests", () => {
                             ],
                             log);
 
-                        expect(fileExists("testOutput/destination/artist/album/01 abc*efg.mp3"))
-                            .is.true;
+                        var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                        expect(outputHelper.exists("01 abc*efg.mp3")).is.true;
                 });
                 it("supports ()", () => {
                         new TrackTestHelper("testOutput/source/artist/album/").create("01 (efg).mp3");
@@ -109,8 +108,8 @@ describe("Acceptance tests", () => {
                             ],
                             log);
 
-                        expect(fileExists("testOutput/destination/artist/album/01 (efg).mp3"))
-                            .is.true;
+                        var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                        expect(outputHelper.exists("01 (efg).mp3")).is.true;
                 });
                 it("supports \"", () => {
                         new TrackTestHelper("testOutput/source/artist/album/").create("01 \"efg\".mp3");
@@ -122,8 +121,8 @@ describe("Acceptance tests", () => {
                             ],
                             log);
 
-                        expect(fileExists("testOutput/destination/artist/album/01 \"efg\".mp3"))
-                            .is.true;
+                        var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                        expect(outputHelper.exists("01 \"efg\".mp3")).is.true;
                 });
                 it("supports '", () => {
                         new TrackTestHelper("testOutput/source/artist/album/").create("01 'efg'.mp3");
@@ -135,8 +134,8 @@ describe("Acceptance tests", () => {
                             ],
                             log);
 
-                        expect(fileExists("testOutput/destination/artist/album/01 'efg'.mp3"))
-                            .is.true;
+                        var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                        expect(outputHelper.exists("01 'efg'.mp3")).is.true;
                 });
         });
 
@@ -151,10 +150,9 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
-                    .is.true;
-                expect(fileExists("testOutput/destination/artist/album/02 second track.mp3"))
-                    .is.true;
+                var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
+                expect(outputHelper.exists("01 first track.mp3")).is.true;
+                expect(outputHelper.exists("02 second track.mp3")).is.true;
         });
 
         it("Supports validation directive to ignore track numbers", () => {
@@ -170,20 +168,11 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Four Pieces/01 Grohg - Cortège macabre.mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Copland_Aaron/Four Pieces/02 Letter From Home.mp3"))
-                    .is.true;
-                expect(fileExists(
-                           "testOutput/destination/Copland_Aaron/Four Pieces/03 John Henry.mp3"))
-                    .is.true;
-                expect(fileExists(
-                           "testOutput/destination/Copland_Aaron/Four Pieces/04 Quiet City.mp3"))
-                    .is.true;
+                var outputHelper = new TrackTestHelper("testOutput/destination/Copland_Aaron/Four Pieces");
+                expect(outputHelper.exists("01 Grohg - Cortège macabre.mp3")).is.true;
+                expect(outputHelper.exists("02 Letter From Home.mp3")).is.true;
+                expect(outputHelper.exists("03 John Henry.mp3")).is.true;
+                expect(outputHelper.exists("04 Quiet City.mp3")).is.true;
         });
 
         it("supports disk starting at track number above one and spanning disks", () => {
@@ -204,38 +193,16 @@ describe("Acceptance tests", () => {
                     ],
                     log);
 
-                expect(fileExists("testOutput/destination/Janáček/Jenůfa2/01 Úvod.mp3")).is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/02 Nechám ještě dveře otevřeny (Kostelnička).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/03 Ba zabedněna ta tvoje okenička už přes dvacet neděl (Kostelnička).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/04 Tetko Kostelničko, poslala jste cedulku (Števa).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/05 Ale viděl jsem vcházet šohaje (Laca).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/06 Co chvíla... co chvíla (Kostelnička).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/07 Mamičko, mám těžkou hlavu (Jenůfa).mp3"))
-                    .is.true;
-                expect(
-                    fileExists("testOutput/destination/Janáček/Jenůfa2/08 Kdo to je (Jenůfa).mp3"))
-                    .is.true;
-                expect(
-                    fileExists(
-                        "testOutput/destination/Janáček/Jenůfa2/09 Tot' zrovna jde! (Kostelnička).mp3"))
-                    .is.true;
+                var outputHelper = new TrackTestHelper("testOutput/destination/Janáček/Jenůfa2");
+                expect(outputHelper.exists("01 Úvod.mp3")).is.true;
+                expect(outputHelper.exists("02 Nechám ještě dveře otevřeny (Kostelnička).mp3")).is.true;
+                expect(outputHelper.exists("03 Ba zabedněna ta tvoje okenička už přes dvacet neděl (Kostelnička).mp3")).is.true;
+                expect(outputHelper.exists("04 Tetko Kostelničko, poslala jste cedulku (Števa).mp3")).is.true;
+                expect(outputHelper.exists("05 Ale viděl jsem vcházet šohaje (Laca).mp3")).is.true;
+                expect(outputHelper.exists("06 Co chvíla... co chvíla (Kostelnička).mp3")).is.true;
+                expect(outputHelper.exists("07 Mamičko, mám těžkou hlavu (Jenůfa).mp3")).is.true;
+                expect(outputHelper.exists("08 Kdo to je (Jenůfa).mp3")).is.true;
+                expect(outputHelper.exists("09 Tot' zrovna jde! (Kostelnička).mp3")).is.true;
         });
 
         it("sets mp3 tags", () => {
