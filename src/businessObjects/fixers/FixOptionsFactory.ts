@@ -1,5 +1,5 @@
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
-import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForOneArtist} from "../../businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsParser} from "./FixOptionsParser";
 import {IFixTrackNameFunction} from "../../businessInterfaces/fixers/IFixTrackNameFunction";
@@ -9,7 +9,6 @@ import * as fs from "fs";
 
 export class FixOptionsFactory
 {
-        // TODO inject fixTrackNameFunctions
         public constructor(fixTrackNameFunctions: IFixTrackNameFunctionsForAll, logger: npmlog.NpmLog)
         {
                 this.logger = logger;
@@ -23,37 +22,37 @@ export class FixOptionsFactory
         {
                 var result = this.readRootJsonFile("Others.json");
 
-                this.addComposerJsonFile(result, "BachJs.json", "JS Bach");
-                this.addComposerJsonFile(result, "Beethoven.json", "Beethoven");
-                this.addComposerJsonFile(result, "Handel.json", "Handel");
-                this.addComposerJsonFile(result, "Haydn.json", "Haydn");
-                this.addComposerJsonFile(result, "Mahler.json", "Mahler");
-                this.addComposerJsonFile(result, "Mozart.json", "Mozart");
-                this.addComposerJsonFile(result, "Chopin.json", "Frédéric Chopin");
-                this.addComposerJsonFile(result, "Schubert.json", "Schubert");
-                this.addComposerJsonFile(result, "Shostakovich.json", "Shostakovich");
+                this.addArtistJsonFile(result, "BachJs.json", "JS Bach");
+                this.addArtistJsonFile(result, "Beethoven.json", "Beethoven");
+                this.addArtistJsonFile(result, "Handel.json", "Handel");
+                this.addArtistJsonFile(result, "Haydn.json", "Haydn");
+                this.addArtistJsonFile(result, "Mahler.json", "Mahler");
+                this.addArtistJsonFile(result, "Mozart.json", "Mozart");
+                this.addArtistJsonFile(result, "Chopin.json", "Frédéric Chopin");
+                this.addArtistJsonFile(result, "Schubert.json", "Schubert");
+                this.addArtistJsonFile(result, "Shostakovich.json", "Shostakovich");
 
                 this.addFixTrackNameFunctions(result);
 
                 return result;
         };
-        private addComposerJsonFile(result: FixOptionsForAll, file: string, key: string): void
+        private addArtistJsonFile(result: FixOptionsForAll, file: string, key: string): void
         {
                 if (result[key])
                 {
                         throw new Error(key + ": fixer data contains duplicate keys");
                 }
-                result[key] = this.readComposerJsonFile(file);
+                result[key] = this.readArtistJsonFile(file);
         }
         private readRootJsonFile(filename: string): FixOptionsForAll
         {
                 var json = this.readFixerFile(filename);
                 return new FixOptionsParser().parseGlobalJsonFile(json);
         }
-        private readComposerJsonFile(filename: string): FixOptionsForOneComposer
+        private readArtistJsonFile(filename: string): FixOptionsForOneArtist
         {
                 var json = this.readFixerFile(filename);
-                return new FixOptionsParser().parseComposerJsonFile(json);
+                return new FixOptionsParser().parseArtistJsonFile(json);
         }
         private readFixerFile(filename: string): string
         {

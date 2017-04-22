@@ -1,5 +1,5 @@
-import {FixOptionsForOneComposer} from "./FixOptionsForOneComposer";
+import {FixOptionsForOneArtist} from "./FixOptionsForOneArtist";
 
 export interface FixOptionsForAll {
-        [name: string]: FixOptionsForOneComposer;
+        [name: string]: FixOptionsForOneArtist;
 }

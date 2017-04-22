@@ -8,56 +8,56 @@ import * as fs from "fs";
 
 describe("Fixer integration", () => {
 
-        function parseComposerJson(file: string): any
+        function parseArtistJson(file: string): any
         {
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
                 var parser = new FixOptionsParser();
-                return parser.parseComposerJsonFile(json);
+                return parser.parseArtistJsonFile(json);
         }
 
         it("can parse BachJs.json", () => {
-                var parsed = parseComposerJson("BachJs.json");
+                var parsed = parseArtistJson("BachJs.json");
                 expect(parsed.BminorMass.validation[0])
                     .to.equal(ValidationOption.skipUniqueTrackNameCheck);
         });
 
         it("can parse Beethoven.json", () => {
-                var parsed = parseComposerJson("Beethoven.json");
+                var parsed = parseArtistJson("Beethoven.json");
                 expect(parsed.PianoConc5.fixAlbumTitle.num).to.equal(5);
         });
 
         it("can parse Chopin.json", () => {
-                var parsed = parseComposerJson("Chopin.json");
+                var parsed = parseArtistJson("Chopin.json");
                 expect(parsed.CelloSonata.fixAlbumTitle.by).to.equal("Rostropovich");
         });
 
         it("can parse Handel.json", () => {
-                var parsed = parseComposerJson("Handel.json");
+                var parsed = parseArtistJson("Handel.json");
                 expect(parsed.Fireworks.firstTrackNumber).to.equal(10);
         });
 
         it("can parse Haydn.json", () => {
-                var parsed = parseComposerJson("Haydn.json");
+                var parsed = parseArtistJson("Haydn.json");
                 expect(parsed["Quartet56 E flat Op71 No3"].fixAlbumTitle.num).to.equal(56);
         });
 
         it("can parse Mahler.json", () => {
-                var parsed = parseComposerJson("Mahler.json");
+                var parsed = parseArtistJson("Mahler.json");
                 expect(parsed["Symph3[Chailly]"].fixAlbumTitle.num).to.equal(3);
         });
 
         it("can parse Mozart.json", () => {
-                var parsed = parseComposerJson("Mozart.json");
+                var parsed = parseArtistJson("Mozart.json");
                 expect(parsed.AdagioK261.firstTrackNumber).to.equal(10);
         });
 
         it("can parse Schubert.json", () => {
-                var parsed = parseComposerJson("Schubert.json");
+                var parsed = parseArtistJson("Schubert.json");
                 expect(parsed.Symp10.firstTrackNumber).to.equal(5);
         });
 
         it("can parse Shostakovich.json", () => {
-                var parsed = parseComposerJson("Shostakovich.json");
+                var parsed = parseArtistJson("Shostakovich.json");
                 expect(parsed["Lady Macbeth4"].firstTrackNumber).to.equal(8);
         });
 

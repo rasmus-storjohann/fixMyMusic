@@ -3,7 +3,7 @@ import {CustomFixer} from "../../businessInterfaces/fixers/CustomFixer";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
 import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
-import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForOneArtist} from "../../businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkName";
 import * as npmlog from "npmlog";
@@ -26,8 +26,8 @@ export class CustomFixerFactory
 
                 this.logger.silly("Custom fixer factory", "called with '" + artist + "' and '" + albumTitle + "'");
 
-                var fixOptionsForComposer = this.rules[artist];
-                var fixOptions : FixOptionsForOneAlbum = fixOptionsForComposer && fixOptionsForComposer[albumTitle];
+                var fixOptionsForArtist = this.rules[artist];
+                var fixOptions : FixOptionsForOneAlbum = fixOptionsForArtist && fixOptionsForArtist[albumTitle];
 
                 var albumName = fixOptions && fixOptions.albumName;
                 var fixAlbumTitle : ClassicalWorkName | undefined = fixOptions && fixOptions.fixAlbumTitle;

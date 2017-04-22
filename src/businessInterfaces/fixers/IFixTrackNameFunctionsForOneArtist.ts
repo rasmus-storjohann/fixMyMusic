@@ -1,7 +1,7 @@
 import * as npmlog from "npmlog";
 import {IFixTrackNameFunction} from "./IFixTrackNameFunction";
 
-export interface IFixTrackNameFunctionsForOneComposer
+export interface IFixTrackNameFunctionsForOneArtist
 {
         [name: string]: IFixTrackNameFunction;
 }

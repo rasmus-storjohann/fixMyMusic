@@ -1,6 +1,6 @@
-import {IFixTrackNameFunctionsForOneComposer} from "./IFixTrackNameFunctionsForOneComposer";
+import {IFixTrackNameFunctionsForOneArtist} from "./IFixTrackNameFunctionsForOneArtist";
 
 export interface IFixTrackNameFunctionsForAll
 {
-        [name: string]: IFixTrackNameFunctionsForOneComposer;
+        [name: string]: IFixTrackNameFunctionsForOneArtist;
 }

@@ -1,5 +1,5 @@
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
-import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForOneArtist} from "./../../businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 import {Opus} from "./../../businessInterfaces/fixers/Opus";
@@ -30,9 +30,9 @@ export class FixOptionsParser
                 }
                 return result;
         }
-        public parseComposerJsonFile(json: string): FixOptionsForOneComposer
+        public parseArtistJsonFile(json: string): FixOptionsForOneArtist
         {
-                var result: FixOptionsForOneComposer = {};
+                var result: FixOptionsForOneArtist = {};
                 var parsed = JSON.parse(json);
                 for (var album in parsed)
                 {
