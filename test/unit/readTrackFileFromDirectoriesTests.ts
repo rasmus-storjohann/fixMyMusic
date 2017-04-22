@@ -2,7 +2,7 @@ import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as shelljs from 'shelljs';
 import * as log from "npmlog";
-import {FileFactory} from "../../src/businessObjects/tracks/FileFactory";
+import {readTrackFileFromDirectories} from "../../src/businessObjects/tracks/readTrackFileFromDirectories";
 
 describe("FileFactory", () => {
         beforeEach(() => {
@@ -14,7 +14,7 @@ describe("FileFactory", () => {
                 shelljs.cp("test.mp3", "out/artist/album/02 track.mp3");
                 shelljs.cp("test.mp3", "out/artist/album/03 track.mp3");
 
-                var files = new FileFactory(log).create([ "out" ]);
+                var files = readTrackFileFromDirectories([ "out" ], log);
                 expect(files).has.lengthOf(2);
                 expect(files[0]).equals("out/artist/album/02 track.mp3");
                 expect(files[1]).equals("out/artist/album/03 track.mp3");
@@ -23,7 +23,7 @@ describe("FileFactory", () => {
                 shelljs.mkdir("-p", "out/artist/album/");
                 shelljs.cp("test.mp3", "out/artist/album/03 track.foo");
 
-                var files = new FileFactory(log).create([ "out" ]);
+                var files = readTrackFileFromDirectories([ "out" ], log);
                 expect(files).is.empty;
         });
         it("gets files from multiple directories", () => {
@@ -32,7 +32,7 @@ describe("FileFactory", () => {
                 shelljs.mkdir("-p", "out/artist2/album/");
                 shelljs.cp("test.mp3", "out/artist2/album/03 track.mp3");
 
-                var files = new FileFactory(log).create([ "out/artist1", "out/artist2" ]);
+                var files = readTrackFileFromDirectories([ "out/artist1", "out/artist2" ], log);
                 expect(files).has.lengthOf(2);
         });
 });

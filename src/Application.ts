@@ -2,7 +2,7 @@ import {AlbumFactory} from "./businessObjects/albums/AlbumFactory";
 import {CommandExecutor} from "./businessObjects/commands/CommandExecutor";
 import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
-import {FileFactory} from "./businessObjects/tracks/FileFactory";
+import {readTrackFileFromDirectories} from "./businessObjects/tracks/readTrackFileFromDirectories";
 import {AlbumFixer} from "./AlbumFixer";
 import {FixOptionsFactory} from "./businessObjects/fixers/FixOptionsFactory";
 import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
@@ -33,7 +33,7 @@ export class Application
                         throw new Error("Specify --out argument");
                 }
 
-                var files = new FileFactory(logger).create(fromDirectories);
+                var files = readTrackFileFromDirectories(fromDirectories, logger);
                 var tracks = new TrackFactory(logger).create(files);
                 var albums = new AlbumFactory(logger).create(tracks);
 
