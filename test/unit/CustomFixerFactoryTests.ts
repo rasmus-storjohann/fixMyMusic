@@ -4,6 +4,7 @@ import * as npmlog from "npmlog";
 import {CustomFixerFactory} from "../../src/businessObjects/fixers/CustomFixerFactory";
 import {Album} from "../../src/Album";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {FixOptionsForAll} from "../../src/businessInterfaces/fixers/FixOptionsForAll";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
 import {AlbumNameFormatter} from "../../src/businessObjects/albums/AlbumNameFormatter";
 
@@ -136,12 +137,13 @@ describe("CustomFixerFactory", () => {
                 });
 
                 it("returns fix track name function if specified", () => {
-                        // TODO fix this test
-                        var rules = {
+                        var rules : FixOptionsForAll = {
                                 "artist name" : {
                                         "the album name" : {
-                                                fixTrackNameFunc : function(name: string, logger) :
-                                                    string { return "fixed track title"; }
+                                                fixTrackNameFunction: function(name: string, logger: npmlog.NpmLog) : string
+                                                {
+                                                        return "fixed track title";
+                                                }
                                         }
                                 }
                         };
