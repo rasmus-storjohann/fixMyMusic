@@ -1,4 +1,4 @@
-import {FixTrackNameFunctions} from "../businessInterfaces/fixers/FixTrackNameFunctions";
+import {IFixTrackNameFunctionsForAll} from "../businessInterfaces/fixers/IFixTrackNameFunctionsForAll";
 import * as npmlog from "npmlog";
 
 function BachFantasias(name: string, logger: npmlog.NpmLog) : string
@@ -268,8 +268,7 @@ function ShostakovichPreludesFugues(name: string, logger: npmlog.NpmLog) : strin
         return parsed.preludeOrFugue + " " + parsed.number + " in " + formattedKey;
 }
 
-// TODO rename FixTrackNameFunctions
-export var fixTrackNameFunctions : FixTrackNameFunctions = {
+export var FixTrackNameFunctionsForAll : IFixTrackNameFunctionsForAll = {
         "JS Bach" :
         {
                 "Fantasias, Preludes and Fugues [Herrick]" :    BachFantasias,

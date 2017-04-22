@@ -2,19 +2,22 @@ import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll
 import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsParser} from "./FixOptionsParser";
-import {fixTrackNameFunc} from "../../businessInterfaces/fixers/fixTrackNameFunc";
-import {fixTrackNameFunctions} from "../../fixers/fixTrackNameFunctions";
+import {IFixTrackNameFunction} from "../../businessInterfaces/fixers/IFixTrackNameFunction";
+import {IFixTrackNameFunctionsForAll} from "../../businessInterfaces/fixers/IFixTrackNameFunctionsForAll";
 import * as npmlog from "npmlog";
 import * as fs from "fs";
 
 export class FixOptionsFactory
 {
-        public constructor(logger: npmlog.NpmLog)
+        // TODO inject fixTrackNameFunctions
+        public constructor(fixTrackNameFunctions: IFixTrackNameFunctionsForAll, logger: npmlog.NpmLog)
         {
                 this.logger = logger;
+                this.fixTrackNameFunctions = fixTrackNameFunctions;
         }
 
         private logger: npmlog.NpmLog;
+        private fixTrackNameFunctions: IFixTrackNameFunctionsForAll;
 
         public create(): FixOptionsForAll
         {
@@ -58,24 +61,24 @@ export class FixOptionsFactory
         }
         private addFixTrackNameFunctions(result: FixOptionsForAll)
         {
-                for (var artist in fixTrackNameFunctions)
+                for (var artist in this.fixTrackNameFunctions)
                 {
-                        if (fixTrackNameFunctions.hasOwnProperty(artist))
+                        if (this.fixTrackNameFunctions.hasOwnProperty(artist))
                         {
                                 if (!result[artist])
                                 {
                                         throw new Error("fix track function for non-existent artist '" + artist + "'");
                                 }
-                                for (var album in fixTrackNameFunctions[artist])
+                                for (var album in this.fixTrackNameFunctions[artist])
                                 {
-                                        if (fixTrackNameFunctions[artist].hasOwnProperty(album))
+                                        if (this.fixTrackNameFunctions[artist].hasOwnProperty(album))
                                         {
                                                 this.logger.silly("FixOptionsFactory", "Adding functions for " + artist + ": " + album);
                                                 if (!result[artist][album])
                                                 {
                                                         throw new Error("fix track function for non-existent album '" + artist + "'/'" + album + "'");
                                                 }
-                                                var theFunction = fixTrackNameFunctions[artist][album];
+                                                var theFunction = this.fixTrackNameFunctions[artist][album];
                                                 var theExisting = result[artist][album];
                                                 result[artist][album] = new FixOptionsForOneAlbum(
                                                                 theExisting.firstTrackNumber,
