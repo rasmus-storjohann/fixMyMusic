@@ -5,7 +5,6 @@ import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
 import * as npmlog from "npmlog";
 
-// move to business objects fixers
 export class CustomFixerFactory
 {
         public constructor(rules: FixOptionsForAll, logger: npmlog.NpmLog)
@@ -22,8 +21,7 @@ export class CustomFixerFactory
                 var artist = album.originalArtist;
                 var albumTitle = album.originalTitle;
 
-                this.logger.silly("Custom fixer factory",
-                                  "called with " + artist + " and " + albumTitle);
+                this.logger.silly("Custom fixer factory", "called with '" + artist + "' and '" + albumTitle + "'");
 
                 var artistRules = this.rules[artist];
                 var albumRules = artistRules && artistRules[albumTitle];
@@ -46,6 +44,7 @@ export class CustomFixerFactory
         {
                 if (!specification)
                 {
+                        this.logger.silly("No custom fixer created");
                         return function(album: Album, logger: npmlog.NpmLog) {}
                 }
 
@@ -59,6 +58,7 @@ export class CustomFixerFactory
 
                 if (specification.fixTrackNameFunc)
                 {
+                        this.logger.silly("Found fix track name function");
                         var fixTrackName =
                             function(album: Album, logger: npmlog.NpmLog) {
                                 album.tracks.forEach((track) => {
@@ -77,6 +77,7 @@ export class CustomFixerFactory
 
                 if (specification.fixTrackName)
                 {
+                        this.logger.silly("Found fix track name regexp");
                         var fixTrackName = function(album: Album, logger: npmlog.NpmLog) {
                                 album.tracks.forEach((track) => {
                                         var match = specification.fixTrackName.exec(track.title);
@@ -101,6 +102,7 @@ export class CustomFixerFactory
 
                 if (specification.firstTrackNumber)
                 {
+                        this.logger.silly("Found fix track number");
                         var self = this;
                         var fixTrackNumber = function(album: Album, logger: npmlog.NpmLog) {
                                 var adjustment = 1 - specification.firstTrackNumber;
@@ -131,6 +133,7 @@ export class CustomFixerFactory
                         fixers.push(fixTrackNumber);
                 }
 
+                this.logger.silly("Combining " + fixers.length + " fixers");
                 var applyAllFixers = function(
                     album: Album,
                     logger: npmlog.NpmLog) { fixers.forEach((fixer) => { fixer(album, logger); }); }

@@ -1,7 +1,6 @@
 import {Track} from "../../businessInterfaces/tracks/Track";
 import * as npmlog from "npmlog";
 
-// move to business objects tracks
 export class TrackFactory
 {
         public constructor(logger: npmlog.NpmLog) { this.logger = logger; }

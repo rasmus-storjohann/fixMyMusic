@@ -60,7 +60,7 @@ describe("CustomFixerFactory", () => {
                                 var rules = {
                                         "artist name" : {
                                                 "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined,
+                                                    undefined, undefined, undefined, undefined, undefined,
                                                     [ ValidationOption.skipUniqueTrackNameCheck ])
                                         }
                                 };
@@ -75,7 +75,7 @@ describe("CustomFixerFactory", () => {
                                 var rules = {
                                         "artist name" : {
                                                 "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined,
+                                                    undefined, undefined, undefined, undefined, undefined,
                                                     [ ValidationOption.skipTrackNumberCheck ])
                                         }
                                 };
@@ -90,7 +90,7 @@ describe("CustomFixerFactory", () => {
                                 var rules = {
                                         "artist name" : {
                                                 "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined,
+                                                    undefined, undefined, undefined, undefined, undefined,
                                                     [
                                                       ValidationOption.skipUniqueTrackNameCheck,
                                                       ValidationOption.skipTrackNumberCheck

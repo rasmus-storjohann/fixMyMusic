@@ -1,4 +1,3 @@
-// TODO find a way to avoid relative paths
 import {FixOptionsForAll} from "./../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "./../../businessInterfaces/fixers/FixOptionsForOneComposer";
 import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOptionsForOneAlbum";
@@ -23,8 +22,8 @@ export class FixOptionsParser
                                 {
                                         if (parsed[artist].hasOwnProperty(album))
                                         {
-                                                result[artist][album] =
-                                                    this.buildAlbumFixer(parsed[artist][album]);
+
+                                                result[artist][album] = this.buildAlbumFixer(parsed[artist][album]);
                                         }
                                 }
                         }
@@ -61,8 +60,14 @@ export class FixOptionsParser
                 var classicalWorkName = this.toClassicalWorkName(from, "fixAlbumTitle");
                 var albumName = this.toString(from, "albumTitle");
                 var validation = this.toValidationOptions(from, "validation");
+                var fixTrackNameFunction = undefined;
 
-                var options = new FixOptionsForOneAlbum(firstTrackNumber, fixTrackName, albumName, classicalWorkName, validation);
+                var options = new FixOptionsForOneAlbum(firstTrackNumber,
+                        fixTrackName,
+                        fixTrackNameFunction,
+                        albumName,
+                        classicalWorkName,
+                        validation);
 
                 return this.StripUndefinedFieldsFromFixOptionsForOneAlbum(options);
         }

@@ -1,6 +1,9 @@
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsParser} from "./FixOptionsParser";
+import {fixTrackNameFunc} from "../../businessInterfaces/fixers/fixTrackNameFunc";
+import {fixTrackNameFunctions} from "../../fixers/fixTrackNameFunctions";
 import * as fs from "fs";
 
 export class FixOptionsFactory
@@ -18,6 +21,8 @@ export class FixOptionsFactory
                 this.addComposerJsonFile(result, "Chopin.json", "Frédéric Chopin");
                 this.addComposerJsonFile(result, "Schubert.json", "Schubert");
                 this.addComposerJsonFile(result, "Shostakovich.json", "Shostakovich");
+
+                this.addFixTrackNameFunctions(result);
 
                 return result;
         };
@@ -42,5 +47,29 @@ export class FixOptionsFactory
         private readFixerFile(filename: string): string
         {
                 return fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + filename, "utf8");
+        }
+        private addFixTrackNameFunctions(result: FixOptionsForAll)
+        {
+                for (var artist in fixTrackNameFunctions)
+                {
+                        if (fixTrackNameFunctions.hasOwnProperty(artist))
+                        {
+                                for (var album in fixTrackNameFunctions[artist])
+                                {
+                                        if (fixTrackNameFunctions[artist].hasOwnProperty(album))
+                                        {
+                                                var theFunction = fixTrackNameFunctions[artist][album];
+                                                var theExisting = result[artist][album];
+                                                result[artist][album] = new FixOptionsForOneAlbum(
+                                                                theExisting.firstTrackNumber,
+                                                                theExisting.fixTrackName,
+                                                                theFunction,
+                                                                theExisting.albumName,
+                                                                theExisting.fixAlbumTitle,
+                                                                theExisting.validation);;
+                                        }
+                                }
+                        }
+                }
         }
 };
