@@ -17,7 +17,6 @@ export class Application
 {
         public static main(argv: string[], logger: npmlog.NpmLog)
         {
-                logger.level = "info";
                 new Application(logger).execute(argv.splice(2));
         }
 
@@ -29,6 +28,7 @@ export class Application
                 var fromDirectories = parsedArguments._;
                 var dryRun = parsedArguments["dry-run"];
                 var toDir = parsedArguments["out"];
+                this.logger.level = parsedArguments["verb"] || "info";
 
                 if (!toDir)
                 {
@@ -39,7 +39,7 @@ export class Application
                 var tracks = new TrackFactory(this.logger).create(files);
                 var albums = new AlbumFactory(this.logger).create(tracks);
 
-                var fixOptions = new FixOptionsFactory().create();
+                var fixOptions = new FixOptionsFactory(this.logger).create();
                 var customFixerFactory = new CustomFixerFactory(fixOptions, this.logger);
 
                 var validator = new AlbumValidator(customFixerFactory, this.logger);

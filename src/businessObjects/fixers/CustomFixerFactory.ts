@@ -3,6 +3,9 @@ import {CustomFixer} from "../../businessInterfaces/fixers/CustomFixer";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
 import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
+import {FixOptionsForOneComposer} from "../../businessInterfaces/fixers/FixOptionsForOneComposer";
+import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkName";
 import * as npmlog from "npmlog";
 
 export class CustomFixerFactory
@@ -23,26 +26,26 @@ export class CustomFixerFactory
 
                 this.logger.silly("Custom fixer factory", "called with '" + artist + "' and '" + albumTitle + "'");
 
-                var artistRules = this.rules[artist];
-                var albumRules = artistRules && artistRules[albumTitle];
+                var fixOptionsForComposer = this.rules[artist];
+                var fixOptions : FixOptionsForOneAlbum = fixOptionsForComposer && fixOptionsForComposer[albumTitle];
 
-                var albumName = albumRules && albumRules.albumName;
-                var fixAlbumTitle = albumRules && albumRules.fixAlbumTitle;
-                var validation = albumRules && albumRules.validation;
+                var albumName = fixOptions && fixOptions.albumName;
+                var fixAlbumTitle : ClassicalWorkName | undefined = fixOptions && fixOptions.fixAlbumTitle;
+                var validation : ValidationOption[] = fixOptions && fixOptions.validation || [];
 
-                var fixTrack = this.buildCustomTrackFixer(albumRules);
+                var fixTrack = this.buildCustomTrackFixer(fixOptions);
 
                 return {
                         albumName : albumName,
                         fixAlbumTitle : fixAlbumTitle,
                         fixTrack : fixTrack,
-                        validation : validation || []
+                        validation : validation
                 };
         }
 
-        private buildCustomTrackFixer(specification)
+        private buildCustomTrackFixer(fixOptions: FixOptionsForOneAlbum)
         {
-                if (!specification)
+                if (!fixOptions)
                 {
                         this.logger.silly("No custom fixer created");
                         return function(album: Album, logger: npmlog.NpmLog) {}
@@ -51,22 +54,24 @@ export class CustomFixerFactory
                 var fixers: ((album: Album, logger: npmlog.NpmLog) => void)[];
                 fixers = [];
 
-                if (specification.fixTrackNameFunc && specification.fixTrackName)
+                // TODO make one fixer function from either fixTrackNameFunction
+                // or fixTrackName or noop
+                if (fixOptions.fixTrackNameFunction && fixOptions.fixTrackName)
                 {
                         throw new Error("Can't have both kinds of track fixers");
                 }
 
-                if (specification.fixTrackNameFunc)
+                if (fixOptions.fixTrackNameFunction)
                 {
                         this.logger.silly("Found fix track name function");
+                        var fixTrackNameFunction = fixOptions.fixTrackNameFunction;
                         var fixTrackName =
                             function(album: Album, logger: npmlog.NpmLog) {
                                 album.tracks.forEach((track) => {
                                         var oldTitle = track.title;
-                                        var newTitle =
-                                            specification.fixTrackNameFunc(oldTitle, logger);
-                                        logger.verbose("fixTrackNameFunc", "Changing old title '" +
-                                                                               oldTitle + "' to '" +
+                                        var newTitle = fixTrackNameFunction(oldTitle, logger);
+                                        logger.verbose("fixTrackNameFunction", "Renaming '" +
+                                                                               oldTitle + "' -> '" +
                                                                                newTitle + "'");
                                         track.title = newTitle;
                                 });
@@ -75,19 +80,20 @@ export class CustomFixerFactory
                             fixers.push(fixTrackName);
                 }
 
-                if (specification.fixTrackName)
+                if (fixOptions.fixTrackName)
                 {
                         this.logger.silly("Found fix track name regexp");
+                        var fixTrackNameRegExp = fixOptions.fixTrackName;
                         var fixTrackName = function(album: Album, logger: npmlog.NpmLog) {
                                 album.tracks.forEach((track) => {
-                                        var match = specification.fixTrackName.exec(track.title);
+                                        var match = fixTrackNameRegExp.exec(track.title);
                                         if (!match)
                                         {
                                                 throw new Error(
                                                     "'" + track.path + "': Track name \n'" +
                                                     track.title +
                                                     "' does not match fixer for fixTrackName: \n" +
-                                                    specification.fixTrackName);
+                                                    fixOptions.fixTrackName);
                                         }
                                         var newTitle = match[1];
                                         logger.silly("SpecialFixTrackName",
@@ -100,12 +106,12 @@ export class CustomFixerFactory
                         fixers.push(fixTrackName);
                 }
 
-                if (specification.firstTrackNumber)
+                if (fixOptions.firstTrackNumber)
                 {
                         this.logger.silly("Found fix track number");
                         var self = this;
                         var fixTrackNumber = function(album: Album, logger: npmlog.NpmLog) {
-                                var adjustment = 1 - specification.firstTrackNumber;
+                                var adjustment = 1 - fixOptions.firstTrackNumber;
                                 var previousDiskNumber = album.tracks[0].disk;
                                 var previousTrackNumber = 0;
 

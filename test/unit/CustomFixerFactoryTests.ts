@@ -136,6 +136,7 @@ describe("CustomFixerFactory", () => {
                 });
 
                 it("returns fix track name function if specified", () => {
+                        // TODO fix this test
                         var rules = {
                                 "artist name" : {
                                         "the album name" : {

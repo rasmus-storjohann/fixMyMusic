@@ -4,10 +4,18 @@ import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsF
 import {FixOptionsParser} from "./FixOptionsParser";
 import {fixTrackNameFunc} from "../../businessInterfaces/fixers/fixTrackNameFunc";
 import {fixTrackNameFunctions} from "../../fixers/fixTrackNameFunctions";
+import * as npmlog from "npmlog";
 import * as fs from "fs";
 
 export class FixOptionsFactory
 {
+        public constructor(logger: npmlog.NpmLog)
+        {
+                this.logger = logger;
+        }
+
+        private logger: npmlog.NpmLog;
+
         public create(): FixOptionsForAll
         {
                 var result = this.readRootJsonFile("Others.json");
@@ -54,10 +62,19 @@ export class FixOptionsFactory
                 {
                         if (fixTrackNameFunctions.hasOwnProperty(artist))
                         {
+                                if (!result[artist])
+                                {
+                                        throw new Error("fix track function for non-existent artist '" + artist + "'");
+                                }
                                 for (var album in fixTrackNameFunctions[artist])
                                 {
                                         if (fixTrackNameFunctions[artist].hasOwnProperty(album))
                                         {
+                                                this.logger.silly("FixOptionsFactory", "Adding functions for " + artist + ": " + album);
+                                                if (!result[artist][album])
+                                                {
+                                                        throw new Error("fix track function for non-existent album '" + artist + "'/'" + album + "'");
+                                                }
                                                 var theFunction = fixTrackNameFunctions[artist][album];
                                                 var theExisting = result[artist][album];
                                                 result[artist][album] = new FixOptionsForOneAlbum(
