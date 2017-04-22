@@ -40,7 +40,8 @@ export class Application
                 var tracks = new TrackFactory(this.logger).create(files);
                 var albums = new AlbumFactory(this.logger).create(tracks);
 
-                var fixOptions = new FixOptionsFactory(FixTrackNameFunctionsForAll, this.logger).create();
+                var fixOptions =
+                    new FixOptionsFactory(FixTrackNameFunctionsForAll, this.logger).create();
                 var customFixerFactory = new CustomFixerFactory(fixOptions, this.logger);
 
                 var validator = new AlbumValidator(customFixerFactory, this.logger);

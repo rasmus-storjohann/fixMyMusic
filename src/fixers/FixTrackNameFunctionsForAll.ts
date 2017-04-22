@@ -48,10 +48,10 @@ function BachInventionsGould(name: string, logger: npmlog.NpmLog) : string
 
 function BachStJohnPassion(name: string, logger: npmlog.NpmLog) : string
 {
-        var m = /(\d+) Johannes-Passion, BWV 245: Teil [I]+\. (.*)/.exec(name);
+        var m = /Johannes-Passion, BWV 245: Teil I+\. (.*)/.exec(name);
         if (m)
         {
-                return m[1] + " " + m[2];
+                return m[1];
         }
         return name;
 }
@@ -113,10 +113,6 @@ function WellTempTwoGould(name: string, logger: npmlog.NpmLog) : string
                         key = key.charAt(0).toUpperCase() + key.slice(1);
                 }
                 type = m[3];
-                if (type === "Fugue")
-                {
-                        type = "Fuge";
-                }
         }
         else if(n)
         {
@@ -139,6 +135,10 @@ function WellTempTwoGould(name: string, logger: npmlog.NpmLog) : string
         else
         {
                 throw new Error(name + ": mismatch to fixTrackNameFunc() pattern")
+        }
+        if (type === "Fugue")
+        {
+                type = "Fuge";
         }
         return type + " in " + key;
 }
