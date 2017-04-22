@@ -4,6 +4,7 @@ import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as log from "npmlog";
 import {Application} from "../../src/Application";
+import {TrackTestHelper} from "./TrackTestHelper";
 
 beforeEach(() => {
         log.level = "silent";
@@ -21,13 +22,12 @@ describe("Acceptance tests", () => {
         it("Has test prerequisites", () => { expect(fileExists("test.mp3")).is.true; });
 
         it("Copies file from source to destination", () => {
-                shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
 
-                log.level = "silent";
+                new TrackTestHelper("testOutput/source/artist/album/").create("01 first track.mp3");
+
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -36,24 +36,15 @@ describe("Acceptance tests", () => {
         });
 
         it("Applies album fix rule for classical work", () => {
-                shelljs.mkdir("-p", "testOutput/source/Aaron Copland/Symph3/");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 04 - Symphony No. 3: IV. Molto deliberato.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 03 - Symphony No. 3: III. Andantino quasi allegretto.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 01 - Symphony No. 3: I. Molto moderato, with simple expression.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/Symph3/Disc 1 - 02 - Symphony No. 3: II. Allegro molto.mp3");
+                var trackHelper = new TrackTestHelper("testOutput/source/Aaron Copland/Symph3/");
+                trackHelper.create("Disc 1 - 04 - Symphony No. 3: IV. Molto deliberato.mp3");
+                trackHelper.create("Disc 1 - 03 - Symphony No. 3: III. Andantino quasi allegretto.mp3");
+                trackHelper.create("Disc 1 - 01 - Symphony No. 3: I. Molto moderato, with simple expression.mp3");
+                trackHelper.create("Disc 1 - 02 - Symphony No. 3: II. Allegro molto.mp3");
 
-                log.level = "silent";
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -68,14 +59,12 @@ describe("Acceptance tests", () => {
         });
 
         it("With --dry-run does not copy file", () => {
-                shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                shelljs.cp("test.mp3", "testOutput/source/artist/album/01 first track.mp3");
+                new TrackTestHelper("testOutput/source/artist/album/").create("01 first track.mp3");
 
-                log.level = "silent";
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--dry-run", "--out",
-                      "testOutput/destination"
+                      "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -85,14 +74,12 @@ describe("Acceptance tests", () => {
 
         describe("with special characters in filenames", () => {
                 it("supports []", () => {
-                        shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 [abc].mp3");
+                        new TrackTestHelper("testOutput/source/artist/album/").create("01 [abc].mp3");
 
-                        log.level = "silent";
                         Application.main(
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
-                              "testOutput/destination"
+                              "testOutput/destination", "--verb", "silent"
                             ],
                             log);
 
@@ -100,14 +87,12 @@ describe("Acceptance tests", () => {
                             .is.true;
                 });
                 it("supports *", () => {
-                        shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 abc*efg.mp3");
+                        new TrackTestHelper("testOutput/source/artist/album/").create("01 abc*efg.mp3");
 
-                        log.level = "silent";
                         Application.main(
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
-                              "testOutput/destination"
+                              "testOutput/destination", "--verb", "silent"
                             ],
                             log);
 
@@ -115,14 +100,12 @@ describe("Acceptance tests", () => {
                             .is.true;
                 });
                 it("supports ()", () => {
-                        shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 (efg).mp3");
+                        new TrackTestHelper("testOutput/source/artist/album/").create("01 (efg).mp3");
 
-                        log.level = "silent";
                         Application.main(
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
-                              "testOutput/destination"
+                              "testOutput/destination", "--verb", "silent"
                             ],
                             log);
 
@@ -130,14 +113,12 @@ describe("Acceptance tests", () => {
                             .is.true;
                 });
                 it("supports \"", () => {
-                        shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 \"efg\".mp3");
+                        new TrackTestHelper("testOutput/source/artist/album/").create("01 \"efg\".mp3");
 
-                        log.level = "silent";
                         Application.main(
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
-                              "testOutput/destination"
+                              "testOutput/destination", "--verb", "silent"
                             ],
                             log);
 
@@ -145,14 +126,12 @@ describe("Acceptance tests", () => {
                             .is.true;
                 });
                 it("supports '", () => {
-                        shelljs.mkdir("-p", "testOutput/source/artist/album/");
-                        shelljs.cp("test.mp3", "testOutput/source/artist/album/01 'efg'.mp3");
+                        new TrackTestHelper("testOutput/source/artist/album/").create("01 'efg'.mp3");
 
-                        log.level = "silent";
                         Application.main(
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
-                              "testOutput/destination"
+                              "testOutput/destination", "--verb", "silent"
                             ],
                             log);
 
@@ -162,14 +141,13 @@ describe("Acceptance tests", () => {
         });
 
         it("Copies file with disk id in path from source to destination", () => {
-                shelljs.mkdir("-p", "testOutput/source/artist/album/disk1");
-                shelljs.mkdir("-p", "testOutput/source/artist/album/disk2");
-                shelljs.cp("test.mp3", "testOutput/source/artist/album/disk1/01 first track.mp3");
-                shelljs.cp("test.mp3", "testOutput/source/artist/album/disk2/01 second track.mp3");
+                var trackHelper = new TrackTestHelper("testOutput/source/artist/album");
+                trackHelper.at("disk1").create("/01 first track.mp3");
+                trackHelper.at("disk2").create("/01 second track.mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -180,23 +158,15 @@ describe("Acceptance tests", () => {
         });
 
         it("Supports validation directive to ignore track numbers", () => {
-                shelljs.mkdir("-p", "testOutput/source/Aaron Copland/FourPieces");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 05 - Grohg - Cortège macabre.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 06 - Letter From Home.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/FourPieces/Disc 1 - 07 - John Henry.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Aaron Copland/FourPieces/Disc 2 - 09 - Quiet City.mp3");
+                var trackHelper = new TrackTestHelper("testOutput/source/Aaron Copland/FourPieces");
+                trackHelper.create("Disc 1 - 05 - Grohg - Cortège macabre.mp3");
+                trackHelper.create("Disc 1 - 06 - Letter From Home.mp3");
+                trackHelper.create("Disc 1 - 07 - John Henry.mp3");
+                trackHelper.create("Disc 2 - 09 - Quiet City.mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -217,38 +187,20 @@ describe("Acceptance tests", () => {
         });
 
         it("supports disk starting at track number above one and spanning disks", () => {
-                shelljs.mkdir("-p", "testOutput/source/Janáček/Jenůfa2");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 1 - 9 - Jenůfa_ Jednání II. Úvod.mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 1 - 10 - Jenůfa_ Jednání II. _Nechám ještě dveře otevřeny_ (Kostelnička).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 1 - 11 - Jenůfa_ Jednání II. _Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 1 - 12 - Jenůfa_ Jednání II. _Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 1 - 13 - Jenůfa_ Jednání II. _Ale viděl jsem vcházet šohaje_ (Laca).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 2 - 1 - Jenůfa_ Jednání II. _Co chvíla... co chvíla_ (Kostelnička).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 2 - 2 - Jenůfa_ Jednání II. _Mamičko, mám těžkou hlavu_ (Jenůfa).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 2 - 3 - Jenůfa_ Jednání II. _Kdo to je__ (Jenůfa).mp3");
-                shelljs.cp(
-                    "test.mp3",
-                    "testOutput/source/Janáček/Jenůfa2/Disc 2 - 4 - Jenůfa_ Jednání II. _Tot' zrovna jde!_ (Kostelnička).mp3");
+                var trackHelper = new TrackTestHelper("testOutput/source/Janáček/Jenůfa2");
+                trackHelper.create("Disc 1 - 9 - Jenůfa_ Jednání II. Úvod.mp3");
+                trackHelper.create("Disc 1 - 10 - Jenůfa_ Jednání II. _Nechám ještě dveře otevřeny_ (Kostelnička).mp3");
+                trackHelper.create("Disc 1 - 11 - Jenůfa_ Jednání II. _Ba zabedněna ta tvoje okenička už přes dvacet neděl_ (Kostelnička).mp3");
+                trackHelper.create("Disc 1 - 12 - Jenůfa_ Jednání II. _Tetko Kostelničko, poslala jste cedulku_ (Števa).mp3");
+                trackHelper.create("Disc 1 - 13 - Jenůfa_ Jednání II. _Ale viděl jsem vcházet šohaje_ (Laca).mp3");
+                trackHelper.create("Disc 2 - 1 - Jenůfa_ Jednání II. _Co chvíla... co chvíla_ (Kostelnička).mp3");
+                trackHelper.create("Disc 2 - 2 - Jenůfa_ Jednání II. _Mamičko, mám těžkou hlavu_ (Jenůfa).mp3");
+                trackHelper.create("Disc 2 - 3 - Jenůfa_ Jednání II. _Kdo to je__ (Jenůfa).mp3");
+                trackHelper.create("Disc 2 - 4 - Jenůfa_ Jednání II. _Tot' zrovna jde!_ (Kostelnička).mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
@@ -287,13 +239,11 @@ describe("Acceptance tests", () => {
         });
 
         it("sets mp3 tags", () => {
-                shelljs.mkdir("-p", "testOutput/source/dummy artist/dummy album");
-                shelljs.cp("test.mp3",
-                           "testOutput/source/dummy artist/dummy album/01 dummy track.mp3");
+                new TrackTestHelper("testOutput/source/dummy artist/dummy album").create("01 dummy track.mp3");
 
                 Application.main(
                     [
-                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination"
+                      "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
                     ],
                     log);
 
