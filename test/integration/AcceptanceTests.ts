@@ -28,8 +28,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 expect(fileExists("testOutput/destination/artist/album/01 first track.mp3"))
                     .is.true;
@@ -45,8 +44,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var outputHelper = new TrackTestHelper("testOutput/destination/Copland_Aaron/Symph 3");
 
@@ -63,8 +61,7 @@ describe("Acceptance tests", () => {
                     [
                       "ignored", "ignored", "testOutput/source", "--dry-run", "--out",
                       "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var outputHelper = new TrackTestHelper("testOutput/destination/artist/album/");
 
@@ -79,8 +76,7 @@ describe("Acceptance tests", () => {
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
                               "testOutput/destination", "--verb", "silent"
-                            ],
-                            log);
+                            ]);
 
                         var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                         expect(outputHelper.exists("01 [abc].mp3")).is.true;
@@ -92,8 +88,7 @@ describe("Acceptance tests", () => {
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
                               "testOutput/destination", "--verb", "silent"
-                            ],
-                            log);
+                            ]);
 
                         var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                         expect(outputHelper.exists("01 abc*efg.mp3")).is.true;
@@ -105,8 +100,7 @@ describe("Acceptance tests", () => {
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
                               "testOutput/destination", "--verb", "silent"
-                            ],
-                            log);
+                            ]);
 
                         var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                         expect(outputHelper.exists("01 (efg).mp3")).is.true;
@@ -118,8 +112,7 @@ describe("Acceptance tests", () => {
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
                               "testOutput/destination", "--verb", "silent"
-                            ],
-                            log);
+                            ]);
 
                         var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                         expect(outputHelper.exists("01 \"efg\".mp3")).is.true;
@@ -131,8 +124,7 @@ describe("Acceptance tests", () => {
                             [
                               "ignored", "ignored", "testOutput/source", "--out",
                               "testOutput/destination", "--verb", "silent"
-                            ],
-                            log);
+                            ]);
 
                         var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                         expect(outputHelper.exists("01 'efg'.mp3")).is.true;
@@ -147,8 +139,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var outputHelper = new TrackTestHelper("testOutput/destination/artist/album");
                 expect(outputHelper.exists("01 first track.mp3")).is.true;
@@ -165,8 +156,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var outputHelper = new TrackTestHelper("testOutput/destination/Copland_Aaron/Four Pieces");
                 expect(outputHelper.exists("01 Grohg - Cortège macabre.mp3")).is.true;
@@ -190,8 +180,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var outputHelper = new TrackTestHelper("testOutput/destination/Janáček/Jenůfa2");
                 expect(outputHelper.exists("01 Úvod.mp3")).is.true;
@@ -211,8 +200,7 @@ describe("Acceptance tests", () => {
                 Application.main(
                     [
                       "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent"
-                    ],
-                    log);
+                    ]);
 
                 var mp3infoCommand = [
                         "mp3info",

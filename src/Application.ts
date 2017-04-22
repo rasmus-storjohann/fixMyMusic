@@ -16,12 +16,7 @@ import * as npmlog from "npmlog";
 
 export class Application
 {
-        public static main(argv: string[], logger: npmlog.NpmLog)
-        {
-                new Application(logger).execute(argv.splice(2));
-        }
-
-        constructor(logger: npmlog.NpmLog) { this.logger = logger; }
+        public static main(argv: string[]) { new Application().execute(argv.splice(2)); }
 
         public execute(argv: string[])
         {
@@ -29,23 +24,25 @@ export class Application
                 var fromDirectories = parsedArguments._;
                 var dryRun = parsedArguments["dry-run"];
                 var toDir = parsedArguments["out"];
-                this.logger.level = parsedArguments["verb"] || "info";
+
+                var logger = require("npmlog");
+                logger.level = parsedArguments["verb"] || "info";
 
                 if (!toDir)
                 {
                         throw new Error("Specify --out argument");
                 }
 
-                var files = new FileFactory(this.logger).create(fromDirectories);
-                var tracks = new TrackFactory(this.logger).create(files);
-                var albums = new AlbumFactory(this.logger).create(tracks);
+                var files = new FileFactory(logger).create(fromDirectories);
+                var tracks = new TrackFactory(logger).create(files);
+                var albums = new AlbumFactory(logger).create(tracks);
 
                 var fixOptions =
-                    new FixOptionsFactory(FixTrackNameFunctionsForAll, this.logger).create();
-                var customFixerFactory = new CustomFixerFactory(fixOptions, this.logger);
+                    new FixOptionsFactory(FixTrackNameFunctionsForAll, logger).create();
+                var customFixerFactory = new CustomFixerFactory(fixOptions, logger);
 
-                var validator = new AlbumValidator(customFixerFactory, this.logger);
-                var fixer = new AlbumFixer(customFixerFactory, this.logger);
+                var validator = new AlbumValidator(customFixerFactory, logger);
+                var fixer = new AlbumFixer(customFixerFactory, logger);
 
                 albums.forEach(album => {
                         fixer.fix(album);
@@ -53,12 +50,11 @@ export class Application
                         album.reassignTrackNumbers();
                 });
 
-                var commands = new CommandFactory(toDir, this.logger).create(albums);
+                var commands = new CommandFactory(toDir, logger).create(albums);
 
                 if (!dryRun)
                 {
-                        new CommandExecutor(this.logger).execute(commands);
+                        new CommandExecutor(logger).execute(commands);
                 }
         }
-        private logger: npmlog.NpmLog;
 }

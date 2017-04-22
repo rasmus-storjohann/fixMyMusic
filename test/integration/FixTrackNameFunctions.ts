@@ -36,7 +36,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("Disc 1 - 04 - Prelude and Fugue in A minor, BWV 543: I. Prelude.mp3");
                                 helper.create("Disc 1 - 05 - Prelude and Fugue in A minor, BWV 543: II. Fugue.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
 
@@ -68,7 +68,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("01 - J.S. Bach Goldberg-Variationen, BWV 988 - Aria.mp3");
                                 helper.create("02 - J.S. Bach Goldberg-Variationen, BWV 988 - Variatio 1¡E2¡E3.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("changes 'J.S. Bach Goldberg-Variationen, BWV 988 - Aria' to 'Aria'", () => {
@@ -93,7 +93,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("Disc 2 - 05 - 2-Part Invention No. 2 in C minor, BWV 773.mp3");
                                 helper.create("Disc 2 - 06 - 3-Part Invention No. 2 in C minor, BWV 788.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("Maps 2/3 part, key, BWV number", () => {
@@ -117,7 +117,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("Disc 1 - 01 - Johannes-Passion, BWV 245: Teil I. Verrat und Gefangennahme: Chor \"Herr, unser Herrscher\".mp3");
                                 helper.create("Disc 1 - 02 - Johannes-Passion, BWV 245: Teil I. Verrat und Gefangennahme: \"Jesus ging mit seinen Jüngern über den Bach Kidron\" (Evangelista, Jesus) - Chor \"Jesum von Nazareth!\" - \"Jesus spricht zu ihnen\" (Evangelista, Jesus) - Chor \"Jesum von Nazar.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("extracts the track name", () => {
@@ -139,7 +139,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("01 - Präludium I in C-Dur, BWV 846.mp3");
                                 helper.create("02 - Fuge I in C-Dur, BWV 846.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("extracts the track name", () => {
@@ -161,7 +161,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("Disc 1 - 01 - Prelude and Fugue no. 1 in C major, BWV 846: I. Praeludium.mp3");
                                 helper.create("Disc 1 - 02 - Prelude and Fugue no. 1 in C major, BWV 846: II. Fuga.mp3");
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("extracts the track name", () => {
@@ -192,7 +192,7 @@ describe("Fix track name functions for", () => {
                                 helper.create("10 - Prelude and Fugue No.5 in D major - Fugue.mp3");
 
 
-                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ], log);
+                                Application.main([ "ignored", "ignored", "testOutput/source", "--out", "testOutput/destination", "--verb", "silent" ]);
                         });
 
                         it("handles first format", () => {
