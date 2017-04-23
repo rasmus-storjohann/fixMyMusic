@@ -3,9 +3,9 @@ import {CommandExecutor} from "./businessObjects/commands/CommandExecutor";
 import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {readTrackFileFromDirectories} from "./businessObjects/tracks/readTrackFileFromDirectories";
+import {mapFilesToTracks} from "./businessObjects/tracks/mapFilesToTracks";
 import {AlbumFixer} from "./AlbumFixer";
 import {FixOptionsFactory} from "./businessObjects/fixers/FixOptionsFactory";
-import {TrackFactory} from "./businessObjects/tracks/TrackFactory";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 import {FixTrackNameFunctionsForAll} from "./fixers/FixTrackNameFunctionsForAll";
 
@@ -34,7 +34,7 @@ export class Application
                 }
 
                 var files = readTrackFileFromDirectories(fromDirectories, logger);
-                var tracks = new TrackFactory(logger).create(files);
+                var tracks = mapFilesToTracks(files, logger);
                 var albums = new AlbumFactory(logger).create(tracks);
 
                 var fixOptions =

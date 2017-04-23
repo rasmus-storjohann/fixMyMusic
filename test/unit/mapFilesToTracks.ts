@@ -2,20 +2,24 @@ import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
 import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
-import {TrackFactory} from "../../src/businessObjects/tracks/TrackFactory";
+import {mapFilesToTracks} from "../../src/businessObjects/tracks/mapFilesToTracks";
 
-var _theTrackFactory: TrackFactory;
 beforeEach(() => {
         log.level = 'silent';
-        _theTrackFactory = new TrackFactory(log);
 });
 
 describe("TrackFactory", () => {
+        function mapToTracks(path: string) : Track
+        {
+                let paths = [path];
+                let files = mapFilesToTracks(paths, log);
+                return files[0];
+        }
         describe("with valid path", () => {
                 var _track: Track;
                 beforeEach(() => {
                         var validPath = "root/artist/album/01 track.mp3";
-                        _track = _theTrackFactory.createTrack(validPath);
+                        _track = mapToTracks(validPath);
                 });
 
                 it("Gets the artist name from path",
@@ -35,7 +39,7 @@ describe("TrackFactory", () => {
                 var _track: Track;
                 beforeEach(() => {
                         var deepPath = "root/artist/album/disk02/01 track.mp3";
-                        _track = _theTrackFactory.createTrack(deepPath);
+                        _track = mapToTracks(deepPath);
                 });
                 it("Gets the artist name from path",
                    () => { expect(_track.artist).equals("artist"); });
@@ -56,7 +60,7 @@ describe("TrackFactory", () => {
                 var _track: Track;
                 beforeEach(() => {
                         var path = "root/artist/album/Disc 2 - 01 - track.mp3";
-                        _track = _theTrackFactory.createTrack(path);
+                        _track = mapToTracks(path);
                 });
                 it("Gets the artist name from path",
                    () => { expect(_track.artist).equals("artist"); });
@@ -77,7 +81,7 @@ describe("TrackFactory", () => {
                 var _track: Track;
                 beforeEach(() => {
                         var path = "root/artist/album/d2t01. track.mp3";
-                        _track = _theTrackFactory.createTrack(path);
+                        _track = mapToTracks(path);
                 });
                 it("Gets the artist name from path",
                    () => { expect(_track.artist).equals("artist"); });
@@ -96,13 +100,13 @@ describe("TrackFactory", () => {
 
         describe("with track number", () => {
                 it("of just one digit", () => {
-                        var track = _theTrackFactory.createTrack("root/artist/album/1 track.mp3");
+                        let track = mapToTracks("root/artist/album/1 track.mp3");
                         expect(track.trackNumber).equals(1);
                         expect(track.title).equals("track");
                 });
 
                 it("with trailing dot", () => {
-                        var track = _theTrackFactory.createTrack("root/artist/album/1. track.mp3");
+                        let track = mapToTracks("root/artist/album/1. track.mp3");
                         expect(track.trackNumber).equals(1);
                         expect(track.title).equals("track");
                 });
@@ -112,7 +116,7 @@ describe("TrackFactory", () => {
                 var _track: Track;
                 beforeEach(() => {
                         var deepPath = "the/deep/path/artist/album/01 track.mp3";
-                        _track = _theTrackFactory.createTrack(deepPath);
+                        _track = mapToTracks(deepPath);
                 });
 
                 it("looks at three last path elements", () => {
@@ -126,7 +130,7 @@ describe("TrackFactory", () => {
         it("throws on track missing numeric prefix", () => {
                 var pathWithoutNumericPrefix = "root/artist/album/track.mp3";
                 expect(() => {
-                        _theTrackFactory.createTrack(pathWithoutNumericPrefix);
+                        mapToTracks(pathWithoutNumericPrefix);
                 }).to.throw(Error, /Could not parse file names/);
         });
 
@@ -134,7 +138,7 @@ describe("TrackFactory", () => {
                 it("throws on path that is missing required elements", () => {
                         var tooShortPath = "album/track.mp3";
                         expect(() => {
-                                _theTrackFactory.createTrack(tooShortPath);
+                                mapToTracks(tooShortPath);
                         }).to.throw(Error, /Invalid path to music file/);
                 });
         });
