@@ -2,29 +2,26 @@ import * as shelljs from "shelljs";
 import * as fileExists from "file-exists";
 import * as npmlog from "npmlog";
 
-function log(path: string, isIncluded: boolean, logger: npmlog.NpmLog)
-{
-        if (isIncluded)
-        {
-                logger.silly("GetFiles", "Included " + path);
-        }
-        else
-        {
-                logger.verbose("GetFiles", "Excluded " + path);
-        }
-}
-
 export function readTrackFileFromDirectories(directories: string[], logger: npmlog.NpmLog): string[]
 {
-        var result = shelljs
-                .find(directories)
-                .filter((path) => {
-                        var isIncluded = fileExists(path) && /mp3$/.test(path);
-                        log(path, isIncluded, logger);
-                        return isIncluded;
-                });
+        return findFilesInDirectories(directories).filter(fileIsMp3).map(logAllElements(logger));
+}
 
-        logger.info("Found " + result.length + " files");
+function findFilesInDirectories(directories: string[]) : string[]
+{
+        return shelljs.find(directories);
+}
 
-        return result;
+function fileIsMp3(fileName: string) : boolean
+{
+        return fileExists(fileName) && /mp3$/.test(fileName);
+}
+
+function logAllElements(logger: npmlog.NpmLog) : (string) => string
+{
+        return function(fileName: string) : string
+        {
+                logger.silly("Read files", fileName);
+                return fileName;
+        }
 }
