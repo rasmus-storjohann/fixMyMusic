@@ -21,7 +21,7 @@ function logAllElements(logger: npmlog.NpmLog) : (string) => string
 {
         return function(fileName: string) : string
         {
-                logger.silly("Read files", fileName);
+                logger.silly("Read", fileName);
                 return fileName;
         }
 }

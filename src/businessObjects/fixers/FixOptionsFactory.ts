@@ -22,6 +22,8 @@ export class FixOptionsFactory
         {
                 var result = this.readRootJsonFile("Others.json");
 
+                // rename all json files to match the artist names
+                // reduce over artists to build the result
                 this.addArtistJsonFile(result, "BachJs.json", "JS Bach");
                 this.addArtistJsonFile(result, "Beethoven.json", "Beethoven");
                 this.addArtistJsonFile(result, "Handel.json", "Handel");
@@ -32,6 +34,8 @@ export class FixOptionsFactory
                 this.addArtistJsonFile(result, "Schubert.json", "Schubert");
                 this.addArtistJsonFile(result, "Shostakovich.json", "Shostakovich");
 
+                // reduce to flatten nested hash to array tuples, using Object.keys
+                // reduce to add functions to result
                 this.addFixTrackNameFunctions(result);
 
                 return result;

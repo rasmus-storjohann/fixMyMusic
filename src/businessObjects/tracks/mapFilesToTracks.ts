@@ -1,9 +1,9 @@
 import {Track} from "../../businessInterfaces/tracks/Track";
 import * as npmlog from "npmlog";
 
-export function mapFilesToTracks(paths: string[], logger: npmlog.NpmLog): Track[]
+export function mapFilesToTracks(files: string[], logger: npmlog.NpmLog): Track[]
 {
-        let result = paths.map(createTrack);
+        let result = files.map(createTrack);
         logger.info("Tracks", "Processed " + result.length + " tracks");
         return result;
 }
@@ -24,28 +24,28 @@ function createTrack(path: string): Track
         };
 }
 
-interface ArtistAlbumTrackNameAndMaybeDisk
+interface ParsedPath
 {
         artist: string, album: string, trackName: string, disk?: number
 }
 
-function parsePath(path: string) : ArtistAlbumTrackNameAndMaybeDisk
+function parsePath(path: string) : ParsedPath
 {
         return parsePathWithDiskDirectory(path) || parsePathWithoutDisk(path);
 }
 
-function parsePathWithDiskDirectory(path: string) : ArtistAlbumTrackNameAndMaybeDisk | undefined
+function parsePathWithDiskDirectory(path: string) : ParsedPath | undefined
 {
-        const splitPath = path.split("/");
-        const elementCount = splitPath.length;
-        const disk = parseDiskDirectory(splitPath[elementCount - 2]);
+        const elements = path.split("/");
+        const elementCount = elements.length;
+        const disk = parseDiskDirectory(elements[elementCount - 2]);
         if (!disk) { return undefined; }
 
         validateElementCount(elementCount, 5, path);
 
-        const artist = splitPath[elementCount - 4];
-        const album = splitPath[elementCount - 3];
-        const trackName = splitPath[elementCount - 1];
+        const artist = elements[elementCount - 4];
+        const album = elements[elementCount - 3];
+        const trackName = elements[elementCount - 1];
 
         return {artist: artist, album: album, disk: disk, trackName: trackName};
 }
@@ -56,25 +56,25 @@ function parseDiskDirectory(directoryName: string) : number | undefined
         return match ? parseInt(match[1]) : undefined;
 }
 
-function parsePathWithoutDisk(path: string) : ArtistAlbumTrackNameAndMaybeDisk
+function parsePathWithoutDisk(path: string) : ParsedPath
 {
-        const splitPath = path.split("/");
-        const elementCount = splitPath.length;
+        const elements = path.split("/");
+        const elementCount = elements.length;
         validateElementCount(elementCount, 4, path);
 
-        const album = splitPath[elementCount - 2];
-        const artist = splitPath[elementCount - 3];
-        const trackName = splitPath[elementCount - 1];
+        const artist = elements[elementCount - 3];
+        const album = elements[elementCount - 2];
+        const trackName = elements[elementCount - 1];
 
         return {artist: artist, album: album, trackName: trackName};
 }
 
-interface TitleTrackAndMaybeDisk
+interface ParsedTrackName
 {
         title: string, trackNumber: number, disk?: number
 }
 
-function parseTrackName(title: string) : TitleTrackAndMaybeDisk
+function parseTrackName(title: string) : ParsedTrackName
 {
         return parseTrackNameWithTrack(title)
                 || parseTrackNameWithNamePrefixes(title)
@@ -82,7 +82,7 @@ function parseTrackName(title: string) : TitleTrackAndMaybeDisk
                 || throwOnTrackNameParseFailed();
 }
 
-function parseTrackNameWithTrack(trackName: string) : TitleTrackAndMaybeDisk | undefined
+function parseTrackNameWithTrack(trackName: string) : ParsedTrackName | undefined
 {
         const match = /^(\d+)[ \.-]*(.*)\.mp3$/.exec(trackName);
         if (!match) { return undefined; }
@@ -90,17 +90,17 @@ function parseTrackNameWithTrack(trackName: string) : TitleTrackAndMaybeDisk | u
         return { trackNumber: parseInt(match[1]), title: match[2] };
 }
 
-function parseTrackNameWithNamePrefixes(trackName: string) : TitleTrackAndMaybeDisk | undefined
+function parseTrackNameWithNamePrefixes(trackName: string) : ParsedTrackName | undefined
 {
         return parseTrackNameWithDiskAndTrack(trackName, /^Disc (\d+) - (\d+)[ -]*(.*)\.mp3$/);
 }
 
-function parseTrackNameWithLetterPrefixes(trackName: string) : TitleTrackAndMaybeDisk | undefined
+function parseTrackNameWithLetterPrefixes(trackName: string) : ParsedTrackName | undefined
 {
         return parseTrackNameWithDiskAndTrack(trackName, /^d(\d+)t(\d+)\. (.*)\.mp3$/);
 }
 
-function parseTrackNameWithDiskAndTrack(trackName: string, regex: RegExp) : TitleTrackAndMaybeDisk | undefined
+function parseTrackNameWithDiskAndTrack(trackName: string, regex: RegExp) : ParsedTrackName | undefined
 {
         const match = regex.exec(trackName);
         if (!match) { return undefined; }
@@ -108,7 +108,7 @@ function parseTrackNameWithDiskAndTrack(trackName: string, regex: RegExp) : Titl
         return { disk: parseInt(match[1]), trackNumber: parseInt(match[2]), title: match[3] };
 }
 
-function throwOnTrackNameParseFailed() : TitleTrackAndMaybeDisk
+function throwOnTrackNameParseFailed() : ParsedTrackName
 {
         throw new Error("Could not parse file names");
 }

@@ -16,6 +16,9 @@ export class AlbumFactory
 
         public create(tracks: Track[]): Album[]
         {
+                // sort by artist/album
+                // reduce to group to artist album
+                // map to build albums
                 tracks.forEach((track) => {
                         var album = this.getAlbumForTrack(track) || this.createAlbumForTrack(track);
                         album.push(track);
