@@ -1,4 +1,4 @@
-import {AlbumFactory} from "./businessObjects/albums/AlbumFactory";
+import {reduceTracksToAlbums} from "./businessObjects/albums/reduceTracksToAlbums";
 import {CommandExecutor} from "./businessObjects/commands/CommandExecutor";
 import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
@@ -35,7 +35,7 @@ export class Application
 
                 var files = readTrackFileFromDirectories(fromDirectories, logger);
                 var tracks = mapFilesToTracks(files, logger);
-                var albums = new AlbumFactory(logger).create(tracks);
+                var albums = reduceTracksToAlbums(tracks, logger);
 
                 var fixOptions =
                     new FixOptionsFactory(FixTrackNameFunctionsForAll, logger).create();
