@@ -20,25 +20,27 @@ export class FixOptionsFactory
 
         public create(): FixOptionsForAll
         {
-                var result = this.readRootJsonFile("Others.json");
+                let fixOptionsForAll = this.readRootJsonFile("Others.json");
 
-                // rename all json files to match the artist names
-                // reduce over artists to build the result
-                this.addArtistJsonFile(result, "BachJs.json", "JS Bach");
-                this.addArtistJsonFile(result, "Beethoven.json", "Beethoven");
-                this.addArtistJsonFile(result, "Handel.json", "Handel");
-                this.addArtistJsonFile(result, "Haydn.json", "Haydn");
-                this.addArtistJsonFile(result, "Mahler.json", "Mahler");
-                this.addArtistJsonFile(result, "Mozart.json", "Mozart");
-                this.addArtistJsonFile(result, "Chopin.json", "Frédéric Chopin");
-                this.addArtistJsonFile(result, "Schubert.json", "Schubert");
-                this.addArtistJsonFile(result, "Shostakovich.json", "Shostakovich");
+                const artists = ["JS Bach", "Beethoven", "Handel",
+                                "Haydn", "Mahler", "Mozart", "Frédéric Chopin",
+                                "Schubert", "Shostakovich"];
+
+                const self = this;
+                const reducer = function(accumulator: FixOptionsForAll, artist: string, index: number, array: string[]) : FixOptionsForAll
+                {
+                        let filename = artist + ".json";
+                        self.addArtistJsonFile(accumulator, filename, artist);
+                        return accumulator;
+                };
+
+                fixOptionsForAll = artists.reduce(reducer, fixOptionsForAll);
 
                 // reduce to flatten nested hash to array tuples, using Object.keys
                 // reduce to add functions to result
-                this.addFixTrackNameFunctions(result);
+                this.addFixTrackNameFunctions(fixOptionsForAll);
 
-                return result;
+                return fixOptionsForAll;
         };
         private addArtistJsonFile(result: FixOptionsForAll, file: string, key: string): void
         {

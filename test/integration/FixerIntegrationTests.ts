@@ -16,7 +16,7 @@ describe("Fixer integration", () => {
         }
 
         it("can parse BachJs.json", () => {
-                var parsed = parseArtistJson("BachJs.json");
+                var parsed = parseArtistJson("JS Bach.json");
                 expect(parsed.BminorMass.validation[0])
                     .to.equal(ValidationOption.skipUniqueTrackNameCheck);
         });
@@ -27,7 +27,7 @@ describe("Fixer integration", () => {
         });
 
         it("can parse Chopin.json", () => {
-                var parsed = parseArtistJson("Chopin.json");
+                var parsed = parseArtistJson("Frédéric Chopin.json");
                 expect(parsed.CelloSonata.fixAlbumTitle.by).to.equal("Rostropovich");
         });
 

@@ -24,11 +24,13 @@ export class Album
                 {
                         if (track.artist !== artist)
                         {
-                                throw new Error("Music track with artist '" + track.artist + "' cannot be added to this album with artist '" + artist + "'");
+                                throw new Error("Music track with artist '" + track.artist +
+                                                "' cannot be added to this album with artist '" + artist + "'");
                         }
                         if (track.album !== album)
                         {
-                                throw new Error("Music track with album title '" + track.album + "' cannot be added to this album with title '" + album + "'");
+                                throw new Error("Music track with album title '" + track.album +
+                                                "' cannot be added to this album with title '" + album + "'");
                         }
                         return track;
                 }
