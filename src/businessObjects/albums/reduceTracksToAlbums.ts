@@ -48,14 +48,5 @@ function groupByArtistAndAlbum() : (acc: Track[][], currentValue: Track, current
 
 function buildAlbumsFromTrackGroups(trackGroup: Track[]) : Album
 {
-        let firstTrack = trackGroup[0];
-        let artistName = firstTrack.artist;
-        let albumName = firstTrack.album;
-
-        let album = new Album(artistName, albumName);
-
-        for (let track of trackGroup) {
-                album.push(track);
-        }
-        return album;
+        return new Album(trackGroup);
 }

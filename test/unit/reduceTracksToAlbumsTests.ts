@@ -5,7 +5,7 @@ import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {Album} from "../../src/Album";
 import {reduceTracksToAlbums} from "../../src/businessObjects/albums/reduceTracksToAlbums";
 
-describe("AlbumFactory", () => {
+describe("Reduce tracks", () => {
         var aTrack: Track;
         var aTrackWithSameArtistAndAlbum: Track;
         var aTrackWithSameAlbum: Track;

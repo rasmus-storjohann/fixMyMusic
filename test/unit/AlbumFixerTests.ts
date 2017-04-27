@@ -6,9 +6,9 @@ import {Album} from "../../src/Album";
 import {AlbumTrack} from "../../src/businessInterfaces/tracks/AlbumTrack";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {CustomFixer} from "../../src/businessInterfaces/fixers/CustomFixer";
+import {AlbumBuilder} from "../helpers/AlbumBuilder";
 
 var fixer: AlbumFixer;
-var album: Album;
 
 beforeEach(() => {
         npmlog.level = "silent";
@@ -25,74 +25,35 @@ beforeEach(() => {
                         };
                 }
         };
-
         fixer = new AlbumFixer(mockCustomFixerFactory, npmlog);
-        album = new Album("aaaa", "bbbb");
-        album.push(
-            {path : "cccc", artist : "aaaa", album : "bbbb", trackNumber : 1, title : "dddd"});
 });
 
-describe("Fixer", () => {
+describe("AlbumFixer", () => {
         describe("track names", () => {
-                var artist: string;
-                var albumTitle: string;
-                var album: Album;
-                function trackWithName(title: string): Track
-                {
-                        return {
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 1,
-                                title : title,
-                                path : "cccc"
-                        };
-                }
-                beforeEach(() => {
-                        artist = "the artist";
-                        albumTitle = "the album";
-                        album = new Album(artist, albumTitle);
-                });
+
                 it("replaces underscore with space in track names", () => {
-                        album.push(trackWithName("track_one.mp3"));
+                        var album = new AlbumBuilder().withTrackTitle("track_one.mp3").create();
                         fixer.fix(album);
                         expect(album.tracks[0].title).to.equal("track one.mp3");
                 });
+
                 it("replaces repeated space with one space in track names", () => {
-                        album.push(trackWithName("track     one.mp3"));
+                        var album = new AlbumBuilder().withTrackTitle("track     one.mp3").create();
                         fixer.fix(album);
                         expect(album.tracks[0].title).to.equal("track one.mp3");
                 });
+
                 it("replaces repeated space/underscores with one space in track names", () => {
-                        album.push(trackWithName("track _ one.mp3"));
+                        var album = new AlbumBuilder().withTrackTitle("track _ one.mp3").create();
                         fixer.fix(album);
                         expect(album.tracks[0].title).to.equal("track one.mp3");
                 });
 
                 it("assigns track numbers based on the disk number", () => {
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 1,
-                                title : "aaaa.mp2",
-                                disk : 2,
-                                path : "cccc"
-                        });
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 1,
-                                title : "aaaa.mp2",
-                                disk : 3,
-                                path : "cccc"
-                        });
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 2,
-                                title : "aaaa.mp2",
-                                disk : 3,
-                                path : "cccc"
-                        });
+                        var album = new AlbumBuilder()
+                                .withDiskNumber(2).withTrackNumber(1).next()
+                                .withDiskNumber(3).withTrackNumber(1).next()
+                                .withDiskNumber(3).withTrackNumber(2).create();
 
                         fixer.fix(album);
 
@@ -101,101 +62,49 @@ describe("Fixer", () => {
                         expect(album.tracks[2].trackNumber).to.equal(3);
                 });
 
-                it("first track number of next disk is computed from last track number on current disk",
-                   () => {
-                           album.push({
-                                   artist : artist,
-                                   album : albumTitle,
-                                   trackNumber : 2,
-                                   title : "second track from disk two.mp3",
-                                   disk : 2,
-                                   path : "cccc"
-                           });
-                           album.push({
-                                   artist : artist,
-                                   album : albumTitle,
-                                   trackNumber : 1,
-                                   title : "track from disk three.mp3",
-                                   disk : 3,
-                                   path : "cccc"
-                           });
+                it("first track number of next disk is computed from last track number on current disk", () => {
+                        var album = new AlbumBuilder()
+                                .withDiskNumber(2).withTrackNumber(2).next()
+                                .withDiskNumber(3).withTrackNumber(1).create();
+
                            fixer.fix(album);
+
                            expect(album.tracks[0].trackNumber).to.equal(2);
                            expect(album.tracks[1].trackNumber).to.equal(3);
                    });
 
                 it("index of tracks on next disk is offset by the number of tracks on the first disk",
                    () => {
-                           album.push({
-                                   artist : artist,
-                                   album : albumTitle,
-                                   trackNumber : 2,
-                                   title : "track from disk two.mp3",
-                                   disk : 2,
-                                   path : "cccc"
-                           });
-                           album.push({
-                                   artist : artist,
-                                   album : albumTitle,
-                                   trackNumber : 2,
-                                   title : "track from disk three.mp3",
-                                   disk : 3,
-                                   path : "cccc"
-                           });
+                           var album = new AlbumBuilder()
+                                   .withDiskNumber(2).withTrackNumber(2).next()
+                                   .withDiskNumber(3).withTrackNumber(2).create();
+
                            fixer.fix(album);
+
                            expect(album.tracks[0].trackNumber).to.equal(2);
                            expect(album.tracks[1].trackNumber).to.equal(4);
                    });
 
                 it("index tracks spanning three disks", () => {
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 3,
-                                title : "track from disk two.mp3",
-                                disk : 2,
-                                path : "cccc"
-                        });
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 2,
-                                title : "track from disk three.mp3",
-                                disk : 3,
-                                path : "cccc"
-                        });
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 3,
-                                title : "track from disk four.mp3",
-                                disk : 4,
-                                path : "cccc"
-                        });
+                        var album = new AlbumBuilder()
+                                .withDiskNumber(2).withTrackNumber(3).next()
+                                .withDiskNumber(3).withTrackNumber(2).next()
+                                .withDiskNumber(4).withTrackNumber(3).create();
+
                         fixer.fix(album);
+
                         expect(album.tracks[0].trackNumber).to.equal(3);
                         expect(album.tracks[1].trackNumber).to.equal(5);
                         expect(album.tracks[2].trackNumber).to.equal(8);
                 });
 
                 it("can fix numbers when the tracks are larger than 9", () => {
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 12,
-                                title : "track from disk two.mp2",
-                                disk : 2,
-                                path : "cccc"
-                        });
-                        album.push({
-                                artist : artist,
-                                album : albumTitle,
-                                trackNumber : 1,
-                                title : "track from disk three.mp2",
-                                disk : 3,
-                                path : "cccc"
-                        });
+                        var album = new AlbumBuilder()
+                                .withDiskNumber(2).withTrackNumber(12).next()
+                                .withDiskNumber(3).withTrackNumber(1).create();
+
                         fixer.fix(album);
+
                         expect(album.tracks[0].trackNumber).to.equal(12);
                         expect(album.tracks[1].trackNumber).to.equal(13);
                 });
@@ -204,26 +113,26 @@ describe("Fixer", () => {
 
         describe("artist names", () => {
                 it("makes no changes to artist names with no spaces", () => {
-                        album.artist = "a_b_c";
+                        var album = new AlbumBuilder().withArtist("a_b_c").create();
                         fixer.fix(album);
                         expect(album.artist).to.equal("a_b_c");
                 });
 
                 it("drops the 'the' and replaces space with _ in names starting with 'the'", () => {
-                        album.artist = "The Tragically Hip";
+                        var album = new AlbumBuilder().withArtist("The Tragically Hip").create();
                         fixer.fix(album);
                         expect(album.artist).to.equal("Tragically_Hip");
                 });
 
                 it("swaps first and last name and replaces spaces with _ in names consisting first and last name",
                    () => {
-                           album.artist = "Jimi Hendrix";
+                           var album = new AlbumBuilder().withArtist("Jimi Hendrix").create();
                            fixer.fix(album);
                            expect(album.artist).to.equal("Hendrix_Jimi");
                    });
 
                 it("makes no changes to artist names that don't fit these patterns", () => {
-                        album.artist = "One Two Three";
+                        var album = new AlbumBuilder().withArtist("One Two Three").create();
                         fixer.fix(album);
                         expect(album.artist).to.equal("One Two Three");
                 });
@@ -245,7 +154,7 @@ describe("Fixer", () => {
                                         }
                                 }
 
-                                                             album.title = "original album name";
+                                var album = new AlbumBuilder().withAlbum("original album name").create();
                                 new AlbumFixer(mockCustomFixerFactory, npmlog).fix(album);
                                 expect(album.title).to.equal("fixed album name");
                         });
@@ -266,9 +175,7 @@ describe("Fixer", () => {
                                                 };
                                         }
                                 }
-
-                                                             album.tracks[0]
-                                                                 .title = "Original track.mp3";
+                                var album = new AlbumBuilder().withTrackTitle("Original track.mp3").create();
                                 new AlbumFixer(mockCustomFixerFactory, npmlog).fix(album);
                                 expect(album.tracks[0].title).to.equal("Fixed track.mp3");
                         });

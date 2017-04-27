@@ -12,14 +12,13 @@ describe("Command factory", () => {
         var commands: Command[];
         beforeEach(() => {
                 log.level = 'silent';
-                album = new Album("aaaa", "bbbb");
-                album.push({
+                album = new Album([{
                         artist : "aaaa",
                         album : "bbbb",
                         trackNumber : 1,
                         title : "cccc",
                         path : "artist/album/01 track.mp3"
-                });
+                }]);
                 commands = new CommandFactory("out", log).create([ album ]);
         });
         describe("Create directory", () => {
@@ -59,21 +58,20 @@ describe("Command factory", () => {
         });
         describe("handles multiple albums", () => {
                 beforeEach(() => {
-                        var secondAlbum = new Album("pppp", "qqqq");
-                        secondAlbum.push({
+                        var secondAlbum = new Album([{
                                 artist : "pppp",
                                 album : "qqqq",
                                 trackNumber : 1,
                                 title : "rrrr",
                                 path : "artist2/album2/01 track.mp3"
-                        });
-                        secondAlbum.push({
+                        },
+                        {
                                 artist : "pppp",
                                 album : "qqqq",
                                 trackNumber : 2,
                                 title : "ssss",
                                 path : "artist2/album2/02 track.mp3"
-                        });
+                        }]);
                         commands = new CommandFactory("out", log).create([ album, secondAlbum ]);
                 });
                 it("creates two mkdir commands", () => {

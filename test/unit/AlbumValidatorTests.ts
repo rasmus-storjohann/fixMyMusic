@@ -56,9 +56,7 @@ describe("Validator", () => {
                 var artist = musicTrack[0].artist;
                 var albumTitle = musicTrack[0].album;
 
-                var album = new Album(artist, albumTitle);
-                album.push(musicTrack[0]);
-                album.push(musicTrack[1]);
+                var album = new Album(musicTrack);
 
                 return album;
         }

@@ -3,37 +3,34 @@ import {AlbumTrack} from "./businessInterfaces/tracks/AlbumTrack";
 
 export class Album
 {
-        // Move to an AlbumBuilder class that produces Albums
-        constructor(artist: string, title: string)
+        constructor(tracks: Track[])
         {
-                this.artist = this.originalArtist = artist;
-                this.title = this.originalTitle = title;
-                this.tracks = [];
-        }
-
-        // Move to the AlbumBuilder class
-        public push(file: Track)
-        {
-                this.validateTrack(file.artist, file.album);
-
-                this.tracks.push({
-                        path : file.path,
-                        title : file.title,
-                        trackNumber : file.trackNumber,
-                        disk : file.disk
-                });
-        }
-
-        private validateTrack(artist: string, album: string)
-        {
-                if (artist !== this.artist)
+                if (tracks.length === 0)
                 {
-                        throw new Error("Music track cannot be added to this album: Wrong artist");
+                        throw new Error("Album must contain one or more tracks");
                 }
-                if (album !== this.title)
+
+                let artist = tracks[0].artist;
+                let album = tracks[0].album;
+
+                this.artist = this.originalArtist = artist;
+                this.title = this.originalTitle = album;
+                this.tracks = tracks.map(this.validateTracks(artist, album));
+        }
+
+        private validateTracks(artist: string, album: string) : (track: Track) => Track
+        {
+                return function(track: Track) : Track
                 {
-                        throw new Error(
-                            "Music track cannot be added to this album: Wrong album title");
+                        if (track.artist !== artist)
+                        {
+                                throw new Error("Music track with artist '" + track.artist + "' cannot be added to this album with artist '" + artist + "'");
+                        }
+                        if (track.album !== album)
+                        {
+                                throw new Error("Music track with album title '" + track.album + "' cannot be added to this album with title '" + album + "'");
+                        }
+                        return track;
                 }
         }
 

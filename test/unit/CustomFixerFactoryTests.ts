@@ -3,6 +3,7 @@ import {beforeEach, describe, it} from "mocha";
 import * as npmlog from "npmlog";
 import {CustomFixerFactory} from "../../src/businessObjects/fixers/CustomFixerFactory";
 import {Album} from "../../src/Album";
+import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {FixOptionsForAll} from "../../src/businessInterfaces/fixers/FixOptionsForAll";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
@@ -14,7 +15,13 @@ describe("CustomFixerFactory", () => {
         function buildFixer(artis: string, album: string, rules)
         {
                 var theFactory = new CustomFixerFactory(rules, npmlog);
-                var theAlbum = new Album(artis, album);
+                var theAlbum = new Album([{
+                        path : "",
+                        artist : artis,
+                        album : album,
+                        title : "This is the track title",
+                        trackNumber : 1
+                }]);
                 return theFactory.create(theAlbum);
         }
 
@@ -120,15 +127,13 @@ describe("CustomFixerFactory", () => {
 
                 it("does nothing by default", () => {
                         var rules = {};
-                        var theAlbum = new Album("artis", "album");
-                        var theTrack = {
+                        var theAlbum = new Album([{
                                 path : "",
                                 artist : "artis",
                                 album : "album",
                                 title : "track title",
                                 trackNumber : 1
-                        };
-                        theAlbum.push(theTrack);
+                        }]);
 
                         fixTracks(theAlbum, rules);
 
@@ -147,15 +152,13 @@ describe("CustomFixerFactory", () => {
                                         }
                                 }
                         };
-                        var theAlbum = new Album("artist name", "the album name");
-                        var theTrack = {
+                        var theAlbum = new Album([{
                                 path : "",
                                 artist : "artist name",
                                 album : "the album name",
                                 title : "This is the track title",
                                 trackNumber : 1
-                        };
-                        theAlbum.push(theTrack);
+                        }]);
 
                         fixTracks(theAlbum, rules);
 
@@ -166,15 +169,13 @@ describe("CustomFixerFactory", () => {
                                 "artist name" :
                                     {"the album name" : {fixTrackName : /This is the (.*)/}}
                         };
-                        var theAlbum = new Album("artist name", "the album name");
-                        var theTrack = {
+                        var theAlbum = new Album([{
                                 path : "",
                                 artist : "artist name",
                                 album : "the album name",
                                 title : "This is the track title",
                                 trackNumber : 1
-                        };
-                        theAlbum.push(theTrack);
+                        }]);
 
                         fixTracks(theAlbum, rules);
 
@@ -190,15 +191,13 @@ describe("CustomFixerFactory", () => {
                                         }
                                 }
                         };
-                        var theAlbum = new Album("artist name", "the album name");
-                        var theTrack = {
+                        var theAlbum = new Album([{
                                 path : "",
                                 artist : "artist name",
                                 album : "the album name",
                                 title : "This is the track title",
                                 trackNumber : 2
-                        };
-                        theAlbum.push(theTrack);
+                        }]);
 
                         fixTracks(theAlbum, rules);
 
@@ -212,15 +211,13 @@ describe("CustomFixerFactory", () => {
                                         "artist name" :
                                             {"the album name" : {firstTrackNumber : 2}}
                                 };
-                                var theAlbum = new Album("artist name", "the album name");
-                                var theTrack = {
+                                var theAlbum = new Album([{
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 2
-                                };
-                                theAlbum.push(theTrack);
+                                }]);
 
                                 fixTracks(theAlbum, rules);
 
@@ -231,15 +228,13 @@ describe("CustomFixerFactory", () => {
                                         "artist name" :
                                             {"the album name" : {firstTrackNumber : 2}}
                                 };
-                                var theAlbum = new Album("artist name", "the album name");
-                                var theTrack = {
+                                var theAlbum = new Album([{
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 1
-                                };
-                                theAlbum.push(theTrack);
+                                }]);
 
                                 expect(() => {
                                         fixTracks(theAlbum, rules);
@@ -250,23 +245,21 @@ describe("CustomFixerFactory", () => {
                                         "artist name" :
                                             {"the album name" : {firstTrackNumber : 2}}
                                 };
-                                var theAlbum = new Album("artist name", "the album name");
-                                var theTrack = {
+                                var track1 = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 2
                                 };
-                                theAlbum.push(theTrack);
-                                theTrack = {
+                                var track2 = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 4
                                 };
-                                theAlbum.push(theTrack);
+                                var theAlbum = new Album([track1, track2]);
 
                                 expect(() => {
                                         fixTracks(theAlbum, rules);
@@ -277,23 +270,21 @@ describe("CustomFixerFactory", () => {
                                         "artist name" :
                                             {"the album name" : {firstTrackNumber : 2}}
                                 };
-                                var theAlbum = new Album("artist name", "the album name");
-                                var theTrack = {
+                                var track1 = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 2
                                 };
-                                theAlbum.push(theTrack);
-                                theTrack = {
+                                var track2  = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
                                         title : "",
                                         trackNumber : 2
                                 };
-                                theAlbum.push(theTrack);
+                                var theAlbum = new Album([track1, track2]);
 
                                 expect(() => {
                                         fixTracks(theAlbum, rules);
@@ -304,8 +295,7 @@ describe("CustomFixerFactory", () => {
                                         "artist name" :
                                             {"the album name" : {firstTrackNumber : 2}}
                                 };
-                                var theAlbum = new Album("artist name", "the album name");
-                                var theTrack = {
+                                var track1: Track = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
@@ -313,8 +303,7 @@ describe("CustomFixerFactory", () => {
                                         trackNumber : 2,
                                         disk : 3
                                 };
-                                theAlbum.push(theTrack);
-                                theTrack = {
+                                var track2: Track = {
                                         path : "",
                                         artist : "artist name",
                                         album : "the album name",
@@ -322,7 +311,7 @@ describe("CustomFixerFactory", () => {
                                         trackNumber : 1,
                                         disk : 4
                                 };
-                                theAlbum.push(theTrack);
+                                var theAlbum = new Album([track1, track2]);
 
                                 fixTracks(theAlbum, rules);
 
