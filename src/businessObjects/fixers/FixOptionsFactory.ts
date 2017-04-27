@@ -21,20 +21,7 @@ export class FixOptionsFactory
         public create(): FixOptionsForAll
         {
                 let fixOptionsForAll = this.readRootJsonFile("Others.json");
-
-                const artists = ["JS Bach", "Beethoven", "Handel",
-                                "Haydn", "Mahler", "Mozart", "Frédéric Chopin",
-                                "Schubert", "Shostakovich"];
-
-                const self = this;
-                const reducer = function(accumulator: FixOptionsForAll, artist: string, index: number, array: string[]) : FixOptionsForAll
-                {
-                        let filename = artist + ".json";
-                        self.addArtistJsonFile(accumulator, filename, artist);
-                        return accumulator;
-                };
-
-                fixOptionsForAll = artists.reduce(reducer, fixOptionsForAll);
+                fixOptionsForAll = this.addArtistSpecificFixers(fixOptionsForAll);
 
                 // reduce to flatten nested hash to array tuples, using Object.keys
                 // reduce to add functions to result
@@ -42,6 +29,24 @@ export class FixOptionsFactory
 
                 return fixOptionsForAll;
         };
+
+        private artists =  ["JS Bach", "Beethoven", "Handel",
+                        "Haydn", "Mahler", "Mozart", "Frédéric Chopin",
+                        "Schubert", "Shostakovich"];
+
+        private addArtistSpecificFixers(fixOptionsForAll: FixOptionsForAll) : FixOptionsForAll
+        {
+                const self = this;
+                const addArtistFixers = function(fixOptionsForAll: FixOptionsForAll, artist: string, index: number, array: string[]) : FixOptionsForAll
+                {
+                        let filename = artist + ".json";
+                        self.addArtistJsonFile(fixOptionsForAll, filename, artist);
+                        return fixOptionsForAll;
+                };
+
+                return this.artists.reduce(addArtistFixers, fixOptionsForAll);
+        }
+
         private addArtistJsonFile(result: FixOptionsForAll, file: string, key: string): void
         {
                 if (result[key])
