@@ -14,19 +14,22 @@
     "definition": "dist/src/index.d.ts"
   },
   "dependencies": {
-    "@types/node": "^7.0.8",
-    "babel": "^6.5.2",
+    "@types/node": "^7.0.18",
+    "babel": "^6.23.0",
     "file-exists": "^2.0.0",
     "fs": "0.0.1-security",
     "minimist": "^1.2.0",
-    "npmlog": "^4.0.0",
-    "shelljs": "^0.7.4",
+    "mocha": "^3.3.0",
+    "npmlog": "^4.1.0",
+    "shelljs": "^0.7.7",
+    "typescript-collections": "^1.2.3",
     "typings": "^1.4.0"
   },
   "devDependencies": {
+    "@types/node": "^7.0.18",
+    "autodts": "~0.0.4",
     "chai": "^3.5.0",
     "mocha": "^3.0.2",
-    "typescript": "~1.8.10",
-    "autodts": "~0.0.4"
+    "typescript": "~1.8.10"
   }
 }

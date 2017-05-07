@@ -3,12 +3,12 @@
 	"compilerOptions": {
 		"declaration": true,
 		"module": "CommonJS",
+                "moduleResolution": "node",
 		"target": "es6",
 		"noImplicitAny": false,
 		"outDir": "dist",
                 "alwaysStrict" : true,
                 "noFallthroughCasesInSwitch": true,
-                "noImplicitAny": false,
                 "noImplicitReturns": true,
                 "noImplicitThis": true,
                 "noUnusedLocals": false,
