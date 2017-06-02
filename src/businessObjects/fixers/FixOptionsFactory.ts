@@ -90,13 +90,14 @@ export class FixOptionsFactory
                                                 }
                                                 var theFunction = this.fixTrackNameFunctions[artist][album];
                                                 var theExisting = result[artist][album];
-                                                result[artist][album] = new FixOptionsForOneAlbum(
-                                                                theExisting.firstTrackNumber,
-                                                                theExisting.fixTrackName,
-                                                                theFunction,
-                                                                theExisting.albumName,
-                                                                theExisting.fixAlbumTitle,
-                                                                theExisting.validation);;
+                                                result[artist][album] = {
+                                                                firstTrackNumber: theExisting.firstTrackNumber,
+                                                                fixTrackName: theExisting.fixTrackName,
+                                                                fixTrackNameFunction: theFunction,
+                                                                albumName: theExisting.albumName,
+                                                                fixAlbumTitle: theExisting.fixAlbumTitle,
+                                                                validation: theExisting.validation
+                                                };
                                         }
                                 }
                         }

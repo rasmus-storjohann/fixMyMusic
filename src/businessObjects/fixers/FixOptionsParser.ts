@@ -62,12 +62,14 @@ export class FixOptionsParser
                 var validation = this.toValidationOptions(from, "validation");
                 var fixTrackNameFunction = undefined;
 
-                var options = new FixOptionsForOneAlbum(firstTrackNumber,
-                        fixTrackName,
-                        fixTrackNameFunction,
-                        albumName,
-                        classicalWorkName,
-                        validation);
+                var options = {
+                        firstTrackNumber: firstTrackNumber,
+                        fixTrackName: fixTrackName,
+                        fixTrackNameFunction: fixTrackNameFunction,
+                        albumName: albumName,
+                        fixAlbumTitle: classicalWorkName,
+                        validation: validation
+                };
 
                 return this.StripUndefinedFieldsFromFixOptionsForOneAlbum(options);
         }

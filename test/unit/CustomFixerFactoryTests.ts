@@ -67,9 +67,9 @@ describe("CustomFixerFactory", () => {
                         it("skipUniqueTrackNameCheck", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined, undefined,
-                                                    [ ValidationOption.skipUniqueTrackNameCheck ])
+                                                "album name" : { 
+                                                        validation: [ ValidationOption.skipUniqueTrackNameCheck ]
+                                                }
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
@@ -82,9 +82,9 @@ describe("CustomFixerFactory", () => {
                         it("skipTrackNumberCheck", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined, undefined,
-                                                    [ ValidationOption.skipTrackNumberCheck ])
+                                                "album name" : {
+                                                        validation: [ValidationOption.skipTrackNumberCheck]
+                                                }
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
@@ -97,12 +97,12 @@ describe("CustomFixerFactory", () => {
                         it("supports multiple flags", () => {
                                 var rules = {
                                         "artist name" : {
-                                                "album name" : new FixOptionsForOneAlbum(
-                                                    undefined, undefined, undefined, undefined, undefined,
-                                                    [
-                                                      ValidationOption.skipUniqueTrackNameCheck,
-                                                      ValidationOption.skipTrackNumberCheck
-                                                    ])
+                                                "album name" : {
+                                                        validation: [
+                                                                ValidationOption.skipUniqueTrackNameCheck,
+                                                                ValidationOption.skipTrackNumberCheck
+                                                        ]
+                                                }
                                         }
                                 };
                                 var customFixer = buildFixer("artist name", "album name", rules);
