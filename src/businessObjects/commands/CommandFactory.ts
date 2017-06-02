@@ -2,14 +2,14 @@ import {Track} from "../../businessInterfaces/tracks/Track";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
 import {Album} from "../../Album";
 import {Command} from "../../businessInterfaces/commands/Command";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
 export class CommandFactory
 {
-        private logger: npmlog.NpmLog;
+        private logger: NpmLog;
         private outputDirectory: string;
 
-        constructor(outputDirectory: string, logger: npmlog.NpmLog)
+        constructor(outputDirectory: string, logger: NpmLog)
         {
                 this.outputDirectory = outputDirectory;
                 this.logger = logger;

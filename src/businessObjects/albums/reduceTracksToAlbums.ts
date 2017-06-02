@@ -1,9 +1,9 @@
 import {Album} from "../../Album";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
 import {Track} from "../../businessInterfaces/tracks/Track";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
-export function reduceTracksToAlbums(tracks: Track[], logger: npmlog.NpmLog): Album[]
+export function reduceTracksToAlbums(tracks: Track[], logger: NpmLog): Album[]
 {
         return tracks.sort(sortTracksByArtistAndAlbum)
                 .reduce(groupByArtistAndAlbum(), [])

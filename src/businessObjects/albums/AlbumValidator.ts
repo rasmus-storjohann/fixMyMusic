@@ -2,18 +2,18 @@ import {Album} from "../../Album";
 import {AlbumTrack} from "../../businessInterfaces/tracks/AlbumTrack";
 import {ICustomFixerFactory} from "../../businessInterfaces/fixers/ICustomFixerFactory";
 import {ValidationOption} from "../../businessInterfaces/fixers/ValidationOption";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
 export class AlbumValidator
 {
-        public constructor(customFixerFactory: ICustomFixerFactory, logger: npmlog.NpmLog)
+        public constructor(customFixerFactory: ICustomFixerFactory, logger: NpmLog)
         {
                 this.customFixerFactory = customFixerFactory;
                 this.logger = logger;
         }
 
         private customFixerFactory: ICustomFixerFactory;
-        private logger: npmlog.NpmLog;
+        private logger: NpmLog;
 
         public validate(album: Album): void
         {

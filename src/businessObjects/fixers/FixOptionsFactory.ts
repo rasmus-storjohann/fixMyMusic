@@ -4,18 +4,18 @@ import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsF
 import {FixOptionsParser} from "./FixOptionsParser";
 import {IFixTrackNameFunction} from "../../businessInterfaces/fixers/IFixTrackNameFunction";
 import {IFixTrackNameFunctionsForAll} from "../../businessInterfaces/fixers/IFixTrackNameFunctionsForAll";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 import * as fs from "fs";
 
 export class FixOptionsFactory
 {
-        public constructor(fixTrackNameFunctions: IFixTrackNameFunctionsForAll, logger: npmlog.NpmLog)
+        public constructor(fixTrackNameFunctions: IFixTrackNameFunctionsForAll, logger: NpmLog)
         {
                 this.logger = logger;
                 this.fixTrackNameFunctions = fixTrackNameFunctions;
         }
 
-        private logger: npmlog.NpmLog;
+        private logger: NpmLog;
         private fixTrackNameFunctions: IFixTrackNameFunctionsForAll;
 
         public create(): FixOptionsForAll

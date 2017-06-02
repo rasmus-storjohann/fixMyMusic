@@ -1,6 +1,6 @@
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
 export interface IFixTrackNameFunction
 {
-        (name: string, logger: npmlog.NpmLog) : string;
+        (name: string, logger: NpmLog) : string;
 }

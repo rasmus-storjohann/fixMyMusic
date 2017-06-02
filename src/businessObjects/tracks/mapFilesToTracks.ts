@@ -1,7 +1,7 @@
 import {Track} from "../../businessInterfaces/tracks/Track";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
-export function mapFilesToTracks(files: string[], logger: npmlog.NpmLog): Track[]
+export function mapFilesToTracks(files: string[], logger: NpmLog): Track[]
 {
         let result = files.map(createTrack);
         logger.info("Tracks", "Processed " + result.length + " tracks");

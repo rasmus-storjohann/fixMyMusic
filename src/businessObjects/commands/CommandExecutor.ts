@@ -1,13 +1,13 @@
 import {Command} from "../../businessInterfaces/commands/Command";
 import * as shelljs from 'shelljs';
 import * as fileExists from "file-exists";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
 export class CommandExecutor
 {
-        public constructor(logger: npmlog.NpmLog) { this.logger = logger; }
+        public constructor(logger: NpmLog) { this.logger = logger; }
 
-        private logger: npmlog.NpmLog;
+        private logger: NpmLog;
 
         public execute(commands: Command[]): void
         {

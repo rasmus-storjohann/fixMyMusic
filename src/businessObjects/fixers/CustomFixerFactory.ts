@@ -6,17 +6,17 @@ import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll
 import {FixOptionsForOneArtist} from "../../businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
 import {ClassicalWorkName} from "../../businessInterfaces/fixers/ClassicalWorkName";
-import * as npmlog from "npmlog";
+import {NpmLog} from "npmlog";
 
 export class CustomFixerFactory
 {
-        public constructor(rules: FixOptionsForAll, logger: npmlog.NpmLog)
+        public constructor(rules: FixOptionsForAll, logger: NpmLog)
         {
                 this.logger = logger;
                 this.rules = rules;
         }
 
-        private logger: npmlog.NpmLog;
+        private logger: NpmLog;
         private rules: FixOptionsForAll;
 
         public create(album: Album): CustomFixer
@@ -48,10 +48,10 @@ export class CustomFixerFactory
                 if (!fixOptions)
                 {
                         this.logger.silly("No custom fixer created");
-                        return function(album: Album, logger: npmlog.NpmLog) {}
+                        return function(album: Album, logger: NpmLog) {}
                 }
 
-                var fixers: ((album: Album, logger: npmlog.NpmLog) => void)[];
+                var fixers: ((album: Album, logger: NpmLog) => void)[];
                 fixers = [];
 
                 // TODO make one fixer function from either fixTrackNameFunction
@@ -66,7 +66,7 @@ export class CustomFixerFactory
                         this.logger.silly("Found fix track name function");
                         var fixTrackNameFunction = fixOptions.fixTrackNameFunction;
                         var fixTrackName =
-                            function(album: Album, logger: npmlog.NpmLog) {
+                            function(album: Album, logger: NpmLog) {
                                 album.tracks.forEach((track) => {
                                         var oldTitle = track.title;
                                         var newTitle = fixTrackNameFunction(oldTitle, logger);
@@ -84,7 +84,7 @@ export class CustomFixerFactory
                 {
                         this.logger.silly("Found fix track name regexp");
                         var fixTrackNameRegExp = fixOptions.fixTrackName;
-                        var fixTrackName = function(album: Album, logger: npmlog.NpmLog) {
+                        var fixTrackName = function(album: Album, logger: NpmLog) {
                                 album.tracks.forEach((track) => {
                                         var match = fixTrackNameRegExp.exec(track.title);
                                         if (!match)
@@ -110,7 +110,7 @@ export class CustomFixerFactory
                 {
                         this.logger.silly("Found fix track number");
                         var self = this;
-                        var fixTrackNumber = function(album: Album, logger: npmlog.NpmLog) {
+                        var fixTrackNumber = function(album: Album, logger: NpmLog) {
                                 var adjustment = 1 - fixOptions.firstTrackNumber;
                                 var previousDiskNumber = album.tracks[0].disk;
                                 var previousTrackNumber = 0;
@@ -142,13 +142,13 @@ export class CustomFixerFactory
                 this.logger.silly("Combining " + fixers.length + " fixers");
                 var applyAllFixers = function(
                     album: Album,
-                    logger: npmlog.NpmLog) { fixers.forEach((fixer) => { fixer(album, logger); }); }
+                    logger: NpmLog) { fixers.forEach((fixer) => { fixer(album, logger); }); }
 
                 return applyAllFixers;
         }
 
         private validateTrackNumber(track: AlbumTrack, expectedTrackNumber: number,
-                                    logger: npmlog.NpmLog)
+                                    logger: NpmLog)
         {
                 if (track.trackNumber < 1)
                 {

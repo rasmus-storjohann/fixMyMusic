@@ -1,18 +1,18 @@
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
-import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {mapFilesToTracks} from "../../src/businessObjects/tracks/mapFilesToTracks";
+import * as npmlog from "npmlog";
 
 beforeEach(() => {
-        log.level = 'silent';
+        npmlog.level = 'silent';
 });
 
 describe("TrackFactory", () => {
         function mapToTracks(path: string) : Track
         {
                 let paths = [path];
-                let files = mapFilesToTracks(paths, log);
+                let files = mapFilesToTracks(paths, npmlog);
                 return files[0];
         }
         describe("with valid path", () => {
