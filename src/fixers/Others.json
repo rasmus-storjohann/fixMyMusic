@@ -1562,5 +1562,292 @@
                 "skipUniqueTrackNameCheck"
             ]
         }
+    },
+    "Sibelius" : {
+        "Finlandia" : {
+            "firstTrackNumber": 16
+        },
+        "Swan of Tuonela" : {
+            "firstTrackNumber": 15
+        },
+        "Sym4" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 4,
+                    "op": 63,
+                    "minor": "A"
+                }
+            },
+            "fixTrackName": "op. 63 -[IV ]* (.*)"
+        },
+        "Sym5" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 5,
+                    "op": 82,
+                    "major": "Eb"
+                }
+            },
+            "firstTrackNumber": 6,
+            "fixTrackName": "op. 82 -[I ]* (.*)"
+        },
+        "Sym6" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 6,
+                    "op": 104,
+                    "minor": "D"
+                }
+            },
+            "fixTrackName": "Symphony No.6 in D Minor - (.*)"
+        },
+        "Sym7" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 7,
+                    "op": 105,
+                    "major": "C"
+                }
+            },
+            "firstTrackNumber": 5,
+            "fixTrackName": "Symphony No.7 in C Major - (.*)"
+        },
+        "Tapiola" : {
+            "firstTrackNumber": 9
+        },
+        "Valse triste" : {
+            "firstTrackNumber": 14
+        }
+    },
+    "Smetana" : {
+        "From My Life" : {
+            "firstTrackNumber": 7,
+            "fixTrackName": "Smetana- From My Life - [IV]+\\.(.*)"
+        }
+    },
+    "Steve Reich" : {
+        "Different Trains" : {
+            "fixTrackName": "Different Trains I+. (.*)"
+        },
+        "Electric Counterpoint" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "Electric Counterpoint I+. (.*)"
+        },
+        "Music for Pieces of Wood" : {
+            "firstTrackNumber": 2
+        },
+        "Phase Patterns" : {
+            "firstTrackNumber": 2
+        },
+        "Sextet" : {
+            "firstTrackNumber": 3
+        }
+    },
+    "Stravinsky" : {
+        "Firebird" : {
+            "fixTrackName": "The Firebird Suite (.*)"
+        },
+        "Rite of Spring" : {
+            "firstTrackNumber": 7,
+            "fixTrackName": "Le Sacre du Printemps Part I+ (.*)"
+        },
+        "Symphony in Three Movements" : {
+            "firstTrackNumber": 5,
+            "fixTrackName": "Symphony in Three Movements I+. (.*)"
+        },
+        "Symphony of Psalms" : {
+            "firstTrackNumber": 2,
+            "fixTrackName": "Symphony of Psalms I+. (.*)"
+        }    
+    },
+    "Tchaikovsky" : {
+        "Andante Cantabile for Cello and String Orchestra" : {
+            "firstTrackNumber": 12
+        },
+        "PianoConcerto1" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "Piano Concerto No. 1 in B flat minor Op. 23 I+. (.*)"
+        },
+        "PianoConc_Dutoit_Argerich" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 1,
+                    "for": "Piano",
+                    "minor": "Bb",
+                    "op": 23,
+                    "by": "Argerich/Dutoit"
+                }
+            },
+            "fixTrackName": "Concierto para Piano No. 1 en Si bemol menor, Op. 23 I+. (.*) \\(Royal Philharmonic Orchestra feat. conductor Charles Dutoit, piano Martha Argerich\\)(.*)"
+        },
+        "Variations on Rococo Theme Op 33[YoYoMa]" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "Tchaikovsky - Variations on Rococo Theme Op 33 - (.*)"
+        },
+        "ViolConc D Op35" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 1,
+                    "for": "Violin",
+                    "major": "D",
+                    "op": 35
+                }
+            }
+        },
+        "ViolinConcerto[Abbado,Milstein]" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 1,
+                    "for": "Violin",
+                    "major": "D",
+                    "op": 35,
+                    "by": "Milstein/Abbado"
+                }
+            },
+            "firstTrackNumber": 4,
+            "fixTrackName": "Concierto para Violín en Re mayor, Op. 35 I+. (.*) \\(Wiener Philharmoniker feat. conductor Claudio Abbado, violin Nathan Milstein\\)"
+        }    
+    },
+    "Thomas King" : {
+        "1 You'll never believe what happened" : {
+            "fixTrackName": "You'll Never Believe What Happened is Always a Great Way to Start - (\\d*)"
+        },
+        "2 You're not the Indian I had in mind" : {
+            "fixTrackName": "Lecture 2 - You're Not the Indian I had in Mind - (\\d*)"
+        },
+        "3 Let me entertain you" : {
+            "fixTrackName": "Let Me Entertain You - Part (\\d*)"
+        },
+        "5 What is it about us that you don't like" : {
+            "fixTrackName": "What Is It About Us That You Don't Like - Part (\\d*)"
+        }
+    },
+    "Vivaldi": {
+        "FourSeasons" : {
+            "validation" : ["skipUniqueTrackNameCheck"]            
+        }
+    },
+    "Walton" : {
+        "ViolinConc[Ehnes]" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "by": "Ehnes"
+                }
+            },
+            "firstTrackNumber": 7,
+            "fixTrackName": "Walton - Concerto for Violin and Orchestra - I+ - (.*)"
+        }
+    },
+    "Wagner" : {
+        "Das Rheingold[Böhm]" : {
+            "fixTrackName": "\\d* ?(.*)"
+        },
+        "Die Walküre2[Böhm]" : {
+            "fixTrackName": "Act II\\.?,?(?: Scene \\d )?(.*)"
+        },    
+        "Die Walküre3[Böhm]" : {
+            "firstTrackNumber": 4
+        },
+        "Die Walküre1[Krauss]" : {
+            "fixTrackName": "Act I(?:, Scene \\d )?(.*)"
+        },    
+        "Die Walküre2[Krauss]" : {
+            "fixTrackName": "Act II(?:, Scene \\d )?(.*)"
+        },    
+        "Die Walküre3[Krauss]" : {
+            "firstTrackNumber": 8,
+            "fixTrackName": "Act III(?:, Scene \\d )?(.*)"
+        },    
+        "Götterdämmerung1[Böhm]" : {
+            "fixTrackName": "(?:Act I, Scene \\d )?(.*)"
+        },
+        "Götterdämmerung2[Böhm]" : {
+            "fixTrackName": "Act II(?:, Scene \\d )?(.*)"
+        },
+        "Götterdämmerung3[Böhm]" : {
+            "firstTrackNumber": 13,
+            "fixTrackName": "Act III(?:, Scene \\d )?(.*)"
+        },
+        "Götterdämmerung2[Krauss]" : {
+            "firstTrackNumber": 9
+        },
+        "Götterdämmerung3[Krauss]" : {
+            "firstTrackNumber": 9
+        },    
+        "Holländer3" : {
+            "firstTrackNumber": 10
+        },
+        "Lohengrin2" : {
+            "firstTrackNumber": 17
+        },    
+        "Meistersinger1" : {
+            "fixTrackName": "Die Meistersinger von Nürnberg, I. Akt (.*)"
+        },
+        "Meistersinger2" : {
+            "firstTrackNumber": 5,
+            "fixTrackName": "Die Meistersinger von Nürnberg, II. Akt (.*)"
+        },
+        "Meistersinger3" : {
+            "fixTrackName": "Die Meistersinger von Nürnberg, III. Akt (?:\\d\\. Bild )?(.*)"
+        },
+        "Parsifal excerpts[Furtwangler]" : {
+            "firstTrackNumber": 6,
+            "fixTrackName": "Wagner - Parsifal - (.*)"
+        },
+        "Siegfried1[Böhm]" : {
+            "fixTrackName": "Act I\\. (?:Scene \\d - )?(.*)"
+        },
+        "Siegfried2[Böhm]" : {
+            "firstTrackNumber": 8,
+            "fixTrackName": "Act II\\. (?:Scene \\d - )?(.*)"
+        },
+        "Siegfried3[Böhm]" : {
+            "firstTrackNumber": 13,
+            "fixTrackName": "Act III\\. (?:Scene \\d - )?(.*)"
+        },
+        "Siegfried2[Krauss]" : {
+            "firstTrackNumber": 5
+        },
+        "Siegfried3[Krauss]" : {
+            "firstTrackNumber": 8
+        },
+        "Tannhäuser1" : {
+            "fixTrackName": "Tannhäuser, Act I Scene \\d (.*)"
+        },
+        "Tannhäuser2" : {
+            "fixTrackName": "Tannhäuser, Act II Scene \\d (.*)"
+        },
+        "Tannhäuser3" : {
+            "fixTrackName": "Act III Sz. \\d - (.*)"
+        },    
+        "Tristan1[Furtwangler]" : {
+            "fixTrackName": "Act 1(?:[\\.,] Scene \\d)? - (.*)" 
+        },
+        "Tristan2[Furtwangler]" : {
+            "firstTrackNumber": 2,
+            "fixTrackName": "Act 2(?:[\\.,] Scene \\d)? - (.*)" 
+        },
+        "Tristan3[Furtwangler]" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "Act 3\\.(?: Scene \\d\\.)? (.*)" 
+        },    
+        "Tristan1[Pappano]" : {
+            "fixTrackName": "Tristan und Isolde Akt I[\\.,](?: Szene [IV]+\\.)? (.*)" 
+        },
+        "Tristan2[Pappano]" : {
+            "fixTrackName": "Tristan und Isolde Akt II[\\.,](?: Szene [IV]+\\.)? (.*)" 
+        },
+        "Tristan3[Pappano]" : {
+            "fixTrackName": "Tristan und Isolde Akt III[\\.,](?: Szene [IV]+\\.)? (.*)" 
+        }
+    },
+    "Webern" : {
+        "Five pieces Op10" : {
+            "firstTrackNumber": 6
+        },
+        "Five pieces Op16" : {
+            "fixTrackName": "Five Pieces for Orchestra, \\d. (.*)"
+        }    
     }
 }

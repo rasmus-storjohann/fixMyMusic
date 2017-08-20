@@ -268,6 +268,17 @@ function ShostakovichPreludesFugues(name: string, logger: npmlog.NpmLog) : strin
         return parsed.preludeOrFugue + " " + parsed.number + " in " + formattedKey;
 }
 
+function VivaldiFourSeasons(name: string, logger: npmlog.NpmLog) : string
+{
+        var match = /Concerto No. \d in (.*), Op. 8, RV \d+, (.*) I+\. (.*)/.exec(name);
+        if (!match)
+        {
+                logger.error("Could not parse " + name);
+                return "parse error";
+        }
+        return match[2] + " (" + match[1] + ") - " + match[3];
+}
+
 export var FixTrackNameFunctionsForAll : IFixTrackNameFunctionsForAll = {
         "JS Bach" :
         {
@@ -295,5 +306,9 @@ export var FixTrackNameFunctionsForAll : IFixTrackNameFunctionsForAll = {
         "Shostakovich":
         {
                 "Preludes-Fugues":                              ShostakovichPreludesFugues
+        },
+        "Vivaldi":
+        {
+                "FourSeasons":                                  VivaldiFourSeasons
         }
 };
