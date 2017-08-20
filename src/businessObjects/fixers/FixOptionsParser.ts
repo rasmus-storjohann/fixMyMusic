@@ -17,7 +17,7 @@ export class FixOptionsParser
                 {
                         if (parsed.hasOwnProperty(artist))
                         {
-                                result[artist] = {};
+                                result[artist] = new FixOptionsForOneArtist();
                                 for (var album in parsed[artist])
                                 {
                                         if (parsed[artist].hasOwnProperty(album))
@@ -32,7 +32,7 @@ export class FixOptionsParser
         }
         public parseArtistJsonFile(json: string): FixOptionsForOneArtist
         {
-                var result: FixOptionsForOneArtist = {};
+                var result = new FixOptionsForOneArtist();
                 var parsed = JSON.parse(json);
                 for (var album in parsed)
                 {

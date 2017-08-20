@@ -5,6 +5,7 @@ import {CustomFixerFactory} from "../../src/businessObjects/fixers/CustomFixerFa
 import {Album} from "../../src/Album";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
+import {FixOptionsForOneArtist} from "../../src/businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForAll} from "../../src/businessInterfaces/fixers/FixOptionsForAll";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
 import {AlbumNameFormatter} from "../../src/businessObjects/albums/AlbumNameFormatter";
@@ -33,8 +34,7 @@ describe("CustomFixerFactory", () => {
                                             {fixAlbumTitle : "the fixed album name"}
                                 }
                         };
-                        var customFixer =
-                            buildFixer("artist name", "the original album name", rules);
+                        var customFixer = buildFixer("artist name", "the original album name", rules);
 
                         expect(customFixer.fixAlbumTitle).to.equal("the fixed album name");
                 });
@@ -142,15 +142,17 @@ describe("CustomFixerFactory", () => {
                 });
 
                 it("returns fix track name function if specified", () => {
+                        var fixTrackNameFunction = function(name: string, logger: npmlog.NpmLog) : string
+                        {
+                                return "fixed track title";
+                        };
+                        var optionsForAlbum = {
+                                fixTrackNameFunction: fixTrackNameFunction
+                        };
+                        var optionsForArtist = new FixOptionsForOneArtist();
+                        optionsForArtist.setValue("the album name", optionsForAlbum)
                         var rules : FixOptionsForAll = {
-                                "artist name" : {
-                                        "the album name" : {
-                                                fixTrackNameFunction: function(name: string, logger: npmlog.NpmLog) : string
-                                                {
-                                                        return "fixed track title";
-                                                }
-                                        }
-                                }
+                                "artist name" : optionsForArtist
                         };
                         var theAlbum = new Album([{
                                 path : "",

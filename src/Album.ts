@@ -18,19 +18,20 @@ export class Album
                 this.tracks = tracks.map(this.validateTracks(artist, album));
         }
 
-        private validateTracks(artist: string, album: string) : (track: Track) => Track
+        private validateTracks(artist: string, album: string): (track: Track) => Track
         {
-                return function(track: Track) : Track
-                {
+                return function(track: Track): Track {
                         if (track.artist !== artist)
                         {
                                 throw new Error("Music track with artist '" + track.artist +
-                                                "' cannot be added to this album with artist '" + artist + "'");
+                                                "' cannot be added to this album with artist '" +
+                                                artist + "'");
                         }
                         if (track.album !== album)
                         {
                                 throw new Error("Music track with album title '" + track.album +
-                                                "' cannot be added to this album with title '" + album + "'");
+                                                "' cannot be added to this album with title '" +
+                                                album + "'");
                         }
                         return track;
                 }

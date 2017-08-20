@@ -111,7 +111,7 @@ export class CustomFixerFactory
                         this.logger.silly("Found fix track number");
                         var self = this;
                         var fixTrackNumber = function(album: Album, logger: NpmLog) {
-                                var adjustment = 1 - fixOptions.firstTrackNumber;
+                                var adjustment = fixOptions.firstTrackNumber ? 1 - fixOptions.firstTrackNumber : 0;
                                 var previousDiskNumber = album.tracks[0].disk;
                                 var previousTrackNumber = 0;
 

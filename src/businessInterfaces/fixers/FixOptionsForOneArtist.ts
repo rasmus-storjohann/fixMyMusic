@@ -1,5 +1,6 @@
 import {FixOptionsForOneAlbum} from "./FixOptionsForOneAlbum";
+import {Dictionary} from "typescript-collections";
 
-export interface FixOptionsForOneArtist {
-        [name: string]: FixOptionsForOneAlbum;
+export class FixOptionsForOneArtist extends Dictionary<string, FixOptionsForOneAlbum>
+{
 }
