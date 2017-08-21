@@ -52,8 +52,8 @@ export class AlbumValidator
                                 var trackNumber = track.trackNumber || "<undefined>";
                                 var suggestedSpecialHandler =
                                     "\"" + album.artist + "\" : {\n" + "    \"" + album.title +
-                                    "\" : {\n" + "        firstTrackNumber: " + trackNumber +
-                                    ",\n" + "        fixTrackName: /" + track.title + "(.*)/\n" +
+                                    "\" : {\n" + "        \"firstTrackNumber\": " + trackNumber +
+                                    ",\n" + "        \"fixTrackName\": \"" + track.title + "(.*)\"\n" +
                                     "    }\n" + "}";
                                 throw new Error(
                                     track.title + ": Track number out of order, expected " + index +

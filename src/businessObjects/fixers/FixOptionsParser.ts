@@ -147,7 +147,7 @@ export class FixOptionsParser
         }
         private parseOpus(from): Opus | undefined
         {
-                var validPrefixes = ["op", "K", "BWV", "HWV"];
+                var validPrefixes = ["op", "K", "R", "BWV", "HWV"];
                 for (let prefix of validPrefixes)
                 {
                         var opus = from[prefix];

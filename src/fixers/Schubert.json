@@ -1,4 +1,7 @@
 {
+    "9 Lieder[Andsnes]" : {
+        "firstTrackNumber": 5
+    },
     "Impromptu D.899": {
         "firstTrackNumber": 5,
         "fixTrackName": "Impromptu D.899 - \\d\\. (.*)"
@@ -9,6 +12,9 @@
     },
     "Notturno": {
         "firstTrackNumber": 5
+    },
+    "PianoSonata D850[Andsnes]" : {
+        "fixTrackName": "Klaviersonate D-dur, D 850: [IV]+\\. (.*)"
     },
     "Piano Trio B Flat D 898": {
         "fixTrackName": "Piano Trio B Flat D 898 - (.*)"
@@ -26,6 +32,20 @@
     "PianoSonata D960[Lewis]": {
         "firstTrackNumber": 5,
         "fixTrackName": "Piano Sonata D960 : [IV]+\\. (.*)"
+    },
+    "Quartet10" : {
+        "firstTrackNumber": 5,
+        "fixTrackName": "String Quartet no. 10 in E-flat major, D. 87: [IV]+. (.*)"
+    },
+    "Quartet12" : {
+        "firstTrackNumber": 5,
+        "fixTrackName": "String Quartet no. 12 in C minor, D. 703 “Quartettsatz”: (.*)"
+    },
+    "Quartet13" : {
+        "fixTrackName": "String Quartet no. 13 in A minor, D. 804: [IV]+\\. (.*)"
+    },
+    "Quartet14" : {
+        "fixTrackName": "String Quartet no. 14 in D minor, D. 810 “Death and the Maiden”: [IV]+. (.*)"
     },
     "SonataCminor": {
         "fixTrackName": "D.958 - Piano Sonata in C minor [IV]+\\. (.*)"

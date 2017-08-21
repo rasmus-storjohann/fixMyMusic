@@ -16,6 +16,13 @@
         "firstTrackNumber": 7,
         "fixTrackName": "Cello Sonata in G minor, op. 65: [IV]+\\. (.*) \\(cello: Mstislav Rostropovich, piano: Martha Argerich\\)"
     },
+    "Etudes Op10[Cortot]" : {
+        "fixTrackName": "Chopin - Etude Op.10 \\d+ (.*)"
+    },
+    "Etudes Op25[Cortot]" : {
+        "firstTrackNumber": 13,
+        "fixTrackName": "Chopin - Etude Op.25 \\d+ (.*)"
+    },
     "Mazurkas": {
         "validation": [
             "skipUniqueTrackNameCheck"
@@ -105,6 +112,9 @@
         "validation": [
             "skipUniqueTrackNameCheck"
         ]
+    },
+    "PreludesOp28[Cortot]" : {
+        "fixTrackName": "Chopin, Preludes, Op. 28 (.*)"
     },
     "Sonata1": {
         "fixAlbumTitle": {

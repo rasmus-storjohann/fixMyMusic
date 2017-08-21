@@ -74,6 +74,23 @@
             "firstTrackNumber": 2
         }
     },
+    "Alfred Schnittke" : {
+        "PianoQuintet" : {
+            "fixTrackName": "Piano Quintet - (.*)"
+        },
+        "Serenade" : {
+            "firstTrackNumber": 9,
+            "fixTrackName": "Serenade - (.*)"
+        },
+        "ThreeMadrigals" : {
+            "firstTrackNumber": 6,
+            "fixTrackName": "Three Madrigals - (.*)"
+        },
+        "Trio" : {
+            "firstTrackNumber": 12,
+            "fixTrackName": "Trio - (.*)"
+        }
+    },
     "Alkan": {
         "Sonatine, Op. 61": {
             "fixTrackName": "^\\d+ Sonatine, Op. 61 (\\d+)\\. (.*)"
@@ -205,6 +222,16 @@
         "Sonata": {
             "firstTrackNumber": 13,
             "fixTrackName": "Bartok - Sonata for two pianos and percussion - (.*)"
+        },
+        "Violin Concerto" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 2,
+                    "for": "Violin",
+                    "by": "Mutter"
+                }
+            },
+            "fixTrackName": "Concerto for Violin and Orchestra No. 2: I+\\. (.*)"
         }
     },
     "Beatles": {
@@ -235,10 +262,11 @@
             "fixAlbumTitle": {
                 "concerto": {
                     "for": "Violin",
-                    "by": "Mutter"
+                    "by": "Mutter",
+                    "subtitle": "Dem Andenken eines Engels"
                 }
             },
-            "fixTrackName": "Violinkonzert [IV]+\\. (.*)"
+            "fixTrackName": "Berg - Violinconcert - Dem Andenken eines Engels - (.*)"
         },
         "Three pieces for orchestra": {
             "firstTrackNumber": 7,
@@ -611,6 +639,10 @@
             "firstTrackNumber": 11,
             "fixTrackName": "Préludes \\(12\\) for piano, Book [I]+, L. \\d+: (.*)"
         },
+        "Preludes[Cortot]" : {
+            "firstTrackNumber": 28,
+            "fixTrackName": "Debussy, Preludes, Book 1, (.*)"
+        },
         "SuiteBergamasque": {
             "firstTrackNumber": 15,
             "fixTrackName": "Suite Bergamasque, L 75: [IV]+\\. (.*)"
@@ -687,6 +719,74 @@
             ]
         }
     },
+    "Fartein Valen" : {
+        "An die Hoffnung" : {
+            "firstTrackNumber": 3
+        },
+        "Cantico di Ringraziamento" : {
+            "firstTrackNumber": 3
+        },
+        "Epithalamion" : {
+            "firstTrackNumber": 2
+        },
+        "PianoConcerto" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Piano",
+                    "op": 44
+                }
+            },    
+            "fixTrackName": "Concerto for piano and orchestra Op 44 - (.*)"
+        },
+        "Serenade" : {
+            "firstTrackNumber": 11
+        },
+        "Sonetto di Michelangelo" : {
+            "firstTrackNumber": 2
+        },
+        "Symph1" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 1,
+                    "op": 30
+                }
+            },
+            "fixTrackName": "Symphony 1 Op 30 - (.*)"
+        },
+        "Trio" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "trio": {
+                    "for": "Cello",
+                    "op": 5
+                }
+            },
+            "fixTrackName": "Trio for violin, chello and piano Op 5 - (.*)"
+        },
+        "ViolConcerto" : {
+            "firstTrackNumber": 8,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "op": 37
+                }
+            }
+        }    
+    },
+    "Franck" : {
+        "Prelude, Aria et Final" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "Franck Prelude, Aria et Final - (.*)"
+        },
+        "Prelude, Choral et Fugue" : {
+            "fixTrackName": "Franck Prelude, Choral et Fugue - (.*)"
+        },
+        "Variations Symphoniques" : {
+            "firstTrackNumber": 7
+        }
+    },    
     "Furtwangler": {
         "Adagio": {
             "firstTrackNumber": 5,
@@ -986,6 +1086,10 @@
                 "skipTrackNumberCheck"
             ]
         },
+        "Hungarian Rhapsody[Cortot]" : {
+            "firstTrackNumber": 25,
+            "fixTrackName": "Liszt - Hungarian Rhapsody (.*)"
+        },
         "PianoConcerto1 [Richter]": {
             "fixAlbumTitle": {
                 "concerto": {
@@ -1028,6 +1132,16 @@
             },
             "firstTrackNumber": 9,
             "fixTrackName": "Piano Sonata in B minor: [IV]+\\. (.*)"
+        }
+    },
+    "Lutoslavsky" : {
+        "Chain2" : {
+            "firstTrackNumber": 10,
+            "fixTrackName": "Chain 2, Dialog for Violin and Orchestra: [IV]+\\. (.*)"
+        },
+        "Partito" : {
+            "firstTrackNumber": 5,
+            "fixTrackName": "Partito for Violin, Orchestra and Obbligato Piano: [IV]+\\. (.*)"
         }
     },
     "Malcolm Arnold": {
@@ -1145,6 +1259,19 @@
             ]
         }
     },
+    "Moret" : {
+        "ViolinConcerto[Mutter]" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "subtitle": "En rêve",
+                    "by": "Mutter"
+                }
+            },
+            "fixTrackName": "En rêve, Concerto for Violin and Chamber Orchestra: (.*)"
+        }
+    },
     "Moussorgsky": {
         "Pictures (original)": {
             "firstTrackNumber": 16,
@@ -1158,12 +1285,14 @@
         }
     },
     "Orff": {
-        "Carmina Burana": {
+        "Carmina Burana[Tilson Thomas]" : {
+            "fixTrackName": "Carmina Burana: (.*)",
+            "validation" : ["skipUniqueTrackNameCheck"]
+        },
+        "Carmina Burana[Welser-Möst]" : {
             "fixTrackName": "Carmina Burana (.*)",
-            "validation": [
-                "skipUniqueTrackNameCheck"
-            ]
-        }
+            "validation" : ["skipUniqueTrackNameCheck"]
+        }    
     },
     "Poulenc": {
         "The Story of Babar": {
@@ -1215,6 +1344,30 @@
         },
         "Stabat Mater": {
             "firstTrackNumber": 7
+        }
+    },
+    "Penderecki" : {
+        "Concerto2[Mutter]" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 2,
+                    "for": "Violin",
+                    "subtitle": "Metamorphosen",
+                    "by": "Mutter"
+                }
+            },
+            "fixTrackName": "Concerto for Violin and Orchestra no. 2, \"Metamorphosen\": [IV]+\\. (.*)"
+        },
+        "Sonata[Mutter]" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "sonata": {
+                    "num": 2,
+                    "for": "Violin",
+                    "by": "Mutter"
+                }
+            },
+            "fixTrackName": "Sonata for Violin and Piano no. 2: I+\\. (.*)"
         }
     },
     "Puccini": {
@@ -1318,6 +1471,9 @@
             "firstTrackNumber": 3,
             "fixTrackName": "Daphnis [Ee]t Chloe (.*)"
         },
+        "Jeux d'eau[Cortot]" : {
+            "firstTrackNumber": 28
+        },
         "MotherGooseSuite": {
             "firstTrackNumber": 2
         },
@@ -1362,6 +1518,10 @@
             "fixTrackName": "Rhapsodie espagnole \\d\\. (.*)",
             "firstTrackNumber": 2
         },
+        "Sonatine[Cortot]" : {
+            "firstTrackNumber": 25,
+            "fixTrackName": "Ravel, Sonatine, (.*)"
+        },    
         "StringQuart": {
             "fixAlbumTitle": {
                 "quartet": {
@@ -1393,6 +1553,13 @@
         }
     },
     "Richard Strauss": {
+        "Also sprach Zarathustra" : {
+            "fixTrackName": "Also sprach Zarathustra, op. 30: [IVX]+. (.*)"
+        },
+        "Don Quixote" : {
+            "firstTrackNumber": 12,
+            "fixTrackName": "Don Quixote, op. 35: (.*)"
+        },
         "Burleske for Piano and Orchestra": {
             "firstTrackNumber": 4,
             "fixTrackName": "Richart Strauss - (.*)"
@@ -1433,6 +1600,12 @@
             ]
         }
     },
+    "Rihm" : {
+        "Gesungene Zeit" : {
+            "firstTrackNumber": 3,
+            "fixTrackName": "Rihm - Gesungene Zeit - (.*)"
+        }
+    },
     "Robert Johnson": {
         "The Complete Recordings": {
             "validation": [
@@ -1441,6 +1614,10 @@
         }
     },
     "Robert Schumann": {
+        "Carneval[Cortot]" : {
+            "firstTrackNumber": 19,
+            "fixTrackName": "Schumann - Carnaval Op9 [ab\\d]+ (.*)"
+        },
         "Fantasie[Andsnes]": {
             "firstTrackNumber": 5,
             "fixTrackName": "Fantasie C-dur, Op. 17 [IV]+\\. (.*)"
@@ -1452,6 +1629,10 @@
         "Kreislerianna[Brendel]": {
             "fixTrackName": "Schumann - Kreislerianna Op 16 (.*)"
         },
+        "Kreisleriana[Cortot]" : {
+            "firstTrackNumber": 41,
+            "fixTrackName": "Schumann - Kreisleriana Op18 \\d (.*)"
+        },    
         "Sonata1[Andsnes]": {
             "fixAlbumTitle": {
                 "sonata": {
@@ -1462,6 +1643,10 @@
                 }
             },
             "fixTrackName": "Klaviersonate Nr. 1 Fis-moll, Op. 11 [IV]+\\. (.*)"
+        },
+        "SymphonicEtudes[Cortot]" : {
+            "fixTrackName": "Schumann - Op13 (.*)",
+            "validation" : ["skipUniqueTrackNameCheck"]
         }
     },
     "Rodrigo": {
@@ -1518,6 +1703,21 @@
             "firstTrackNumber": 6
         }
     },
+    "Saint-Saens" : {
+        "PianoConcerto4[Cortot]" : {
+            "firstTrackNumber": 8,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "num": 4,
+                    "for": "Piano",
+                    "minor": "C",
+                    "op": 44,
+                    "by": "Cortot"
+                }
+            },
+            "fixTrackName": "Saint-Saens Piano Concerto No. 4 - (.*)"
+        }
+    },
     "Scarlatti": {
         "Sonatas Pogorelich": {
             "albumTitle": "Sonatas [Pogorelich]",
@@ -1567,15 +1767,34 @@
         "Finlandia" : {
             "firstTrackNumber": 16
         },
+        "Finlandia[Jansons]" : {
+            "firstTrackNumber": 4
+        },
+        "KareliaSuite[Jansons]" : {
+            "fixTrackName": "Karelia Suite, op. 11: I+\\. (.*)"
+        },
         "Swan of Tuonela" : {
             "firstTrackNumber": 15
+        },
+        "Sym1[Jansons]" : {
+            "firstTrackNumber": 5,
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 1,
+                    "op": 39,
+                    "minor": "E",
+                    "by": "Jansons"
+                }
+            },
+            "fixTrackName": "Symphony no. 1 in E minor, op. 39: [IV]+\\. (.*)"
         },
         "Sym4" : {
             "fixAlbumTitle": {
                 "symphony": {
                     "num": 4,
                     "op": 63,
-                    "minor": "A"
+                    "minor": "A",
+                    "by": "Karajan"
                 }
             },
             "fixTrackName": "op. 63 -[IV ]* (.*)"
@@ -1585,7 +1804,8 @@
                 "symphony": {
                     "num": 5,
                     "op": 82,
-                    "major": "Eb"
+                    "major": "Eb",
+                    "by": "Karajan"
                 }
             },
             "firstTrackNumber": 6,
@@ -1596,7 +1816,8 @@
                 "symphony": {
                     "num": 6,
                     "op": 104,
-                    "minor": "D"
+                    "minor": "D",
+                    "by": "Karajan"
                 }
             },
             "fixTrackName": "Symphony No.6 in D Minor - (.*)"
@@ -1606,7 +1827,8 @@
                 "symphony": {
                     "num": 7,
                     "op": 105,
-                    "major": "C"
+                    "major": "C",
+                    "by": "Karajan"
                 }
             },
             "firstTrackNumber": 5,
@@ -1617,6 +1839,9 @@
         },
         "Valse triste" : {
             "firstTrackNumber": 14
+        },
+        "ValseTriste[Barenboim,West-East-Divan]" : {
+            "firstTrackNumber": 6
         }
     },
     "Smetana" : {
@@ -1644,21 +1869,41 @@
         }
     },
     "Stravinsky" : {
-        "Firebird" : {
-            "fixTrackName": "The Firebird Suite (.*)"
+        "Firebird[Abbado]" : {
+            "fixTrackName": "The Firebird Suite: (.*)"
         },
-        "Rite of Spring" : {
+        "Rite of Spring[Abbado]" : {
             "firstTrackNumber": 7,
-            "fixTrackName": "Le Sacre du Printemps Part I+ (.*)"
+            "fixTrackName": "Le Sacre du Printemps; Part I+: (.*)"
         },
-        "Symphony in Three Movements" : {
+        "Symphony in three movements" : {
             "firstTrackNumber": 5,
             "fixTrackName": "Symphony in Three Movements I+. (.*)"
+        },
+        "Symphony in three movements[Shao]" : {
+            "firstTrackNumber": 5,
+            "fixTrackName": "Symphony in Three Movements: I+\\. (.*)"
         },
         "Symphony of Psalms" : {
             "firstTrackNumber": 2,
             "fixTrackName": "Symphony of Psalms I+. (.*)"
-        }    
+        },
+        "Symphony of Wind Instruments[Shao]" : {
+            "firstTrackNumber": 8
+        },
+        "Symphony in C[Shao]" : {
+            "fixTrackName": "Symphony in C: [IV]+\\. (.*)"
+        },
+        "ViolinConcerto[Mutter]" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "D",
+                    "by": "Mutter"
+                }
+            },
+            "fixTrackName": "Violin Concerto in D major: [IV]+\\. (.*)"
+        }
     },
     "Tchaikovsky" : {
         "Andante Cantabile for Cello and String Orchestra" : {
@@ -1679,6 +1924,28 @@
                 }
             },
             "fixTrackName": "Concierto para Piano No. 1 en Si bemol menor, Op. 23 I+. (.*) \\(Royal Philharmonic Orchestra feat. conductor Charles Dutoit, piano Martha Argerich\\)(.*)"
+        },
+        "Symph5[Barenboim,West-East-Divan]" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 5,
+                    "op": 64,
+                    "minor": "E",
+                    "by": "Barenboim,West-East-Divan"
+                }
+            },
+            "fixTrackName": "Symphony 5 E minor Op 64 - (.*)"
+        },
+        "Symph6" : {
+            "fixAlbumTitle": {
+                "symphony": {
+                    "num": 6,
+                    "op": 74,
+                    "minor": "B",
+                    "subTitle": "Patetique"
+                }
+            },
+            "fixTrackName": "Symphony 6 b minor op 74 Patetique - (.*)"
         },
         "Variations on Rococo Theme Op 33[YoYoMa]" : {
             "firstTrackNumber": 4,
@@ -1708,6 +1975,73 @@
             "fixTrackName": "Concierto para Violín en Re mayor, Op. 35 I+. (.*) \\(Wiener Philharmoniker feat. conductor Claudio Abbado, violin Nathan Milstein\\)"
         }    
     },
+    "Teleman" : {
+        "ConcertoFourViolins" : {
+            "firstTrackNumber": 5,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violins(4)",
+                    "major": "G"
+                }
+            },
+            "fixTrackName": "Concerto in G major for four violins - (.*)"
+        },
+        "ConcertoRecorder" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Recorder,Bassoon",
+                    "major": "F"
+                }
+            },
+            "fixTrackName": "Concerto in F major for recorder, bassoon - (.*)"
+        },
+        "ConcertoThreeOboes" : {
+            "firstTrackNumber": 14,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Oboes(3)",
+                    "major": "Bb"
+                }
+            },
+            "fixTrackName": "Concerto in B flat major for three oboes - (.*)"
+        },
+        "ConcertoThreeViolins" : {
+            "firstTrackNumber": 13,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violins(3)",
+                    "major": "F"
+                }
+            },
+            "fixTrackName": "Tafelmusik: Concerto in F for 3 Violins: [IV]+\\. (.*)"
+        },
+        "ConcertoTwoHorns" : {
+            "firstTrackNumber": 16,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Horns(2)"
+                }
+            },
+            "fixTrackName": "Tafelmusik: Concerto for 2 Horns: [IV]+\\. (.*)"
+        },
+        "ConcertoViola" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Viola",
+                    "major": "G"
+                }
+            },
+            "fixTrackName": "Viola Concerto in G: [IV]+\\. (.*)"
+        },
+        "OuvertureTwoHorns" : {
+            "firstTrackNumber": 9,
+            "fixTrackName": "Ouverture in F major for two horns - (.*)"
+        },
+        "SuiteRecorder" : {
+            "firstTrackNumber": 5,
+            "fixTrackName": "Recorder Suite in A minor: [IV]+. (.*)"
+        }
+    },
     "Thomas King" : {
         "1 You'll never believe what happened" : {
             "fixTrackName": "You'll Never Believe What Happened is Always a Great Way to Start - (\\d*)"
@@ -1722,9 +2056,72 @@
             "fixTrackName": "What Is It About Us That You Don't Like - Part (\\d*)"
         }
     },
+    "Various_artists" : {
+        "2001: A Space Odyssey" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
+        },
+        "Taxi Driver" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
+        }
+    },
     "Vivaldi": {
         "FourSeasons" : {
             "validation" : ["skipUniqueTrackNameCheck"]            
+        },
+        "ViolinConcR201" : {
+            "firstTrackNumber": 7,
+            "fixTrackName": "ViolinConcerto C minor R201 - (.*)",
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "minor": "C",
+                    "R": 201
+                }
+            }
+        },
+        "ViolinConcR271" : {
+            "fixTrackName": "ViolinConcerto E major R271 L'amoroso - (.*)",
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "E",
+                    "R": 271,
+                    "subTitle": "L'amoroso"
+                }
+            }
+        },
+        "ViolinConcR371" : {
+            "firstTrackNumber": 13,
+            "fixTrackName" :"ViolinConcerto Bb major R371 - (.*)",
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "Bb",
+                    "R": 371
+                }
+            }
+        },
+        "ViolinConcR382" : {
+            "firstTrackNumber": 4,
+            "fixTrackName": "ViolinConcerto Bb major R382 - (.*)",
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "Bb",
+                    "R": 382
+                }
+            }
+        },
+        "ViolinConcR390" : {
+            "firstTrackNumber": 10,
+            "fixTrackName": "ViolinConcerto B minor R390 - (.*)",
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "minor": "B",
+                    "R": 390
+                }
+            }
         }
     },
     "Walton" : {
