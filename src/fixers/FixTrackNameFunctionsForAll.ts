@@ -268,15 +268,26 @@ function ShostakovichPreludesFugues(name: string, logger: npmlog.NpmLog) : strin
         return parsed.preludeOrFugue + " " + parsed.number + " in " + formattedKey;
 }
 
-function VivaldiFourSeasons(name: string, logger: npmlog.NpmLog) : string
+function VivaldiFourSeasonsMarriner(name: string, logger: npmlog.NpmLog) : string
 {
-        var match = /Concerto No. \d in (.*), Op. 8, RV \d+, (.*) I+\. (.*)/.exec(name);
+        var match = /Concerto in (.*), op. 8 no. \d, RV \d+ \"(.*)\": I+\. (.*)/.exec(name);
         if (!match)
         {
                 logger.error("Could not parse " + name);
                 return "parse error";
         }
-        return match[2] + " (" + match[1] + ") - " + match[3];
+        return match[2] + " - " + match[3];
+}
+
+function VivaldiFourSeasonsKennedy(name: string, logger: npmlog.NpmLog) : string
+{
+        var match = /Concerto no. \d in (.*), RV \d+ “(.*)”: I+\. (.*)/.exec(name);
+        if (!match)
+        {
+                logger.error("Could not parse " + name);
+                return "parse error";
+        }
+        return match[2] + " - " + match[3];
 }
 
 export var FixTrackNameFunctionsForAll : IFixTrackNameFunctionsForAll = {
@@ -309,6 +320,7 @@ export var FixTrackNameFunctionsForAll : IFixTrackNameFunctionsForAll = {
         },
         "Vivaldi":
         {
-                "FourSeasons":                                  VivaldiFourSeasons
+                "The Four Seasons[Marriner]":                   VivaldiFourSeasonsMarriner,
+                "The Four Seasons[Kennedy]":                    VivaldiFourSeasonsKennedy
         }
 };

@@ -2064,9 +2064,206 @@
             "validation" : ["skipUniqueTrackNameCheck"]
         }
     },
+    "Verdi" : {
+        "Aida2" : {
+            "firstTrackNumber": 12
+        },
+        "Aida3" : {
+            "firstTrackNumber": 2
+        },
+        "La Traviata2" : {
+            "firstTrackNumber": 10
+        },
+        "La Traviata3" : {
+            "firstTrackNumber": 9
+        },
+        "La forza del destino[Barenboim,West-East-Divan]" : {
+            "firstTrackNumber": 5
+        },
+        "Quattro pezzi sacri" : {
+            "firstTrackNumber": 8,
+            "fixTrackName": "Quattro pezzi sacri No. \\d (.*) \\(Los Angeles Philharmonic Orchestra feat\\. conductor Zubin Mehta\\)"
+        },
+        "Requiem" : {
+            "fixTrackName": "Requiem Mass Manzoni [IVX]+\\. (.*)"
+        },
+        "Rigoletto-Paraphrase-Liszt[Cortot]" : {
+            "firstTrackNumber": 27
+        },
+        "Rigoletto1" : {
+            "fixTrackName": "Rigoletto Act I[,\\.]?(?: Scene [IVX]+\\.)? (.*)"
+        },
+        "Rigoletto2" : {
+            "fixTrackName": "Rigoletto Act II. (.*)"
+        },
+        "Rigoletto3" : {
+            "firstTrackNumber": 8,
+            "fixTrackName": "Rigoletto Act III. (.*)"
+        }
+    },
     "Vivaldi": {
-        "FourSeasons" : {
+        "BasoonConcertoR471" : {
+            "firstTrackNumber": 16,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "major": "C",
+                    "R": 471
+                }
+            },
+            "fixTrackName": "Concerto, RV 471 in do maggiore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR477" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "major": "C",
+                    "R": 477
+                }
+            },
+            "fixTrackName": "Concerto, RV 477 in do maggiore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR484" : {
+            "firstTrackNumber": 19,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "minor": "E",
+                    "R": 484
+                }
+            },
+            "fixTrackName": "Concerto, RV 484 in mi minore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR488" : {
+            "firstTrackNumber": 10,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "major": "F",
+                    "R": 488
+                }
+            },
+            "fixTrackName": "Concerto, RV 488 in fa maggiore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR493" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "major": "G",
+                    "R": 493
+                }
+            },
+            "fixTrackName": "Concerto, RV 493 in sol maggiore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR495" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "minor": "G",
+                    "R": 495
+                }
+            },
+            "fixTrackName": "Concerto, RV 495 in sol minore: [IV]+\\. (.*)"
+        },
+        "BasoonConcertoR503" : {
+            "firstTrackNumber": 13,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Basoon",
+                    "major": "Bb",
+                    "R": 503
+                }
+            },
+            "fixTrackName": "Concerto, RV 503 in si bemolle maggiore: [IV]+\\. (.*)"
+        },
+        "ConcertoR121" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "major": "D",
+                    "R": 121
+                }
+            },
+            "fixTrackName": "Concerto in D major, RV 121: [IV]+\\. (.*)"
+        },
+        "ConcertoR156" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "minor": "G",
+                    "R": 156
+                }
+            },
+            "fixTrackName": "Concerto in G minor, RV 156: [IV]+\\. (.*)"
+        },
+        "ConcertoR429" : {
+            "firstTrackNumber": 11,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "major": "D",
+                    "R": 429
+                }
+            },
+            "fixTrackName": "Concerto in D major, op. 10 no. 5, RV 429: (.*)"
+        },
+        "ConcertoR434" : {
+            "firstTrackNumber": 14,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "major": "F",
+                    "R": 434
+                }
+            },
+            "fixTrackName": "Concerto in F major, op. 10 no. 5, RV 434: [IV]+\\. (.*)"
+        },
+        "ConcertoR435" : {
+            "firstTrackNumber": 8,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "major": "G",
+                    "R": 435
+                }
+            },
+            "fixTrackName": "Concerto in G major, op. 10 no. 4, RV 435: [IV]+\\. (.*)"
+        },
+        "ConcertoR540" : {
+            "firstTrackNumber": 20,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Viola&Lute",
+                    "minor": "D",
+                    "R": 540
+                }
+            },
+            "fixTrackName": "Concerto in D minor for Viola d'Amore, Lute, Strings and Continuo, RV 540: [IV]+\\. (.*)"
+        },
+        "ConcertoR93" : {
+            "firstTrackNumber": 17,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Lute",
+                    "major": "D",
+                    "R": 93
+                }
+            },
+            "fixTrackName": "Concerto for Lute in D major, RV 93: [IV]+\\. (.*)"
+        },
+        "The Four Seasons[Marriner]" : {
             "validation" : ["skipUniqueTrackNameCheck"]            
+        },
+        "The Four Seasons[Kennedy]" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
+        },
+        "SonataR130" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "sonata": {
+                    "major": "Eb",
+                    "R": 130,
+                    "subTitle": "Al Santo Sepolcro"
+                }
+            }
         },
         "ViolinConcR201" : {
             "firstTrackNumber": 7,
@@ -2122,6 +2319,71 @@
                     "R": 390
                 }
             }
+        },
+        "Violinconcerto177" : {
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "C",
+                    "R": 177
+                }
+            },
+            "fixTrackName": "Violin Concerto in C major, RV 177: [IV]+\\. (.*)"
+        },
+        "Violinconcerto191" : {
+            "firstTrackNumber": 16,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "C",
+                    "R": 191
+                }
+            },
+            "fixTrackName": "Violin Concerto in C major, RV 191: [IV]+\\. (.*)"
+        },
+        "Violinconcerto222" : {
+            "firstTrackNumber": 4,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "D",
+                    "R": 222
+                }
+            },
+            "fixTrackName": "Violin Concerto in D major, RV 222: [IV]+\\. (.*)"
+        },
+        "Violinconcerto273" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "minor": "E",
+                    "R": 273
+                }
+            },
+            "fixTrackName": "Violin Concerto in E minor, RV 273: [IV]+\\. (.*)"
+        },
+        "Violinconcerto295" : {
+            "firstTrackNumber": 10,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "F",
+                    "R": 295
+                }
+            },
+            "fixTrackName": "Violin Concerto in F major, RV 295: [IV]+\\. (.*)"
+        },
+        "Violinconcerto375" : {
+            "firstTrackNumber": 13,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Violin",
+                    "major": "Bb",
+                    "R": 375
+                }
+            },
+            "fixTrackName": "Violin Concerto in B-flat major, RV 375: [IV]+\\. (.*)"
         }
     },
     "Walton" : {
@@ -2139,6 +2401,9 @@
     "Wagner" : {
         "Das Rheingold[Böhm]" : {
             "fixTrackName": "\\d* ?(.*)"
+        },
+        "Die Feen" : {
+            "firstTrackNumber": 2
         },
         "Die Walküre2[Böhm]" : {
             "fixTrackName": "Act II\\.?,?(?: Scene \\d )?(.*)"
@@ -2171,7 +2436,10 @@
         },
         "Götterdämmerung3[Krauss]" : {
             "firstTrackNumber": 9
-        },    
+        },
+        "Gotterdammerung Siegfrieds Rheinfahrt[Gould]" : {
+            "firstTrackNumber": 3
+        },
         "Holländer3" : {
             "firstTrackNumber": 10
         },
@@ -2187,6 +2455,9 @@
         },
         "Meistersinger3" : {
             "fixTrackName": "Die Meistersinger von Nürnberg, III. Akt (?:\\d\\. Bild )?(.*)"
+        },
+        "Meistersinger Vorspiel[Gould]" : {
+            "firstTrackNumber": 2
         },
         "Parsifal excerpts[Furtwangler]" : {
             "firstTrackNumber": 6,
@@ -2208,6 +2479,9 @@
         },
         "Siegfried3[Krauss]" : {
             "firstTrackNumber": 8
+        },
+        "Siegfried Idyll[Gould]" : {
+            "firstTrackNumber": 4
         },
         "Tannhäuser1" : {
             "fixTrackName": "Tannhäuser, Act I Scene \\d (.*)"
@@ -2237,6 +2511,10 @@
         },
         "Tristan3[Pappano]" : {
             "fixTrackName": "Tristan und Isolde Akt III[\\.,](?: Szene [IV]+\\.)? (.*)" 
+        },
+        "Tristan Orchestral Passion" : {
+            "firstTrackNumber": 3,
+            "fixTrackName": "Tristan und Isolde, an Orchestral Passion: [IVX]+\\. (.*)"
         }
     },
     "Webern" : {

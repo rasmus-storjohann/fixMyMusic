@@ -14,85 +14,281 @@
         "firstTrackNumber": 5
     },
     "PianoSonata D850[Andsnes]" : {
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Piano",
+                "major": "D",
+                "D": 850
+            }
+        },
         "fixTrackName": "Klaviersonate D-dur, D 850: [IV]+\\. (.*)"
     },
     "Piano Trio B Flat D 898": {
+        "fixAlbumTitle": {
+            "trio": {
+                "for": "Piano",
+                "major": "Bb",
+                "D": 898
+            }
+        },
         "fixTrackName": "Piano Trio B Flat D 898 - (.*)"
     },
     "PianoSonata D784[Lewis]": {
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Piano",
+                "minor": "A",
+                "D": 784,
+                "by": "Lewis"
+            }
+        },
         "fixTrackName": "Piano Sonata D784 : [IV]+\\. (.*)"
     },
     "PianoSonata D958[Lewis]": {
         "firstTrackNumber": 4,
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Piano",
+                "minor": "C",
+                "D": 958,
+                "by": "Lewis"
+            }
+        },
         "fixTrackName": "Piano Sonata D958 : [IV]+\\. (.*)"
     },
     "PianoSonata D959[Lewis]": {
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Piano",
+                "major": "A",
+                "D": 959,
+                "by": "Lewis"
+            }
+        },
         "fixTrackName": "Piano Sonata D959 : [IV]+\\. (.*)"
     },
     "PianoSonata D960[Lewis]": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Piano",
+                "major": "Bb",
+                "D": 960,
+                "by": "Lewis"
+            }
+        },
         "fixTrackName": "Piano Sonata D960 : [IV]+\\. (.*)"
     },
     "Quartet10" : {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 10,
+                "major": "Eb",
+                "D": 87
+            }
+        },
         "fixTrackName": "String Quartet no. 10 in E-flat major, D. 87: [IV]+. (.*)"
     },
     "Quartet12" : {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 12,
+                "minor": "C",
+                "D": 703
+            }
+        },
         "fixTrackName": "String Quartet no. 12 in C minor, D. 703 “Quartettsatz”: (.*)"
     },
     "Quartet13" : {
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 13,
+                "minor": "A",
+                "D": 804
+            }
+        },
         "fixTrackName": "String Quartet no. 13 in A minor, D. 804: [IV]+\\. (.*)"
     },
     "Quartet14" : {
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 14,
+                "minor": "D",
+                "D": 810
+            }
+        },
         "fixTrackName": "String Quartet no. 14 in D minor, D. 810 “Death and the Maiden”: [IV]+. (.*)"
     },
+    "Quart 15 G dur[Tokyo]": {
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 15,
+                "minor": "G",
+                "by": "Tokyo"
+            }
+        }
+    },
     "SonataCminor": {
+        "fixAlbumTitle": {
+            "sonata": {
+                "minor": "C",
+                "D": 958
+            }
+        },
         "fixTrackName": "D.958 - Piano Sonata in C minor [IV]+\\. (.*)"
     },
     "Symp1": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 1,
+                "major": "D",
+                "D": 82
+            }
+        },
         "fixTrackName": "Symphony No.1 in D, D.82 - (.*)"
     },
     "Symp2": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 2,
+                "major": "Bb"
+            }
+        },
         "fixTrackName": "Symphony No.2 in B flat - (.*)"
     },
     "Symph3": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 3,
+                "major": "D",
+                "D": 200
+            }
+        },
         "fixTrackName": "Symphony No.3 in D, D.200 - (.*)"
     },
     "Symp3[Beecham]": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 3,
+                "major": "D",
+                "D": 200,
+                "by": "Beecham"
+            }
+        },
         "fixTrackName": "Symphony No. 3 in D, D. 200 [IV]+\\. (.*)"
     },
     "Symp4": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 4,
+                "minor": "C",
+                "D": 417,
+                "subTitle": "Tragische"
+            }
+        },
         "fixTrackName": "Schubert, Franz - Symphony No.4 c-moll D417 'Tragische' - \\d+\\. (.*)"
     },
     "Symp5[Beecham]": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 5,
+                "major": "Bb",
+                "D": 485,
+                "by": "Beecham"
+            }
+        },
         "fixTrackName": "Symphony No. 5 in B flat, D. 485 [IV]+\\. (.*)"
     },
     "Symp5": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 5,
+                "major": "Bb",
+                "D": 485
+            }
+        },
         "fixTrackName": "Schubert, Franz - Symphony No.5 b-dur D485 - \\d+\\. (.*)"
     },
     "Symp6[Beecham]": {
         "firstTrackNumber": 9,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 6,
+                "major": "C",
+                "D": 589,
+                "by": "Beecham"
+            }
+        },
         "fixTrackName": "Symphony No. 6 in C, D. 589 [IV]+\\. (.*)"
     },
     "Symp6": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 6,
+                "major": "C",
+                "D": 589
+            }
+        },
         "fixTrackName": "Symphony No.6 in C - (.*)"
     },
     "Symp7": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 7,
+                "minor": "E",
+                "D": 729
+            }
+        },
         "fixTrackName": "Symphony No.7 in E minor major, D729 - \\d+\\. (.*)"
     },
     "Symp8": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 8,
+                "minor": "B",
+                "D": 759
+            }
+        },
         "fixTrackName": "Symphony No.8 in B minor, D. 759 - (.*)"
     },
     "Symp9": {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 9,
+                "major": "C",
+                "D": 994,
+                "subTitle": "The Great"
+            }
+        },
         "fixTrackName": "Symphony No.9 in C Major, D. 994 'The Great' - (.*)"
+    },
+    "Symphony9[Toscanini]":
+    {
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 9,
+                "major": "C",
+                "D": 994,
+                "subTitle": "The Great",
+                "by": "Toscanini"
+            }
+        }
     },
     "Symp10": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "symphony": {
+                "num": 10,
+                "major": "D",
+                "D": 936
+            }
+        },
         "fixTrackName": "Symphony No.10 in D major, D936a - \\d+\\. - [IV]+\\.? (.*)"
     },
     "Wanderer Fantasie": {
