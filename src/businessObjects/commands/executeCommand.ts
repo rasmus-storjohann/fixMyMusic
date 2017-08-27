@@ -1,4 +1,4 @@
-import {Command} from "../../businessInterfaces/commands/Command";
+import {Command, Mp3Tags} from "../../businessInterfaces/commands/Command";
 import * as shelljs from 'shelljs';
 import * as fileExists from "file-exists";
 import {NpmLog} from "npmlog";
@@ -42,20 +42,28 @@ function copy(command: Command, logger: NpmLog)
 
 function tag(command: Command, logger: NpmLog)
 {
+        let validTags = validateTagInformation(command);
+
+        logger.info("TAG   " + command.target);
+
+        var mp3infoCommand = [
+                "mp3info", "-a", quote(validTags.artist), "-l",
+                quote(validTags.album), "-t", quote(validTags.track),
+                quote(command.target)
+        ].join(" ");
+
+        ensureWritable(command.target, () => { shelljs.exec(mp3infoCommand); });
+}
+
+function validateTagInformation(command: Command) : Mp3Tags
+{
         if (!command || !command.tags || command.tags.artist === "" ||
                 command.tags.album === "" || command.tags.track === "")
         {
                 throw new Error(command.target +
                                 ": Failed to set mp3 tags, missing track attribute(s)");
         }
-        logger.info("TAG   " + command.target);
-        var mp3infoCommand = [
-                "mp3info", "-a", quote(command.tags.artist), "-l",
-                quote(command.tags.album), "-t", quote(command.tags.track),
-                quote(command.target)
-        ].join(" ");
-
-        ensureWritable(command.target, function() { shelljs.exec(mp3infoCommand); });
+        return command.tags;
 }
 
 function quote(s: string): string { return "\"" + s.replace(/\"/g, "\\\"") + "\""; }
