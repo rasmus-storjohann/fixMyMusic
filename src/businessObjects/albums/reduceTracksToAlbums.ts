@@ -7,7 +7,7 @@ export function reduceTracksToAlbums(tracks: Track[], logger: NpmLog): Album[]
 {
         return tracks.sort(sortTracksByArtistAndAlbum)
                 .reduce(groupByArtistAndAlbum(), [])
-                .map(buildAlbumsFromTrackGroups);
+                .map(trackGroup => new Album(trackGroup));
 }
 
 function sortTracksByArtistAndAlbum(first: Track, second: Track) : number
@@ -44,9 +44,4 @@ function groupByArtistAndAlbum() : (acc: Track[][], currentValue: Track, current
         }
 
         return reducer;
-}
-
-function buildAlbumsFromTrackGroups(trackGroup: Track[]) : Album
-{
-        return new Album(trackGroup);
 }
