@@ -1,6 +1,6 @@
 import {reduceTracksToAlbums} from "./businessObjects/albums/reduceTracksToAlbums";
 import {executeCommand} from "./businessObjects/commands/executeCommand";
-import {CommandFactory} from "./businessObjects/commands/CommandFactory";
+import {createCommands} from "./businessObjects/commands/createCommands";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {readTrackFileFromDirectories} from "./businessObjects/tracks/readTrackFileFromDirectories";
 import {mapFilesToTracks} from "./businessObjects/tracks/mapFilesToTracks";
@@ -50,7 +50,7 @@ export class Application
                         album.reassignTrackNumbers();
                 });
 
-                var commands = new CommandFactory(toDir, logger).create(albums);
+                var commands = createCommands(albums, toDir, logger);
 
                 if (!dryRun)
                 {

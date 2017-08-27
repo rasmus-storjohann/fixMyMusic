@@ -4,7 +4,7 @@ import * as log from "npmlog";
 import {Track} from "../../src/businessInterfaces/tracks/Track";
 import {Album} from "../../src/Album";
 import {Command, Mp3Tags} from "../../src/businessInterfaces/commands/Command";
-import {CommandFactory} from "../../src/businessObjects/commands/CommandFactory";
+import {createCommands} from "../../src/businessObjects/commands/createCommands";
 import {getIfExistsOrThrow} from "../helpers/getIfExistsOrThrow";
 
 describe("Command factory", () => {
@@ -19,7 +19,7 @@ describe("Command factory", () => {
                         title : "cccc",
                         path : "artist/album/01 track.mp3"
                 }]);
-                commands = new CommandFactory("out", log).create([ album ]);
+                commands = createCommands([ album ], "out", log);
         });
         describe("Create directory", () => {
                 it("creates command for creating directory",
@@ -72,7 +72,7 @@ describe("Command factory", () => {
                                 title : "ssss",
                                 path : "artist2/album2/02 track.mp3"
                         }]);
-                        commands = new CommandFactory("out", log).create([ album, secondAlbum ]);
+                        commands = createCommands([ album, secondAlbum ], "out", log);
                 });
                 it("creates two mkdir commands", () => {
                         expect(commands[0].command).to.equal("mkdir");
