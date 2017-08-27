@@ -1,6 +1,7 @@
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
 import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {FixOptionsParser} from "../../src/businessObjects/fixers/FixOptionsParser";
+import {parseFixers} from "../../src/businessObjects/fixers/parseFixers";
+import {parseArtistFixer} from "../../src/businessObjects/fixers/parseArtistFixer";
 import {getIfExistsOrThrow} from "../helpers/getIfExistsOrThrow";
 import {expect} from "chai";
 import {beforeEach, describe, it} from "mocha";
@@ -11,8 +12,7 @@ describe("Fixer integration", () => {
         function parseArtistJson(file: string): any
         {
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
-                var parser = new FixOptionsParser();
-                return parser.parseArtistJsonFile(json);
+                return parseArtistFixer(json);
         }
 
         it("can parse BachJs.json", () => {
@@ -64,7 +64,7 @@ describe("Fixer integration", () => {
         it("can parse Others.json", () => {
                 var file = "Others.json";
                 var json = fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + file, "utf8");
-                var parsed = new FixOptionsParser().parseGlobalJsonFile(json);
+                var parsed = parseFixers(json);
 
                 expect(getIfExistsOrThrow(parsed, [
                         "Carl Nielsen", "Symph 1", "fixAlbumTitle", "num"

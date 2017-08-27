@@ -1,7 +1,8 @@
 import {FixOptionsForAll} from "../../businessInterfaces/fixers/FixOptionsForAll";
 import {FixOptionsForOneArtist} from "../../businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForOneAlbum} from "../../businessInterfaces/fixers/FixOptionsForOneAlbum";
-import {FixOptionsParser} from "./FixOptionsParser";
+import {parseFixers} from "./parseFixers";
+import {parseArtistFixer} from "./parseArtistFixer";
 import {IFixTrackNameFunction} from "../../businessInterfaces/fixers/IFixTrackNameFunction";
 import {IFixTrackNameFunctionsForAll} from "../../businessInterfaces/fixers/IFixTrackNameFunctionsForAll";
 import {NpmLog} from "npmlog";
@@ -58,12 +59,12 @@ export class FixOptionsFactory
         private readRootJsonFile(filename: string): FixOptionsForAll
         {
                 var json = this.readFixerFile(filename);
-                return new FixOptionsParser().parseGlobalJsonFile(json);
+                return parseFixers(json);
         }
         private readArtistJsonFile(filename: string): FixOptionsForOneArtist
         {
                 var json = this.readFixerFile(filename);
-                return new FixOptionsParser().parseArtistJsonFile(json);
+                return parseArtistFixer(json);
         }
         private readFixerFile(filename: string): string
         {

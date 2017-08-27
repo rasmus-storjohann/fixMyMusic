@@ -10,14 +10,14 @@ import {NpmLog} from "npmlog";
 
 export class CustomFixerFactory
 {
-        public constructor(rules: FixOptionsForAll, logger: NpmLog)
+        public constructor(fixOptionsForAll: FixOptionsForAll, logger: NpmLog)
         {
                 this.logger = logger;
-                this.rules = rules;
+                this.fixOptionsForAll = fixOptionsForAll;
         }
 
         private logger: NpmLog;
-        private rules: FixOptionsForAll;
+        private fixOptionsForAll: FixOptionsForAll;
 
         public create(album: Album): CustomFixer
         {
@@ -26,14 +26,14 @@ export class CustomFixerFactory
 
                 this.logger.silly("Custom fixer factory", "called with '" + artist + "' and '" + albumTitle + "'");
 
-                var fixOptionsForArtist = this.rules[artist];
-                var fixOptions : FixOptionsForOneAlbum = fixOptionsForArtist && fixOptionsForArtist[albumTitle];
+                var fixOptionsForArtist = this.fixOptionsForAll[artist];
+                var fixOptionsForAlbum : FixOptionsForOneAlbum = fixOptionsForArtist && fixOptionsForArtist[albumTitle];
 
-                var albumName = fixOptions && fixOptions.albumName;
-                var fixAlbumTitle : ClassicalWorkName | undefined = fixOptions && fixOptions.fixAlbumTitle;
-                var validation : ValidationOption[] = fixOptions && fixOptions.validation || [];
+                var albumName = fixOptionsForAlbum && fixOptionsForAlbum.albumName;
+                var fixAlbumTitle : ClassicalWorkName | undefined = fixOptionsForAlbum && fixOptionsForAlbum.fixAlbumTitle;
+                var validation : ValidationOption[] = fixOptionsForAlbum && fixOptionsForAlbum.validation || [];
 
-                var fixTrack = this.buildCustomTrackFixer(fixOptions);
+                var fixTrack = this.buildCustomTrackFixer(fixOptionsForAlbum);
 
                 return {
                         albumName : albumName,
