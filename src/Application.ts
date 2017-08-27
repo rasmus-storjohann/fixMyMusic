@@ -1,5 +1,5 @@
 import {reduceTracksToAlbums} from "./businessObjects/albums/reduceTracksToAlbums";
-import {CommandExecutor} from "./businessObjects/commands/CommandExecutor";
+import {executeCommand} from "./businessObjects/commands/executeCommand";
 import {CommandFactory} from "./businessObjects/commands/CommandFactory";
 import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {readTrackFileFromDirectories} from "./businessObjects/tracks/readTrackFileFromDirectories";
@@ -54,7 +54,7 @@ export class Application
 
                 if (!dryRun)
                 {
-                        new CommandExecutor(logger).execute(commands);
+                        commands.forEach(command => { executeCommand(command, logger); });
                 }
         }
 }
