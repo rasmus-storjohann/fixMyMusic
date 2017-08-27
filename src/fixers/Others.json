@@ -501,6 +501,19 @@
             ]
         }
     },
+    "Castelnuovo-Tedesco" : {
+        "GuitarConcerto" : {
+            "firstTrackNumber": 7,
+            "fixAlbumTitle": {
+                "concerto": {
+                    "for": "Guitar",
+                    "major": "D",
+                    "op": 99
+                }
+            },
+            "fixTrackName": "Castelnuovo-Tedesco - Concerto in D Op 99 for Guitar and orchestra - (.*)"
+        }
+    },
     "Corelli": {
         "Conc 1 D": {
             "fixAlbumTitle": {
@@ -705,11 +718,9 @@
             "fixTrackName": "Cello Concerto in E minor, Op. 85 [IV]+\\. (.*)"
         }
     },
-    "Erik Satie": {
-        "3 Gymnopédies etc [Pascal Rogé]": {
-            "validation": [
-                "skipUniqueTrackNameCheck"
-            ]
+    "Erik Satie" : {
+        "Gymnopédies, Gnossiennes, etc" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
         }
     },
     "E.S.T.": {
@@ -1284,6 +1295,11 @@
             "firstTrackNumber": 9
         }
     },
+    "Offenback" : {
+        "Ouvertures" : {
+            "fixTrackName": "Offenback - Ouverture to (.*)"
+        }
+    },
     "Orff": {
         "Carmina Burana[Tilson Thomas]" : {
             "fixTrackName": "Carmina Burana: (.*)",
@@ -1456,7 +1472,7 @@
                 "skipUniqueTrackNameCheck"
             ]
         },
-        "Vespers (The Saint Petersburg Cappella, choirmaster: Vladislav Chernushenko)": {
+        "Vespers Op37": {
             "fixTrackName": "Vespers, Op. 37: \\d+\\. (.*)"
         }
     },
@@ -1905,6 +1921,12 @@
             "fixTrackName": "Violin Concerto in D major: [IV]+\\. (.*)"
         }
     },
+    "Suppe" : {
+        "Ouvertures" : {
+            "firstTrackNumber": 7,
+            "fixTrackName": "Suppe - Ouverture to (.*)"
+        }
+    },
     "Tchaikovsky" : {
         "Andante Cantabile for Cello and String Orchestra" : {
             "firstTrackNumber": 12
@@ -2061,6 +2083,12 @@
             "validation" : ["skipUniqueTrackNameCheck"]
         },
         "Taxi Driver" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
+        },
+        "Waking Life" : {
+            "validation" : ["skipUniqueTrackNameCheck"]
+        },
+        "Big Bands" : {
             "validation" : ["skipUniqueTrackNameCheck"]
         }
     },
@@ -2463,6 +2491,12 @@
             "firstTrackNumber": 6,
             "fixTrackName": "Wagner - Parsifal - (.*)"
         },
+        "Parsifal2[Knappertsbusch]" : {
+            "firstTrackNumber": 9
+        },
+        "Parsifal3[Knappertsbusch]" : {
+            "firstTrackNumber": 8
+        },
         "Siegfried1[Böhm]" : {
             "fixTrackName": "Act I\\. (?:Scene \\d - )?(.*)"
         },
@@ -2523,6 +2557,6 @@
         },
         "Five pieces Op16" : {
             "fixTrackName": "Five Pieces for Orchestra, \\d. (.*)"
-        }    
+        }
     }
 }

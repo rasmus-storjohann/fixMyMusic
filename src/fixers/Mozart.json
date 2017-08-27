@@ -3,9 +3,23 @@
         "firstTrackNumber": 10
     },
     "ClarinetConcerto": {
+        "fixAlbumTitle": {
+            "concerto": {
+                "for": "Clarinet",
+                "major": "A",
+                "K": 622
+            }
+        },
         "fixTrackName": "(?:Clarinet Concerto in A Major, K. 622 - )?[IV]+\\. (.*)"
     },
     "ClarinetQuintet": {
+        "fixAlbumTitle": {
+            "quintet": {
+                "for": "Clarinet",
+                "major": "A",
+                "K": 581
+            }
+        },
         "firstTrackNumber": 4,
         "fixTrackName": "(?:Clarinet Quintet in A major, K.581 - )?[IV]+\\. (.*)"
     },
@@ -72,9 +86,25 @@
         "fixTrackName": "Litaniae lauretanae, K. 195: [IVX]+\\. (.*)"
     },
     "PianConc 17": {
+        "fixAlbumTitle": {
+            "concerto": {
+                "for": "Piano",
+                "num": 17,
+                "major": "G",
+                "K": 453
+            }
+        },
         "fixTrackName": "PiaNo.17 KV 453 - (?:1er|2e|3e) mvt - (.*)"
     },
     "PianConc 9": {
+        "fixAlbumTitle": {
+            "concerto": {
+                "for": "Piano",
+                "num": 9,
+                "major": "Eb",
+                "K": 271
+            }
+        },
         "fixTrackName": "Piano Concerto in E flat KV 271 (.*)"
     },
     "PianoConcerto15": {
@@ -224,12 +254,34 @@
     },
     "Quartet16": {
         "firstTrackNumber": 5,
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 16,
+                "major": "Eb",
+                "K": 428
+            }
+        },
         "fixTrackName": "String Quartet no. 16 in E-flat major, K. 428: [IV]+\\. (.*)"
     },
     "Quartet18": {
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 18,
+                "major": "A",
+                "K": 464
+            }
+        },
         "fixTrackName": "String Quartet no\\. 18 in A major, K\\. 464: [IV]+\\. (.*)"
     },
     "QuartetK465": {
+        "fixAlbumTitle": {
+            "quartet": {
+                "num": 19,
+                "major": "C",
+                "K": 465,
+                "subTitle": "Dissonance"
+            }
+        },
         "fixTrackName": "Quartet in C major K465 Dissonance - (.*)"
     },
     "Requiem in D minor [Gardiner]": {
@@ -262,10 +314,22 @@
         "fixTrackName": "Mass no. 11, K. 258 \"Spaurmesse\": [IV]+\\. (.*)"
     },
     "SonataK46d": {
+        "fixAlbumTitle": {
+            "sonata": {
+                "major": "C",
+                "K": 46
+            }
+        },
         "fixTrackName": "Sonata in C major, KV 46d [IV]+\\. (.*)"
     },
     "SonataK46e": {
         "firstTrackNumber": 3,
+        "fixAlbumTitle": {
+            "sonata": {
+                "major": "F",
+                "K": 46
+            }
+        },
         "fixTrackName": "Sonata in F major, KV 46e [IV]+\\. (.*)"
     },
     "Sonata1": {
@@ -467,6 +531,13 @@
         "fixTrackName": "Sonata for Piano No. 18 in D major, K. 576 Trumpet , Hunt [IV]+\\. (.*)"
     },
     "SonataForTwoPianos": {
+        "fixAlbumTitle": {
+            "sonata": {
+                "for": "Pianos(2)",
+                "major": "D",
+                "K": 448
+            }
+        },
         "fixTrackName": "Sonata for Two Pianos in D major, K.448 [IV]+\\. (.*)"
     },
     "Sinfonia Concertante": {
