@@ -4,7 +4,6 @@ import {FixOptionsForOneAlbum} from "./../../businessInterfaces/fixers/FixOption
 import {ClassicalWorkName} from "./../../businessInterfaces/fixers/ClassicalWorkName";
 import {Opus} from "./../../businessInterfaces/fixers/Opus";
 import {ValidationOption} from "./../../businessInterfaces/fixers/ValidationOption";
-import {ClassicalWorkNameValidator} from "./ClassicalWorkNameValidator";
 
 export class FixOptionsParser
 {
@@ -30,6 +29,7 @@ export class FixOptionsParser
                 }
                 return result;
         }
+
         public parseArtistJsonFile(json: string): FixOptionsForOneArtist
         {
                 var result = new FixOptionsForOneArtist();
@@ -43,16 +43,19 @@ export class FixOptionsParser
                 }
                 return result;
         }
+
         public parseAlbumFixer(json: string): FixOptionsForOneAlbum
         {
                 var parsed = JSON.parse(json);
                 return this.buildAlbumFixer(parsed);
         }
+
         public parseClassicalWorkName(json: string): ClassicalWorkName
         {
                 var from = JSON.parse(json);
                 return this.buildClassicalWorkName(from);
         }
+
         private buildAlbumFixer(from): FixOptionsForOneAlbum
         {
                 var firstTrackNumber = this.toNumber(from, "firstTrackNumber");
@@ -73,19 +76,23 @@ export class FixOptionsParser
 
                 return this.StripUndefinedFieldsFromFixOptionsForOneAlbum(options);
         }
+
         private StripUndefinedFieldsFromFixOptionsForOneAlbum(options: FixOptionsForOneAlbum): FixOptionsForOneAlbum
         {
                 Object.keys(options).forEach((key) => (options[key] == null) && delete options[key]);
                 return options;
         }
+
         private toString(from, field: string): string | undefined
         {
                 return this.isString(from[field]) ? from[field] + "" : undefined;
         }
+
         private toRegExp(from, field: string): RegExp | undefined
         {
                 return this.isString(from[field]) ? new RegExp(from[field]) : undefined;
         }
+
         private toValidationOptions(from, field): ValidationOption[] | undefined
         {
                 if (!this.isStringArray(from[field]))
@@ -104,24 +111,31 @@ export class FixOptionsParser
                         }
                 });
         }
+
         private toStringArray(from, field: string): string[] | undefined
         {
                 return this.isStringArray(from[field]) ? from[field] : undefined;
         }
+
         private toNumber(from, field): number | undefined
         {
                 return this.isNumber(from[field]) ? from[field] + 0 : undefined;
         }
+
         private isString(s: any): boolean { return s && s + "" === s; }
+
         private isNumber(n: any): boolean { return n && n + 0 === n; }
+
         private isStringArray(s: any): boolean
         {
                 return s && s.length && s.every(item => this.isString(item));
         }
+
         private toClassicalWorkName(from, field: string): ClassicalWorkName | undefined
         {
                 return from[field] ? this.buildClassicalWorkName(from[field]) : undefined;
         }
+
         private buildClassicalWorkName(json): ClassicalWorkName
         {
                 // TODO throw if more than one elements in keys
@@ -141,10 +155,9 @@ export class FixOptionsParser
 
                 var result = new ClassicalWorkName(form, instrument, num, opus, subTitle, performer, major, minor);
 
-                // TODO move ClassicalWorkNameValidator functionality to this file
-                var validator = new ClassicalWorkNameValidator();
-                return validator.validate(result);
+                return this.validateClassicalWorkName(result);
         }
+
         private parseOpus(from): Opus | undefined
         {
                 var validPrefixes = ["op", "K", "R", "BWV", "HWV"];
@@ -169,6 +182,26 @@ export class FixOptionsParser
                         }
                 }
                 return undefined;
+        }
+
+        private validateClassicalWorkName(name: ClassicalWorkName) : ClassicalWorkName
+        {
+                this.removeUndefinedFields(name);
+                this.validateMajorMinor(name);
+                return name;
+        }
+
+        private removeUndefinedFields(anObject: any)
+        {
+                Object.keys(anObject).forEach((key) => (anObject[key] == null) && delete anObject[key]);
+        }
+
+        private validateMajorMinor(name: ClassicalWorkName) : void
+        {
+                if (name.major && name.minor)
+                {
+                        throw new Error("major and minor keys given");
+                }
         }
 
         private validateLengthIsTwo(item: string[])
