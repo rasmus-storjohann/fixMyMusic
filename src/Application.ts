@@ -5,7 +5,7 @@ import {CustomFixerFactory} from "./businessObjects/fixers/CustomFixerFactory";
 import {readTrackFileFromDirectories} from "./businessObjects/tracks/readTrackFileFromDirectories";
 import {mapFilesToTracks} from "./businessObjects/tracks/mapFilesToTracks";
 import {AlbumFixer} from "./AlbumFixer";
-import {FixOptionsFactory} from "./businessObjects/fixers/FixOptionsFactory";
+import {FixOptionsParser} from "./businessObjects/fixers/FixOptionsParser";
 import {AlbumValidator} from "./businessObjects/albums/AlbumValidator";
 import {FixTrackNameFunctionsForAll} from "./fixers/FixTrackNameFunctionsForAll";
 
@@ -37,8 +37,7 @@ export class Application
                 var tracks = mapFilesToTracks(files, logger);
                 var albums = reduceTracksToAlbums(tracks, logger);
 
-                var fixOptions =
-                    new FixOptionsFactory(FixTrackNameFunctionsForAll, logger).create();
+                var fixOptions = new FixOptionsParser(FixTrackNameFunctionsForAll, logger).create();
                 var customFixerFactory = new CustomFixerFactory(fixOptions, logger);
 
                 var validator = new AlbumValidator(customFixerFactory, logger);

@@ -8,7 +8,7 @@ import {IFixTrackNameFunctionsForAll} from "../../businessInterfaces/fixers/IFix
 import {NpmLog} from "npmlog";
 import * as fs from "fs";
 
-export class FixOptionsFactory
+export class FixOptionsParser
 {
         public constructor(fixTrackNameFunctions: IFixTrackNameFunctionsForAll, logger: NpmLog)
         {
@@ -23,15 +23,14 @@ export class FixOptionsFactory
         {
                 let fixOptionsForAll = this.readRootJsonFile("Others.json");
                 fixOptionsForAll = this.addArtistSpecificFixers(fixOptionsForAll);
-
                 // reduce to flatten nested hash to array tuples, using Object.keys
                 // reduce to add functions to result
-                this.addFixTrackNameFunctions(fixOptionsForAll);
+                fixOptionsForAll = this.addFixTrackNameFunctions(fixOptionsForAll);
 
                 return fixOptionsForAll;
         };
 
-        private artists =  ["JS Bach", "Beethoven", "Handel",
+        private artistsWithSpecificFixerFiles =  ["JS Bach", "Beethoven", "Handel",
                         "Haydn", "Mahler", "Mozart", "Frédéric Chopin",
                         "Schubert", "Shostakovich"];
 
@@ -45,7 +44,7 @@ export class FixOptionsFactory
                         return fixOptionsForAll;
                 };
 
-                return this.artists.reduce(addArtistFixers, fixOptionsForAll);
+                return this.artistsWithSpecificFixerFiles.reduce(addArtistFixers, fixOptionsForAll);
         }
 
         private addArtistJsonFile(result: FixOptionsForAll, file: string, key: string): void
@@ -56,21 +55,25 @@ export class FixOptionsFactory
                 }
                 result[key] = this.readArtistJsonFile(file);
         }
+
         private readRootJsonFile(filename: string): FixOptionsForAll
         {
                 var json = this.readFixerFile(filename);
                 return parseFixers(json);
         }
+
         private readArtistJsonFile(filename: string): FixOptionsForOneArtist
         {
                 var json = this.readFixerFile(filename);
                 return parseArtistFixer(json);
         }
+
         private readFixerFile(filename: string): string
         {
                 return fs.readFileSync("/home/rasmus/Music/bin/src/fixers/" + filename, "utf8");
         }
-        private addFixTrackNameFunctions(result: FixOptionsForAll)
+
+        private addFixTrackNameFunctions(result: FixOptionsForAll) : FixOptionsForAll
         {
                 for (var artist in this.fixTrackNameFunctions)
                 {
@@ -103,5 +106,6 @@ export class FixOptionsFactory
                                 }
                         }
                 }
+                return result;
         }
 };
