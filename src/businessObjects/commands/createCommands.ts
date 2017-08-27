@@ -6,14 +6,13 @@ import {NpmLog} from "npmlog";
 
 export function createCommands(albums: Album[], outputDirectory: string, logger: NpmLog): Command[]
 {
-        var result: Command[];
-        result = [];
-        // TODO there must be a better way, see ts standard library map and flatten in order
-        albums.forEach((album) => { 
-                result = result.concat(createCommandsForAlbum(album, outputDirectory)); 
-        });
-        logger.info("Command factory", "Created " + result.length + " commands");
-        return result;
+        var nestedCommands = albums.map(album => createCommandsForAlbum(album, outputDirectory));
+
+        var commands = [].concat.apply([], nestedCommands);
+
+        logger.info("Command factory", "Created " + commands.length + " commands");
+
+        return commands;
 }
 
 function createCommandsForAlbum(album: Album, outputDirectory: string): Command[]
@@ -22,33 +21,40 @@ function createCommandsForAlbum(album: Album, outputDirectory: string): Command[
                 command : "mkdir",
                 target : [ outputDirectory, album.artist, album.title ].join("/")
         };
-        var copyFilesCommands = createCommandsForTracks(album, outputDirectory);
-        copyFilesCommands.unshift(mkDirCommand);
 
-        return copyFilesCommands;
+        var copyFilesCommands = createCommandsForTracks(album, outputDirectory);
+
+        return [mkDirCommand].concat(copyFilesCommands);
 }
 
 function createCommandsForTracks(album: Album, outputDirectory: string): Command[]
 {
-        var result = new Array<Command>();
-        album.tracks.forEach((track) => {
-                var trackTitle = buildTrackName(track);
+        let nestedCommands = album.tracks.map(track => createCommandsForTrack(track, album, outputDirectory));
+        return [].concat.apply([], nestedCommands);
+}
 
-                var target = [
-                        outputDirectory, album.artist, album.title, trackTitle + ".mp3"
-                ].join("/");
-                result.push({command : "cp", source : track.path, target : target});
-                result.push({
-                        command : "tag",
-                        target : target,
-                        tags : {
-                                artist : album.artist,
-                                album : album.title,
-                                track : trackTitle
-                        }
-                });
-        });
-        return result;
+function createCommandsForTrack(track: AlbumTrack, album: Album, outputDirectory: string): Command[]
+{
+        let trackTitle = buildTrackName(track);
+        let target = [ outputDirectory, album.artist, album.title, trackTitle + ".mp3" ].join("/");
+
+        let copyCommand = {
+                command : "cp",
+                source : track.path,
+                target : target
+        };
+
+        let tagCommand = {
+                command : "tag",
+                target : target,
+                tags : {
+                        artist : album.artist,
+                        album : album.title,
+                        track : trackTitle
+                }
+        };
+
+        return [copyCommand, tagCommand];
 }
 
 function buildTrackName(track: AlbumTrack): string
