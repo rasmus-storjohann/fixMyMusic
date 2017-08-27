@@ -84,15 +84,15 @@ export class AlbumValidator
 
                 var firstTrackName: string;
                 album.tracks.forEach((track) => {
-                        if (firstTrackName &&
-                            this.isTrackNameRedundant(firstTrackName, track.title))
+                        if (firstTrackName && this.isTrackNameRedundant(firstTrackName, track.title))
                         {
                                 var suggestedSpecialHandler =
-                                    "\"" + album.artist + "\" : {\n" + "    \"" + album.title +
-                                    "\" : {\n" + "        fixTrackName: /" + track.title +
-                                    "(.*)/,\n" +
-                                    "        validation : [\"skipUniqueTrackNameCheck\"]\n" +
-                                    "    }\n" + "}";
+                                    "\"" + album.artist + "\" : {\n" + 
+                                    "    \"" + album.title + "\" : {\n" + 
+                                    "        \"fixTrackName\": \"" + track.title + "(.*)\",\n" +
+                                    "        \"validation\" : [\"skipUniqueTrackNameCheck\"]\n" +
+                                    "    }\n" + 
+                                    "}";
 
                                 throw new Error(
                                     album.title + ": Album contains redundant track names '" +
