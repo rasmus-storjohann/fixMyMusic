@@ -8,7 +8,7 @@ import {FixOptionsForOneAlbum} from "../../src/businessInterfaces/fixers/FixOpti
 import {FixOptionsForOneArtist} from "../../src/businessInterfaces/fixers/FixOptionsForOneArtist";
 import {FixOptionsForAll} from "../../src/businessInterfaces/fixers/FixOptionsForAll";
 import {ValidationOption} from "../../src/businessInterfaces/fixers/ValidationOption";
-import {AlbumNameFormatter} from "../../src/businessObjects/albums/AlbumNameFormatter";
+import {formatAlbumName} from "../../src/businessObjects/albums/formatAlbumName";
 
 beforeEach(() => { npmlog.level = "silent"; });
 
@@ -58,8 +58,7 @@ describe("CustomFixerFactory", () => {
                         {
                                 throw new Error("test fails");
                         }
-                        var formatter = new AlbumNameFormatter();
-                        expect(formatter.create(customFixer.fixAlbumTitle)).to.equal("Cantata BWV131");
+                        expect(formatAlbumName(customFixer.fixAlbumTitle)).to.equal("Cantata BWV131");
                 });
 
                 describe("with valid validation options as strings", () => {
