@@ -6,15 +6,15 @@ Install node, see https://nodejs.org/en/download/
 
 Make sure that npm was installed as part of node by running the following command from the command line
 
-`% npm --version`
+`> npm --version`
 
 Download and unzip fixMyMusic https://github.com/rasmus-storjohann/fixMyMusic/archive/master.zip
 
 Copy a mp3 file to the fixMyMusic folder and rename it to test.mp3, any mp3 will do, the `npm test` command below will fail if you omit this step. Then in the fixMyMusic folder, run the commands to install supporting packages and run the tests
 
 ```
-% npm install
-% npm test
+> npm install
+> npm test
 ```
 
 Make sure that the tests pass, there should be one 175 passing tests and one failing test.
@@ -34,7 +34,9 @@ where `fixMyMusic/` contains the tool, `messy/` contains the ripped music as it 
 
 From the `working/` directory, run the following command to start cleaning it up
 
-% node fixMyMusic/index.js --dry-run --out tidy/ messy/
+```
+> node fixMyMusic/index.js --dry-run --out tidy/ messy/
+```
 
 # Manual labor
 
@@ -93,7 +95,7 @@ If the multi-disk album is ripped with the disk number in the mp3 file names lik
 Now run the tool as follows
 
 ```
-% node fixMyMusic/index.js --dry-run --out tidy/ messy/
+> node fixMyMusic/index.js --dry-run --out tidy/ messy/
 ```
 The tool goes through all the music in messy/ and stops on the first error it finds, in this case it complains about the symphony number 5, since the first track number is 6, when it ought to be one. The tool suggest a fix, which with some modifications will need to be added to `fixMyMusic/src/fixers/Others.json` under Sibelius:
 
