@@ -36,7 +36,7 @@ function parsePath(path: string) : ParsedPath
 
 function parsePathWithDiskDirectory(path: string) : ParsedPath | undefined
 {
-        const elements = path.split("/");
+        const elements = path.split(/[/\/]/);
         const elementCount = elements.length;
         const disk = parseDiskDirectory(elements[elementCount - 2]);
         if (!disk) { return undefined; }
@@ -58,7 +58,7 @@ function parseDiskDirectory(directoryName: string) : number | undefined
 
 function parsePathWithoutDisk(path: string) : ParsedPath
 {
-        const elements = path.split("/");
+        const elements = path.split(/[/\/]/);
         const elementCount = elements.length;
         validateElementCount(elementCount, 4, path);
 
